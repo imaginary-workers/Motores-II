@@ -1,19 +1,15 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProyectM2
+namespace ProyectM2.Inputs
 {
-    public class Swipe : MonoBehaviour, IInput
+    public class Swipe: IInput
     {
-
-        [SerializeField] GameObject _player;
         Vector2 startTouchPosition;
         Vector2 endTouchPosition;
 
         public event Action<int> Horizontal;
-        private void Update()
+        public void OnUpdate()
         {
             HorizontalSwipe();
         }
@@ -33,16 +29,12 @@ namespace ProyectM2
 
                 if (endTouchPosition.x < startTouchPosition.x)
                 {                   
-                    Debug.Log("izquierda");
-
                     Horizontal?.Invoke(-1);
                 }
 
                 if (endTouchPosition.x > startTouchPosition.x)
                 {
-                    Debug.Log("derecha");
                     Horizontal?.Invoke(1);
-
                 }
             }
         }
