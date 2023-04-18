@@ -23,14 +23,14 @@ namespace ProyectM2.Car
             {
                 case -1:
                     Debug.Log("LEFT");
-                    transform.Translate(Vector3.left * -_horizontalRange);
+                    transform.localPosition += transform.localPosition + (Vector3.left * _horizontalRange);
                     break;
                 case 1:
                     Debug.Log("Right");
-                    transform.Translate(Vector3.right * _horizontalRange);
+                    transform.localPosition += transform.localPosition + (Vector3.right * _horizontalRange);
                     break;
                 default:
-                    transform.position = new Vector3(0, 0, 0);
+                    transform.localPosition = new Vector3(0, 0, 0);
                     break;
             }
         }
