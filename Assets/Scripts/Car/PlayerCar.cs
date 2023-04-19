@@ -1,4 +1,5 @@
 ﻿using ProyectM2.Managers;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ProyectM2.Car
@@ -8,6 +9,8 @@ namespace ProyectM2.Car
         [SerializeField] float _speed = 10;
         [SerializeField, Range(1, 5)] private float _horizontalRange = 3.22f;
         private int track = 0;
+        [SerializeField] float _substracttGas = 0.1f;
+        
 
         public override float Speed => _speed;
 
@@ -21,6 +24,12 @@ namespace ProyectM2.Car
             }
             
         }
+        void Update()
+        {
+            InputManager.CurrentInput.OnUpdate();
+            GameManager.SubstractGas(_substracttGas * Time.deltaTime);
+        }
+    
         public override void MoveRight()
         {
             if (track + 1 > 1) return;
@@ -70,10 +79,6 @@ namespace ProyectM2.Car
             InputManager.CurrentInput.Horizontal -= OnHorizontal;
         }
 
-        void Update()
-        {
-            InputManager.CurrentInput.OnUpdate();
-        }
 
         void OnHorizontal(int hor)
         {
