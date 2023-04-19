@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b9b90a36fe41f396ddd6630814d5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myAnim: {fileID: 389216396}
+  myAnim: {fileID: 0}
   _speed: 10
   _horizontalRange: 3.22
 --- !u!114 &389216396
