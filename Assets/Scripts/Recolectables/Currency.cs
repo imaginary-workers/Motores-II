@@ -10,8 +10,9 @@ namespace ProyectM2
 
         private void OnTriggerEnter(Collider other)
         {
+                Debug.Log(other.gameObject.name + " el tag es de " + other.tag);
             if (other.CompareTag("Player"))
-            {               
+            { 
                 GameManager.AddCurrency(_currencyValue.value);
                 Destroy(currencyPrefab);
             }
