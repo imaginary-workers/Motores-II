@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2226802666979975507}
   - component: {fileID: 2226802666979975506}
   - component: {fileID: 2226802666979975597}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PathTrack
   m_TagString: PathTarget
   m_Icon: {fileID: 0}
