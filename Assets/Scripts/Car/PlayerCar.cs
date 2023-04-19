@@ -10,6 +10,17 @@ namespace ProyectM2.Car
         private int track = 0;
 
         public override float Speed => _speed;
+
+        private void Start()
+        {
+            Transform coche = transform.GetChild(0);
+
+            if(coche != null)
+            {
+                coche.gameObject.tag = "Player";
+            }
+            
+        }
         public override void MoveRight()
         {
             if (track + 1 > 1) return;
