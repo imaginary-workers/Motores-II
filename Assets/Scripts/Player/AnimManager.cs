@@ -2,38 +2,32 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProyectM2.Player
+namespace ProyectM2.Car
 {
     public class AnimManager : MonoBehaviour
     {
-        /*        
-        EL ENTITY SERIA EL AUTO
-
-        [SerializeField] Entity _entity;
-         */
-        
         [SerializeField] Animator _myAnim;
         Dictionary<string, Action> _events = new Dictionary<string, Action>();
         int turnLeftParameterId;
-        int turnRightrameterId;
+        int turnRightParameterId;
         int crashParameterId;
 
         private void Start()
         {
             //_entity.Health.OnDeath += DeathAnimation;
-            turnLeftParameterId = Animator.StringToHash("TurnRight");
-            turnRightrameterId = Animator.StringToHash("TurnLeft");
+            turnRightParameterId = Animator.StringToHash("TurnRight");
+            turnLeftParameterId = Animator.StringToHash("TurnLeft");
             crashParameterId = Animator.StringToHash("Crash");
         }
 
-        public void TurnLeft()
+        public void TurnLeftAnimation()
         {
             _myAnim.SetTrigger(turnLeftParameterId);
         }
 
-        public void TurnRight()
+        public void TurnRightAnimation()
         {
-            _myAnim.SetTrigger(turnRightrameterId);
+            _myAnim.SetTrigger(turnRightParameterId);
         }
 
         public void DeathAnimation()
