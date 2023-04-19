@@ -4,21 +4,29 @@ namespace ProyectM2
 {
     public class GameManager: MonoBehaviour
     {
-        private static int levelCurrency = 0;
+        private static int _levelCurrency = 0;
+        private static int _levelGas = 0;
 
         private void Start()
         {
-            levelCurrency = 0;
+            _levelCurrency = 0;
+            _levelGas = 0;
         }
 
         public static void AddCurrency(int value)
         {
-            levelCurrency += value;
+            _levelCurrency += value;
+        }
+
+        public static void AddGas(int value)
+        {
+            _levelGas += value;
         }
 
         public void QuitGame()
         {
-            levelCurrency = 0;
+            _levelCurrency = 0;
+            _levelGas = 0;
         }
     }
 }
