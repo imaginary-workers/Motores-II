@@ -1,21 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using ProyectM2.SO;
 
 namespace ProyectM2
 {
     public class Currency : MonoBehaviour
     {
         [SerializeField] GameObject currencyPrefab;
-        [SerializeField] int _currencyValue;
+        [SerializeField] Data _currencyValue;
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {               
-                BorrarMonedas.AddCurrency();
-
-                //Gamemanager.AddCurrency(int 1);
+                GameManager.AddCurrency(_currencyValue.value);
                 Destroy(currencyPrefab);
             }
         }
