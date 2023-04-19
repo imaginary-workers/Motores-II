@@ -15,6 +15,7 @@ namespace ProyectM2.Car
             if (track + 1 > 1) return;
             track++;
             MoveToTrack();
+            myAnim.TurnRightAnimation();
         }
 
         private void MoveToTrack()
@@ -41,6 +42,7 @@ namespace ProyectM2.Car
             if (track - 1 < -1) return;
             track--;
             MoveToTrack();
+            myAnim.TurnLeftAnimation();
         }
 
         public override void MoveForward()
