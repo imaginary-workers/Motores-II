@@ -5,7 +5,7 @@ namespace ProyectM2
     public class GameManager: MonoBehaviour
     {
         public static int _levelCurrency = 0;
-        public static int _levelGas = 0;
+        public static float _levelGas = 0;
 
         private void Start()
         {
@@ -22,7 +22,10 @@ namespace ProyectM2
         {
             _levelGas += value;
         }
-
+        public static void SubstractGas(float value)
+        {
+            _levelGas -= value;
+        }
         public void QuitGame()
         {
             _levelCurrency = 0;
