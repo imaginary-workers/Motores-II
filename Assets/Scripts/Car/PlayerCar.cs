@@ -1,4 +1,5 @@
 ﻿using ProyectM2.Managers;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ProyectM2.Car
@@ -8,6 +9,8 @@ namespace ProyectM2.Car
         [SerializeField] float _speed = 10;
         [SerializeField, Range(1, 5)] private float _horizontalRange = 3.22f;
         private int track = 0;
+        [SerializeField] float _substracttGas;
+        
 
         public override float Speed => _speed;
 
@@ -21,6 +24,7 @@ namespace ProyectM2.Car
             }
             
         }
+
         public override void MoveRight()
         {
             if (track + 1 > 1) return;

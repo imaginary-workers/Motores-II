@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ProyectM2
@@ -5,7 +6,7 @@ namespace ProyectM2
     public class GameManager: MonoBehaviour
     {
         private static int _levelCurrency = 0;
-        private static int _levelGas = 0;
+        private static float _levelGas = 0;
 
         private void Start()
         {
@@ -21,6 +22,10 @@ namespace ProyectM2
         public static void AddGas(int value)
         {
             _levelGas += value;
+        }
+        public static void consumeGas(float value)
+        {
+            _levelGas -= value;
         }
 
         public void QuitGame()
