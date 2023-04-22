@@ -806,6 +806,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 168790, guid: 180ae0328a9b63d4ca285487efd1305a, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 434952, guid: 180ae0328a9b63d4ca285487efd1305a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1517,7 +1521,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 179230528}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &179230528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13037,33 +13053,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 183394188, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
-      propertyPath: _substracttGas
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 720027647, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5486551219950308957, guid: 7ccf943c99924994aa32f39dee857d18,
+    - target: {fileID: 4714006192367813236, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
-      propertyPath: m_Convex
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5486551219950308957, guid: 7ccf943c99924994aa32f39dee857d18,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
+      propertyPath: _trafficLayer.m_Bits
+      value: 640
       objectReference: {fileID: 0}
     - target: {fileID: 5530683295635110520, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5530683295635110520, guid: 7ccf943c99924994aa32f39dee857d18,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5530683295635110524, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
@@ -13122,11 +13120,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5530683295635110527, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
-      propertyPath: _pathTargets.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5530683295635110527, guid: 7ccf943c99924994aa32f39dee857d18,
-        type: 3}
       propertyPath: _pathTargets.Array.data[0]
       value: 
       objectReference: {fileID: 1176135438}
@@ -13145,31 +13138,6 @@ PrefabInstance:
       propertyPath: _pathTargets.Array.data[3]
       value: 
       objectReference: {fileID: 1876389109}
-    - target: {fileID: 5530683295989310673, guid: 7ccf943c99924994aa32f39dee857d18,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5530683295989310673, guid: 7ccf943c99924994aa32f39dee857d18,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 5530683297109053748, guid: 7ccf943c99924994aa32f39dee857d18,
-        type: 3}
-      propertyPath: m_CustomSkybox
-      value: 
-      objectReference: {fileID: 2100000, guid: 01f4eb1c73693428d923f1520032e7f9, type: 2}
-    - target: {fileID: 5530683297109053749, guid: 7ccf943c99924994aa32f39dee857d18,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 23.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 5530683297109053749, guid: 7ccf943c99924994aa32f39dee857d18,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -18.59
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
 --- !u!1001 &8614631982295806901
