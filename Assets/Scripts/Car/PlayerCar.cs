@@ -7,12 +7,15 @@ namespace ProyectM2.Car
     public class PlayerCar : Car
     {
         [SerializeField] float _speed = 10;
+        [SerializeField] AnimManager _myAnim;
         [SerializeField, Range(1, 5)] private float _horizontalRange = 3.22f;
         private int track = 0;
         [SerializeField] float _substracttGas = 0.1f;
         
 
         public override float Speed => _speed;
+
+        public override AnimManager MyAnim => _myAnim;
 
         private void Start()
         {
@@ -35,7 +38,7 @@ namespace ProyectM2.Car
             if (track + 1 > 1) return;
             track++;
             MoveToTrack();
-            myAnim.TurnRightAnimation();
+            _myAnim.TurnRightAnimation();
         }
 
         private void MoveToTrack()
@@ -62,7 +65,7 @@ namespace ProyectM2.Car
             if (track - 1 < -1) return;
             track--;
             MoveToTrack();
-            myAnim.TurnLeftAnimation();
+            _myAnim.TurnLeftAnimation();
         }
 
         public override void MoveForward()
