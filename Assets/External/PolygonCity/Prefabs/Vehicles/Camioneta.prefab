@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 2369120}
   - component: {fileID: 64583076319660614}
   m_Layer: 0
-  m_Name: SM_Veh_Car_Van_01
+  m_Name: Camioneta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
