@@ -1,3 +1,4 @@
+using ProyectM2.SO;
 using UnityEngine;
 
 namespace ProyectM2
@@ -5,12 +6,22 @@ namespace ProyectM2
     public class GameManager: MonoBehaviour
     {
         public static int _levelCurrency = 0;
-        public static float _levelGas = 0;
+        public static float _levelGas = 100;
+        [SerializeField] Events _events;
+        [SerializeField] GameObject _lose;
 
+        private void OnEnable()
+        {
+            _events.SubscribeToEvent(GameOver);
+        }
+        private void OnDisable()
+        {
+            _events.UnsubscribeFromEvent(GameOver);
+        }
         private void Start()
         {
             _levelCurrency = 0;
-            _levelGas = 0;
+            _levelGas = 100;
         }
 
         public static void AddCurrency(int value)
@@ -30,6 +41,11 @@ namespace ProyectM2
         {
             _levelCurrency = 0;
             _levelGas = 0;
+        }
+        public void GameOver()
+        {
+            Time.timeScale = 0f;
+            _lose.SetActive(true);
         }
     }
 }
