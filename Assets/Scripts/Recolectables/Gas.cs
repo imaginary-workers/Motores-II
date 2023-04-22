@@ -7,7 +7,7 @@ namespace ProyectM2
 {
     public class Gas : MonoBehaviour
     {
-        [SerializeField] Data _gasValue;
+        [SerializeField] DataInt _gasValue;
         [SerializeField] GameObject _gas;
 
         private void OnTriggerEnter(Collider other)
