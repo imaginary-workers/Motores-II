@@ -29,8 +29,6 @@ namespace ProyectM2.Player
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log(other.name);
-            other.gameObject.SetActive(false);
             if (other.CompareTag(_targetTag))
             {
                 _indexTarget++;

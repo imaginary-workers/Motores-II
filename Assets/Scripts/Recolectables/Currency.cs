@@ -6,7 +6,7 @@ namespace ProyectM2
     public class Currency : MonoBehaviour
     {
         [SerializeField] GameObject currencyPrefab;
-        [SerializeField] Data _currencyValue;
+        [SerializeField] DataInt _currencyValue;
 
         private void OnTriggerEnter(Collider other)
         {
