@@ -99,9 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b9b90a36fe41f396ddd6630814d5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myAnim: {fileID: 0}
-  _speed: 10
-  _horizontalRange: 3.22
+  data: {fileID: 11400000, guid: f5484aa616049a742a9099d35f8bc01b, type: 2}
+  track: 0
+  myAnim: {fileID: 389216396}
+  _substracttGas: 0.1
 --- !u!114 &389216396
 MonoBehaviour:
   m_ObjectHideFlags: 0
