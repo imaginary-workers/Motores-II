@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PathTarget
+  - Obstacle
+  - Traffic
   layers:
   - Default
   - TransparentFX
@@ -13,10 +15,10 @@ TagManager:
   - Water
   - UI
   - Currency
-  - Damageable
+  - Obstacle
   - PathPlayer
-  - 
-  - 
+  - Traffic
+  - Trash
   - 
   - 
   - 
