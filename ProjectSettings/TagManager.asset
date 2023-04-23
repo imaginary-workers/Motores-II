@@ -16,7 +16,7 @@ TagManager:
   - UI
   - Currency
   - Obstacle
-  - PathPlayer
+  - Path
   - Traffic
   - Trash
   - 
