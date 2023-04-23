@@ -5,18 +5,20 @@ TagManager:
   serializedVersion: 2
   tags:
   - PathTarget
+  - Obstacle
+  - Traffic
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Currency
+  - Obstacle
+  - PathPlayer
+  - Traffic
+  - Trash
   - 
   - 
   - 
