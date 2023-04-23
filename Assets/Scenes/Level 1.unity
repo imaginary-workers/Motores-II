@@ -318,6 +318,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 1286657512}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -473,6 +478,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 327184874}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -650,6 +660,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 48358522}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -736,6 +751,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 530235099}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -824,7 +844,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 285012818}
-  - component: {fileID: 285012819}
   m_Layer: 0
   m_Name: Recorrido (1)
   m_TagString: Untagged
@@ -881,53 +900,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &285012819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285012817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f5e766544851cd44b515461aad7812a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameObjects:
-  - {fileID: 468981701}
-  - {fileID: 1546897873}
-  - {fileID: 2084853304}
-  - {fileID: 980221904}
-  - {fileID: 1058643048}
-  - {fileID: 1408132904}
-  - {fileID: 162130167}
-  - {fileID: 303230049}
-  - {fileID: 34456265}
-  - {fileID: 1866902375}
-  - {fileID: 160581216}
-  - {fileID: 327184874}
-  - {fileID: 2041741962}
-  - {fileID: 1099232969}
-  - {fileID: 941336583}
-  - {fileID: 1209920761}
-  - {fileID: 1560466209}
-  - {fileID: 1055362037}
-  - {fileID: 858287052}
-  - {fileID: 2038275816}
-  - {fileID: 193794411}
-  - {fileID: 48358522}
-  - {fileID: 1286657512}
-  - {fileID: 2120322148}
-  - {fileID: 908589151}
-  - {fileID: 1558335425}
-  - {fileID: 1418513903}
-  - {fileID: 514512025}
-  - {fileID: 1307896703}
-  - {fileID: 282265263}
-  - {fileID: 530235099}
-  - {fileID: 1091720193}
-  - {fileID: 2056580577}
-  - {fileID: 1177107948}
 --- !u!1001 &303230047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1026,6 +998,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 2041741962}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -1190,12 +1167,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 468981699}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &468981701 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
-    type: 3}
-  m_PrefabInstance: {fileID: 468981699}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &514512023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1203,6 +1174,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 1307896703}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -1289,6 +1265,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 1091720193}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -1566,6 +1547,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 2038275816}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -1652,6 +1638,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 1558335425}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -1738,6 +1729,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 1209920761}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -1915,6 +1911,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 858287052}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -2092,6 +2093,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 2056580577}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -2178,6 +2184,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 941336583}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -2656,6 +2667,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 1560466209}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -2742,6 +2758,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 2120322148}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -2828,6 +2849,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 282265263}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -3102,6 +3128,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 514512025}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -3279,6 +3310,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 1418513903}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -3365,6 +3401,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 1055362037}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -3736,6 +3777,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 193794411}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -3822,6 +3868,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 1099232969}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -3908,6 +3959,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 1177107948}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
@@ -4154,6 +4210,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285012818}
     m_Modifications:
+    - target: {fileID: 1077883443951181510, guid: 70c11ecf7a1c9a0418d1031e3034485b,
+        type: 3}
+      propertyPath: NextPathTarget
+      value: 
+      objectReference: {fileID: 908589151}
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
