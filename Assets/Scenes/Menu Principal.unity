@@ -743,6 +743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be16f3caac12d4187f18de0c444329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debuScene: Gabriel
 --- !u!1 &783684141
 GameObject:
   m_ObjectHideFlags: 0
