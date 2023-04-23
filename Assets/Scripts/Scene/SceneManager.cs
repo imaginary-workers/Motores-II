@@ -1,6 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using ProyectM2.UI;
 using SM = UnityEngine.SceneManagement.SceneManager;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ProyectM2.Managers
 {
@@ -14,29 +18,37 @@ namespace ProyectM2.Managers
             _loadCanvasUI.DisplayLoadCanvas(false);
         }
 
-        public void ChangeScene(string nextScene)
+        public void ChangeScene(Scene nextScene)
         {
             StartCoroutine(CO_ChangeScene(nextScene));
         }
 
-        private IEnumerator CO_ChangeScene(string nextScene)
+        private IEnumerator CO_ChangeScene(Scene nextScene)
         {
+            var sceneToLoad = new List<AsyncOperation>();
             _loadCanvasUI.SetLoadTextTo("Loading");
             _loadCanvasUI.SetLoadBarTo(0f);
             _loadCanvasUI.DisplayLoadCanvas(true);
             yield return new WaitForSecondsRealtime(1f);
-            var asyncLoad = SM.LoadSceneAsync(nextScene);
-            asyncLoad.allowSceneActivation = false;
-            while (asyncLoad.progress < 0.9f)
+            sceneToLoad.Add(SM.LoadSceneAsync(nextScene.name));
+            if (nextScene.type == Scene.Type.Gameplay)
             {
-                _loadCanvasUI.SetLoadBarTo(asyncLoad.progress);
-                yield return null;
+                sceneToLoad.Add(SM.LoadSceneAsync(nextScene.type.ToString(), LoadSceneMode.Additive));
             }
-            
+
+            var progress = 0f;
+            foreach (var operation in sceneToLoad)
+            {
+                while (!operation.isDone)
+                {
+                    progress += operation.progress;
+                    _loadCanvasUI.SetLoadBarTo(progress/sceneToLoad.Count);
+                    yield return null;
+                }
+            }
             _loadCanvasUI.SetLoadBarTo(1f);
             _loadCanvasUI.SetLoadTextTo("Done");
             yield return new WaitForSecondsRealtime(1f);
-            asyncLoad.allowSceneActivation = true;
             _loadCanvasUI.DisplayLoadCanvas(false);
         }
     }

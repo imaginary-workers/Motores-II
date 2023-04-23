@@ -1,7 +1,7 @@
-﻿using ProyectM2.Managers;
+﻿using ProyectM2.Inputs;
 using UnityEngine;
 
-namespace ProyectM2.Car
+namespace ProyectM2.Gameplay.Car
 {
     public class PlayerTrackController : TrackController
     {

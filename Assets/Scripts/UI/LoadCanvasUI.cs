@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ProyectM2
+namespace ProyectM2.UI
 {
     public class LoadCanvasUI : MonoBehaviour
     {

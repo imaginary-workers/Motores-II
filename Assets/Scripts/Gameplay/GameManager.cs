@@ -1,7 +1,7 @@
 using ProyectM2.SO;
 using UnityEngine;
 
-namespace ProyectM2
+namespace ProyectM2.Gameplay
 {
     public class GameManager: MonoBehaviour
     {

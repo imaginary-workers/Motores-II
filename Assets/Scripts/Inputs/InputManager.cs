@@ -1,7 +1,6 @@
-using ProyectM2.Inputs;
 using UnityEngine;
 
-namespace ProyectM2.Managers
+namespace ProyectM2.Inputs
 {
     public class InputManager : MonoBehaviour
     {

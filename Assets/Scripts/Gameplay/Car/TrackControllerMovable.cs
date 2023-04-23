@@ -1,9 +1,6 @@
-using ProyectM2.Car;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProyectM2
+namespace ProyectM2.Gameplay.Car
 {
     public class TrackControllerMovable : TrackControllerObstacle
     {

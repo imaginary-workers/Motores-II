@@ -1,7 +1,8 @@
-﻿using ProyectM2.SO;
+﻿using ProyectM2.Car;
+using ProyectM2.SO;
 using UnityEngine;
 
-namespace ProyectM2.Car
+namespace ProyectM2.Gameplay.Car
 {
     public abstract class TrackController : MonoBehaviour
     {
