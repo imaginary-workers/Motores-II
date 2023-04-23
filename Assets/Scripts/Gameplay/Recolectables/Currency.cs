@@ -1,7 +1,7 @@
 using UnityEngine;
 using ProyectM2.SO;
 
-namespace ProyectM2
+namespace ProyectM2.Gameplay.Recolectables
 {
     public class Currency : MonoBehaviour
     {

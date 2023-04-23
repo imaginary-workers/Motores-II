@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
 using System.Text;
+using ProyectM2.Gameplay;
 
-namespace ProyectM2
+namespace ProyectM2.Persistence
 {
     public class JsonSaveData : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProyectM2
+namespace ProyectM2.Gameplay.Recolectables
 {
     public class Gas : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ProyectM2.Car
+namespace ProyectM2.Gameplay.Car
 {
     public class TrackControllerObstacle : TrackController
     {
