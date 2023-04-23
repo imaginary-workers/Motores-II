@@ -74,6 +74,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car Obstacle Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5627894973378827258, guid: 41f9fac660a378846813ee0755cdcead,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5627894973378827262, guid: 41f9fac660a378846813ee0755cdcead,
         type: 3}
       propertyPath: m_RootOrder
@@ -159,7 +164,7 @@ MonoBehaviour:
     m_Bits: 648
   _right: {fileID: 1599229183867610474}
   _left: {fileID: 5642521045154415483}
-  _maxTime: 0
+  _maxTime: 3
 --- !u!4 &2493810513799030343 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9042557750634700827, guid: 41f9fac660a378846813ee0755cdcead,
