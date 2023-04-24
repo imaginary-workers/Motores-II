@@ -8,14 +8,14 @@ namespace ProyectM2.Gameplay.Car
         [SerializeField] LayerMask layerMask;
         [SerializeField] GameObject _right;
         [SerializeField] GameObject _left;
-        float _time;
-        [SerializeField] int _maxTime;
+        protected float _time;
+        [SerializeField] protected int _maxTime;
 
         private void Start()
         {
             _time = 0;
         }
-        private void Update()
+        protected virtual void Update()
         {
 
             _time += Time.deltaTime;
