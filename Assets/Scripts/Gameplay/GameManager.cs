@@ -1,5 +1,6 @@
 using ProyectM2.SO;
 using UnityEngine;
+using ProyectM2.Gameplay.Car;
 
 namespace ProyectM2.Gameplay
 {
@@ -7,6 +8,7 @@ namespace ProyectM2.Gameplay
     {
         public static int _levelCurrency = 0;
         public static float _levelGas = 100;
+        public static GameObject _player;
         [SerializeField] Events _events;
         [SerializeField] GameObject _lose;
 
@@ -17,6 +19,11 @@ namespace ProyectM2.Gameplay
         private void OnDisable()
         {
             _events.UnsubscribeFromEvent(GameOver);
+        }
+
+        private void Awake()
+        {
+            _player = FindObjectOfType<PlayerTrackController>().gameObject;
         }
         private void Start()
         {
