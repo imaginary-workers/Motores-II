@@ -4,18 +4,12 @@ namespace ProyectM2.Gameplay.Car.Path
 {
     public class PathManager : MonoBehaviour
     {
-        [SerializeField] float _speed = 1;
-        [SerializeField] private string _targetTag = "PathTarget";
-        private bool _canMove = true;
-        [SerializeField] private GameObject _currentPathTarget;
+        [SerializeField] protected float _speed = 1;
+        [SerializeField] protected string _targetTag = "PathTarget";
+        [SerializeField] protected GameObject _currentPathTarget;
+        protected bool _canMove = true;
 
-        private void Start()
-        {
-            _currentPathTarget = GetClosestPathTarget();
-            SetForwardToTarget(_currentPathTarget);
-        }
-
-        private void SetForwardToTarget(GameObject pathTarget)
+        protected void SetForwardToTarget(GameObject pathTarget)
         {
             transform.forward = (pathTarget.transform.position - transform.position).normalized;
         }
@@ -40,23 +34,6 @@ namespace ProyectM2.Gameplay.Car.Path
                 }
                 SetForwardToTarget(_currentPathTarget);
             }
-        }
-
-        private GameObject GetClosestPathTarget()
-        {
-            var pathTargets = GameObject.FindGameObjectsWithTag(_targetTag);
-            GameObject closest = null;
-            var closestDistance = Mathf.Infinity;
-            foreach (var target in pathTargets)
-            {
-                var distance = Vector3.Distance(transform.position, target.transform.position);
-                if (distance < closestDistance)
-                {
-                    closest = target;
-                    closestDistance = distance;
-                }
-            }
-            return closest;
         }
     }
 }
