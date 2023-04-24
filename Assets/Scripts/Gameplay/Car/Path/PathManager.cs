@@ -9,6 +9,12 @@ namespace ProyectM2.Gameplay.Car.Path
         [SerializeField] protected GameObject _currentPathTarget;
         protected bool _canMove = true;
 
+        public void SetCurrentPathTarget(GameObject target)
+        {
+            _currentPathTarget = target;
+            SetForwardToTarget(_currentPathTarget);
+        }
+
         protected void SetForwardToTarget(GameObject pathTarget)
         {
             transform.forward = (pathTarget.transform.position - transform.position).normalized;
