@@ -18,6 +18,11 @@ namespace ProyectM2.Managers
             _loadCanvasUI.DisplayLoadCanvas(false);
         }
 
+        public void ChangeToMenuScene(string scene)
+        {
+            ChangeScene(new Scene(scene, Scene.Type.Menu));
+        }
+
         public void ChangeScene(Scene nextScene)
         {
             StartCoroutine(CO_ChangeScene(nextScene));
