@@ -1824,6 +1824,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5974397291923725021, guid: fdac2c09a461b204badafb8872c97a9c,
         type: 3}
+      propertyPath: _lose
+      value: 
+      objectReference: {fileID: 327751118}
+    - target: {fileID: 5974397291923725021, guid: fdac2c09a461b204badafb8872c97a9c,
+        type: 3}
       propertyPath: _events
       value: 
       objectReference: {fileID: 11400000, guid: 5b59feda95cb8d946901acb168a0ece8,
