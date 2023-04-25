@@ -6,8 +6,8 @@ namespace ProyectM2.Gameplay
 {
     public class GameManager: MonoBehaviour
     {
-        public static int _levelCurrency = 0;
-        public static float _levelGas = 100;
+        public static int levelCurrency = 0;
+        public static float levelGas = 100;
         public static GameObject player;
         [SerializeField] Events _events;
         [SerializeField] GameObject _lose;
@@ -27,27 +27,28 @@ namespace ProyectM2.Gameplay
         }
         private void Start()
         {
-            _levelCurrency = 0;
-            _levelGas = 100;
+            levelCurrency = 0;
+            levelGas = 100;
         }
 
         public static void AddCurrency(int value)
         {
-            _levelCurrency += value;
+            levelCurrency += value;
+            EventManager.TriggerEvent("CurrencyModified", levelCurrency, value);
         }
 
         public static void AddGas(int value)
         {
-            _levelGas += value;
+            levelGas += value;
         }
         public static void SubstractGas(float value)
         {
-            _levelGas -= value;
+            levelGas -= value;
         }
         public void QuitGame()
         {
-            _levelCurrency = 0;
-            _levelGas = 0;
+            levelCurrency = 0;
+            levelGas = 0;
         }
         public void GameOver()
         {
