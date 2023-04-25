@@ -1,3 +1,4 @@
+using ProyectM2.Gameplay;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,10 +11,13 @@ namespace ProyectM2.UI
     {
         [SerializeField] private int _coin;
         public TextMesh _coinText;
+
         void Update()
         {
+            _coin = GameManager._levelCurrency;
             _coinText.text = "Score: " + _coin.ToString();
         }
-        
+
+
     }
 }
