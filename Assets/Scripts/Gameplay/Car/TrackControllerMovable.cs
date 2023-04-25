@@ -21,31 +21,39 @@ namespace ProyectM2.Gameplay.Car
             _time += Time.deltaTime;
             if (_time >= _maxTime)
             {
-                RaycastHit hitRight, hitLeft;
+                var hasHitRight = false;
+                var hasHitLeft = false;
 
+                RaycastHit hitInfoRight;
                 Ray ray = new Ray(_right.transform.position, _right.transform.forward);
+                if (Physics.Raycast(ray, out hitInfoRight, raycastDistance, layerMask))
+                {
+                    hasHitRight = hitInfoRight.transform.gameObject != transform.GetChild(0).gameObject;
+                }
 
-                bool hasHitRight = Physics.Raycast(ray, raycastDistance, layerMask);
-
-
+                RaycastHit hitInfoLeft;
                 ray = new Ray(_left.transform.position, _left.transform.forward);
-                bool hasHitLeft = Physics.Raycast(ray, raycastDistance, layerMask);
-
+                if (Physics.Raycast(ray, out hitInfoLeft, raycastDistance, layerMask))
+                {
+                    hasHitLeft = hitInfoLeft.transform.gameObject != transform.GetChild(0).gameObject;
+                }
                 _time = 0;
 
                 if (!hasHitRight && !hasHitLeft)
                 {
                     int change = Random.Range(0, 2);
+                    Debug.Log("eleji random a la " + (change == 0? "derecha" : "izquierda"));
                     if (change == 0) MoveRight();
                     else MoveLeft();
                 }
                 else if (hasHitRight)
                 {
-                    Debug.Log("no puedo ir a la derecha");
+                    Debug.Log("no puedo ir a la derecha" );
                     MoveLeft();
                 }
                 else if (hasHitLeft)
                 {
+                    Debug.Log("no puedo ir a la izquierda");
                     MoveRight();
                 }
             }
