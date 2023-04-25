@@ -8,7 +8,7 @@ namespace ProyectM2.Gameplay
     {
         public static int _levelCurrency = 0;
         public static float _levelGas = 100;
-        public static GameObject _player;
+        public static GameObject player;
         [SerializeField] Events _events;
         [SerializeField] GameObject _lose;
 
@@ -23,7 +23,7 @@ namespace ProyectM2.Gameplay
 
         private void Awake()
         {
-            _player = FindObjectOfType<PlayerTrackController>().gameObject;
+            player = FindObjectOfType<PlayerTrackController>().gameObject;
         }
         private void Start()
         {

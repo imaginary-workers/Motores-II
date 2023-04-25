@@ -25,7 +25,7 @@ namespace ProyectM2
 
             if (_currentTime <= 0)
             {
-                Debug.Log("Perdisdte");
+                //Debug.Log("Perdisdte");
             }
         }
 

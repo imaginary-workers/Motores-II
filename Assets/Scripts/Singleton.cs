@@ -5,6 +5,7 @@ namespace ProyectM2
     public class Singleton<T> : MonoBehaviour where T : Singleton<T>
     {
         private static T _instance;
+        protected bool itDestroyOnLoad = false;
 
         public static T Instance
         {
@@ -16,13 +17,13 @@ namespace ProyectM2
 
                     if (_instance == null)
                     {
-                        GameObject obj = new GameObject(typeof(T).Name);
+                        var obj = new GameObject(typeof(T).Name);
                         _instance = obj.AddComponent<T>();
                     }
                 }
                 else
                 {
-                    Singleton<T>[] objects = FindObjectsOfType<Singleton<T>>();
+                    var objects = FindObjectsOfType<Singleton<T>>();
                     if (objects.Length > 1)
                     {
                         for (int i = 0; i < objects.Length; i++)
@@ -42,12 +43,13 @@ namespace ProyectM2
         {
             if (_instance != null && _instance != this)
             {
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
             else
             {
                 _instance = this as T;
-                DontDestroyOnLoad(this.gameObject);
+                if (itDestroyOnLoad) return;
+                DontDestroyOnLoad(gameObject);
             }
         }
     }

@@ -22,7 +22,7 @@ namespace ProyectM2.Gameplay.Car.Path
 
         private void Update()
         {
-            if (!_canMove) return;
+            if (!_canMove || _currentPathTarget == null) return;
             transform.position += (_currentPathTarget.transform.position - transform.position).normalized *
                                   _speed * Time.deltaTime;
         }
