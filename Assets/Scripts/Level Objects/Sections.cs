@@ -25,7 +25,7 @@ namespace ProyectM2
         {
             _nextPivot = transform.Find("DistanceToCreateSectionPivot");
             _lastPivot = transform.Find("DeleteSectionPivot");
-            _myPlayer = GameManager._player;
+            _myPlayer = GameManager.player;
 
             Debug.Log(transform.name);
 

@@ -6,8 +6,7 @@ namespace ProyectM2.Gameplay.Car.Path
     {
         private void Start()
         {
-            _currentPathTarget = GetClosestPathTarget();
-            SetForwardToTarget(_currentPathTarget);
+            SetCurrentPathTarget(GetClosestPathTarget());
         }
         
         private GameObject GetClosestPathTarget()
