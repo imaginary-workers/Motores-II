@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1112,7 +1112,7 @@ PrefabInstance:
     - target: {fileID: 2226802666979975505, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.37
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2226802666979975505, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
@@ -1122,7 +1122,7 @@ PrefabInstance:
     - target: {fileID: 2226802666979975505, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2226802666979975505, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
@@ -3241,7 +3241,7 @@ PrefabInstance:
     - target: {fileID: 2226802666979975505, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.37
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2226802666979975505, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
@@ -3514,11 +3514,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sections:
-  - {fileID: 1507784037999819076, guid: b3739e920b0b4da4e932d70f7da84d50, type: 3}
-  - {fileID: 1507784037999819076, guid: b3739e920b0b4da4e932d70f7da84d50, type: 3}
-  - {fileID: 1507784037999819076, guid: b3739e920b0b4da4e932d70f7da84d50, type: 3}
-  - {fileID: 1507784037999819076, guid: b3739e920b0b4da4e932d70f7da84d50, type: 3}
-  - {fileID: 1507784037999819076, guid: b3739e920b0b4da4e932d70f7da84d50, type: 3}
+  - {fileID: 8713346633398556539, guid: 2ad11da448ed9634c808f9183cea48b5, type: 3}
+  - {fileID: 8713346633398556539, guid: 2ad11da448ed9634c808f9183cea48b5, type: 3}
+  - {fileID: 8713346633398556539, guid: 2ad11da448ed9634c808f9183cea48b5, type: 3}
+  - {fileID: 8713346633398556539, guid: 2ad11da448ed9634c808f9183cea48b5, type: 3}
+  - {fileID: 8713346633398556539, guid: 2ad11da448ed9634c808f9183cea48b5, type: 3}
   _infinitiveSection: {fileID: 1342623359, guid: e94579a9fb4718646a8a3a23d879f761,
     type: 3}
   _currentIndex: 0
@@ -4029,7 +4029,7 @@ PrefabInstance:
     - target: {fileID: 2226802666979975505, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.37
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2226802666979975505, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
@@ -4039,7 +4039,7 @@ PrefabInstance:
     - target: {fileID: 2226802666979975505, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 44
+      value: 253
       objectReference: {fileID: 0}
     - target: {fileID: 2226802666979975505, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
