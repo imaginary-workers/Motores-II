@@ -11,9 +11,10 @@ namespace ProyectM2
             SceneManager.Instance.ChangeToMenuScene("Menu Principal");
         }
 
-        public void RestartLevel()
-        {
-            SceneManager.Instance.RestartLevel();
-        }
+        // public void RestartLevel()
+        // {
+        //     GameManager.Retry();
+        //     SceneManager.Instance.RestartLevel();
+        // }
     }
 }

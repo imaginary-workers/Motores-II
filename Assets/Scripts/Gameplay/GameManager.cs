@@ -67,21 +67,23 @@ namespace ProyectM2.Gameplay
             levelGas -= value;
         }
 
+        public void Retry()
+        {
+            SceneManager.Instance.RestartLevel();
+        }
+
         public void QuitGame()
         {
             levelCurrency = 0;
             levelGas = 0;
             SceneManager.Instance.ChangeToMenuScene("MainMenu");
         }
+
         public void GameOver()
         {
             Time.timeScale = 0f;
             _lose.SetActive(true);
         }
-        // private void Update()
-        // {
-        //     Debug.Log("nafta de " + levelGas);
-        // }
     }
 }
 

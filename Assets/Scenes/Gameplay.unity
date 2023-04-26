@@ -518,9 +518,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1292567913}
-          m_TargetAssemblyTypeName: ProyectM2.MenuGameplay, Assembly-CSharp
-          m_MethodName: MainMenu
+        - m_Target: {fileID: 5974397291037001406}
+          m_TargetAssemblyTypeName: ProyectM2.Gameplay.GameManager, Assembly-CSharp
+          m_MethodName: QuitGame
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -818,7 +818,6 @@ GameObject:
   - component: {fileID: 1292567911}
   - component: {fileID: 1292567910}
   - component: {fileID: 1292567909}
-  - component: {fileID: 1292567913}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -910,18 +909,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1292567913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292567908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6d1e636753ca4439c3d97cb6caf15e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1406955056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1408,9 +1395,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1292567913}
-          m_TargetAssemblyTypeName: ProyectM2.MenuGameplay, Assembly-CSharp
-          m_MethodName: RestartLevel
+        - m_Target: {fileID: 5974397291037001406}
+          m_TargetAssemblyTypeName: ProyectM2.Gameplay.GameManager, Assembly-CSharp
+          m_MethodName: Retry
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2053,3 +2040,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdac2c09a461b204badafb8872c97a9c, type: 3}
+--- !u!114 &5974397291037001406 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5974397291923725021, guid: fdac2c09a461b204badafb8872c97a9c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5974397291037001405}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7fdd06a90694554e8c854b7b5e69244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
