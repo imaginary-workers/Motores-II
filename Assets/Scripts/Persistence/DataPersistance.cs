@@ -6,7 +6,7 @@ using ProyectM2.Gameplay;
 
 namespace ProyectM2.Persistence
 {
-    public class JsonSaveData : MonoBehaviour
+    public class DataPersistance : MonoBehaviour
     {
         string _path;
 
@@ -34,6 +34,7 @@ namespace ProyectM2.Persistence
                 instanciaClase = LoadGame();
             
             instanciaClase.totalCurrencyOfPlayer += GameManager.levelCurrency;
+            instanciaClase.totalCurrencyGainOfPlayer += GameManager.levelCurrency;
 
             string dataToSave = JsonUtility.ToJson(instanciaClase, true);
 
