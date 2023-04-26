@@ -22,8 +22,8 @@ namespace ProyectM2.Persistence
 
             if (File.Exists(_path))
                 LoadGame();
-            else
-                SaveGame();
+
+            SaveGame();
         }
 
         public void SaveGame()
