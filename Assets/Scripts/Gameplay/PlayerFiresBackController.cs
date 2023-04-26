@@ -6,55 +6,65 @@ namespace ProyectM2.Gameplay
 {
     public class PlayerFiresBackController: MonoBehaviour
     {
-        [SerializeField] private Transform _firesBackPointChecker;
-        [SerializeField] private float _firesBackRadiusChecker = 1f;
-        [SerializeField] private LayerMask _checkerLayer;
+        [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private float _maxTimeToFiresBack = 1f;
         private Bullet _returnableBullet;
         private float _timeToFiresBack;
+        [SerializeField] private Camera _camera;
+        private GameObject _enemyTarget = null;
+        private Ray _ray;
 
         private void OnEnable()
         {
                 //TODO Suscribirse InputManager.CurrentInput.Circulito
+                InputManager.CurrentInput.Click += FireBack;
+                EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
+        }
+
+        private void OnEnemyCutSceneStarted(object[] obj)
+        {
+            _enemyTarget = (GameObject) obj[0];
         }
 
         private void OnDisable()
         {
                 //TODO Desuscribirse InputManager.CurrentInput.Circulito
+                InputManager.CurrentInput.Click -= FireBack;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            var component = other.GetComponent<Bullet>();
+            if (component == null || !component.IsReturnable) return;
+            _returnableBullet = component;
+            _timeToFiresBack = 0f;
         }
 
         private void Update()
         {
-            if (_returnableBullet == null)
-            {
-                var colliders = Physics.OverlapSphere(_firesBackPointChecker.position, _firesBackRadiusChecker, _checkerLayer);
-                if (colliders.Length == 0) return;
-
-                foreach (var collider in colliders)
-                {
-                    var component = collider.GetComponent<Bullet>();
-                    if (component == null) continue;
-                    _returnableBullet = component;
-                    _timeToFiresBack = 0f;
-                    break;
-                }
-            }
-            else
+            
+            if (_timeToFiresBack < _maxTimeToFiresBack)
             {
                 _timeToFiresBack += Time.deltaTime;
-                if (_timeToFiresBack >= _maxTimeToFiresBack)
-                {
-                    _returnableBullet = null;
-                    EventManager.TriggerEvent("PlayerGetHit");
-                }
             }
-            var bullet = gameObject;
-            bullet.GetComponent<Bullet>()?.SetBehaviour(new SeekBulletBehaviour());
         }
 
-        public void FireBack()
+        public void FireBack(Vector3 position)
         {
-            if (_)
+            if (_returnableBullet == null) return;
+            if (_enemyTarget == null) return;
+            if (_timeToFiresBack >= _maxTimeToFiresBack) return;
+            _ray = _camera.ScreenPointToRay(position);
+            RaycastHit hit;
+            if (Physics.Raycast(_ray, out hit, Single.PositiveInfinity, _playerLayer))
+            {
+                Debug.Log("Hit "+hit.collider.gameObject.name);
+                if (hit.collider.CompareTag("Player"))
+                {
+                    _returnableBullet.SetBehaviour(new SeekBulletBehaviour(_returnableBullet.transform, _enemyTarget.transform, 50));
+                    _returnableBullet = null;
+                }
+            }
         }
     }
 }

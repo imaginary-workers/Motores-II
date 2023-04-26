@@ -5,13 +5,14 @@ namespace ProyectM2.Gameplay
 {
     public class Bullet : MonoBehaviour
     {
-        [SerializeField] float _velocity;
-        [SerializeField] float _destroy;
         private IBulletBehaviour _behaviour;
 
-        public void SetBehaviour(IBulletBehaviour behaviour)
+        public bool IsReturnable { get; private set; } = false;
+
+        public void SetBehaviour(IBulletBehaviour behaviour, bool returnable = false)
         {
             _behaviour = behaviour;
+            IsReturnable = returnable;
         }
 
         private void Update()

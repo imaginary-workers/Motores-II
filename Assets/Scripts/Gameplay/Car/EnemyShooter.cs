@@ -33,7 +33,7 @@ namespace ProyectM2.Gameplay.Car
                 else
                 {
                     bulletObject = _returnBulletPooler.GetObject();
-                    bulletObject.GetComponent<Bullet>()?.SetBehaviour(new ForwardBulletBehaviour(5, bulletObject.transform, 5, _bulletPooler));
+                    bulletObject.GetComponent<Bullet>()?.SetBehaviour(new ForwardBulletBehaviour(5, bulletObject.transform, 5, _bulletPooler), true);
                 }
                 bulletObject.transform.parent = null;
                 bulletObject.transform.forward = transform.forward;

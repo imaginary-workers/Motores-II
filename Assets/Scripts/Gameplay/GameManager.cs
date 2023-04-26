@@ -1,12 +1,14 @@
 using ProyectM2.SO;
 using UnityEngine;
 using ProyectM2.Gameplay.Car;
+using ProyectM2.Managers;
 
 namespace ProyectM2.Gameplay
 {
     public class GameManager: MonoBehaviour
     {
         public static int levelCurrency = 0;
+        public static int currentLevel = 0;
         public static float levelGas = 100;
         public static GameObject player;
         [SerializeField] Events _events;
@@ -64,20 +66,28 @@ namespace ProyectM2.Gameplay
         {
             levelGas -= value;
         }
+
+        public void Retry()
+        {
+            levelCurrency = 0;
+            levelGas = 100;
+            SceneManager.Instance.ChangeScene(new Scene("Level " + currentLevel, Scene.Type.Gameplay));
+        }
         public void QuitGame()
         {
             levelCurrency = 0;
             levelGas = 0;
+            SceneManager.Instance.ChangeToMenuScene("MainMenu");
         }
         public void GameOver()
         {
             Time.timeScale = 0f;
             _lose.SetActive(true);
         }
-        private void Update()
-        {
-            Debug.Log("nafta de " + levelGas);
-        }
+        // private void Update()
+        // {
+        //     Debug.Log("nafta de " + levelGas);
+        // }
     }
 }
 

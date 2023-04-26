@@ -29,6 +29,7 @@ namespace ProyectM2.Gameplay
             if (other.gameObject == _target.gameObject)
             {
                 other.GetComponent<IDamageable>()?.TakeDamage();
+                _transform.gameObject.SetActive(false);
             }
         }
     }
