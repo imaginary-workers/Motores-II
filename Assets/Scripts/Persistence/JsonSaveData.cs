@@ -33,7 +33,7 @@ namespace ProyectM2.Persistence
             if (File.Exists(_path))
                 instanciaClase = LoadGame();
             
-            instanciaClase.totalCurrencyOfPlayer += GameManager._levelCurrency;
+            instanciaClase.totalCurrencyOfPlayer += GameManager.levelCurrency;
 
             string dataToSave = JsonUtility.ToJson(instanciaClase, true);
 
