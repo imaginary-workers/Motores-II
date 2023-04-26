@@ -28,7 +28,7 @@ namespace ProyectM2.Gameplay
         private void Start()
         {
             levelCurrency = 0;
-            levelGas = 10;
+            levelGas = 100;
         }
 
         public static void AddCurrency(int value)
@@ -40,6 +40,10 @@ namespace ProyectM2.Gameplay
         public static void AddGas(int value)
         {
             levelGas += value;
+            if(levelGas > 100)
+            {
+                levelGas = 100;
+            }
             EventManager.TriggerEvent("GasModified",levelGas);
         }
         public static void SubstractGas(float value)
@@ -55,6 +59,10 @@ namespace ProyectM2.Gameplay
         {
             Time.timeScale = 0f;
             _lose.SetActive(true);
+        }
+        private void Update()
+        {
+            Debug.Log("nafta de " + levelGas);
         }
     }
 }
