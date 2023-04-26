@@ -518,7 +518,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 5974397291037001406}
           m_TargetAssemblyTypeName: ProyectM2.Gameplay.GameManager, Assembly-CSharp
           m_MethodName: QuitGame
           m_Mode: 1
@@ -1395,7 +1395,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 5974397291037001406}
           m_TargetAssemblyTypeName: ProyectM2.Gameplay.GameManager, Assembly-CSharp
           m_MethodName: Retry
           m_Mode: 1
@@ -2097,3 +2097,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdac2c09a461b204badafb8872c97a9c, type: 3}
+--- !u!114 &5974397291037001406 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5974397291923725021, guid: fdac2c09a461b204badafb8872c97a9c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5974397291037001405}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7fdd06a90694554e8c854b7b5e69244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
