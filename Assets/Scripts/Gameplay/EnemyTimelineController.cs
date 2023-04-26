@@ -13,13 +13,10 @@ namespace ProyectM2.Gameplay
         [SerializeField] private EnemyShooter _enemyShooter;
         [SerializeField] private TrackControllerMovable _enemyTrackController;
         [SerializeField] private PlayableDirector _playableDirector;
+        [SerializeField] private float _secondsToStartAnimation = 4f;
         public float distancia = 10f;
         public float ancho = 1f;
         public float alto = 1f;
-#if UNITY_EDITOR
-        [SerializeField] private MyDebugger _debugger;
-        [SerializeField] private float _secondsToStartAnimation = 4f;
-#endif
 
         private void OnEnable()
         {
@@ -54,7 +51,6 @@ namespace ProyectM2.Gameplay
             var hits = Physics.BoxCastAll(_enemyPathManager.transform.position, new Vector3(ancho / 2, alto / 2, distancia / 2),
                 _enemyPathManager.transform.forward);
 
-            _debugger?.Log(hits.Length);
             if (hits.Length > 0)
             {
                 var minDistance = Mathf.Infinity;
@@ -72,16 +68,13 @@ namespace ProyectM2.Gameplay
                     }
                 }
 
-                _debugger?.Log(closestPathTarget?.name);
                 if (closestPathTarget != null)
                 {
-                    _debugger?.Log("Encontro el pathmanager");
                     _enemyPathManager.SetCurrentPathTarget(closestPathTarget);
                     _enemyPathManager.transform.forward = transform.forward;
                     _enemyShooter.enabled = false;
                     _enemyTrackController.enabled = false;
                     _playableDirector.Play();
-                    _debugger.Log(_playableDirector.duration);
                 }
             }
         }

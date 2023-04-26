@@ -214,7 +214,7 @@ PrefabInstance:
     - target: {fileID: 2488051578375127061, guid: 565636d826a80a146afab94fb365f387,
         type: 3}
       propertyPath: _returnChance
-      value: 1
+      value: 0.529
       objectReference: {fileID: 0}
     - target: {fileID: 2488051578375127061, guid: 565636d826a80a146afab94fb365f387,
         type: 3}
