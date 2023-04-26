@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using ProyectM2.UI;
 using SM = UnityEngine.SceneManagement.SceneManager;
 using UnityEngine;
@@ -64,6 +63,7 @@ namespace ProyectM2.Managers
             _loadCanvasUI.SetLoadBarTo(1f);
             _loadCanvasUI.SetLoadTextTo("Done");
             yield return new WaitForSecondsRealtime(1f);
+            Time.timeScale = 1;
             _loadCanvasUI.DisplayLoadCanvas(false);
         }
     }

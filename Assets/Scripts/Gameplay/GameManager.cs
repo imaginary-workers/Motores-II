@@ -67,12 +67,6 @@ namespace ProyectM2.Gameplay
             levelGas -= value;
         }
 
-        public void Retry()
-        {
-            levelCurrency = 0;
-            levelGas = 100;
-            SceneManager.Instance.ChangeScene(new Scene("Level " + currentLevel, Scene.Type.Gameplay));
-        }
         public void QuitGame()
         {
             levelCurrency = 0;
