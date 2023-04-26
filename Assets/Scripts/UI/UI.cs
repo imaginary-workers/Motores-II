@@ -14,10 +14,13 @@ namespace ProyectM2.UI
         [SerializeField] private int _coinPlus;
         public TextMesh _coinText;
 
+        private void Awake()
+        {
+            _coinText.text = "Score:" + _coin.ToString();
+        }
+
         void Update()
         {
-            _coin = GameManager.levelCurrency;
-            _coinText.text = "Score: " + _coin.ToString();
         }
 
         private void OnEnable()
