@@ -357,9 +357,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2106846215}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 3.17
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1476,7 +1476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80182824bd7f9854dbe363cb8b3f4056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coin: 16
+  _coin: 0
   _coinPlus: 0
   _coinText: {fileID: 1893626127}
 --- !u!114 &1893626130
@@ -1794,6 +1794,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 183394188, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
+      propertyPath: _substracttGas
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5530683295635110520, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
       propertyPath: m_Name
@@ -1807,7 +1811,7 @@ PrefabInstance:
     - target: {fileID: 5530683295635110524, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.25
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 5530683295635110524, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
