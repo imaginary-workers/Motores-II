@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ProyectM2.Gameplay;
+using System;
 
-namespace ProyectM2
+namespace ProyectM2.Managers.Levels
 {
     public class Sections : MonoBehaviour, IObservable
     {
         IObserver _myObserver;
-
-        //cuando le tiene que decir que tiene que crear una Seccion?
-        // 1) Cuando el player pase por un pivot o cuando este dentro de un range
-        // Tengo que llamar al player
 
         [SerializeField] float _distanceToCreateSection;
         [SerializeField] float _distanceToDeleteSection;
@@ -26,10 +23,6 @@ namespace ProyectM2
             _nextPivot = transform.Find("DistanceToCreateSectionPivot");
             _lastPivot = transform.Find("DeleteSectionPivot");
             _myPlayer = GameManager.player;
-
-            Debug.Log(transform.name);
-
-
         }
 
         private void Update()
@@ -43,7 +36,7 @@ namespace ProyectM2
             Vector3 dirToPastPivot = lastPivot.transform.position - player.transform.position;
             if (dirToNextPivot.sqrMagnitude <= (_distanceToCreateSection * _distanceToCreateSection) && !_createSectionNotifed)
             {
-                NotifyToObservers("Create Section");
+                NotifyToObservers("CreateSection");   
                 _createSectionNotifed = true;
             }
             if (dirToPastPivot.sqrMagnitude >= (_distanceToDeleteSection * _distanceToDeleteSection))
