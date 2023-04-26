@@ -1,6 +1,8 @@
 using ProyectM2.Gameplay;
 using ProyectM2.Managers;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 namespace ProyectM2.UI
 {
