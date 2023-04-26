@@ -1,26 +1,27 @@
+using System;
 using UnityEngine;
 
-namespace ProyectM2
+namespace ProyectM2.Gameplay
 {
     public class Bullet : MonoBehaviour
     {
         [SerializeField] float _velocity;
-        Vector2 _position;
         [SerializeField] float _destroy;
+        private IBulletBehaviour _behaviour;
 
-        private void OnEnable()
+        public void SetBehaviour(IBulletBehaviour behaviour)
         {
-            _destroy = 0;
+            _behaviour = behaviour;
         }
 
         private void Update()
         {
-            _destroy += Time.deltaTime;
-            transform.position += transform.forward * _velocity * Time.deltaTime;
-            if (_destroy >= 10)
-            {
-                gameObject.SetActive(false);
-            }
+            _behaviour.Update();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            _behaviour.OnTriggerEnter(other);
         }
     }
 }

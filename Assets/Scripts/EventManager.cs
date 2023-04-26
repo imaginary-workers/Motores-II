@@ -8,7 +8,6 @@ namespace ProyectM2
 
         protected override void Awake()
         {
-            itDestroyOnLoad = true;
             base.Awake();
             if (eventDictionary == null)
             {
@@ -49,11 +48,6 @@ namespace ProyectM2
             {
                 thisEvent.Invoke(data);
             }
-        }
-
-        private void OnDestroy()
-        {
-            eventDictionary?.Clear();
         }
     }
 }

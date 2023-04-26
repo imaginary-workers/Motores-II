@@ -15,7 +15,14 @@ namespace ProyectM2.Gameplay
         private void OnEnable()
         {
             _events.SubscribeToEvent(GameOver);
+            EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
         }
+
+        private void OnPlayerGetHit(object[] obj)
+        {
+            SubstractCurrency(1);
+        }
+
         private void OnDisable()
         {
             _events.UnsubscribeFromEvent(GameOver);
@@ -34,6 +41,13 @@ namespace ProyectM2.Gameplay
         public static void AddCurrency(int value)
         {
             levelCurrency += value;
+            EventManager.TriggerEvent("CurrencyModified", levelCurrency, value);
+        }
+        
+        public static void SubstractCurrency(int value)
+        {
+            levelCurrency -= value;
+            if (levelCurrency < 0) levelCurrency = 0;
             EventManager.TriggerEvent("CurrencyModified", levelCurrency, value);
         }
 
