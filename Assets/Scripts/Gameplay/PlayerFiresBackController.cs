@@ -1,4 +1,5 @@
 ﻿using System;
+using ProyectM2.Car;
 using ProyectM2.Inputs;
 using UnityEngine;
 
@@ -8,9 +9,10 @@ namespace ProyectM2.Gameplay
     {
         [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private float _maxTimeToFiresBack = 1f;
+        [SerializeField] private Camera _camera;
+        [SerializeField] private AnimManager _animationManager;
         private Bullet _returnableBullet;
         private float _timeToFiresBack;
-        [SerializeField] private Camera _camera;
         private GameObject _enemyTarget = null;
         private Ray _ray;
 
@@ -61,6 +63,7 @@ namespace ProyectM2.Gameplay
                 Debug.Log("Hit "+hit.collider.gameObject.name);
                 if (hit.collider.CompareTag("Player"))
                 {
+                    _animationManager.HipUpAnimation();
                     _returnableBullet.SetBehaviour(new SeekBulletBehaviour(_returnableBullet.transform, _enemyTarget.transform, 50));
                     _returnableBullet = null;
                 }
