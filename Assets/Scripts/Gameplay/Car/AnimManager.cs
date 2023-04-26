@@ -11,6 +11,7 @@ namespace ProyectM2.Car
         int turnLeftParameterId;
         int turnRightParameterId;
         int crashParameterId;
+        int hipParameterId;
 
         private void Start()
         {
@@ -18,11 +19,17 @@ namespace ProyectM2.Car
             turnRightParameterId = Animator.StringToHash("TurnRight");
             turnLeftParameterId = Animator.StringToHash("TurnLeft");
             crashParameterId = Animator.StringToHash("Crash");
+            hipParameterId = Animator.StringToHash("Hip");
         }
 
         public void TurnLeftAnimation()
         {
             _myAnim.SetTrigger(turnLeftParameterId);
+        }
+
+        public void HipUpAnimation()
+        {
+            _myAnim.SetTrigger(hipParameterId);
         }
 
         public void TurnRightAnimation()
