@@ -60,11 +60,6 @@ namespace ProyectM2.UI
         {
             UndoLastCommand();
         }
-
-        public void DeleteSaveData()
-        {
-            
-        }
         
         private Stack<ICommand> commandStack = new Stack<ICommand>();
 
