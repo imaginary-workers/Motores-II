@@ -79,6 +79,12 @@ namespace ProyectM2.Gameplay
             SceneManager.Instance.ChangeToMenuScene("MainMenu");
         }
 
+        [ContextMenu ("Won")]
+        public void Won()
+        {
+            SceneManager.Instance.ChangeToMenuScene("MainMenu");
+        }
+
         public void GameOver()
         {
             Time.timeScale = 0f;

@@ -41,6 +41,7 @@ namespace ProyectM2.Persistence
             
             instanciaClase.totalCurrencyOfPlayer += GameManager.levelCurrency;
             instanciaClase.totalCurrencyGainOfPlayer += GameManager.levelCurrency;
+            GameManager.levelCurrency = 0;
 
             string dataToSave = JsonUtility.ToJson(instanciaClase, true);
 
