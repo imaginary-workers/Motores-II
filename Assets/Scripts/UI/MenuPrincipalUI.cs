@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using ProyectM2.Gameplay;
 using ProyectM2.Managers;
+using ProyectM2.Persistence;
 using TMPro;
 using UnityEngine;
 
@@ -9,17 +10,21 @@ namespace ProyectM2.UI
 {
     public class MenuPrincipalUI : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _currencyText; 
+        [SerializeField] private TextMeshProUGUI _currencyText;
+        [SerializeField] private TextMeshProUGUI _totalCurrencyGainText;
         [SerializeField] private GameObject _currency;
         [SerializeField] private GameObject _menu1; 
         [SerializeField] private GameObject _levelsMenu; 
         [SerializeField] private GameObject _gameDataMenu; 
         [SerializeField] private GameObject _gameDataWarningPopUp; 
         [SerializeField] private GameObject _backButton;
+        [SerializeField] private DataPersistance _myDataPersistance;
+        ValuesToSaveInJson _myJsonData;
 
         private void Awake()
         {
-            //TODO leer cuanto hay en el savedata: _currencyText
+            _myDataPersistance.SaveGame();
+            GetCurrencyData();
             _currency.SetActive(true);
             _menu1.SetActive(true);
             _levelsMenu.SetActive(false);
@@ -60,7 +65,14 @@ namespace ProyectM2.UI
         {
             UndoLastCommand();
         }
-        
+
+        public void GetCurrencyData()
+        {
+            _myJsonData = _myDataPersistance.LoadGame();
+            _currencyText.text = _myJsonData.totalCurrencyOfPlayer.ToString();
+            _totalCurrencyGainText.text = $"Total Monedas: {_myJsonData.totalCurrencyGainOfPlayer}";
+        }
+
         private Stack<ICommand> commandStack = new Stack<ICommand>();
 
         private void ExecuteCommand(ICommand command) {
