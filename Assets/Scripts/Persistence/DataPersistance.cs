@@ -6,11 +6,22 @@ using ProyectM2.Gameplay;
 
 namespace ProyectM2.Persistence
 {
-    public class JsonSaveData : MonoBehaviour
+    public class DataPersistance : MonoBehaviour
     {
         string _path;
 
         private void Start()
+        {
+            CheckPath();
+
+
+            if (File.Exists(_path))
+                LoadGame();
+
+            SaveGame();
+        }
+
+        private void CheckPath()
         {
             _path = Application.persistentDataPath + "/savedData.json";
 
@@ -18,22 +29,19 @@ namespace ProyectM2.Persistence
 
             if (!Directory.Exists(directoryPath))
                 Directory.CreateDirectory(directoryPath);
-
-
-            if (File.Exists(_path))
-                LoadGame();
-            else
-                SaveGame();
         }
 
         public void SaveGame()
         {
+            CheckPath();
             var instanciaClase = new ValuesToSaveInJson(); //estamos creando instancia de la clase
 
             if (File.Exists(_path))
                 instanciaClase = LoadGame();
             
             instanciaClase.totalCurrencyOfPlayer += GameManager.levelCurrency;
+            instanciaClase.totalCurrencyGainOfPlayer += GameManager.levelCurrency;
+            GameManager.levelCurrency = 0;
 
             string dataToSave = JsonUtility.ToJson(instanciaClase, true);
 
@@ -45,6 +53,8 @@ namespace ProyectM2.Persistence
 
         public ValuesToSaveInJson LoadGame()
         {
+            CheckPath();
+
             var instanciaClase = new ValuesToSaveInJson(); //estamos creando instancia de la clase
 
             if (File.Exists(_path))

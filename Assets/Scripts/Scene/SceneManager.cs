@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using ProyectM2.UI;
 using SM = UnityEngine.SceneManagement.SceneManager;
 using UnityEngine;
@@ -27,14 +26,24 @@ namespace ProyectM2.Managers
         {
             StartCoroutine(CO_ChangeScene(nextScene));
         }
+        public void RestartLevel()
+        {
+            var currentScene = SM.GetActiveScene();
+            StartCoroutine(CO_ChangeScene(new Scene(currentScene.name, Scene.Type.Gameplay), true));
 
-        private IEnumerator CO_ChangeScene(Scene nextScene)
+        }
+        private IEnumerator CO_ChangeScene(Scene nextScene, bool restart = false)
         {
             var sceneToLoad = new List<AsyncOperation>();
-            _loadCanvasUI.SetLoadTextTo("Loading");
+            _loadCanvasUI.SetLoadTextTo("Cargando");
             _loadCanvasUI.SetLoadBarTo(0f);
             _loadCanvasUI.DisplayLoadCanvas(true);
             yield return new WaitForSecondsRealtime(1f);
+            if (restart)
+            {
+                SM.UnloadSceneAsync(nextScene.name);
+                SM.UnloadSceneAsync(Scene.Type.Gameplay.ToString());
+            }
             sceneToLoad.Add(SM.LoadSceneAsync(nextScene.name));
             if (nextScene.type == Scene.Type.Gameplay)
             {
@@ -47,13 +56,14 @@ namespace ProyectM2.Managers
                 while (!operation.isDone)
                 {
                     progress += operation.progress;
-                    _loadCanvasUI.SetLoadBarTo(progress/sceneToLoad.Count);
+                    _loadCanvasUI.SetLoadBarTo(progress / sceneToLoad.Count);
                     yield return null;
                 }
             }
             _loadCanvasUI.SetLoadBarTo(1f);
-            _loadCanvasUI.SetLoadTextTo("Done");
+            _loadCanvasUI.SetLoadTextTo("Listo");
             yield return new WaitForSecondsRealtime(1f);
+            Time.timeScale = 1;
             _loadCanvasUI.DisplayLoadCanvas(false);
         }
     }

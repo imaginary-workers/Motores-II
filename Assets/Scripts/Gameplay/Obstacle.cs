@@ -1,7 +1,4 @@
-using ProyectM2.SO;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using ProyectM2.SO;using UnityEngine;
 
 namespace ProyectM2
 {
