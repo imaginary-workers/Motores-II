@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80182824bd7f9854dbe363cb8b3f4056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coin: 16
+  _coin: 0
   _coinText: {fileID: 1893626130}
 --- !u!114 &1893626130
 MonoBehaviour:
