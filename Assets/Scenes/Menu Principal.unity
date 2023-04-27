@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 243967321}
   - component: {fileID: 243967320}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Currency In Menu Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -546,7 +546,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 25
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -573,7 +573,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 99
+  m_fontSize: 24
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1438,12 +1438,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currencyText: {fileID: 243967320}
+  _totalCurrencyGainText: {fileID: 617116172}
   _currency: {fileID: 182469713}
   _menu1: {fileID: 491374868}
   _levelsMenu: {fileID: 1775051874}
   _gameDataMenu: {fileID: 1994581089}
   _gameDataWarningPopUp: {fileID: 1530494280}
   _backButton: {fileID: 2130471159}
+  _myDataPersistance: {fileID: 514813960}
   debuScene: Level 1
 --- !u!114 &514813960
 MonoBehaviour:
@@ -1469,7 +1471,7 @@ GameObject:
   - component: {fileID: 617116173}
   - component: {fileID: 617116172}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Total Currency Gain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3414,6 +3416,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 514813959}
+          m_TargetAssemblyTypeName: ProyectM2.UI.MenuPrincipalUI, Assembly-CSharp
+          m_MethodName: GetCurrencyData
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1414833788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4340,15 +4354,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1994581090}
-  - component: {fileID: 1994581092}
-  - component: {fileID: 1994581091}
   m_Layer: 5
   m_Name: Game Data
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1994581090
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4372,32 +4384,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1994581091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994581089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff04e43c89c119c4c80812084c7cc8e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1994581092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994581089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d57377d494a9c841991ab79d0ac2ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currencyText: {fileID: 0}
-  _totalCurrencyGainText: {fileID: 907334627}
 --- !u!1 &1999932945
 GameObject:
   m_ObjectHideFlags: 0
