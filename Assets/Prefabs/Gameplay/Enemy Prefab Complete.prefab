@@ -238,14 +238,83 @@ PrefabInstance:
       propertyPath: _debugger
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 163245042825466274, guid: 565636d826a80a146afab94fb365f387, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 565636d826a80a146afab94fb365f387, type: 3}
+--- !u!114 &2282504544294937512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5842542414484379396, guid: 565636d826a80a146afab94fb365f387,
+    type: 3}
+  m_PrefabInstance: {fileID: 5672834125373158572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e82bc0968f0a6439e3a7eef9e6688d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5485230292621382574 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 190988980965893890, guid: 565636d826a80a146afab94fb365f387,
     type: 3}
   m_PrefabInstance: {fileID: 5672834125373158572}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &102428438322673054
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5485230292621382574}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4726095, y: 1.7831537, z: 5.019348}
+  m_Center: {x: -0.000000059604645, y: 1.1358304, z: 0.08672106}
+--- !u!114 &778371008440978270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5485230292621382574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d21b7bacb48794888f55d5c47d74cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animManager: {fileID: 2282504544294937512}
+  _pathManager: {fileID: 6011736976483197275}
+  _life: 3
+--- !u!54 &7627191612969205027
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5485230292621382574}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &6011736976483197275 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2149358837009225207, guid: 565636d826a80a146afab94fb365f387,
+    type: 3}
+  m_PrefabInstance: {fileID: 5672834125373158572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204754e9875888d46b6f6d6462d456d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6737699978399524152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1385115246879674772, guid: 565636d826a80a146afab94fb365f387,

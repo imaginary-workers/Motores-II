@@ -40,7 +40,7 @@ namespace ProyectM2.Car
         public void DeathAnimation()
         {
             _myAnim.SetTrigger(crashParameterId);
-            this.enabled = false;
+            enabled = false;
         }
 
         public void SetEvent(string key, Action method)
