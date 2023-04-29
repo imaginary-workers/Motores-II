@@ -11,6 +11,7 @@ namespace ProyectM2.Gameplay
         public static int currentLevel = 0;
         public static float levelGas = 100;
         public static GameObject player;
+        public static Vector3 positionInLevel = new(0, 0, 0);
         [SerializeField] Events _events;
         [SerializeField] GameObject _lose;
 
@@ -18,6 +19,8 @@ namespace ProyectM2.Gameplay
         {
             _events.SubscribeToEvent(GameOver);
             EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
+            EventManager.StartListening("TeleportToBonusLevel", SaveLastPositionInGame);
+            EventManager.StartListening("TeleportReturnToLevel", LoadLastPositionInGame);
         }
 
         private void OnPlayerGetHit(object[] obj)
@@ -28,6 +31,8 @@ namespace ProyectM2.Gameplay
         private void OnDisable()
         {
             _events.UnsubscribeFromEvent(GameOver);
+            EventManager.StopListening("TeleportToBonusLevel", SaveLastPositionInGame);
+            EventManager.StopListening("TeleportReturnToLevel", LoadLastPositionInGame);
         }
 
         private void Awake()
@@ -65,6 +70,17 @@ namespace ProyectM2.Gameplay
         public static void SubstractGas(float value)
         {
             levelGas -= value;
+        }
+
+        public void SaveLastPositionInGame(object[] obj)
+        {
+            positionInLevel = player.transform.position;
+        }
+
+        public void LoadLastPositionInGame(object[] obj)
+        {
+            Debug.Log("Load Last Position " + positionInLevel);
+            player.transform.position = positionInLevel;
         }
 
         public void Retry()
