@@ -1,3 +1,4 @@
+using System.Collections;
 using ProyectM2.SO;
 using UnityEngine;
 using ProyectM2.Gameplay.Car;
@@ -77,6 +78,22 @@ namespace ProyectM2.Gameplay
             levelCurrency = 0;
             levelGas = 0;
             SceneManager.Instance.ChangeToMenuScene("MainMenu");
+        }
+
+        public void Resumen()
+        {
+            StartCoroutine(CO_ResumeGame());
+
+        }
+
+        private IEnumerator CO_ResumeGame()
+        {
+            for (int i = 1; i < 4; i++)
+            {
+                yield return new WaitForSecondsRealtime(1);
+                //TODO mostrar el numero de conteo
+            }
+            Time.timeScale = 1;
         }
 
         [ContextMenu ("Won")]
