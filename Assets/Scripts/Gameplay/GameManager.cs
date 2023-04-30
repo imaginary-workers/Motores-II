@@ -2,6 +2,7 @@ using ProyectM2.SO;
 using UnityEngine;
 using ProyectM2.Gameplay.Car;
 using ProyectM2.Managers;
+using ProyectM2.Persistence;
 
 namespace ProyectM2.Gameplay
 {
@@ -21,7 +22,7 @@ namespace ProyectM2.Gameplay
             _events.SubscribeToEvent(GameOver);
             EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
             EventManager.StartListening("TeleportToBonusLevel", SaveLastPositionInGame);
-            EventManager.StartListening("TeleportReturnToLevel", LoadLastPositionInGame);
+            EventManager.StartListening("TeleportReturnToLevel", SaveCurrenciesOfBonusLevel);
         }
 
         private void OnPlayerGetHit(object[] obj)
@@ -33,7 +34,7 @@ namespace ProyectM2.Gameplay
         {
             _events.UnsubscribeFromEvent(GameOver);
             EventManager.StopListening("TeleportToBonusLevel", SaveLastPositionInGame);
-            EventManager.StopListening("TeleportReturnToLevel", LoadLastPositionInGame);
+            EventManager.StopListening("TeleportReturnToLevel", SaveCurrenciesOfBonusLevel);
         }
 
         private void Awake()
@@ -44,6 +45,17 @@ namespace ProyectM2.Gameplay
         {
             levelCurrency = 0;
             levelGas = 100;
+
+            if (SessionGameData.GetData("levelCurrency") != null)
+            {
+                levelCurrency = (int)SessionGameData.GetData("levelCurrency");
+            }
+            if (SessionGameData.GetData("LastPositionOfPlayer") != null)
+            {
+                player.transform.root.position = (Vector3)SessionGameData.GetData("LastPositionOfPlayer");
+            }
+
+            Debug.Log(levelCurrency);
         }
 
         public static void AddCurrency(int value)
@@ -75,13 +87,12 @@ namespace ProyectM2.Gameplay
 
         public void SaveLastPositionInGame(object[] obj)
         {
-            positionInLevel = player.transform.position;
+            SessionGameData.SaveData("LastPositionOfPlayer", player.transform.root.position);
         }
 
-        public void LoadLastPositionInGame(object[] obj)
+        public void SaveCurrenciesOfBonusLevel(object[] obj)
         {
-            Debug.Log("Load Last Position " + positionInLevel);
-            player.transform.position = positionInLevel;
+            SessionGameData.SaveData("CurrenciesOfBonusLevel", levelCurrency);
         }
 
         public void Retry()

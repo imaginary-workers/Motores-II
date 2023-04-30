@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ProyectM2.Gameplay;
+using ProyectM2.Persistence;
 
 namespace ProyectM2.Managers.Levels
 {
@@ -13,7 +14,6 @@ namespace ProyectM2.Managers.Levels
         List<Sections> _sectionsListInGame;
         Sections[] _allSectionsInGame;
         [SerializeField] int _currentIndex = 1;
-        static int _staticIndex;
         [SerializeField] bool _isInInfinitiveSection = false;    
 
 
@@ -43,8 +43,11 @@ namespace ProyectM2.Managers.Levels
         private void Start()
         {
             _sectionsListInGame = new List<Sections>();
-            if (_staticIndex != 0)
-                _currentIndex = _staticIndex; 
+            
+            if (SessionGameData.GetData("LastSectionIndex")!=null)
+            {
+                _currentIndex = (int)SessionGameData.GetData("LastSectionIndex");
+            } 
         }
 
         private void Update()
@@ -62,8 +65,8 @@ namespace ProyectM2.Managers.Levels
 
         private void GoToBonusLevel(object[] obj)
         {
+            SessionGameData.SaveData("LastSectionIndex", _currentIndex);
             SceneManager.Instance.ChangeScene((Scene)obj[0]);
-            _staticIndex = _currentIndex;
         }
 
         void NewSection(int sectionIndex)
