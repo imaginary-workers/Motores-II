@@ -7,6 +7,7 @@ namespace ProyectM2.Gameplay.Car
     {
         [SerializeField] float _substracttGas = 0.1f;
         private bool _isInCutscene = false;
+        private bool _onPause;
 
         private void Start()
         {
@@ -21,6 +22,7 @@ namespace ProyectM2.Gameplay.Car
         private void Update()
         {
             if (_isInCutscene) return;
+            if (_onPause) return;
             InputManager.CurrentInput.OnUpdate();
             GameManager.SubstractGas(_substracttGas * Time.deltaTime);
         }
@@ -29,7 +31,14 @@ namespace ProyectM2.Gameplay.Car
         {
             EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
             EventManager.StartListening("EnemyCutSceneEnded", OnEnemyCutSceneEnded);
+            EventManager.StartListening("OnPause", OnPauseHandler);
             InputManager.CurrentInput.Horizontal += OnHorizontal;
+        }
+
+        private void OnPauseHandler(object[] obj)
+        {
+            if (obj.Length == 0) return;
+            _onPause = (bool) obj[0];
         }
 
         private void OnEnemyCutSceneEnded(object[] obj)
@@ -53,6 +62,7 @@ namespace ProyectM2.Gameplay.Car
             InputManager.CurrentInput.Horizontal -= OnHorizontal;
             EventManager.StopListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
             EventManager.StopListening("EnemyCutSceneEnded", OnEnemyCutSceneEnded);
+            EventManager.StopListening("OnPause", OnPauseHandler);
         }
 
         private void OnHorizontal(int hor)

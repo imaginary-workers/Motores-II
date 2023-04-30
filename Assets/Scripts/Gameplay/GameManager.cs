@@ -1,4 +1,3 @@
-using System.Collections;
 using ProyectM2.SO;
 using UnityEngine;
 using ProyectM2.Gameplay.Car;
@@ -27,22 +26,12 @@ namespace ProyectM2.Gameplay
             EventManager.StartListening("OnPause", Pause);
         }
 
-        private void Pause(object[] obj)
-        {
-            if (obj.Length == 0) return;
-            Time.timeScale = 0;
-        }
-
-        private void OnPlayerGetHit(object[] obj)
-        {
-            SubstractCurrency(1);
-        }
-
         private void OnDisable()
         {
             _events.UnsubscribeFromEvent(GameOver);
             EventManager.StopListening("TeleportToBonusLevel", SaveLastPositionInGame);
             EventManager.StopListening("TeleportReturnToLevel", SaveCurrenciesOfBonusLevel);
+            EventManager.StopListening("PlayerGetHit", OnPlayerGetHit);
             EventManager.StopListening("OnPause", Pause);
         }
 
@@ -116,20 +105,16 @@ namespace ProyectM2.Gameplay
             SceneManager.Instance.ChangeToMenuScene("MainMenu");
         }
 
-        public void Resume()
+        private void OnPlayerGetHit(object[] obj)
         {
-            StartCoroutine(CO_ResumeGame());
-
+            SubstractCurrency(1);
         }
 
-        private IEnumerator CO_ResumeGame()
+        private void Pause(object[] obj)
         {
-            for (int i = 1; i < 4; i++)
-            {
-                yield return new WaitForSecondsRealtime(1);
-                //TODO mostrar el numero de conteo
-            }
-            Time.timeScale = 1;
+            if (obj.Length == 0) return;
+            var isPause = (bool)obj[0];
+            Time.timeScale = isPause ? 0 : 1;
         }
 
         [ContextMenu ("Won")]

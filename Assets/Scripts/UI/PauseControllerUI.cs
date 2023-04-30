@@ -1,3 +1,5 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace ProyectM2.UI
@@ -6,6 +8,7 @@ namespace ProyectM2.UI
     {
         [SerializeField] private GameObject _pauseButton;
         [SerializeField] private GameObject _pauseMenu;
+        [SerializeField] private TextMeshProUGUI _pauseCounterText;
 
         public void SetPauseMenu(bool pause)
         {
@@ -14,11 +17,25 @@ namespace ProyectM2.UI
             if (pause)
             {
                 EventManager.TriggerEvent("OnPause", true);
+                StopAllCoroutines();
             }
             else
             {
-                EventManager.TriggerEvent("OnPause", false);
+                StartCoroutine(CO_ResumeGame());
             }
+        }
+        
+        private IEnumerator CO_ResumeGame()
+        {
+            yield return new WaitForSecondsRealtime(.5f);
+            _pauseCounterText.gameObject.SetActive(true);
+            for (int i = 3; i >= 0; i--)
+            {
+                _pauseCounterText.text = i.ToString();
+                yield return new WaitForSecondsRealtime(1);
+            }
+            _pauseCounterText.gameObject.SetActive(false);
+            EventManager.TriggerEvent("OnPause", false);
         }
     }
 }
