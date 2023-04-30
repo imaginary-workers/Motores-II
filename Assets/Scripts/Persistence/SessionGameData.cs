@@ -6,31 +6,26 @@ namespace ProyectM2.Persistence
 {
     public class SessionGameData : MonoBehaviour
     {
-        static int _currentLevel;
-        static Vector3 _playerPosition;
-        static bool _wasInBonus;
-        //static int _currentIndexSection;
-        static int _bonusCurrencyGain;
 
-
-
-        void Start()
-        {
+        private static Dictionary<string, object> sessionGameData = new Dictionary<string, object>();
         
+        public static object GetData(string keyToReturnValue)
+        {
+            if (sessionGameData.ContainsKey(keyToReturnValue))
+                return sessionGameData[keyToReturnValue];
+            else 
+                return null;
         }
 
-        void Update()
+        public static void SaveData(string keyToSave, object valueToSave)
         {
-        
+            if (sessionGameData.ContainsKey(keyToSave))
+                sessionGameData[keyToSave] = valueToSave;
+            else
+                sessionGameData.Add(keyToSave, valueToSave);
         }
 
-        
-        public void GetDate()
-        {
-
-        }
-
-        public void SaveData()
+        public static void ResetData()
         {
 
         }
