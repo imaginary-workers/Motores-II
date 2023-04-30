@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ProyectM2.Gameplay;
+using ProyectM2.Persistence;
 
 namespace ProyectM2.Managers.Levels
 {
@@ -11,8 +13,8 @@ namespace ProyectM2.Managers.Levels
         [SerializeField] Sections _infinitiveSection;
         List<Sections> _sectionsListInGame;
         Sections[] _allSectionsInGame;
-        [SerializeField] int _currentIndex;
-        [SerializeField] bool _isInInfinitiveSection = false;
+        [SerializeField] int _currentIndex = 1;
+        [SerializeField] bool _isInInfinitiveSection = false;    
 
 
         private void Awake()
@@ -23,17 +25,29 @@ namespace ProyectM2.Managers.Levels
         private void OnEnable()
         {
             EventManager.StartListening("EnemyCutSceneStarted", NewInfinitiveSection);
+            EventManager.StartListening("EnemyCutSceneEnded", DisableInfinitiveSection);
+            EventManager.StartListening("TeleportToBonusLevel", GoToBonusLevel);
+            EventManager.StartListening("TeleportReturnToLevel", GoToBonusLevel);
         }
+
 
         private void OnDisable()
         {
+            EventManager.StopListening("EnemyCutSceneStarted", NewInfinitiveSection);
             EventManager.StopListening("EnemyCutSceneEnded", DisableInfinitiveSection);
+            EventManager.StopListening("TeleportToBonusLevel", GoToBonusLevel);
+            EventManager.StopListening("TeleportReturnToLevel", GoToBonusLevel);
+
         }
 
         private void Start()
         {
-            _currentIndex = 1;
             _sectionsListInGame = new List<Sections>();
+            
+            if (SessionGameData.GetData("LastSectionIndex")!=null)
+            {
+                _currentIndex = (int)SessionGameData.GetData("LastSectionIndex");
+            } 
         }
 
         private void Update()
@@ -49,13 +63,19 @@ namespace ProyectM2.Managers.Levels
             }
         }
 
+        private void GoToBonusLevel(object[] obj)
+        {
+            SessionGameData.SaveData("LastSectionIndex", _currentIndex);
+            SceneManager.Instance.ChangeScene((Scene)obj[0]);
+        }
+
         void NewSection(int sectionIndex)
         {
             if (_isInInfinitiveSection)
             {
                 Instantiate(_infinitiveSection, _sectionsListInGame[_sectionsListInGame.Count - 1].transform.Find("CreateSectionPivot").position, Quaternion.identity);
             }
-            else if (_currentIndex <= _sections.Length)
+            else if (_currentIndex < _sections.Length)
             {
                 if (_currentIndex == 0)
                     Instantiate(_sections[sectionIndex], new Vector3(0, 0, 0), Quaternion.identity);
