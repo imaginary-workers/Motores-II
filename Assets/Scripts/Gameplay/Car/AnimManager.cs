@@ -26,7 +26,7 @@ namespace ProyectM2.Car
 
         public void IDLE_ANIMATION()
         {
-            _soundManager.RunSound();
+            
         }
 
         public void TurnLeftAnimation()
