@@ -11,7 +11,7 @@ namespace ProyectM2.UI
 
         private void Awake()
         {
-            _coinText.text = "Score:" + _coin.ToString();
+            _coinText.text = _coin.ToString();
         }
 
         private void OnEnable()
@@ -24,7 +24,7 @@ namespace ProyectM2.UI
             if (obj.Length == 0) return;
             _coin = (int)obj[0];
             _coin = (int)obj[1];
-            _coinText.text = "Score:" + _coin.ToString();
+            _coinText.text = _coin.ToString();
         }
 
         private void OnDisable()
