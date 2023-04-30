@@ -52,7 +52,7 @@ namespace ProyectM2.Gameplay
             }
             if (SessionGameData.GetData("LastPositionOfPlayer") != null)
             {
-                player.transform.position = (Vector3)SessionGameData.GetData("LastPositionOfPlayer");
+                player.transform.root.position = (Vector3)SessionGameData.GetData("LastPositionOfPlayer");
             }
 
             Debug.Log(levelCurrency);
@@ -87,7 +87,7 @@ namespace ProyectM2.Gameplay
 
         public void SaveLastPositionInGame(object[] obj)
         {
-            SessionGameData.SaveData("LastPositionOfPlayer", player.transform.position);
+            SessionGameData.SaveData("LastPositionOfPlayer", player.transform.root.position);
         }
 
         public void SaveCurrenciesOfBonusLevel(object[] obj)
