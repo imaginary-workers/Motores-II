@@ -15,6 +15,7 @@ namespace ProyectM2.Gameplay
         [SerializeField] Events _events;
         [SerializeField] GameObject _lose;
 
+
         private void OnEnable()
         {
             _events.SubscribeToEvent(GameOver);
