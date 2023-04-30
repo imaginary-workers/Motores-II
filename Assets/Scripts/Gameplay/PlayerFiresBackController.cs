@@ -15,6 +15,7 @@ namespace ProyectM2.Gameplay
         private float _timeToFiresBack;
         private GameObject _enemyTarget = null;
         private Ray _ray;
+        [SerializeField] private int _returnableLayer;
 
         private void OnEnable()
         {
@@ -64,6 +65,7 @@ namespace ProyectM2.Gameplay
                 if (hit.collider.CompareTag("Player"))
                 {
                     _animationManager.HipUpAnimation();
+                    _returnableBullet.gameObject.layer = _returnableLayer;
                     _returnableBullet.SetBehaviour(new SeekBulletBehaviour(_returnableBullet.transform, _enemyTarget.transform, 50));
                     _returnableBullet = null;
                 }

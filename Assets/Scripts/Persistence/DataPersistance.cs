@@ -12,12 +12,7 @@ namespace ProyectM2.Persistence
 
         private void Start()
         {
-            _path = Application.persistentDataPath + "/savedData.json";
-
-            var directoryPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).Replace("\\", "/") + "/" + Application.productName;
-
-            if (!Directory.Exists(directoryPath))
-                Directory.CreateDirectory(directoryPath);
+            CheckPath();
 
 
             if (File.Exists(_path))
@@ -26,8 +21,19 @@ namespace ProyectM2.Persistence
             SaveGame();
         }
 
+        private void CheckPath()
+        {
+            _path = Application.persistentDataPath + "/savedData.json";
+
+            var directoryPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).Replace("\\", "/") + "/" + Application.productName;
+
+            if (!Directory.Exists(directoryPath))
+                Directory.CreateDirectory(directoryPath);
+        }
+
         public void SaveGame()
         {
+            CheckPath();
             var instanciaClase = new ValuesToSaveInJson(); //estamos creando instancia de la clase
 
             if (File.Exists(_path))
@@ -35,6 +41,7 @@ namespace ProyectM2.Persistence
             
             instanciaClase.totalCurrencyOfPlayer += GameManager.levelCurrency;
             instanciaClase.totalCurrencyGainOfPlayer += GameManager.levelCurrency;
+            GameManager.levelCurrency = 0;
 
             string dataToSave = JsonUtility.ToJson(instanciaClase, true);
 
@@ -46,6 +53,8 @@ namespace ProyectM2.Persistence
 
         public ValuesToSaveInJson LoadGame()
         {
+            CheckPath();
+
             var instanciaClase = new ValuesToSaveInJson(); //estamos creando instancia de la clase
 
             if (File.Exists(_path))

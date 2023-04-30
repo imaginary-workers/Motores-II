@@ -11,13 +11,17 @@ namespace ProyectM2.Gameplay
         public static int currentLevel = 0;
         public static float levelGas = 100;
         public static GameObject player;
+        public static Vector3 positionInLevel = new(0, 0, 0);
         [SerializeField] Events _events;
         [SerializeField] GameObject _lose;
+
 
         private void OnEnable()
         {
             _events.SubscribeToEvent(GameOver);
             EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
+            EventManager.StartListening("TeleportToBonusLevel", SaveLastPositionInGame);
+            EventManager.StartListening("TeleportReturnToLevel", LoadLastPositionInGame);
         }
 
         private void OnPlayerGetHit(object[] obj)
@@ -28,6 +32,8 @@ namespace ProyectM2.Gameplay
         private void OnDisable()
         {
             _events.UnsubscribeFromEvent(GameOver);
+            EventManager.StopListening("TeleportToBonusLevel", SaveLastPositionInGame);
+            EventManager.StopListening("TeleportReturnToLevel", LoadLastPositionInGame);
         }
 
         private void Awake()
@@ -67,6 +73,17 @@ namespace ProyectM2.Gameplay
             levelGas -= value;
         }
 
+        public void SaveLastPositionInGame(object[] obj)
+        {
+            positionInLevel = player.transform.position;
+        }
+
+        public void LoadLastPositionInGame(object[] obj)
+        {
+            Debug.Log("Load Last Position " + positionInLevel);
+            player.transform.position = positionInLevel;
+        }
+
         public void Retry()
         {
             SceneManager.Instance.RestartLevel();
@@ -76,6 +93,12 @@ namespace ProyectM2.Gameplay
         {
             levelCurrency = 0;
             levelGas = 0;
+            SceneManager.Instance.ChangeToMenuScene("MainMenu");
+        }
+
+        [ContextMenu ("Won")]
+        public void Won()
+        {
             SceneManager.Instance.ChangeToMenuScene("MainMenu");
         }
 

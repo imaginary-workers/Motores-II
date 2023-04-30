@@ -35,7 +35,7 @@ namespace ProyectM2.Managers
         private IEnumerator CO_ChangeScene(Scene nextScene, bool restart = false)
         {
             var sceneToLoad = new List<AsyncOperation>();
-            _loadCanvasUI.SetLoadTextTo("Loading");
+            _loadCanvasUI.SetLoadTextTo("Cargando");
             _loadCanvasUI.SetLoadBarTo(0f);
             _loadCanvasUI.DisplayLoadCanvas(true);
             yield return new WaitForSecondsRealtime(1f);
@@ -61,10 +61,10 @@ namespace ProyectM2.Managers
                 }
             }
             _loadCanvasUI.SetLoadBarTo(1f);
-            _loadCanvasUI.SetLoadTextTo("Done");
+            _loadCanvasUI.SetLoadTextTo("Listo");
             yield return new WaitForSecondsRealtime(1f);
-            Time.timeScale = 1;
             _loadCanvasUI.DisplayLoadCanvas(false);
+            Time.timeScale = 1;
         }
     }
 }

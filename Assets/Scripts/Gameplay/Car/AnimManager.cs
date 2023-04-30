@@ -7,6 +7,7 @@ namespace ProyectM2.Car
     public class AnimManager : MonoBehaviour
     {
         [SerializeField] Animator _myAnim;
+        [SerializeField] SoundsManager _soundManager;
         Dictionary<string, Action> _events = new Dictionary<string, Action>();
         int turnLeftParameterId;
         int turnRightParameterId;
@@ -20,6 +21,11 @@ namespace ProyectM2.Car
             turnLeftParameterId = Animator.StringToHash("TurnLeft");
             crashParameterId = Animator.StringToHash("Crash");
             hipParameterId = Animator.StringToHash("Hip");
+        }
+
+        public void IDLE_ANIMATION()
+        {
+            _soundManager.RunSound();
         }
 
         public void TurnLeftAnimation()
@@ -40,7 +46,7 @@ namespace ProyectM2.Car
         public void DeathAnimation()
         {
             _myAnim.SetTrigger(crashParameterId);
-            this.enabled = false;
+            enabled = false;
         }
 
         public void SetEvent(string key, Action method)

@@ -22,16 +22,22 @@ namespace ProyectM2.Managers.Levels
         {
             _nextPivot = transform.Find("DistanceToCreateSectionPivot");
             _lastPivot = transform.Find("DeleteSectionPivot");
+
             _myPlayer = GameManager.player;
         }
 
         private void Update()
         {
-            CheckDistanceFromPlayer(_nextPivot, _lastPivot, _myPlayer);
+            if (_myPlayer != null)
+                CheckDistanceFromPlayer(_nextPivot, _lastPivot, _myPlayer);
+            else
+                _myPlayer = GameManager.player;
+
         }
 
         void CheckDistanceFromPlayer(Transform nextPivot, Transform lastPivot, GameObject player)
         {
+            Debug.Log(player.name);
             Vector3 dirToNextPivot = player.transform.position - nextPivot.transform.position;
             Vector3 dirToPastPivot = lastPivot.transform.position - player.transform.position;
             if (dirToNextPivot.sqrMagnitude <= (_distanceToCreateSection * _distanceToCreateSection) && !_createSectionNotifed)
