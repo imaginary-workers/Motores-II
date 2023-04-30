@@ -24,6 +24,13 @@ namespace ProyectM2.Gameplay
             EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
             EventManager.StartListening("TeleportToBonusLevel", SaveLastPositionInGame);
             EventManager.StartListening("TeleportReturnToLevel", SaveCurrenciesOfBonusLevel);
+            EventManager.StartListening("OnPause", Pause);
+        }
+
+        private void Pause(object[] obj)
+        {
+            if (obj.Length == 0) return;
+            Time.timeScale = 0;
         }
 
         private void OnPlayerGetHit(object[] obj)
@@ -36,6 +43,7 @@ namespace ProyectM2.Gameplay
             _events.UnsubscribeFromEvent(GameOver);
             EventManager.StopListening("TeleportToBonusLevel", SaveLastPositionInGame);
             EventManager.StopListening("TeleportReturnToLevel", SaveCurrenciesOfBonusLevel);
+            EventManager.StopListening("OnPause", Pause);
         }
 
         private void Awake()
@@ -108,7 +116,7 @@ namespace ProyectM2.Gameplay
             SceneManager.Instance.ChangeToMenuScene("MainMenu");
         }
 
-        public void Resumen()
+        public void Resume()
         {
             StartCoroutine(CO_ResumeGame());
 

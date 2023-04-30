@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ProyectM2
+namespace ProyectM2.UI
 {
     public class AnimationRotation : MonoBehaviour
     {
