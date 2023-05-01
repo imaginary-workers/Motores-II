@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace ProyectM2.Sound
@@ -22,7 +21,6 @@ namespace ProyectM2.Sound
         {
             if (obj.Length == 0) return;
             var isPause = (bool)obj[0];
-            Debug.Log(gameObject.name + " nombre de SoundManager");
             if (isPause)
             {
                 _source.Stop();
