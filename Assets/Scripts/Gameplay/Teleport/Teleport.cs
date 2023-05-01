@@ -24,24 +24,21 @@ namespace ProyectM2.Gameplay.Teleport
 
         }
 
-        private void OnEnable()
-        {
-            EventManager.StartListening("TeleportToBonusLevel", TeleportToLevel);
-            EventManager.StartListening("TeleportReturnToLevel", TeleportToLevel);
-        }
+        //private void OnEnable()
+        //{
+        //    EventManager.StartListening("TeleportToBonusLevel", TeleportToLevel);
+        //    EventManager.StartListening("TeleportReturnToLevel", TeleportToLevel);
+        //}
 
-        private void TeleportToLevel(object[] obj)
-        {
-            Debug.Log(obj[0]);
-            Debug.Log((Scene)obj[0]);
-            SceneManager.Instance.ChangeScene((Scene)obj[0]);
-        }
-
-        private void OnDisable()
-        {
-            EventManager.StopListening("TeleportToBonusLevel", TeleportToLevel);
-            EventManager.StopListening("TeleportReturnToLevel", TeleportToLevel);
-        }
+        //private void OnDisable()
+        //{
+        //    EventManager.StopListening("TeleportToBonusLevel", TeleportToLevel);
+        //    EventManager.StopListening("TeleportReturnToLevel", TeleportToLevel);
+        //}
+        //private void TeleportToLevel(object[] obj)
+        //{
+        //    SceneManager.Instance.ChangeScene((Scene)obj[0]);
+        //}
 
         private void OnTriggerEnter(Collider other)
         {
@@ -51,14 +48,13 @@ namespace ProyectM2.Gameplay.Teleport
                 {
                     SessionGameData.SaveData("TeleportWasUsed", true);
                     EventManager.TriggerEvent("TeleportToBonusLevel", _scene);
-                    Debug.Log("Trigger");
                 }
                 else
-                {
                     EventManager.TriggerEvent("TeleportReturnToLevel", _scene);
-                }
 
+                
                 SessionGameData.SaveData("IsInBonusLevel", !_isInBonusLevel);
+                SceneManager.Instance.ChangeScene(_scene);
             }
         }
     }
