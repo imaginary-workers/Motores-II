@@ -23,7 +23,7 @@ namespace ProyectM2.UI
         {
             if (obj.Length == 0) return;
             _coin = (int)obj[0];
-            _coin = (int)obj[1];
+            //_coin = (int)obj[1];
             _coinText.text = _coin.ToString();
         }
 

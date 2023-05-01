@@ -43,25 +43,35 @@ namespace ProyectM2.Gameplay
         }
         private void Start()
         {
-            levelCurrency = 0;
-            levelGas = 100;
 
             if (SessionGameData.GetData("IsInBonusLevel") != null)
             {
                 _isInBonusLevel = (bool)SessionGameData.GetData("IsInBonusLevel");
             }
-            if (SessionGameData.GetData("levelCurrency") != null)
+
+            if (!_isInBonusLevel)
             {
-                levelCurrency = (int)SessionGameData.GetData("levelCurrency");
+                if (SessionGameData.GetData("levelCurrency") != null)
+                {
+                    levelCurrency = (int)SessionGameData.GetData("levelCurrency");
+                    if (SessionGameData.GetData("CurrenciesOfBonusLevel") != null)
+                    {
+                        levelCurrency += (int)SessionGameData.GetData("CurrenciesOfBonusLevel");
+                    }
+                    Debug.Log(levelCurrency);
+                    EventManager.TriggerEvent("CurrencyModified", levelCurrency);
+
+                }
+                if (SessionGameData.GetData("LastPositionOfPlayer") != null)
+                {
+                    player.transform.root.position = (Vector3)SessionGameData.GetData("LastPositionOfPlayer");
+                }
+                if (SessionGameData.GetData("CurrenciesOfBonusLevel") != null)
+                {
+                    levelCurrency += (int)SessionGameData.GetData("CurrenciesOfBonusLevel");
+                }
             }
-            if (SessionGameData.GetData("LastPositionOfPlayer") != null)
-            {
-                player.transform.root.position = (Vector3)SessionGameData.GetData("LastPositionOfPlayer");
-            }
-            if (SessionGameData.GetData("CurrenciesOfBonusLevel") != null && !_isInBonusLevel)
-            {
-                levelCurrency += (int)SessionGameData.GetData("CurrenciesOfBonusLevel");
-            }
+
         }
 
         public static void AddCurrency(int value)
@@ -93,12 +103,14 @@ namespace ProyectM2.Gameplay
 
         public void TeleportToBonusLevel(object[] obj)
         {
+            Debug.Log(levelCurrency);
             SessionGameData.SaveData("LastPositionOfPlayer", player.transform.root.position);
             SessionGameData.SaveData("levelCurrency", levelCurrency);
         }
 
         public void ReturnFromBonusLevel(object[] obj)
         {
+            Debug.Log(levelCurrency);
             SessionGameData.SaveData("CurrenciesOfBonusLevel", levelCurrency);
         }
 
