@@ -7,7 +7,7 @@ namespace ProyectM2.Persistence
     public class SessionGameData : MonoBehaviour
     {
 
-        private static Dictionary<string, object> sessionGameData = new Dictionary<string, object>();
+        private static Dictionary<string, object> sessionGameData = new();
         
         public static object GetData(string keyToReturnValue)
         {
@@ -27,7 +27,7 @@ namespace ProyectM2.Persistence
 
         public static void ResetData()
         {
-
+            sessionGameData = new();
         }
     }
 }
