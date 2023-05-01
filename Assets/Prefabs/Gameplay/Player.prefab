@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 1876319577606549681}
   - component: {fileID: 6266483164755062192}
   - component: {fileID: 105307429576614643}
+  - component: {fileID: 3069435173246862172}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -168,11 +169,11 @@ AudioSource:
   m_GameObject: {fileID: 4558093475183552361}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -574742281000837536, guid: 3c94b630959b2544bb6d075e99fea214,
+  OutputAudioMixerGroup: {fileID: -6034150943593909905, guid: 3c94b630959b2544bb6d075e99fea214,
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -180,7 +181,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 3.3
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -216,7 +217,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -246,7 +247,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -256,6 +257,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3069435173246862172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4558093475183552361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e82bc0968f0a6439e3a7eef9e6688d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myAnim: {fileID: 2241185775180248663}
+  _soundManager: {fileID: 6266483164755062192}
 --- !u!1 &5136902128944569942
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +679,7 @@ MonoBehaviour:
     m_Bits: 8
   _maxTimeToFiresBack: 2
   _camera: {fileID: 5530683297109053746}
-  _animationManager: {fileID: 0}
+  _animationManager: {fileID: 1876319577606549681}
   _returnableLayer: 13
 --- !u!1001 &5530683295989436159
 PrefabInstance:

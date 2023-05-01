@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4249828961328633286}
   - component: {fileID: 960875826807970403}
   - component: {fileID: 3076310598866628265}
+  - component: {fileID: 1213790365065183295}
+  - component: {fileID: 5425911145414664985}
   m_Layer: 0
   m_Name: Stone4
   m_TagString: Untagged
@@ -83,3 +85,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1213790365065183295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580850165668990844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b9a43e3496b7d469ec574404c8fb97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5425911145414664985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580850165668990844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ccc345a5cae19469b37e265d285eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  porcent: 0.115
