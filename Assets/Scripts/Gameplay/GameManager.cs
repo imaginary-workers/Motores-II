@@ -15,22 +15,24 @@ namespace ProyectM2.Gameplay
         public static Vector3 positionInLevel = new(0, 0, 0);
         [SerializeField] Events _events;
         [SerializeField] GameObject _lose;
+        [SerializeField] bool _isInBonusLevel = false;
+
 
 
         private void OnEnable()
         {
             _events.SubscribeToEvent(GameOver);
             EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
-            EventManager.StartListening("TeleportToBonusLevel", SaveLastPositionInGame);
-            EventManager.StartListening("TeleportReturnToLevel", SaveCurrenciesOfBonusLevel);
+            EventManager.StartListening("TeleportToBonusLevel", TeleportToBonusLevel);
+            EventManager.StartListening("TeleportReturnToLevel", ReturnFromBonusLevel); ;
             EventManager.StartListening("OnPause", Pause);
         }
 
         private void OnDisable()
         {
             _events.UnsubscribeFromEvent(GameOver);
-            EventManager.StopListening("TeleportToBonusLevel", SaveLastPositionInGame);
-            EventManager.StopListening("TeleportReturnToLevel", SaveCurrenciesOfBonusLevel);
+            EventManager.StopListening("TeleportToBonusLevel", TeleportToBonusLevel);
+            EventManager.StopListening("TeleportReturnToLevel", ReturnFromBonusLevel);
             EventManager.StopListening("PlayerGetHit", OnPlayerGetHit);
             EventManager.StopListening("OnPause", Pause);
         }
@@ -44,6 +46,10 @@ namespace ProyectM2.Gameplay
             levelCurrency = 0;
             levelGas = 100;
 
+            if (SessionGameData.GetData("IsInBonusLevel") != null)
+            {
+                _isInBonusLevel = (bool)SessionGameData.GetData("IsInBonusLevel");
+            }
             if (SessionGameData.GetData("levelCurrency") != null)
             {
                 levelCurrency = (int)SessionGameData.GetData("levelCurrency");
@@ -52,8 +58,10 @@ namespace ProyectM2.Gameplay
             {
                 player.transform.root.position = (Vector3)SessionGameData.GetData("LastPositionOfPlayer");
             }
-
-            Debug.Log(levelCurrency);
+            if (SessionGameData.GetData("CurrenciesOfBonusLevel") != null && !_isInBonusLevel)
+            {
+                levelCurrency += (int)SessionGameData.GetData("CurrenciesOfBonusLevel");
+            }
         }
 
         public static void AddCurrency(int value)
@@ -83,23 +91,26 @@ namespace ProyectM2.Gameplay
             levelGas -= value;
         }
 
-        public void SaveLastPositionInGame(object[] obj)
+        public void TeleportToBonusLevel(object[] obj)
         {
             SessionGameData.SaveData("LastPositionOfPlayer", player.transform.root.position);
+            SessionGameData.SaveData("levelCurrency", levelCurrency);
         }
 
-        public void SaveCurrenciesOfBonusLevel(object[] obj)
+        public void ReturnFromBonusLevel(object[] obj)
         {
             SessionGameData.SaveData("CurrenciesOfBonusLevel", levelCurrency);
         }
 
         public void Retry()
         {
+            SessionGameData.ResetData();
             SceneManager.Instance.RestartLevel();
         }
 
         public void QuitGame()
         {
+            SessionGameData.ResetData();
             levelCurrency = 0;
             levelGas = 0;
             SceneManager.Instance.ChangeToMenuScene("MainMenu");
@@ -120,11 +131,13 @@ namespace ProyectM2.Gameplay
         [ContextMenu ("Won")]
         public void Won()
         {
+            SessionGameData.ResetData();
             SceneManager.Instance.ChangeToMenuScene("MainMenu");
         }
 
         public void GameOver()
         {
+            SessionGameData.ResetData();
             Time.timeScale = 0f;
             _lose.SetActive(true);
         }
