@@ -1,6 +1,7 @@
 using ProyectM2.Managers;
 using UnityEngine;
 using ProyectM2.Persistence;
+using System;
 
 namespace ProyectM2.Gameplay.Teleport
 {
@@ -15,10 +16,30 @@ namespace ProyectM2.Gameplay.Teleport
             if(SessionGameData.GetData("TeleportWasUsed") !=null)
                 _teleportWasUsed = (bool)SessionGameData.GetData("TeleportWasUsed");
 
+            if (SessionGameData.GetData("IsInBonusLevel") != null)
+                _isInBonusLevel = (bool)SessionGameData.GetData("IsInBonusLevel");
+
             if (_teleportWasUsed && !_isInBonusLevel)
                 gameObject.SetActive(false);
 
         }
+
+        //private void OnEnable()
+        //{
+        //    EventManager.StartListening("TeleportToBonusLevel", TeleportToLevel);
+        //    EventManager.StartListening("TeleportReturnToLevel", TeleportToLevel);
+        //}
+
+        //private void OnDisable()
+        //{
+        //    EventManager.StopListening("TeleportToBonusLevel", TeleportToLevel);
+        //    EventManager.StopListening("TeleportReturnToLevel", TeleportToLevel);
+        //}
+        //private void TeleportToLevel(object[] obj)
+        //{
+        //    SceneManager.Instance.ChangeScene((Scene)obj[0]);
+        //}
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
@@ -30,6 +51,10 @@ namespace ProyectM2.Gameplay.Teleport
                 }
                 else
                     EventManager.TriggerEvent("TeleportReturnToLevel", _scene);
+
+                
+                SessionGameData.SaveData("IsInBonusLevel", !_isInBonusLevel);
+                SceneManager.Instance.ChangeScene(_scene);
             }
         }
     }
