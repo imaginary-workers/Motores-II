@@ -61,7 +61,6 @@ namespace ProyectM2.Gameplay
             RaycastHit hit;
             if (Physics.Raycast(_ray, out hit, Single.PositiveInfinity, _playerLayer))
             {
-                Debug.Log("Hit "+hit.collider.gameObject.name);
                 if (hit.collider.CompareTag("Player"))
                 {
                     _animationManager.HipUpAnimation();

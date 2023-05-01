@@ -7,7 +7,7 @@ namespace ProyectM2.Gameplay.Car
     {
         [SerializeField] float _substracttGas = 0.1f;
         private bool _isInCutscene = false;
-        private bool _onPause;
+        private bool _onPause = true;
 
         private void Start()
         {
@@ -17,6 +17,8 @@ namespace ProyectM2.Gameplay.Car
             {
                 coche.gameObject.tag = "Player";
             }
+            
+            
         }
 
         private void Update()

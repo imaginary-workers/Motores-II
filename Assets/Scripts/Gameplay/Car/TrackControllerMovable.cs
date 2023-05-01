@@ -42,18 +42,15 @@ namespace ProyectM2.Gameplay.Car
                 if (!hasHitRight && !hasHitLeft)
                 {
                     int change = Random.Range(0, 2);
-                    Debug.Log("eleji random a la " + (change == 0? "derecha" : "izquierda"));
                     if (change == 0) MoveRight();
                     else MoveLeft();
                 }
                 else if (hasHitRight)
                 {
-                    Debug.Log("no puedo ir a la derecha" );
                     MoveLeft();
                 }
                 else if (hasHitLeft)
                 {
-                    Debug.Log("no puedo ir a la izquierda");
                     MoveRight();
                 }
             }

@@ -3,6 +3,7 @@ using UnityEngine;
 using ProyectM2.Gameplay.Car;
 using ProyectM2.Managers;
 using ProyectM2.Persistence;
+using ProyectM2.UI;
 
 namespace ProyectM2.Gameplay
 {
@@ -13,12 +14,11 @@ namespace ProyectM2.Gameplay
         public static float levelGas = 100;
         public static GameObject player;
         public static Vector3 positionInLevel = new(0, 0, 0);
-        [SerializeField] Events _events;
-        [SerializeField] GameObject _lose;
-        [SerializeField] bool _isInBonusLevel = false;
-
-
-
+        [SerializeField] private Events _events;
+        [SerializeField] private GameObject _lose;
+        [SerializeField] private bool _isInBonusLevel = false;
+        [SerializeField] private PauseControllerUI _pauseController;
+        
         private void OnEnable()
         {
             _events.SubscribeToEvent(GameOver);
@@ -43,7 +43,6 @@ namespace ProyectM2.Gameplay
         }
         private void Start()
         {
-
             if (SessionGameData.GetData("IsInBonusLevel") != null)
             {
                 _isInBonusLevel = (bool)SessionGameData.GetData("IsInBonusLevel");
@@ -58,7 +57,6 @@ namespace ProyectM2.Gameplay
                     {
                         levelCurrency += (int)SessionGameData.GetData("CurrenciesOfBonusLevel");
                     }
-                    Debug.Log(levelCurrency);
                     EventManager.TriggerEvent("CurrencyModified", levelCurrency);
 
                 }
@@ -71,7 +69,8 @@ namespace ProyectM2.Gameplay
                     levelCurrency += (int)SessionGameData.GetData("CurrenciesOfBonusLevel");
                 }
             }
-
+            _pauseController.StartCountingDownToStart();
+            Time.timeScale = 0;
         }
 
         public static void AddCurrency(int value)
@@ -103,14 +102,12 @@ namespace ProyectM2.Gameplay
 
         public void TeleportToBonusLevel(object[] obj)
         {
-            Debug.Log(levelCurrency);
             SessionGameData.SaveData("LastPositionOfPlayer", player.transform.root.position);
             SessionGameData.SaveData("levelCurrency", levelCurrency);
         }
 
         public void ReturnFromBonusLevel(object[] obj)
         {
-            Debug.Log(levelCurrency);
             SessionGameData.SaveData("CurrenciesOfBonusLevel", levelCurrency);
         }
 
@@ -137,6 +134,11 @@ namespace ProyectM2.Gameplay
         {
             if (obj.Length == 0) return;
             var isPause = (bool)obj[0];
+            PauseGame(isPause);
+        }
+
+        private void PauseGame(bool isPause)
+        {
             Time.timeScale = isPause ? 0 : 1;
         }
 

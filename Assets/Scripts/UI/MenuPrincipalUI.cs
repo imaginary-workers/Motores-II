@@ -23,6 +23,7 @@ namespace ProyectM2.UI
 
         private void Awake()
         {
+            Time.timeScale = 1;
             _myDataPersistance.SaveGame();
             GetCurrencyData();
             _currency.SetActive(true);

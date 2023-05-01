@@ -37,7 +37,6 @@ namespace ProyectM2.Managers.Levels
 
         void CheckDistanceFromPlayer(Transform nextPivot, Transform lastPivot, GameObject player)
         {
-            Debug.Log(player.name);
             Vector3 dirToNextPivot = player.transform.position - nextPivot.transform.position;
             Vector3 dirToPastPivot = lastPivot.transform.position - player.transform.position;
             if (dirToNextPivot.sqrMagnitude <= (_distanceToCreateSection * _distanceToCreateSection) && !_createSectionNotifed)
