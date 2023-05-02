@@ -40,33 +40,15 @@ namespace ProyectM2.Gameplay.Car
         private void OnEnemyDiedCutSceneStarted(object[] obj)
         {
             _isInCutscene = true;
-            if (obj.Length == 0) return;
-            var enemyTrack = (int) obj[0];
-            if (enemyTrack == track)
-            {
-                if (enemyTrack == -1)
-                {
-                    MoveRight();
-                }
-                else if (enemyTrack == 1)
-                {
-                    MoveLeft();
-                }
-                else
-                {
-                    MoveRight();
-                }
-            }
-
             StartCoroutine(CO_Wait());
         }
 
         private IEnumerator CO_Wait()
         {
-            Debug.Log(_isInCutscene);
-            yield return new WaitForSecondsRealtime(3f);
+            yield return new WaitForSecondsRealtime(.5f);
+            myAnim.JumpAnimation();
+            yield return new WaitForSecondsRealtime(2.5f);
             _isInCutscene = false;
-            Debug.Log(_isInCutscene);
         }
 
         private void OnPauseHandler(object[] obj)

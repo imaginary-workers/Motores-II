@@ -44,7 +44,6 @@ namespace ProyectM2.Music
                 playedTime = PlayerPrefs.GetFloat("LevelMusicPlayedTime", 0);
             }
 
-            Debug.Log($"PLAY {_isBonusLevel}");
             MusicManager.Instance.PlayMusic(_initMusicLevelClip, playedTime);
         }
     }
