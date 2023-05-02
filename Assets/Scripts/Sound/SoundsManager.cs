@@ -16,6 +16,11 @@ namespace ProyectM2.Sound
         {
             EventManager.StartListening("OnPause", PauseRunSound);
         }
+        
+        private void OnDisable()
+        {
+            EventManager.StopListening("OnPause", PauseRunSound);
+        }
 
         private void PauseRunSound(object[] obj)
         {
