@@ -37,8 +37,6 @@ namespace ProyectM2.Gameplay.Teleport
                 {
                     EventManager.TriggerEvent("TeleportReturnToLevel", _scene);
                 }
-
-                
                 SessionGameData.SaveData("IsInBonusLevel", !_isInBonusLevel);
                 SceneManager.Instance.ChangeScene(_scene);
             }
