@@ -14,6 +14,7 @@ namespace ProyectM2.Car
         int turnRightParameterId;
         int crashParameterId;
         int hipParameterId;
+        int jumpParameterId;
 
         private void Start()
         {
@@ -22,6 +23,7 @@ namespace ProyectM2.Car
             turnLeftParameterId = Animator.StringToHash("TurnLeft");
             crashParameterId = Animator.StringToHash("Crash");
             hipParameterId = Animator.StringToHash("Hip");
+            jumpParameterId = Animator.StringToHash("Jump");
         }
 
         public void IDLE_ANIMATION()
@@ -68,6 +70,11 @@ namespace ProyectM2.Car
         {
             if (_events.ContainsKey(key))
                 _events[key]();
+        }
+
+        public void JumpAnimation()
+        {
+            _myAnim.SetTrigger(jumpParameterId);
         }
     }
 

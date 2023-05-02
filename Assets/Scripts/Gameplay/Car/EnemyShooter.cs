@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace ProyectM2.Gameplay.Car
 {
@@ -40,6 +42,21 @@ namespace ProyectM2.Gameplay.Car
                 bulletObject.transform.position = transform.position;
                 _shootTime = 0;
             }
+        }
+
+        private void OnEnable()
+        {
+            EventManager.StartListening("EnemyDiedCutSceneStarted", OnEnemyDiedCutSceneStartedHandler);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.StopListening("EnemyDiedCutSceneStarted", OnEnemyDiedCutSceneStartedHandler);
+        }
+
+        private void OnEnemyDiedCutSceneStartedHandler(object[] obj)
+        {
+            Destroy(gameObject);
         }
     }
 }

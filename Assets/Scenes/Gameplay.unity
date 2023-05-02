@@ -439,6 +439,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2111789481 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 682726092, guid: 7ccf943c99924994aa32f39dee857d18,
+    type: 3}
+  m_PrefabInstance: {fileID: 6072238613959147863}
+  m_PrefabAsset: {fileID: 0}
 --- !u!222 &1766541347635062160
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2967,6 +2973,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 127793700, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
+      propertyPath: m_PlayableAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 7cd5ff37d783f0b4aad54d5837a42bd7,
+        type: 2}
+    - target: {fileID: 127793700, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 127793700, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].key
+      value: 
+      objectReference: {fileID: -4906641536580813916, guid: 7cd5ff37d783f0b4aad54d5837a42bd7,
+        type: 2}
+    - target: {fileID: 127793700, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].value
+      value: 
+      objectReference: {fileID: 2111789481}
     - target: {fileID: 105307429576614643, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
       propertyPath: m_Volume
@@ -2982,6 +3006,18 @@ PrefabInstance:
       propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
       value: 0.811
       objectReference: {fileID: 0}
+    - target: {fileID: 1972525745378423354, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: _toEnemyView
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f55dad47433d254d8da29e92ec4461b,
+        type: 2}
+    - target: {fileID: 1972525745378423354, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: _toNormalView
+      value: 
+      objectReference: {fileID: 11400000, guid: 7cd5ff37d783f0b4aad54d5837a42bd7,
+        type: 2}
     - target: {fileID: 5530683295635110520, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
       propertyPath: m_Name
