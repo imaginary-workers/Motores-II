@@ -2877,6 +2877,12 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 5974397291923725021, guid: fdac2c09a461b204badafb8872c97a9c,
         type: 3}
+      propertyPath: _eventsBonus
+      value: 
+      objectReference: {fileID: 11400000, guid: e114b129a9aeb404391c8e03cc638d55,
+        type: 2}
+    - target: {fileID: 5974397291923725021, guid: fdac2c09a461b204badafb8872c97a9c,
+        type: 3}
       propertyPath: _pauseController
       value: 
       objectReference: {fileID: 1766541348909096852}
@@ -2999,7 +3005,7 @@ PrefabInstance:
     - target: {fileID: 5530683295635110524, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -75.5
       objectReference: {fileID: 0}
     - target: {fileID: 5530683295635110524, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}

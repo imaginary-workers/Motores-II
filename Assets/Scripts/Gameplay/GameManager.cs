@@ -4,6 +4,7 @@ using ProyectM2.Gameplay.Car;
 using ProyectM2.Managers;
 using ProyectM2.Persistence;
 using ProyectM2.UI;
+using System;
 
 namespace ProyectM2.Gameplay
 {
@@ -15,6 +16,7 @@ namespace ProyectM2.Gameplay
         public static GameObject player;
         public static Vector3 positionInLevel = new(0, 0, 0);
         [SerializeField] private Events _events;
+        [SerializeField] private Events _eventsBonus;
         [SerializeField] private GameObject _lose;
         [SerializeField] private bool _isInBonusLevel = false;
         [SerializeField] private PauseControllerUI _pauseController;
@@ -22,15 +24,19 @@ namespace ProyectM2.Gameplay
         private void OnEnable()
         {
             _events.SubscribeToEvent(GameOver);
+            _eventsBonus.SubscribeToEvent(BonusGameOver);
             EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
             EventManager.StartListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StartListening("TeleportReturnToLevel", ReturnFromBonusLevel); ;
             EventManager.StartListening("OnPause", Pause);
         }
 
+
+
         private void OnDisable()
         {
             _events.UnsubscribeFromEvent(GameOver);
+            _eventsBonus.UnsubscribeFromEvent(BonusGameOver);
             EventManager.StopListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StopListening("TeleportReturnToLevel", ReturnFromBonusLevel);
             EventManager.StopListening("PlayerGetHit", OnPlayerGetHit);
@@ -154,6 +160,10 @@ namespace ProyectM2.Gameplay
             SessionGameData.ResetData();
             Time.timeScale = 0f;
             _lose.SetActive(true);
+        }
+        private void BonusGameOver()
+        {
+            SceneManager.Instance.ChangeScene((Scene)SessionGameData.GetData("scene"));
         }
     }
 }

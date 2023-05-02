@@ -12,6 +12,21 @@ namespace ProyectM2.Music
             _audioSource = Instantiate(audioSourcePrefab, transform).GetComponent<AudioSource>();
         }
 
+        private void OnEnable()
+        {
+            EventManager.StartListening("OnChangeScene", OnChangeSceneHandler);
+        }
+
+        private void OnChangeSceneHandler(object[] obj)
+        {
+            StopMusic();
+        }
+
+        private void OnDisable()
+        {
+            EventManager.StopListening("OnChangeScene", OnChangeSceneHandler);
+        }
+
         public float GetPlayedTime()
         {
             return _audioSource.time;

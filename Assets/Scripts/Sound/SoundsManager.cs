@@ -16,6 +16,11 @@ namespace ProyectM2.Sound
         {
             EventManager.StartListening("OnPause", PauseRunSound);
         }
+        
+        private void OnDisable()
+        {
+            EventManager.StopListening("OnPause", PauseRunSound);
+        }
 
         private void PauseRunSound(object[] obj)
         {
@@ -36,6 +41,7 @@ namespace ProyectM2.Sound
         {            
             if (_source.isPlaying && _source.clip == _driving) return;
             _source.clip = _driving;
+            _source.loop = true;
             _source.Play();
         }
     }
