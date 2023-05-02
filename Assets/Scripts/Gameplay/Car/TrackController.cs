@@ -8,6 +8,7 @@ namespace ProyectM2.Gameplay.Car
     {
         [SerializeField] protected DataCar data;
         [SerializeField] protected int track = 0;
+        public int Track => track;
         
         [SerializeField] protected AnimManager myAnim;
         public void MoveRight()
