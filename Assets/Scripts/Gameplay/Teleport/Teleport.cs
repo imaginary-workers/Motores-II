@@ -12,7 +12,8 @@ namespace ProyectM2.Gameplay.Teleport
 
         private void Awake()
         {
-            if(SessionGameData.GetData("TeleportWasUsed") !=null)
+
+            if (SessionGameData.GetData("TeleportWasUsed") !=null)
                 _teleportWasUsed = (bool)SessionGameData.GetData("TeleportWasUsed");
 
             if (SessionGameData.GetData("IsInBonusLevel") != null)
@@ -29,12 +30,13 @@ namespace ProyectM2.Gameplay.Teleport
             {
                 if (!_isInBonusLevel)
                 {
-                    SessionGameData.SaveData("scene", _scene);
                     SessionGameData.SaveData("TeleportWasUsed", true);
                     EventManager.TriggerEvent("TeleportToBonusLevel", _scene);
                 }
                 else
+                {
                     EventManager.TriggerEvent("TeleportReturnToLevel", _scene);
+                }
 
                 
                 SessionGameData.SaveData("IsInBonusLevel", !_isInBonusLevel);
