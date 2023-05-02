@@ -18,7 +18,9 @@ namespace ProyectM2.Gameplay
         public static Vector3 positionInLevel = new(0, 0, 0);
         [SerializeField] private Events _events;
         [SerializeField] private Events _eventsBonus;
+        [SerializeField] private Events _eventWin;
         [SerializeField] private GameObject _lose;
+        [SerializeField] private GameObject _won;
         [SerializeField] private bool _isInBonusLevel = false;
         [SerializeField] private PauseControllerUI _pauseController;
 
@@ -26,6 +28,7 @@ namespace ProyectM2.Gameplay
         {
             _events.SubscribeToEvent(GameOver);
             _eventsBonus.SubscribeToEvent(BonusGameOver);
+            _eventWin.SubscribeToEvent(Won);
             EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
             EventManager.StartListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StartListening("TeleportReturnToLevel", ReturnFromBonusLevel); ;
@@ -38,6 +41,7 @@ namespace ProyectM2.Gameplay
         {
             _events.UnsubscribeFromEvent(GameOver);
             _eventsBonus.UnsubscribeFromEvent(BonusGameOver);
+            _eventWin.UnsubscribeFromEvent(Won);
             EventManager.StopListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StopListening("TeleportReturnToLevel", ReturnFromBonusLevel);
             EventManager.StopListening("PlayerGetHit", OnPlayerGetHit);
@@ -131,6 +135,7 @@ namespace ProyectM2.Gameplay
 
         public void QuitGame()
         {
+            Debug.Log("QUIT GAME");
             SessionGameData.ResetData();
             levelCurrency = 0;
             levelGas = 0;
@@ -157,8 +162,10 @@ namespace ProyectM2.Gameplay
         [ContextMenu("Won")]
         public void Won()
         {
+            Debug.Log("GANO");
+            PauseGame(true);
             SessionGameData.ResetData();
-            SceneManager.Instance.ChangeToMenuScene("MainMenu");
+            _won.SetActive(true);
         }
 
         public void GameOver()
