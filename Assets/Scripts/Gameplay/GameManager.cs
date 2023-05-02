@@ -5,6 +5,7 @@ using ProyectM2.Managers;
 using ProyectM2.Persistence;
 using ProyectM2.UI;
 using System;
+using ProyectM2.Gameplay.Car.Path;
 
 namespace ProyectM2.Gameplay
 {
@@ -69,6 +70,8 @@ namespace ProyectM2.Gameplay
                 if (SessionGameData.GetData("LastPositionOfPlayer") != null)
                 {
                     player.transform.root.position = (Vector3)SessionGameData.GetData("LastPositionOfPlayer");
+                    var playerPathManager = player.transform.root.GetComponent<PlayerPathManager>();
+                    playerPathManager.SetCurrentPathTarget(playerPathManager.GetClosestPathTarget());
                     player.transform.root.forward = (Vector3)SessionGameData.GetData("ForwardOfPlayer");
 
                 }
