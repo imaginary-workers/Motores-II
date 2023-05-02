@@ -64,7 +64,6 @@ namespace ProyectM2.Managers
             _loadCanvasUI.SetLoadTextTo("Listo");
             yield return new WaitForSecondsRealtime(1f);
             _loadCanvasUI.DisplayLoadCanvas(false);
-            Time.timeScale = 1;
         }
     }
 }

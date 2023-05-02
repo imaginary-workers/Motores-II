@@ -12,12 +12,18 @@ namespace ProyectM2.Music
             _audioSource = Instantiate(audioSourcePrefab, transform).GetComponent<AudioSource>();
         }
 
+        public float GetPlayedTime()
+        {
+            return _audioSource.time;
+        }
+
         public void LoadMusic()
         {   
         }
 
-        public void PlayMusic(AudioClip clip)
+        public void PlayMusic(AudioClip clip, float from = 0f)
         {
+            _audioSource.time = from;
             _audioSource.clip = clip;
             _audioSource.Play();
         }

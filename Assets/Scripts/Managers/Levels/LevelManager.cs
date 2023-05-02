@@ -54,7 +54,6 @@ namespace ProyectM2.Managers.Levels
             {
                 for (int i = _currentIndex; i < (int)SessionGameData.GetData("LastSectionIndex"); i++)
                 {
-                    Debug.Log("i " + i);
                     NewSection(i);
                 }
             }
@@ -80,7 +79,6 @@ namespace ProyectM2.Managers.Levels
 
         void NewSection(int sectionIndex)
         {
-            Debug.Log("Section Index " + sectionIndex);
             if (_isInInfinitiveSection)
             {
                 Instantiate(_infinitiveSection, _sectionsListInGame[_sectionsListInGame.Count - 1].transform.Find("CreateSectionPivot").position, Quaternion.identity);
