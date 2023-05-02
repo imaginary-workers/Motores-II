@@ -11,14 +11,11 @@ namespace ProyectM2
         [SerializeField] GameObject _canvasTutorial;
         void Start()
         {
-            if (SessionGameData.GetData("TeleportWasUsed") != null)
+            var teleportWasUsed = SessionGameData.GetData("TeleportWasUsed");
+            if (teleportWasUsed == null || !(bool)teleportWasUsed)
             {
-                if (!(bool)SessionGameData.GetData("TeleportWasUsed"))
-                {
-                    _canvasTutorial.SetActive(true);
-                    StartCoroutine(Wait());
-                }
-
+                _canvasTutorial.SetActive(true);
+                StartCoroutine(Wait());
             }
         }
  
