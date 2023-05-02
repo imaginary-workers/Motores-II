@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using ProyectM2.Persistence;
 
 namespace ProyectM2.Gameplay.Car.Path
 {
@@ -12,6 +13,7 @@ namespace ProyectM2.Gameplay.Car.Path
         public GameObject GetClosestPathTarget()
         {
             var pathTargets = GameObject.FindGameObjectsWithTag(_targetTag);
+            
             GameObject closest = null;
             var closestDistance = Mathf.Infinity;
             foreach (var target in pathTargets)

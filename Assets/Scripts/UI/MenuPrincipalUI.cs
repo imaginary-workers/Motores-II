@@ -24,14 +24,19 @@ namespace ProyectM2.UI
         private void Awake()
         {
             Time.timeScale = 1;
-            _myDataPersistance.SaveGame();
-            GetCurrencyData();
+            //_myDataPersistance.SaveGame();
             _currency.SetActive(true);
             _menu1.SetActive(true);
             _levelsMenu.SetActive(false);
             _gameDataMenu.SetActive(false);
             _gameDataWarningPopUp.SetActive(false);
             _backButton.SetActive(false);
+        }
+
+        private void Start()
+        {
+            GetCurrencyData();
+            
         }
 
         public void Play(int level)
@@ -70,6 +75,7 @@ namespace ProyectM2.UI
         public void GetCurrencyData()
         {
             _myJsonData = _myDataPersistance.LoadGame();
+            Debug.Log(_myJsonData);
             _currencyText.text = _myJsonData.totalCurrencyOfPlayer.ToString();
             var timeSpan = TimeSpan.FromSeconds(_myJsonData.timePlayed);
             _timePlayedText.text = timeSpan.ToString(@"hh\:mm\:ss");

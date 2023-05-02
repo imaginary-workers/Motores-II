@@ -10,7 +10,7 @@ namespace ProyectM2.Persistence
     {
         string _path;
 
-        private void Start()
+        private void Awake()
         {
             CheckPath();
 
@@ -35,17 +35,15 @@ namespace ProyectM2.Persistence
         {
             CheckPath();
             var instanciaClase = new ValuesToSaveInJson(); //estamos creando instancia de la clase
-
             if (File.Exists(_path))
                 instanciaClase = LoadGame();
-            
+
             instanciaClase.totalCurrencyOfPlayer += GameManager.levelCurrency;
             instanciaClase.totalCurrencyGainOfPlayer += GameManager.levelCurrency;
             instanciaClase.timePlayed += Time.realtimeSinceStartup;
             GameManager.levelCurrency = 0;
 
             string dataToSave = JsonUtility.ToJson(instanciaClase, true);
-
             byte[] bytesToEncode = Encoding.UTF8.GetBytes(dataToSave);
             string encodedText = Convert.ToBase64String(bytesToEncode);
 

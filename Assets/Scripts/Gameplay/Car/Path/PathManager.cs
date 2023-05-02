@@ -34,7 +34,7 @@ namespace ProyectM2.Gameplay.Car.Path
                 _currentPathTarget = other.GetComponent<PathTargetInfo>().NextPathTarget;
                 if (_currentPathTarget == null)
                 {
-                    //TODO es el ultimo, así que debe avisar que terminó el nivel.
+                    
                     _canMove = false;
                     return;
                 }

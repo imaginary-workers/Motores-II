@@ -25,7 +25,11 @@ namespace ProyectM2.Gameplay.Car
             if (_isInCutscene) return;
             if (_onPause) return;
             InputManager.CurrentInput.OnUpdate();
-            GameManager.SubstractGas(_substracttGas * Time.deltaTime);
+            if (!GameManager._isInBonusLevel)
+            {
+                GameManager.SubstractGas(_substracttGas * Time.deltaTime);
+
+            }
         }
 
         private void OnEnable()
