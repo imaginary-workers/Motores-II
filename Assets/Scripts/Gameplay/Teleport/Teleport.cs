@@ -23,28 +23,13 @@ namespace ProyectM2.Gameplay.Teleport
 
         }
 
-        //private void OnEnable()
-        //{
-        //    EventManager.StartListening("TeleportToBonusLevel", TeleportToLevel);
-        //    EventManager.StartListening("TeleportReturnToLevel", TeleportToLevel);
-        //}
-
-        //private void OnDisable()
-        //{
-        //    EventManager.StopListening("TeleportToBonusLevel", TeleportToLevel);
-        //    EventManager.StopListening("TeleportReturnToLevel", TeleportToLevel);
-        //}
-        //private void TeleportToLevel(object[] obj)
-        //{
-        //    SceneManager.Instance.ChangeScene((Scene)obj[0]);
-        //}
-
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
                 if (!_isInBonusLevel)
                 {
+                    SessionGameData.SaveData("scene", _scene);
                     SessionGameData.SaveData("TeleportWasUsed", true);
                     EventManager.TriggerEvent("TeleportToBonusLevel", _scene);
                 }
