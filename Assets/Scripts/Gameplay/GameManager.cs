@@ -69,6 +69,8 @@ namespace ProyectM2.Gameplay
                 if (SessionGameData.GetData("LastPositionOfPlayer") != null)
                 {
                     player.transform.root.position = (Vector3)SessionGameData.GetData("LastPositionOfPlayer");
+                    player.transform.root.forward = (Vector3)SessionGameData.GetData("ForwardOfPlayer");
+
                 }
                 if (SessionGameData.GetData("CurrenciesOfBonusLevel") != null)
                 {
@@ -109,6 +111,7 @@ namespace ProyectM2.Gameplay
         public void TeleportToBonusLevel(object[] obj)
         {
             SessionGameData.SaveData("LastPositionOfPlayer", player.transform.root.position);
+            SessionGameData.SaveData("ForwardOfPlayer", player.transform.root.forward);
             SessionGameData.SaveData("levelCurrency", levelCurrency);
         }
 
@@ -163,6 +166,7 @@ namespace ProyectM2.Gameplay
         }
         private void BonusGameOver()
         {
+            SessionGameData.SaveData("IsInBonusLevel", !_isInBonusLevel);
             SceneManager.Instance.ChangeScene(SceneManager.Instance.historyScene[^2]);
         }
     }
