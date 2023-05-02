@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
+using ProyectM2.Persistence;
 
 namespace ProyectM2
 {
@@ -10,8 +11,15 @@ namespace ProyectM2
         [SerializeField] GameObject _canvasTutorial;
         void Start()
         {
-            _canvasTutorial.SetActive(true);
-            StartCoroutine(Wait());
+            if (SessionGameData.GetData("TeleportWasUsed") != null)
+            {
+                if (!(bool)SessionGameData.GetData("TeleportWasUsed"))
+                {
+                    _canvasTutorial.SetActive(true);
+                    StartCoroutine(Wait());
+                }
+
+            }
         }
  
         void AfterTutorial()
