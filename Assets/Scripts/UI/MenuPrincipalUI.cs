@@ -11,7 +11,7 @@ namespace ProyectM2.UI
     public class MenuPrincipalUI : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _currencyText;
-        [SerializeField] private TextMeshProUGUI _totalCurrencyGainText;
+        [SerializeField] private TextMeshProUGUI _timePlayedText;
         [SerializeField] private GameObject _currency;
         [SerializeField] private GameObject _menu1; 
         [SerializeField] private GameObject _levelsMenu; 
@@ -77,7 +77,8 @@ namespace ProyectM2.UI
             _myJsonData = _myDataPersistance.LoadGame();
             Debug.Log(_myJsonData);
             _currencyText.text = _myJsonData.totalCurrencyOfPlayer.ToString();
-            _totalCurrencyGainText.text = $"Total Monedas: {_myJsonData.totalCurrencyGainOfPlayer}";
+            var timeSpan = TimeSpan.FromSeconds(_myJsonData.timePlayed);
+            _timePlayedText.text = timeSpan.ToString(@"hh\:mm\:ss");
         }
 
         private Stack<ICommand> commandStack = new Stack<ICommand>();

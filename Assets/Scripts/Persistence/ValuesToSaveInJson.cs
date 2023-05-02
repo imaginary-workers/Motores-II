@@ -9,5 +9,6 @@ namespace ProyectM2
         public int totalCurrencyGainOfPlayer;
         public int lastLevel;
         public float maxGas;
+        public float timePlayed;
     }
 }

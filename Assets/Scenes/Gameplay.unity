@@ -177,7 +177,7 @@ PrefabInstance:
     - target: {fileID: 3345540953497798588, guid: 3256dcb8b95f6a64f9d312f69d7e8b4e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3345540953497798588, guid: 3256dcb8b95f6a64f9d312f69d7e8b4e,
         type: 3}
@@ -3171,7 +3171,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3220757007664371541}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3246,8 +3246,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3220757007485989349}
   - {fileID: 537430852}
+  - {fileID: 3220757007485989349}
   m_Father: {fileID: 1766541348909096808}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3400,10 +3400,6 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[1].value
       value: 
       objectReference: {fileID: 2111789481}
-    - target: {fileID: 183394188, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
-      propertyPath: _substracttGas
-      value: 1.1
-      objectReference: {fileID: 0}
     - target: {fileID: 105307429576614643, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
       propertyPath: m_Volume
