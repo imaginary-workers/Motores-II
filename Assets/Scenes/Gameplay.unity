@@ -2875,6 +2875,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 5b59feda95cb8d946901acb168a0ece8,
         type: 2}
+    - target: {fileID: 5974397291923725021, guid: fdac2c09a461b204badafb8872c97a9c,
+        type: 3}
+      propertyPath: _pauseController
+      value: 
+      objectReference: {fileID: 1766541348909096852}
     - target: {fileID: 5974397291923725026, guid: fdac2c09a461b204badafb8872c97a9c,
         type: 3}
       propertyPath: m_RootOrder

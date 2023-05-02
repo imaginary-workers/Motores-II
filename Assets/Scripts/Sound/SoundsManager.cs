@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace ProyectM2.Sound
@@ -8,10 +7,14 @@ namespace ProyectM2.Sound
         [SerializeField] AudioClip _driving;
         [SerializeField] AudioSource _source;
 
+        private void Awake()
+        {
+            _source.Stop();
+        }
+
         private void OnEnable()
         {
             EventManager.StartListening("OnPause", PauseRunSound);
-            RunSound();
         }
 
         private void PauseRunSound(object[] obj)
@@ -28,6 +31,7 @@ namespace ProyectM2.Sound
             }  
 
         }
+
         public void RunSound()
         {            
             if (_source.isPlaying && _source.clip == _driving) return;

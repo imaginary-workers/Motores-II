@@ -21,10 +21,15 @@ namespace ProyectM2.UI
             }
             else
             {
-                StartCoroutine(CO_ResumeGame());
+                StartCountingDownToStart();
             }
         }
-        
+
+        public void StartCountingDownToStart()
+        {
+            StartCoroutine(CO_ResumeGame());
+        }
+
         private IEnumerator CO_ResumeGame()
         {
             yield return new WaitForSecondsRealtime(.5f);

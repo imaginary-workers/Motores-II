@@ -9,7 +9,6 @@ namespace ProyectM2.Gameplay.Car
             if (collision.gameObject.CompareTag("Player"))
             {
                 //TODO llavar al evento gameover;
-                Debug.Log("<br><color=green>TODO</color></br> llavar al evento gameover;");
             }
         }
     }
