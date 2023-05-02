@@ -163,7 +163,7 @@ namespace ProyectM2.Gameplay
         }
         private void BonusGameOver()
         {
-            SceneManager.Instance.ChangeScene((Scene)SessionGameData.GetData("scene"));
+            SceneManager.Instance.ChangeScene((Scene)SessionGameData.GetData("nextScene"));
         }
     }
 }
