@@ -1,7 +1,6 @@
 using ProyectM2.Managers;
 using UnityEngine;
 using ProyectM2.Persistence;
-using System;
 
 namespace ProyectM2.Gameplay.Teleport
 {
@@ -13,7 +12,8 @@ namespace ProyectM2.Gameplay.Teleport
 
         private void Awake()
         {
-            if(SessionGameData.GetData("TeleportWasUsed") !=null)
+
+            if (SessionGameData.GetData("TeleportWasUsed") !=null)
                 _teleportWasUsed = (bool)SessionGameData.GetData("TeleportWasUsed");
 
             if (SessionGameData.GetData("IsInBonusLevel") != null)
@@ -23,22 +23,6 @@ namespace ProyectM2.Gameplay.Teleport
                 gameObject.SetActive(false);
 
         }
-
-        //private void OnEnable()
-        //{
-        //    EventManager.StartListening("TeleportToBonusLevel", TeleportToLevel);
-        //    EventManager.StartListening("TeleportReturnToLevel", TeleportToLevel);
-        //}
-
-        //private void OnDisable()
-        //{
-        //    EventManager.StopListening("TeleportToBonusLevel", TeleportToLevel);
-        //    EventManager.StopListening("TeleportReturnToLevel", TeleportToLevel);
-        //}
-        //private void TeleportToLevel(object[] obj)
-        //{
-        //    SceneManager.Instance.ChangeScene((Scene)obj[0]);
-        //}
 
         private void OnTriggerEnter(Collider other)
         {
@@ -50,7 +34,9 @@ namespace ProyectM2.Gameplay.Teleport
                     EventManager.TriggerEvent("TeleportToBonusLevel", _scene);
                 }
                 else
+                {
                     EventManager.TriggerEvent("TeleportReturnToLevel", _scene);
+                }
 
                 
                 SessionGameData.SaveData("IsInBonusLevel", !_isInBonusLevel);

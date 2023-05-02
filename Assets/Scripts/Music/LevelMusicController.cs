@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using ProyectM2.Persistence;
 using UnityEngine;
 
 namespace ProyectM2.Music
@@ -6,16 +6,26 @@ namespace ProyectM2.Music
     public class LevelMusicController: MonoBehaviour
     {
         [SerializeField] private AudioClip _initMusicLevelClip;
+        private bool _isBonusLevel;
+
+        private void Awake()
+        {
+            var isBonusLevel = SessionGameData.GetData("IsInBonusLevel");
+            _isBonusLevel = isBonusLevel != null && (bool) isBonusLevel;
+        }
+
         private void OnEnable()
         {
-            EventManager.StartListening("StartLevel", OnStartLevelHandler);
-            EventManager.StartListening("GoToBonus", OnGoToBonesHandler);
+            EventManager.StartListening("OnPause", OnStartLevelHandler);
+            if (_isBonusLevel) return;
+            EventManager.StartListening("TeleportToBonusLevel", OnGoToBonesHandler);
         }
 
         private void OnDisable()
         {
-            EventManager.StopListening("StartLevel", OnStartLevelHandler);
-            EventManager.StopListening("GoToBonus", OnGoToBonesHandler);
+            EventManager.StopListening("OnPause", OnStartLevelHandler);
+            if (_isBonusLevel) return;
+            EventManager.StopListening("TeleportToBonusLevel", OnGoToBonesHandler);
         }
 
         private void OnGoToBonesHandler(object[] obj)
@@ -25,13 +35,17 @@ namespace ProyectM2.Music
 
         private void OnStartLevelHandler(object[] obj)
         {
-            var playedTime = PlayerPrefs.GetFloat("LevelMusicPlayedTime", 0);
-            MusicManager.Instance.PlayMusic(_initMusicLevelClip, playedTime);
-        }
+            if (obj.Length <= 0) return;
+            if ((bool) obj[0]) return;
 
-        private void Awake()
-        {
-            MusicManager.Instance.PlayMusic(_initMusicLevelClip);
+            var playedTime = 0f;
+            if (!_isBonusLevel)
+            {
+                playedTime = PlayerPrefs.GetFloat("LevelMusicPlayedTime", 0);
+            }
+
+            Debug.Log($"PLAY {_isBonusLevel}");
+            MusicManager.Instance.PlayMusic(_initMusicLevelClip, playedTime);
         }
     }
 }
