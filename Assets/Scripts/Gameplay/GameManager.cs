@@ -5,6 +5,7 @@ using ProyectM2.Managers;
 using ProyectM2.Persistence;
 using ProyectM2.UI;
 using System;
+using ProyectM2.Gameplay.Car.Path;
 
 namespace ProyectM2.Gameplay
 {
@@ -17,6 +18,7 @@ namespace ProyectM2.Gameplay
         public static Vector3 positionInLevel = new(0, 0, 0);
         [SerializeField] private Events _events;
         [SerializeField] private Events _eventsBonus;
+        [SerializeField] private Events _eventWin;
         [SerializeField] private GameObject _lose;
         [SerializeField] private GameObject _won;
         [SerializeField] public static bool _isInBonusLevel = false;
@@ -26,6 +28,7 @@ namespace ProyectM2.Gameplay
         {
             _events.SubscribeToEvent(GameOver);
             _eventsBonus.SubscribeToEvent(BonusGameOver);
+            _eventWin.SubscribeToEvent(Won);
             EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
             EventManager.StartListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StartListening("TeleportReturnToLevel", ReturnFromBonusLevel); ;
@@ -38,6 +41,7 @@ namespace ProyectM2.Gameplay
         {
             _events.UnsubscribeFromEvent(GameOver);
             _eventsBonus.UnsubscribeFromEvent(BonusGameOver);
+            _eventWin.UnsubscribeFromEvent(Won);
             EventManager.StopListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StopListening("TeleportReturnToLevel", ReturnFromBonusLevel);
             EventManager.StopListening("PlayerGetHit", OnPlayerGetHit);
@@ -72,6 +76,8 @@ namespace ProyectM2.Gameplay
                 if (SessionGameData.GetData("LastPositionOfPlayer") != null)
                 {
                     player.transform.root.position = (Vector3)SessionGameData.GetData("LastPositionOfPlayer");
+                    var playerPathManager = player.transform.root.GetComponent<PlayerPathManager>();
+                    playerPathManager.SetCurrentPathTarget(playerPathManager.GetClosestPathTarget());
                     player.transform.root.forward = (Vector3)SessionGameData.GetData("ForwardOfPlayer");
 
                 }
@@ -123,7 +129,6 @@ namespace ProyectM2.Gameplay
             SessionGameData.SaveData("LastPositionOfPlayer", player.transform.root.position);
             SessionGameData.SaveData("ForwardOfPlayer", player.transform.root.forward);
             SessionGameData.SaveData("levelCurrency", levelCurrency);
-            Debug.Log("Save data " + levelGas);
             SessionGameData.SaveData("levelGas", levelGas);
         }
 
@@ -164,10 +169,9 @@ namespace ProyectM2.Gameplay
         [ContextMenu("Won")]
         public void Won()
         {
-            Debug.Log("GANO");
-            PauseGame(true);
             SessionGameData.ResetData();
-            SceneManager.Instance.ChangeToMenuScene("MainMenu");
+            _won.SetActive(true);
+            PauseGame(true);
         }
 
         public void GameOver()
