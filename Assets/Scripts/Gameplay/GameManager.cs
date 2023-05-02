@@ -8,7 +8,7 @@ using System;
 
 namespace ProyectM2.Gameplay
 {
-    public class GameManager: MonoBehaviour
+    public class GameManager : MonoBehaviour
     {
         public static int levelCurrency = 0;
         public static int currentLevel = 0;
@@ -20,7 +20,7 @@ namespace ProyectM2.Gameplay
         [SerializeField] private GameObject _lose;
         [SerializeField] private bool _isInBonusLevel = false;
         [SerializeField] private PauseControllerUI _pauseController;
-        
+
         private void OnEnable()
         {
             _events.SubscribeToEvent(GameOver);
@@ -84,7 +84,7 @@ namespace ProyectM2.Gameplay
             levelCurrency += value;
             EventManager.TriggerEvent("CurrencyModified", levelCurrency, value);
         }
-        
+
         public static void SubstractCurrency(int value)
         {
             levelCurrency -= value;
@@ -95,11 +95,11 @@ namespace ProyectM2.Gameplay
         public static void AddGas(int value)
         {
             levelGas += value;
-            if(levelGas > 100)
+            if (levelGas > 100)
             {
                 levelGas = 100;
             }
-            EventManager.TriggerEvent("GasModified",levelGas);
+            EventManager.TriggerEvent("GasModified", levelGas);
         }
         public static void SubstractGas(float value)
         {
@@ -148,7 +148,7 @@ namespace ProyectM2.Gameplay
             Time.timeScale = isPause ? 0 : 1;
         }
 
-        [ContextMenu ("Won")]
+        [ContextMenu("Won")]
         public void Won()
         {
             SessionGameData.ResetData();
@@ -163,7 +163,7 @@ namespace ProyectM2.Gameplay
         }
         private void BonusGameOver()
         {
-            SceneManager.Instance.ChangeScene((Scene)SessionGameData.GetData("nextScene"));
+            SceneManager.Instance.ChangeScene(SceneManager.Instance.historyScene[^2]);
         }
     }
 }

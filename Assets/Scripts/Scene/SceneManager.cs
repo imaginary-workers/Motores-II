@@ -10,6 +10,7 @@ namespace ProyectM2.Managers
     public class SceneManager : Singleton<SceneManager>
     {
         [SerializeField] private LoadCanvasUI _loadCanvasUI;
+        public List<Scene> historyScene = new List<Scene>();
 
         protected override void Awake()
         {
@@ -49,6 +50,11 @@ namespace ProyectM2.Managers
             if (nextScene.type == Scene.Type.Gameplay)
             {
                 sceneToLoad.Add(SM.LoadSceneAsync(nextScene.type.ToString(), LoadSceneMode.Additive));
+                historyScene.Add(nextScene);
+            }
+            else
+            {
+                historyScene.Clear();
             }
 
             var progress = 0f;
