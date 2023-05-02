@@ -155,6 +155,10 @@ namespace ProyectM2.Gameplay
             Time.timeScale = 0f;
             _lose.SetActive(true);
         }
+        private void BonusGameOver()
+        {
+            SceneManager.Instance.ChangeScene(SceneManager.Instance.historyScene[^2]);
+        }
     }
 }
 
