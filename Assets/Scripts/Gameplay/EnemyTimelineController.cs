@@ -67,7 +67,6 @@ namespace ProyectM2.Gameplay
                         }
                     }
                 }
-                Debug.Log(closestPathTarget);
 
                 if (closestPathTarget != null)
                 {

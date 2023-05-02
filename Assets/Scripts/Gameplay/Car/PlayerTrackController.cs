@@ -1,4 +1,5 @@
-﻿using ProyectM2.Inputs;
+﻿using System.Collections;
+using ProyectM2.Inputs;
 using UnityEngine;
 
 namespace ProyectM2.Gameplay.Car
@@ -17,8 +18,6 @@ namespace ProyectM2.Gameplay.Car
             {
                 coche.gameObject.tag = "Player";
             }
-            
-            
         }
 
         private void Update()
@@ -34,7 +33,22 @@ namespace ProyectM2.Gameplay.Car
             EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
             EventManager.StartListening("EnemyCutSceneEnded", OnEnemyCutSceneEnded);
             EventManager.StartListening("OnPause", OnPauseHandler);
+            EventManager.StartListening("EnemyDiedCutSceneStarted", OnEnemyDiedCutSceneStarted);
             InputManager.CurrentInput.Horizontal += OnHorizontal;
+        }
+
+        private void OnEnemyDiedCutSceneStarted(object[] obj)
+        {
+            _isInCutscene = true;
+            StartCoroutine(CO_Wait());
+        }
+
+        private IEnumerator CO_Wait()
+        {
+            yield return new WaitForSecondsRealtime(.5f);
+            myAnim.JumpAnimation();
+            yield return new WaitForSecondsRealtime(2.5f);
+            _isInCutscene = false;
         }
 
         private void OnPauseHandler(object[] obj)
@@ -65,6 +79,7 @@ namespace ProyectM2.Gameplay.Car
             EventManager.StopListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
             EventManager.StopListening("EnemyCutSceneEnded", OnEnemyCutSceneEnded);
             EventManager.StopListening("OnPause", OnPauseHandler);
+            EventManager.StopListening("EnemyDiedCutSceneStarted", OnEnemyDiedCutSceneStarted);
         }
 
         private void OnHorizontal(int hor)

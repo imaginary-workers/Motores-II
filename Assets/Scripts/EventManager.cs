@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ProyectM2
 {
@@ -48,6 +49,11 @@ namespace ProyectM2
             {
                 thisEvent.Invoke(data);
             }
+        }
+
+        private void OnDestroy()
+        {
+            eventDictionary?.Clear();
         }
     }
 }
