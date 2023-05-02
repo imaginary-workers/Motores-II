@@ -8,8 +8,11 @@ namespace ProyectM2
 
         private void OnTriggerEnter(Collider other)
         {
+            Debug.Log("choque");
             if (other.gameObject.CompareTag("Player"))
             {
+                Debug.Log("con el player");
+
                 _events.InvokeEvent();
             }
         }
