@@ -15,37 +15,32 @@ namespace ProyectM2
 
         void Start()
         {
-            _maxTime = GameManager.levelGas;
-            _currentTime = _maxTime;
+            _maxTime = 100;
+            _currentTime = GameManager.levelGas;
             _slider.maxValue = _maxTime;
             _slider.value = _currentTime;
         }
 
-        void Update()
-        {
-            _currentTime -= Time.deltaTime;
-            _slider.value = _currentTime;
-        }
 
-        public void ReloadSlider()
-        {
-            _currentTime = _maxTime;
-            _slider.value = _currentTime;
-        }
 
         private void OnEnable()
         {
             EventManager.StartListening("GasModified", OnGasModified);
+            EventManager.StartListening("GasSubtract", OnGasModified);
         }
 
         private void OnGasModified(object[] obj)
         {
             if (obj.Length == 0) return;
             _currentTime = (float)obj[0];
+            _slider.value = _currentTime;
+
         }
         private void OnDisable()
         {
             EventManager.StopListening("GasModified", OnGasModified);
+            EventManager.StopListening("GasSubtract", OnGasModified);
+
         }
     }
 }

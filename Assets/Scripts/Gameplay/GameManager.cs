@@ -18,7 +18,8 @@ namespace ProyectM2.Gameplay
         [SerializeField] private Events _events;
         [SerializeField] private Events _eventsBonus;
         [SerializeField] private GameObject _lose;
-        [SerializeField] private bool _isInBonusLevel = false;
+        [SerializeField] private GameObject _won;
+        [SerializeField] public static bool _isInBonusLevel = false;
         [SerializeField] private PauseControllerUI _pauseController;
 
         private void OnEnable()
@@ -59,26 +60,33 @@ namespace ProyectM2.Gameplay
                 if (SessionGameData.GetData("levelCurrency") != null)
                 {
                     levelCurrency = (int)SessionGameData.GetData("levelCurrency");
+
                     if (SessionGameData.GetData("CurrenciesOfBonusLevel") != null)
                     {
                         levelCurrency += (int)SessionGameData.GetData("CurrenciesOfBonusLevel");
                     }
-                    EventManager.TriggerEvent("CurrencyModified", levelCurrency);
 
+                    EventManager.TriggerEvent("CurrencyModified", levelCurrency);
                 }
+
                 if (SessionGameData.GetData("LastPositionOfPlayer") != null)
                 {
                     player.transform.root.position = (Vector3)SessionGameData.GetData("LastPositionOfPlayer");
                     player.transform.root.forward = (Vector3)SessionGameData.GetData("ForwardOfPlayer");
 
                 }
-                if (SessionGameData.GetData("CurrenciesOfBonusLevel") != null)
+
+                if (SessionGameData.GetData("levelGas") != null)
                 {
-                    levelCurrency += (int)SessionGameData.GetData("CurrenciesOfBonusLevel");
+                    levelGas = (float)SessionGameData.GetData("levelGas");
+                    Debug.Log("LEVEL GAS EN GM START " + levelGas);
+                    EventManager.TriggerEvent("GasSubtract", levelGas);
                 }
+
             }
             _pauseController.StartCountingDownToStart();
             Time.timeScale = 0;
+
         }
 
         public static void AddCurrency(int value)
@@ -106,6 +114,8 @@ namespace ProyectM2.Gameplay
         public static void SubstractGas(float value)
         {
             levelGas -= value;
+            EventManager.TriggerEvent("GasSubtract", levelGas);
+
         }
 
         public void TeleportToBonusLevel(object[] obj)
@@ -113,6 +123,8 @@ namespace ProyectM2.Gameplay
             SessionGameData.SaveData("LastPositionOfPlayer", player.transform.root.position);
             SessionGameData.SaveData("ForwardOfPlayer", player.transform.root.forward);
             SessionGameData.SaveData("levelCurrency", levelCurrency);
+            Debug.Log("Save data " + levelGas);
+            SessionGameData.SaveData("levelGas", levelGas);
         }
 
         public void ReturnFromBonusLevel(object[] obj)
@@ -129,8 +141,6 @@ namespace ProyectM2.Gameplay
         public void QuitGame()
         {
             SessionGameData.ResetData();
-            levelCurrency = 0;
-            levelGas = 0;
             SceneManager.Instance.ChangeToMenuScene("MainMenu");
         }
 
@@ -154,6 +164,8 @@ namespace ProyectM2.Gameplay
         [ContextMenu("Won")]
         public void Won()
         {
+            Debug.Log("GANO");
+            PauseGame(true);
             SessionGameData.ResetData();
             SceneManager.Instance.ChangeToMenuScene("MainMenu");
         }
