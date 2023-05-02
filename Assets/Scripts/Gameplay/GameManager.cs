@@ -4,10 +4,11 @@ using ProyectM2.Gameplay.Car;
 using ProyectM2.Managers;
 using ProyectM2.Persistence;
 using ProyectM2.UI;
+using System;
 
 namespace ProyectM2.Gameplay
 {
-    public class GameManager: MonoBehaviour
+    public class GameManager : MonoBehaviour
     {
         public static int levelCurrency = 0;
         public static int currentLevel = 0;
@@ -15,22 +16,27 @@ namespace ProyectM2.Gameplay
         public static GameObject player;
         public static Vector3 positionInLevel = new(0, 0, 0);
         [SerializeField] private Events _events;
+        [SerializeField] private Events _eventsBonus;
         [SerializeField] private GameObject _lose;
         [SerializeField] private bool _isInBonusLevel = false;
         [SerializeField] private PauseControllerUI _pauseController;
-        
+
         private void OnEnable()
         {
             _events.SubscribeToEvent(GameOver);
+            _eventsBonus.SubscribeToEvent(BonusGameOver);
             EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
             EventManager.StartListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StartListening("TeleportReturnToLevel", ReturnFromBonusLevel); ;
             EventManager.StartListening("OnPause", Pause);
         }
 
+
+
         private void OnDisable()
         {
             _events.UnsubscribeFromEvent(GameOver);
+            _eventsBonus.UnsubscribeFromEvent(BonusGameOver);
             EventManager.StopListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StopListening("TeleportReturnToLevel", ReturnFromBonusLevel);
             EventManager.StopListening("PlayerGetHit", OnPlayerGetHit);
@@ -78,7 +84,7 @@ namespace ProyectM2.Gameplay
             levelCurrency += value;
             EventManager.TriggerEvent("CurrencyModified", levelCurrency, value);
         }
-        
+
         public static void SubstractCurrency(int value)
         {
             levelCurrency -= value;
@@ -89,11 +95,11 @@ namespace ProyectM2.Gameplay
         public static void AddGas(int value)
         {
             levelGas += value;
-            if(levelGas > 100)
+            if (levelGas > 100)
             {
                 levelGas = 100;
             }
-            EventManager.TriggerEvent("GasModified",levelGas);
+            EventManager.TriggerEvent("GasModified", levelGas);
         }
         public static void SubstractGas(float value)
         {
@@ -142,7 +148,7 @@ namespace ProyectM2.Gameplay
             Time.timeScale = isPause ? 0 : 1;
         }
 
-        [ContextMenu ("Won")]
+        [ContextMenu("Won")]
         public void Won()
         {
             SessionGameData.ResetData();
