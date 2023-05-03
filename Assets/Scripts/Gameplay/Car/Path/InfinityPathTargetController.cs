@@ -46,6 +46,8 @@ namespace ProyectM2.Gameplay.Car.Path
                     _player = playerRoot.GetComponentInChildren<PlayerTrackController>().gameObject;
                 }
             }
+
+            _player = _player.transform.root.gameObject;
         }
 
         private void OnEnable()
@@ -67,15 +69,12 @@ namespace ProyectM2.Gameplay.Car.Path
 
         private void NewInfiniteSection(object[] obj)
         {
-            Debug.Log("Entro a infinite");
             _infinite = true;
         }
 
         private void LateUpdate()
         {
             if (!_infinite) return;
-            Debug.LogWarning(_player);
-            Debug.LogWarning(_distanceFromPlayer);
             transform.position = _player.transform.position + _player.transform.forward * _distanceFromPlayer;
         }
     }
