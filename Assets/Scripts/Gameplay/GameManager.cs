@@ -85,7 +85,6 @@ namespace ProyectM2.Gameplay
                 if (SessionGameData.GetData("levelGas") != null)
                 {
                     levelGas = (float)SessionGameData.GetData("levelGas");
-                    Debug.Log("LEVEL GAS EN GM START " + levelGas);
                     EventManager.TriggerEvent("GasSubtract", levelGas);
                 }
 
@@ -183,6 +182,7 @@ namespace ProyectM2.Gameplay
         private void BonusGameOver()
         {
             SessionGameData.SaveData("IsInBonusLevel", !_isInBonusLevel);
+            SessionGameData.GetData("levelCurrency");
             SceneManager.Instance.ChangeScene(SceneManager.Instance.historyScene[^2]);
         }
     }
