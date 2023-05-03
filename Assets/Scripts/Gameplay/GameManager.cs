@@ -23,6 +23,7 @@ namespace ProyectM2.Gameplay
         [SerializeField] private GameObject _won;
         [SerializeField] public static bool _isInBonusLevel = false;
         [SerializeField] private PauseControllerUI _pauseController;
+        bool _iWin = false;
 
         private void OnEnable()
         {
@@ -138,12 +139,17 @@ namespace ProyectM2.Gameplay
 
         public void Retry()
         {
+            SubstractCurrency(levelCurrency);
             SessionGameData.ResetData();
             SceneManager.Instance.RestartLevel();
         }
 
         public void QuitGame()
         {
+            if(!_iWin)
+            {
+                SubstractCurrency(levelCurrency);
+            }
             SessionGameData.ResetData();
             SceneManager.Instance.ChangeToMenuScene("MainMenu");
         }
@@ -168,6 +174,7 @@ namespace ProyectM2.Gameplay
         [ContextMenu("Won")]
         public void Won()
         {
+            _iWin = true;
             SessionGameData.ResetData();
             _won.SetActive(true);
             PauseGame(true);
