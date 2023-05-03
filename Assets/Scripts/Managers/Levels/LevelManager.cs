@@ -41,7 +41,7 @@ namespace ProyectM2.Managers.Levels
         private void OnDisable()
         {
             EventManager.StopListening("EnemyCutSceneStarted", NewInfinitiveSection);
-            // EventManager.StopListening("EnemyDiedCutSceneStarted", DisableInfinitiveSection);
+            EventManager.StopListening("EnemyDiedCutSceneStarted", DisableInfinitiveSection);
             EventManager.StopListening("TeleportToBonusLevel", GoToBonusLevel);
             EventManager.StopListening("TeleportReturnToLevel", GoToBonusLevel);
 
@@ -95,7 +95,6 @@ namespace ProyectM2.Managers.Levels
                 else
                     Instantiate(_sections[sectionIndex], _sectionsListInGame[Math.Max(0, _sectionsListInGame.Count - 1)].transform.Find("CreateSectionPivot").position, Quaternion.identity);
 
-                //Debug.Log(Instantiate(_sections[sectionIndex], new Vector3(0, 0, 0), Quaternion.identity).name);
                 _currentIndex++;
             }
         }
@@ -111,6 +110,7 @@ namespace ProyectM2.Managers.Levels
 
         void DisableInfinitiveSection(object[] obj)
         {
+            Debug.LogWarning("LevelManager Salio del infinito");
             _isInInfinitiveSection = false;
         }
 
