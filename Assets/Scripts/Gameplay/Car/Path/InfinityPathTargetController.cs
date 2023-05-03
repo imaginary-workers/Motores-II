@@ -65,7 +65,33 @@ namespace ProyectM2.Gameplay.Car.Path
         private void DisableInfiniteSection(object[] obj)
         {
             _infinite = false;
-            
+            var pathTargetInfos = FindObjectsOfType<PathTargetInfo>();
+            var minDistance = float.PositiveInfinity;
+            PathTargetInfo closestTargetInfo = null;
+            foreach (var targetInfo in pathTargetInfos)
+            {
+                if (closestTargetInfo == null)
+                {
+                    closestTargetInfo = targetInfo;
+                    minDistance = (transform.position - closestTargetInfo.transform.position).magnitude;
+                    continue;
+                }
+                
+                var distance = (transform.position - closestTargetInfo.transform.position).magnitude;
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    closestTargetInfo = targetInfo;
+                }
+            }
+
+            if (closestTargetInfo == null)
+            {
+                Debug.LogError("No encontro ningun PathTargetInfo");
+                return;
+            }
+
+            _pathTargetInfo.NextPathTarget = closestTargetInfo.gameObject;
         }
 
         private void NewInfiniteSection(object[] obj)
