@@ -9,13 +9,14 @@ namespace ProyectM2.Managers.Levels
 {
     public class LevelManager : MonoBehaviour, IObserver
     {
-        [SerializeField] Sections[] _sections;
-        [SerializeField] Sections _infinitiveSection;
+        [SerializeField] GameObject[] _sections;
+        [SerializeField] GameObject[] _infinitiveSection;
         List<Sections> _sectionsListInGame;
         Sections[] _allSectionsInGame;
         [SerializeField] int _currentIndex = 0;
         [SerializeField] bool _isInInfinitiveSection = false;
         [SerializeField] bool _isInBonusLevel = false;
+        [SerializeField] int _infinitIndex = 0;
 
 
         private void Awake()
@@ -81,12 +82,16 @@ namespace ProyectM2.Managers.Levels
         {
             if (_isInInfinitiveSection)
             {
-                Instantiate(_infinitiveSection, _sectionsListInGame[_sectionsListInGame.Count - 1].transform.Find("CreateSectionPivot").position, Quaternion.identity);
+                if (_infinitIndex != 0)
+                {
+                    _infinitiveSection[_infinitIndex].transform.position = _infinitiveSection[_infinitIndex - 1].transform.Find("CreateSectionPivot").position;
+                }
+                _infinitIndex++;
             }
             else if (sectionIndex <= _sections.Length - 1)
             {
                 if (sectionIndex == 0)
-                    Instantiate(_sections[sectionIndex], new Vector3(0, 0, 0), Quaternion.identity);
+                    _sections[sectionIndex].SetActive(true);
                 else
                     Instantiate(_sections[sectionIndex], _sectionsListInGame[Math.Max(0, _sectionsListInGame.Count - 1)].transform.Find("CreateSectionPivot").position, Quaternion.identity);
 
@@ -98,6 +103,10 @@ namespace ProyectM2.Managers.Levels
         void NewInfinitiveSection(object[] obj)
         {
             _isInInfinitiveSection = true;
+            foreach (var sectionToActive in _infinitiveSection)
+            {
+                sectionToActive.SetActive(true);
+            }
         }
 
         void DisableInfinitiveSection(object[] obj)
@@ -112,12 +121,12 @@ namespace ProyectM2.Managers.Levels
                 NewSection(_currentIndex);
                 if (!_isInInfinitiveSection)
                 {
-                    _sections[_currentIndex-1].Unsuscribe(this);
-                    _sectionsListInGame.Remove(_sections[_currentIndex-1]);
+                    _sections[_currentIndex-1].GetComponent<Sections>().Unsuscribe(this);
+                    //_sectionsListInGame.Remove(_sections[_currentIndex-1]);
                 }
                 else
                 {
-                    _infinitiveSection.Unsuscribe(this);
+                    _infinitiveSection[_currentIndex-1].GetComponent<Sections>().Unsuscribe(this);
                 }
             }
         }

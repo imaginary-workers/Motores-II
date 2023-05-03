@@ -46,7 +46,7 @@ namespace ProyectM2.Managers.Levels
             }
             if (dirToPastPivot.sqrMagnitude >= (_distanceToDeleteSection * _distanceToDeleteSection))
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
             }
         }
 
