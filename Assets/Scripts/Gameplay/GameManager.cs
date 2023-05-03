@@ -182,6 +182,7 @@ namespace ProyectM2.Gameplay
         private void BonusGameOver()
         {
             SessionGameData.SaveData("IsInBonusLevel", !_isInBonusLevel);
+            SessionGameData.GetData("levelCurrency");
             SceneManager.Instance.ChangeScene(SceneManager.Instance.historyScene[^2]);
         }
     }
