@@ -31,7 +31,7 @@ namespace ProyectM2.Managers.Levels
         private void OnEnable()
         {
             EventManager.StartListening("EnemyCutSceneStarted", NewInfinitiveSection);
-            EventManager.StartListening("EnemyDiedCutSceneStarted", DisableInfinitiveSection);
+            // EventManager.StartListening("EnemyDiedCutSceneStarted", DisableInfinitiveSection);
             EventManager.StartListening("TeleportToBonusLevel", GoToBonusLevel);
             EventManager.StartListening("TeleportReturnToLevel", GoToBonusLevel);
         }
