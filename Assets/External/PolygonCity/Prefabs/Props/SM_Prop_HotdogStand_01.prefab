@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2364350}
   - component: {fileID: 499322374976725655}
   - component: {fileID: 8130287424871426984}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_HotdogStand_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106796}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.368409, y: 2.9295616, z: 1.9148178}
