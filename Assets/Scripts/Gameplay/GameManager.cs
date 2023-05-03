@@ -32,7 +32,7 @@ namespace ProyectM2.Gameplay
             _eventWin.SubscribeToEvent(Won);
             EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
             EventManager.StartListening("TeleportToBonusLevel", TeleportToBonusLevel);
-            EventManager.StartListening("TeleportReturnToLevel", ReturnFromBonusLevel); ;
+            EventManager.StartListening("TeleportReturnToLevel", ReturnFromBonusLevel);
             EventManager.StartListening("OnPause", Pause);
         }
 
