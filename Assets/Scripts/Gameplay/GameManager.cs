@@ -5,6 +5,7 @@ using ProyectM2.Managers;
 using ProyectM2.Persistence;
 using ProyectM2.UI;
 using System;
+using System.Collections;
 using ProyectM2.Gameplay.Car.Path;
 
 namespace ProyectM2.Gameplay
@@ -18,7 +19,7 @@ namespace ProyectM2.Gameplay
         public static Vector3 positionInLevel = new(0, 0, 0);
         [SerializeField] private Events _events;
         [SerializeField] private Events _eventsBonus;
-        [SerializeField] private Events _eventWin;
+        // [SerializeField] private Events _eventWin;
         [SerializeField] private GameObject _lose;
         [SerializeField] private GameObject _won;
         [SerializeField] public static bool _isInBonusLevel = false;
@@ -29,7 +30,8 @@ namespace ProyectM2.Gameplay
         {
             _events.SubscribeToEvent(GameOver);
             _eventsBonus.SubscribeToEvent(BonusGameOver);
-            _eventWin.SubscribeToEvent(Won);
+            // _eventWin.SubscribeToEvent(Won);
+            EventManager.StartListening("EnemyDiedCutSceneStarted", OnWonHandler);
             EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
             EventManager.StartListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StartListening("TeleportReturnToLevel", ReturnFromBonusLevel);
@@ -37,12 +39,12 @@ namespace ProyectM2.Gameplay
         }
 
 
-
         private void OnDisable()
         {
             _events.UnsubscribeFromEvent(GameOver);
             _eventsBonus.UnsubscribeFromEvent(BonusGameOver);
-            _eventWin.UnsubscribeFromEvent(Won);
+            // _eventWin.UnsubscribeFromEvent(Won);
+            EventManager.StopListening("EnemyDiedCutSceneStarted", OnWonHandler);
             EventManager.StopListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StopListening("TeleportReturnToLevel", ReturnFromBonusLevel);
             EventManager.StopListening("PlayerGetHit", OnPlayerGetHit);
@@ -53,6 +55,7 @@ namespace ProyectM2.Gameplay
         {
             player = FindObjectOfType<PlayerTrackController>().gameObject;
         }
+
         private void Start()
         {
             if (SessionGameData.GetData("IsInBonusLevel") != null)
@@ -80,7 +83,6 @@ namespace ProyectM2.Gameplay
                     var playerPathManager = player.transform.root.GetComponent<PlayerPathManager>();
                     playerPathManager.SetCurrentPathTarget(playerPathManager.GetClosestPathTarget());
                     player.transform.root.forward = (Vector3)SessionGameData.GetData("ForwardOfPlayer");
-
                 }
 
                 if (SessionGameData.GetData("levelGas") != null)
@@ -88,11 +90,10 @@ namespace ProyectM2.Gameplay
                     levelGas = (float)SessionGameData.GetData("levelGas");
                     EventManager.TriggerEvent("GasSubtract", levelGas);
                 }
-
             }
+
             _pauseController.StartCountingDownToStart();
             Time.timeScale = 0;
-
         }
 
         public static void AddCurrency(int value)
@@ -115,13 +116,14 @@ namespace ProyectM2.Gameplay
             {
                 levelGas = 100;
             }
+
             EventManager.TriggerEvent("GasModified", levelGas);
         }
+
         public static void SubstractGas(float value)
         {
             levelGas -= value;
             EventManager.TriggerEvent("GasSubtract", levelGas);
-
         }
 
         public void TeleportToBonusLevel(object[] obj)
@@ -146,10 +148,11 @@ namespace ProyectM2.Gameplay
 
         public void QuitGame()
         {
-            if(!_iWin)
+            if (!_iWin)
             {
                 SubstractCurrency(levelCurrency);
             }
+
             SessionGameData.ResetData();
             SceneManager.Instance.ChangeToMenuScene("MainMenu");
         }
@@ -186,12 +189,23 @@ namespace ProyectM2.Gameplay
             Time.timeScale = 0f;
             _lose.SetActive(true);
         }
+
         private void BonusGameOver()
         {
             SessionGameData.SaveData("IsInBonusLevel", !_isInBonusLevel);
             SessionGameData.GetData("levelCurrency");
             SceneManager.Instance.ChangeScene(SceneManager.Instance.historyScene[^2]);
         }
+
+        private void OnWonHandler(object[] obj)
+        {
+            StartCoroutine(WaitToWon(2f));
+        }
+
+        private IEnumerator WaitToWon(float seconds)
+        {
+            yield return new WaitForSecondsRealtime(seconds);
+            Won();
+        }
     }
 }
-
