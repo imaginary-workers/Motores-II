@@ -31,7 +31,7 @@ namespace ProyectM2.Managers.Levels
         private void OnEnable()
         {
             EventManager.StartListening("EnemyCutSceneStarted", NewInfinitiveSection);
-            EventManager.StartListening("EnemyCutSceneEnded", DisableInfinitiveSection);
+            EventManager.StartListening("EnemyDiedCutSceneStarted", DisableInfinitiveSection);
             EventManager.StartListening("TeleportToBonusLevel", GoToBonusLevel);
             EventManager.StartListening("TeleportReturnToLevel", GoToBonusLevel);
         }
@@ -40,7 +40,7 @@ namespace ProyectM2.Managers.Levels
         private void OnDisable()
         {
             EventManager.StopListening("EnemyCutSceneStarted", NewInfinitiveSection);
-            EventManager.StopListening("EnemyCutSceneEnded", DisableInfinitiveSection);
+            // EventManager.StopListening("EnemyDiedCutSceneStarted", DisableInfinitiveSection);
             EventManager.StopListening("TeleportToBonusLevel", GoToBonusLevel);
             EventManager.StopListening("TeleportReturnToLevel", GoToBonusLevel);
 
@@ -83,13 +83,14 @@ namespace ProyectM2.Managers.Levels
             {
                 Instantiate(_infinitiveSection, _sectionsListInGame[_sectionsListInGame.Count - 1].transform.Find("CreateSectionPivot").position, Quaternion.identity);
             }
-            else if (sectionIndex < _sections.Length - 1)
+            else if (sectionIndex <= _sections.Length - 1)
             {
                 if (sectionIndex == 0)
                     Instantiate(_sections[sectionIndex], new Vector3(0, 0, 0), Quaternion.identity);
                 else
                     Instantiate(_sections[sectionIndex], _sectionsListInGame[Math.Max(0, _sectionsListInGame.Count - 1)].transform.Find("CreateSectionPivot").position, Quaternion.identity);
 
+                //Debug.Log(Instantiate(_sections[sectionIndex], new Vector3(0, 0, 0), Quaternion.identity).name);
                 _currentIndex++;
             }
         }
