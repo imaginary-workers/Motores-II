@@ -28,7 +28,6 @@ namespace ProyectM2.Gameplay.Car
             if (!GameManager._isInBonusLevel)
             {
                 GameManager.SubstractGas(_substracttGas * Time.deltaTime);
-
             }
         }
 
