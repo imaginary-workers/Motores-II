@@ -85,7 +85,6 @@ namespace ProyectM2.Gameplay
                 if (SessionGameData.GetData("levelGas") != null)
                 {
                     levelGas = (float)SessionGameData.GetData("levelGas");
-                    Debug.Log("LEVEL GAS EN GM START " + levelGas);
                     EventManager.TriggerEvent("GasSubtract", levelGas);
                 }
 
