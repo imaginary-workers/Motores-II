@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2307540}
   - component: {fileID: 1999331764326957268}
   - component: {fileID: 7036068680622737833}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Cone_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190556}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.52510643, y: 0.9558916, z: 0.5251131}
