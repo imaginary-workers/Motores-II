@@ -65,6 +65,7 @@ namespace ProyectM2.Gameplay.Car.Path
         private void DisableInfiniteSection(object[] obj)
         {
             _infinite = false;
+            
         }
 
         private void NewInfiniteSection(object[] obj)
