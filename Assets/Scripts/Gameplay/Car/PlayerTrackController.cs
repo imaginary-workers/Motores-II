@@ -20,8 +20,9 @@ namespace ProyectM2.Gameplay.Car
             }
         }
 
-        private void Update()
+        protected override void Update()
         {
+            base.Update();
             if (_isInCutscene) return;
             if (_onPause) return;
             InputManager.CurrentInput.OnUpdate();

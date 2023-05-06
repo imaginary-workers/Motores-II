@@ -9,8 +9,17 @@ namespace ProyectM2.Gameplay.Car
         [SerializeField] protected DataCar data;
         [SerializeField] protected int track = 0;
         public int Track => track;
-        
+        protected Vector3 _target;
+        float _speed = 5;
+
         [SerializeField] protected AnimManager myAnim;
+
+        protected virtual void Update()
+        {
+            if (Vector3.Distance(transform.localPosition, _target) < 0.01f) return;
+            transform.localPosition = Vector3.Lerp(transform.localPosition, _target, _speed * Time.deltaTime);
+
+        }
         public void MoveRight()
         {
             if (track + 1 > 1) return;
@@ -32,13 +41,13 @@ namespace ProyectM2.Gameplay.Car
             switch (track)
             {
                 case -1:
-                    transform.localPosition += transform.localPosition + (Vector3.left * data.horizontalRange);
+                    _target = Vector3.zero + (Vector3.left * data.horizontalRange);
                     break;
                 case 1:
-                    transform.localPosition += transform.localPosition + (Vector3.right * data.horizontalRange);
+                    _target = Vector3.zero + (Vector3.right * data.horizontalRange);
                     break;
                 default:
-                    transform.localPosition = new Vector3(0, 0, 0);
+                    _target = Vector3.zero;
                     break;
             }
         }

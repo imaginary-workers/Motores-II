@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3445,6 +3445,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 183394188, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
+      propertyPath: _speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5530683295635110520, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
       propertyPath: m_Name
@@ -3478,17 +3482,17 @@ PrefabInstance:
     - target: {fileID: 5530683295635110524, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5530683295635110524, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5530683295635110524, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5530683295635110524, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
@@ -3503,6 +3507,16 @@ PrefabInstance:
     - target: {fileID: 5530683295635110524, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198388744057424281, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198388744057424281, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
