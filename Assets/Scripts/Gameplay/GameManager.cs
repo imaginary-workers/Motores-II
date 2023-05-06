@@ -17,9 +17,6 @@ namespace ProyectM2.Gameplay
         public static float levelGas = 100;
         public static GameObject player;
         public static Vector3 positionInLevel = new(0, 0, 0);
-        [SerializeField] private Events _events;
-        [SerializeField] private Events _eventsBonus;
-        // [SerializeField] private Events _eventWin;
         [SerializeField] private GameObject _lose;
         [SerializeField] private GameObject _won;
         [SerializeField] public static bool _isInBonusLevel = false;
@@ -28,9 +25,9 @@ namespace ProyectM2.Gameplay
 
         private void OnEnable()
         {
-            _events.SubscribeToEvent(GameOver);
-            _eventsBonus.SubscribeToEvent(BonusGameOver);
-            // _eventWin.SubscribeToEvent(Won);
+            EventManager.StartListening("GameOver", GameOver);
+            EventManager.StartListening("Won", OnWonHandler);
+            EventManager.StartListening("GameOverBonusLevel", BonusGameOver);
             EventManager.StartListening("EnemyDiedCutSceneStarted", OnWonHandler);
             EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
             EventManager.StartListening("TeleportToBonusLevel", TeleportToBonusLevel);
@@ -41,9 +38,9 @@ namespace ProyectM2.Gameplay
 
         private void OnDisable()
         {
-            _events.UnsubscribeFromEvent(GameOver);
-            _eventsBonus.UnsubscribeFromEvent(BonusGameOver);
-            // _eventWin.UnsubscribeFromEvent(Won);
+            EventManager.StopListening("GameOver", GameOver);
+            EventManager.StopListening("Won", OnWonHandler);
+            EventManager.StopListening("GameOverBonusLevel",BonusGameOver);
             EventManager.StopListening("EnemyDiedCutSceneStarted", OnWonHandler);
             EventManager.StopListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StopListening("TeleportReturnToLevel", ReturnFromBonusLevel);
@@ -174,7 +171,6 @@ namespace ProyectM2.Gameplay
             Time.timeScale = isPause ? 0 : 1;
         }
 
-        [ContextMenu("Won")]
         public void Won()
         {
             _iWin = true;
@@ -183,14 +179,14 @@ namespace ProyectM2.Gameplay
             PauseGame(true);
         }
 
-        public void GameOver()
+        public void GameOver(object[] obj)
         {
             SessionGameData.ResetData();
             Time.timeScale = 0f;
             _lose.SetActive(true);
         }
 
-        private void BonusGameOver()
+        private void BonusGameOver(object[] obj)
         {
             SessionGameData.SaveData("IsInBonusLevel", !_isInBonusLevel);
             SessionGameData.GetData("levelCurrency");
