@@ -18,6 +18,8 @@ namespace ProyectM2.Gameplay.Car
         protected virtual void Update()
         {
 
+            base.Update();
+
             _time += Time.deltaTime;
             if (_time >= _maxTime)
             {
