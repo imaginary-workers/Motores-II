@@ -29,7 +29,7 @@ namespace ProyectM2.Sound
         private void OnDisable()
         {
             EventManager.StopListening("CurrencyModified", CurrencyPlay);
-            EventManager.StopListening("CurrencyModified", LevelGas);
+            EventManager.StopListening("GasModified", LevelGas);
             EventManager.StopListening("GameOver", GameOverSound);
             EventManager.StopListening("Won", WonSound);
             EventManager.StopListening("GameOverBonusLevel", BonusGameOverSound);

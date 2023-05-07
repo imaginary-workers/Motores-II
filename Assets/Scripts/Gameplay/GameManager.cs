@@ -51,7 +51,6 @@ namespace ProyectM2.Gameplay
         private void Awake()
         {
             player = FindObjectOfType<PlayerTrackController>().gameObject;
-            Debug.Log(player.name);
         }
 
         private void Start()
@@ -92,11 +91,6 @@ namespace ProyectM2.Gameplay
 
             _pauseController.StartCountingDownToStart();
             Time.timeScale = 0;
-        }
-
-        private void Update()
-        {
-            Debug.Log(player.name);
         }
 
         public static void AddCurrency(int value)
