@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace ProyectM2
 {
@@ -47,7 +48,7 @@ namespace ProyectM2
             System.Action<object[]> thisEvent = null;
             if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent))
             {
-                thisEvent.Invoke(data);
+                thisEvent?.Invoke(data);
             }
         }
 
