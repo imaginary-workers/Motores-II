@@ -7,10 +7,14 @@ namespace ProyectM2
     {
         private bool _isInBonusLevel = false;
 
-        private void OnTriggerEnter(Collider other)
+        private void Start()
         {
             if (SessionGameData.GetData("IsInBonusLevel") != null)
-                _isInBonusLevel = (bool)SessionGameData.GetData("IsInBonusLevel");
+                _isInBonusLevel = (bool)SessionGameData.GetData("IsInBonusLevel");            
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
 
             if (other.gameObject.CompareTag("Player"))
             {
