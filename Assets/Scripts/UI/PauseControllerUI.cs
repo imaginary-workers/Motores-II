@@ -34,7 +34,7 @@ namespace ProyectM2.UI
         {
             yield return new WaitForSecondsRealtime(.5f);
             _pauseCounterText.gameObject.SetActive(true);
-            for (int i = 3; i >= 0; i--)
+            for (int i = 3; i > 0; i--)
             {
                 _pauseCounterText.text = i.ToString();
                 yield return new WaitForSecondsRealtime(1);

@@ -35,7 +35,14 @@ namespace ProyectM2.Gameplay.Car.Path
 #endif
         }
 
-        private void Start()
+        private void OnEnable()
+        {
+            EventManager.StartListening("EnemyCutSceneStarted", NewInfiniteSection);
+            EventManager.StartListening("SceneLoadComplete", LookForPlayer);
+            // EventManager.StartListening("EnemyDiedCutSceneStarted", DisableInfiniteSection);
+        }
+
+        private void LookForPlayer(object[] obj)
         {
             _player = GameManager.player;
             if (_player == null)
@@ -50,15 +57,10 @@ namespace ProyectM2.Gameplay.Car.Path
             _player = _player.transform.root.gameObject;
         }
 
-        private void OnEnable()
-        {
-            EventManager.StartListening("EnemyCutSceneStarted", NewInfiniteSection);
-            // EventManager.StartListening("EnemyDiedCutSceneStarted", DisableInfiniteSection);
-        }
-
         private void OnDisable()
         {
             EventManager.StopListening("EnemyCutSceneStarted", NewInfiniteSection);
+            EventManager.StopListening("SceneLoadComplete", LookForPlayer);
             // EventManager.StopListening("EnemyDiedCutSceneStarted", DisableInfiniteSection);
         }
 
@@ -102,6 +104,14 @@ namespace ProyectM2.Gameplay.Car.Path
         private void LateUpdate()
         {
             if (!_infinite) return;
+            if (_player == null)
+            {
+                Debug.Log("Player es null");
+            }
+            else
+            {
+                Debug.Log("Player NOT null");
+            }
             transform.position = _player.transform.position + _player.transform.forward * _distanceFromPlayer;
         }
     }
