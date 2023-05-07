@@ -33,8 +33,8 @@ namespace ProyectM2.Sound
             EventManager.StopListening("GameOver", GameOverSound);
             EventManager.StopListening("Won", WonSound);
             EventManager.StopListening("GameOverBonusLevel", BonusGameOverSound);
-            EventManager.StartListening("TeleportToBonusLevel", Teleport);
-            EventManager.StartListening("TeleportReturnToLevel", Teleport);
+            EventManager.StopListening("TeleportToBonusLevel", Teleport);
+            EventManager.StopListening("TeleportReturnToLevel", Teleport);
         }
 
         private void CurrencyPlay(object[] obj)
