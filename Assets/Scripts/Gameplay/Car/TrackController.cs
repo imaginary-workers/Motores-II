@@ -10,7 +10,7 @@ namespace ProyectM2.Gameplay.Car
         [SerializeField] protected int track = 0;
         public int Track => track;
         protected Vector3 _target;
-        float _speed = 5;
+        [SerializeField] float _speed = 5;
 
         [SerializeField] protected AnimManager myAnim;
 
