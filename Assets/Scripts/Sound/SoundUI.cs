@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using ProyectM2.Music;
 
 namespace ProyectM2.Sound
 {
@@ -63,15 +64,18 @@ namespace ProyectM2.Sound
 
         private void WonSound(object[] obj)
         {
-            _source.clip = _win;
-            _source.Play();
-            _source.loop = true;
+            MusicManager.Instance.PlayMusic(_win);
+            //_source.clip = _win;
+            //_source.Play();
+            //_source.loop = true;
         }
 
         private void GameOverSound(object[] obj)
         {
-            _source.clip = _gameOver;
-            _source.Play();
+            MusicManager.Instance.PlayMusic(_gameOver);
+
+            //_source.clip = _gameOver;
+            //_source.Play();
         }
 
     }
