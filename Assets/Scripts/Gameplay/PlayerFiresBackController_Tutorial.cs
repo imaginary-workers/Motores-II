@@ -7,6 +7,8 @@ namespace ProyectM2.Gameplay
         protected override void OnTriggerEnter(Collider other)
         {
             base.OnTriggerEnter(other);
+            if (returnableBullet == null) return;
+            Debug.Log("TRIGERIOOOOOOO");
             EventManager.TriggerEvent("FirebackTutorial", true);
         }
 
