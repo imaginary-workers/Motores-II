@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1382,6 +1382,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Colectable&Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7964746944535951919, guid: 796288f0d20986f4a9d2862502c82661,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -167.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7964746944535951919, guid: 796288f0d20986f4a9d2862502c82661,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 258.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7964746944942429943, guid: 796288f0d20986f4a9d2862502c82661,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -119.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 796288f0d20986f4a9d2862502c82661, type: 3}
