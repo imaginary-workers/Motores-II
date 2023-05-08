@@ -176,6 +176,7 @@ namespace ProyectM2.Gameplay
             _iWin = true;
             SessionGameData.ResetData();
             _won.SetActive(true);
+            EventManager.TriggerEvent("Won");
             PauseGame(true);
         }
 
