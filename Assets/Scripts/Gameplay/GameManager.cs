@@ -145,7 +145,6 @@ namespace ProyectM2.Gameplay
         public void Retry()
         {
             SubstractCurrency(levelCurrency);
-            Debug.Log("Rety");
             SessionGameData.ResetData();
             SceneManager.Instance.RestartLevel();
         }

@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204754e9875888d46b6f6d6462d456d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 30
-  _speedRotation: 1
+  _speed: 15
+  _speedRotation: 15
   _targetTag: PathTarget
   _currentPathTarget: {fileID: 0}
 --- !u!65 &6282356896191354219

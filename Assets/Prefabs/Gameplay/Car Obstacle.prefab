@@ -228,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: cb0f992015547cf44beb4634e79b7ddb, type: 2}
   track: 0
+  _speed: 15
   myAnim: {fileID: 4372492990788006997}
 --- !u!1 &5627894973378827258
 GameObject:
@@ -328,6 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 15
+  _speedRotation: 1
   _targetTag: PathTarget
   _currentPathTarget: {fileID: 0}
 --- !u!65 &205656566133511805
@@ -459,19 +461,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2492962845181264578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4837681180631606812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dd73dd4f72ebb44c8ec9ada72903d09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _events: {fileID: 11400000, guid: 5b59feda95cb8d946901acb168a0ece8, type: 2}
 --- !u!65 &8488050906311572077
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -485,6 +474,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.7717628, y: 1.4071835, z: 4.074531}
   m_Center: {x: -0.0038890839, y: 0.8648606, z: 0.12095237}
+--- !u!114 &2492962845181264578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837681180631606812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd73dd4f72ebb44c8ec9ada72903d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4837681180631637422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 411938, guid: 0383b854a926f1643b20f9c7cdb2e4de,

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b284ad3873dd4d97a7c598d904a73424, type: 3}
   m_Name: Normal Car Data
   m_EditorClassIdentifier: 
-  <horizontalRange>k__BackingField: 3.22
-  <speed>k__BackingField: 9
+  <horizontalRange>k__BackingField: 5
+  <speed>k__BackingField: 10
