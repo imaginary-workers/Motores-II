@@ -13,11 +13,13 @@ namespace ProyectM2.UI
         [SerializeField] private TextMeshProUGUI _currencyText;
         [SerializeField] private TextMeshProUGUI _timePlayedText;
         [SerializeField] private GameObject _currency;
+        [SerializeField] private GameObject _currencyStone;
         [SerializeField] private GameObject _menu1; 
         [SerializeField] private GameObject _levelsMenu; 
         [SerializeField] private GameObject _gameDataMenu; 
         [SerializeField] private GameObject _gameDataWarningPopUp; 
         [SerializeField] private GameObject _backButton;
+        [SerializeField] private GameObject _controllerMenu;
         [SerializeField] private DataPersistance _myDataPersistance;
         ValuesToSaveInJson _myJsonData;
 
@@ -65,6 +67,11 @@ namespace ProyectM2.UI
         public void GoToWarningDeleteSaveData()
         {
             ExecuteCommand(new ChangeMenuCommand(new []{_gameDataWarningPopUp}, new []{_gameDataMenu, _backButton}));
+        }
+
+        public void GoToControllers()
+        {
+            ExecuteCommand(new ChangeMenuCommand(new[] { _controllerMenu, _backButton}, new[] { _menu1, _currency, _currencyStone }));
         }
 
         public void GoBack()
