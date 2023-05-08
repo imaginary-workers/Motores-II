@@ -120,7 +120,10 @@ namespace ProyectM2.Gameplay
         public static void SubstractGas(float value)
         {
             levelGas -= value;
-            EventManager.TriggerEvent("GasSubtract", levelGas);
+            if (levelGas <= 0)
+                EventManager.TriggerEvent("GameOver");
+            else
+                EventManager.TriggerEvent("GasSubtract", levelGas);
         }
 
         public void TeleportToBonusLevel(object[] obj)
@@ -139,6 +142,7 @@ namespace ProyectM2.Gameplay
         public void Retry()
         {
             SubstractCurrency(levelCurrency);
+            Debug.Log("Rety");
             SessionGameData.ResetData();
             SceneManager.Instance.RestartLevel();
         }
@@ -184,6 +188,7 @@ namespace ProyectM2.Gameplay
         {
             SessionGameData.ResetData();
             Time.timeScale = 0f;
+            player.SetActive(false);
             _lose.SetActive(true);
         }
 
