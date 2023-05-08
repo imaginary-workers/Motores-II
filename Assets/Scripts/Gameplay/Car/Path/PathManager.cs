@@ -1,12 +1,15 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace ProyectM2.Gameplay.Car.Path
 {
     public class PathManager : MonoBehaviour
     {
         [SerializeField] protected float _speed = 1;
+        [SerializeField] protected float _speedRotation = 1;
         [SerializeField] protected string _targetTag = "PathTarget";
         [SerializeField] protected GameObject _currentPathTarget;
+        protected Vector3 _targetForward;
         protected bool _canMove = true;
 
         public void SetCurrentPathTarget(GameObject target)
@@ -17,7 +20,7 @@ namespace ProyectM2.Gameplay.Car.Path
 
         protected void SetForwardToTarget(GameObject pathTarget)
         {
-            transform.forward = (pathTarget.transform.position - transform.position).normalized;
+            _targetForward = (pathTarget.transform.position - transform.position).normalized;
         }
 
         private void Update()
@@ -25,6 +28,9 @@ namespace ProyectM2.Gameplay.Car.Path
             if (!_canMove || _currentPathTarget == null) return;
             transform.position += (_currentPathTarget.transform.position - transform.position).normalized *
                                   _speed * Time.deltaTime;
+            if (Vector3.Angle(_targetForward, transform.forward) < 0.1f) return;
+            transform.forward = Vector3.Lerp(transform.forward, _targetForward, _speedRotation * Time.deltaTime);
+
         }
 
         private void OnTriggerEnter(Collider other)

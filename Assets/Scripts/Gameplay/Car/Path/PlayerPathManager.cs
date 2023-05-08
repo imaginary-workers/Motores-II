@@ -27,7 +27,7 @@ namespace ProyectM2.Gameplay.Car.Path
                 }
             }
 
-            Debug.Log("<color=red>"+ closest.name+"</color>");
+            Debug.Log("<color=red>" + closest.name + "</color>");
             return closest;
         }
     }

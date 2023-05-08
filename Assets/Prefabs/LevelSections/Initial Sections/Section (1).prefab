@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07920ce755bc12041b656d41b3e3b35a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distanceToCreateSection: 40
+  _distanceToCreateSection: 100
   _distanceToDeleteSection: 200
 --- !u!1 &5439852010785222717
 GameObject:

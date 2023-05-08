@@ -7,13 +7,11 @@ namespace ProyectM2
 {
     public class PlayerWon : MonoBehaviour
     {
-        [SerializeField] Events _events;
-
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                _events.InvokeEvent();
+                EventManager.TriggerEvent("Won");
             }
         }
     }
