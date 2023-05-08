@@ -257,7 +257,6 @@ GameObject:
   - component: {fileID: 1876319577606549681}
   - component: {fileID: 6266483164755062192}
   - component: {fileID: 105307429576614643}
-  - component: {fileID: 3069435173246862172}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -426,20 +425,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3069435173246862172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4558093475183552361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e82bc0968f0a6439e3a7eef9e6688d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAnim: {fileID: 2241185775180248663}
-  _soundManager: {fileID: 6266483164755062192}
 --- !u!1 &4828159261652359145
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: f5484aa616049a742a9099d35f8bc01b, type: 2}
   track: 0
+  _speed: 15
   myAnim: {fileID: 1876319577606549681}
   _substracttGas: 1.1
 --- !u!1 &5530683295635110520
@@ -678,6 +664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 32
+  _speedRotation: 15
   _targetTag: PathTarget
   _currentPathTarget: {fileID: 0}
 --- !u!65 &720027647

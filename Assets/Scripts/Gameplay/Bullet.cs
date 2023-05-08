@@ -23,5 +23,10 @@ namespace ProyectM2.Gameplay
         {
             _behaviour.OnTriggerEnter(other);
         }
+
+        private void OnDisable()
+        {
+            gameObject.layer = 12;
+        }
     }
 }
