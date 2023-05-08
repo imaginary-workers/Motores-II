@@ -39,7 +39,7 @@ namespace ProyectM2.Persistence
 
         public static void ResetData()
         {
-            sessionGameData = new();
+            sessionGameData.Clear();
         }
     }
 }
