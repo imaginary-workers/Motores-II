@@ -101,7 +101,6 @@ namespace ProyectM2.Managers.Levels
 
         void DisableInfinitiveSection(object[] obj)
         {
-            Debug.LogWarning("LevelManager Salio del infinito");
             _isInInfinitiveSection = false;
         }
 

@@ -19,7 +19,6 @@ namespace ProyectM2.Gameplay
 
         private void OnEnable()
         {
-                //TODO Suscribirse InputManager.CurrentInput.Circulito
                 InputManager.CurrentInput.Click += FireBack;
                 EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
         }
@@ -31,7 +30,6 @@ namespace ProyectM2.Gameplay
 
         private void OnDisable()
         {
-                //TODO Desuscribirse InputManager.CurrentInput.Circulito
                 InputManager.CurrentInput.Click -= FireBack;
         }
 
@@ -44,8 +42,7 @@ namespace ProyectM2.Gameplay
         }
 
         private void Update()
-        {
-            
+        {   
             if (_timeToFiresBack < _maxTimeToFiresBack)
             {
                 _timeToFiresBack += Time.deltaTime;
