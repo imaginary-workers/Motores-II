@@ -15,6 +15,7 @@ namespace ProyectM2.Gameplay
         public static int levelCurrency = 0;
         public static int currentLevel = 0;
         public static float levelGas = 100;
+        private static float maxGas = 100;
         public static GameObject player;
         public static Vector3 positionInLevel = new(0, 0, 0);
         [SerializeField] private GameObject _lose;
@@ -87,6 +88,8 @@ namespace ProyectM2.Gameplay
                     levelGas = (float)SessionGameData.GetData("levelGas");
                     EventManager.TriggerEvent("GasSubtract", levelGas);
                 }
+                else
+                    levelGas = maxGas;
             }
 
             _pauseController.StartCountingDownToStart();
@@ -120,7 +123,10 @@ namespace ProyectM2.Gameplay
         public static void SubstractGas(float value)
         {
             levelGas -= value;
-            EventManager.TriggerEvent("GasSubtract", levelGas);
+            if (levelGas <= 0)
+                EventManager.TriggerEvent("GameOver");
+            else
+                EventManager.TriggerEvent("GasSubtract", levelGas);
         }
 
         public void TeleportToBonusLevel(object[] obj)
@@ -139,6 +145,7 @@ namespace ProyectM2.Gameplay
         public void Retry()
         {
             SubstractCurrency(levelCurrency);
+            Debug.Log("Rety");
             SessionGameData.ResetData();
             SceneManager.Instance.RestartLevel();
         }
@@ -184,6 +191,7 @@ namespace ProyectM2.Gameplay
         {
             SessionGameData.ResetData();
             Time.timeScale = 0f;
+            player.SetActive(false);
             _lose.SetActive(true);
         }
 
