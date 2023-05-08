@@ -15,6 +15,7 @@ namespace ProyectM2.Gameplay
         public static int levelCurrency = 0;
         public static int currentLevel = 0;
         public static float levelGas = 100;
+        private static float maxGas = 100;
         public static GameObject player;
         public static Vector3 positionInLevel = new(0, 0, 0);
         [SerializeField] private GameObject _lose;
@@ -87,6 +88,8 @@ namespace ProyectM2.Gameplay
                     levelGas = (float)SessionGameData.GetData("levelGas");
                     EventManager.TriggerEvent("GasSubtract", levelGas);
                 }
+                else
+                    levelGas = maxGas;
             }
 
             _pauseController.StartCountingDownToStart();
