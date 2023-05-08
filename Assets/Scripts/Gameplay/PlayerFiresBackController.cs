@@ -11,7 +11,7 @@ namespace ProyectM2.Gameplay
         [SerializeField] private float _maxTimeToFiresBack = 1f;
         [SerializeField] private Camera _camera;
         [SerializeField] private AnimManager _animationManager;
-        private Bullet _returnableBullet;
+        protected Bullet returnableBullet;
         private float _timeToFiresBack;
         private GameObject _enemyTarget = null;
         private Ray _ray;
@@ -19,7 +19,8 @@ namespace ProyectM2.Gameplay
 
         private void OnEnable()
         {
-                InputManager.CurrentInput.Click += FireBack;
+                //TODO Suscribirse InputManager.CurrentInput.Circulito
+                InputManager.CurrentInput.Click += FireBackChecker;
                 EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
         }
 
@@ -30,42 +31,50 @@ namespace ProyectM2.Gameplay
 
         private void OnDisable()
         {
-                InputManager.CurrentInput.Click -= FireBack;
+                //TODO Desuscribirse InputManager.CurrentInput.Circulito
+                InputManager.CurrentInput.Click -= FireBackChecker;
         }
 
-        private void OnTriggerEnter(Collider other)
+        protected virtual void OnTriggerEnter(Collider other)
         {
             var component = other.GetComponent<Bullet>();
             if (component == null || !component.IsReturnable) return;
-            _returnableBullet = component;
+            returnableBullet = component;
             _timeToFiresBack = 0f;
         }
 
         private void Update()
-        {   
+        {
+            
             if (_timeToFiresBack < _maxTimeToFiresBack)
             {
                 _timeToFiresBack += Time.deltaTime;
             }
         }
 
-        public void FireBack(Vector3 position)
+        public void FireBackChecker(Vector3 position)
         {
-            if (_returnableBullet == null) return;
+            if (returnableBullet == null) return;
             if (_enemyTarget == null) return;
             if (_timeToFiresBack >= _maxTimeToFiresBack) return;
             _ray = _camera.ScreenPointToRay(position);
             RaycastHit hit;
             if (Physics.Raycast(_ray, out hit, Single.PositiveInfinity, _playerLayer))
             {
+                Debug.Log("Detecto mi finger!!!!!!!!!!!");
                 if (hit.collider.CompareTag("Player"))
                 {
-                    _animationManager.HipUpAnimation();
-                    _returnableBullet.gameObject.layer = _returnableLayer;
-                    _returnableBullet.SetBehaviour(new SeekBulletBehaviour(_returnableBullet.transform, _enemyTarget.transform, 50));
-                    _returnableBullet = null;
+                    FirebackAction();
                 }
             }
+        }
+
+        protected virtual void FirebackAction()
+        {
+            _animationManager.HipUpAnimation();
+            returnableBullet.gameObject.layer = _returnableLayer;
+            returnableBullet.SetBehaviour(new SeekBulletBehaviour(returnableBullet.transform, _enemyTarget.transform, 50));
+            returnableBullet = null;
         }
     }
 }

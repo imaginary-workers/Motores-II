@@ -1,7 +1,6 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 using ProyectM2.Persistence;
 
 namespace ProyectM2
@@ -9,25 +8,49 @@ namespace ProyectM2
     public class Tutorial : MonoBehaviour
     {
         [SerializeField] GameObject _canvasTutorial;
+        [SerializeField] GameObject _canvasFirebackTutorial;
+        [SerializeField] GameObject _canvasEnemyTutorial;
+
         void Start()
         {
             var teleportWasUsed = SessionGameData.GetData("TeleportWasUsed");
             if (teleportWasUsed == null || !(bool)teleportWasUsed)
             {
                 _canvasTutorial.SetActive(true);
-                StartCoroutine(Wait());
+                StartCoroutine(WaitToDesactive(_canvasTutorial, 6f));
             }
         }
- 
-        void AfterTutorial()
+
+        private void OnEnable()
         {
-            _canvasTutorial.SetActive(false);
+            EventManager.StartListening("FirebackTutorial", OnFirebackTutorialHandler);
+            EventManager.StartListening("EnemyCutSceneStarted", OnStartTutorialEnemyHandler);
         }
 
-        IEnumerator Wait()
+        private void OnDisable()
         {
-            yield return new WaitForSecondsRealtime(6);
-            AfterTutorial();
+            EventManager.StopListening("FirebackTutorial", OnFirebackTutorialHandler);
+            EventManager.StopListening("EnemyCutSceneStarted", OnStartTutorialEnemyHandler);
+        }
+
+        private void OnFirebackTutorialHandler(object[] obj)
+        {
+            if (obj.Length == 0) return;
+            var firebackTutorialActived = (bool) obj[0];
+            _canvasFirebackTutorial.SetActive(firebackTutorialActived);
+            Time.timeScale = firebackTutorialActived? .1f : 1f;
+        }
+
+        private void OnStartTutorialEnemyHandler(object[] obj)
+        {
+            _canvasEnemyTutorial.SetActive(true);
+            StartCoroutine(WaitToDesactive(_canvasEnemyTutorial, 4f));
+        }
+
+        IEnumerator WaitToDesactive(GameObject canvas, float seconds)
+        {
+            yield return new WaitForSecondsRealtime(seconds);
+            canvas.SetActive(false);
         }
     }
 }
