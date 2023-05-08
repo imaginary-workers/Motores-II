@@ -8,6 +8,7 @@ namespace ProyectM2.Gameplay.Car
         [SerializeField] LayerMask layerMask;
         [SerializeField] GameObject _right;
         [SerializeField] GameObject _left;
+        [SerializeField] GameObject _forward;
         protected float _time;
         [SerializeField] protected int _maxTime;
 
@@ -20,12 +21,13 @@ namespace ProyectM2.Gameplay.Car
 
             base.Update();
 
+            var hasHitRight = false;
+            var hasHitLeft = false;
+            var hasFordward = false;
+
             _time += Time.deltaTime;
             if (_time >= _maxTime)
             {
-                var hasHitRight = false;
-                var hasHitLeft = false;
-
                 RaycastHit hitInfoRight;
                 Ray ray = new Ray(_right.transform.position, _right.transform.forward);
                 if (Physics.Raycast(ray, out hitInfoRight, raycastDistance, layerMask))
@@ -39,9 +41,10 @@ namespace ProyectM2.Gameplay.Car
                 {
                     hasHitLeft = hitInfoLeft.transform.gameObject != transform.GetChild(0).gameObject;
                 }
+
                 _time = 0;
 
-                if (!hasHitRight && !hasHitLeft)
+                if (!hasHitRight && !hasHitLeft && !hasFordward)
                 {
                     int change = Random.Range(0, 2);
                     if (change == 0) MoveRight();
@@ -56,15 +59,36 @@ namespace ProyectM2.Gameplay.Car
                     MoveRight();
                 }
             }
+            RaycastHit hitInfoForward;
+            Ray rayForward = new Ray(_forward.transform.position, transform.forward);
+            Debug.Log("hola");
+            if (Physics.Raycast(rayForward, out hitInfoForward, raycastDistance, layerMask))
+            {
+                hasFordward = hitInfoForward.transform.gameObject != transform.GetChild(0).gameObject;
+            }
+            if (_forward)
+            {
+                if (hasFordward)
+                {
+                    int change = Random.Range(0, 2);
+                    if (change == 0) MoveRight();
+                    else MoveLeft();
+                }
+            }
         }
         private void OnDrawGizmos()
         {
             Ray ray = new Ray(_right.transform.position, _right.transform.forward * raycastDistance);
 
-            Gizmos.color = Color.yellow;
+            Gizmos.color = Color.red;
             Gizmos.DrawRay(ray.origin, ray.direction * raycastDistance);
 
             ray = new Ray(_left.transform.position, _left.transform.forward * raycastDistance);
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(ray.origin, ray.direction * raycastDistance);
+
+            ray = new Ray(_forward.transform.position, _forward.transform.forward * raycastDistance);
 
             Gizmos.color = Color.red;
             Gizmos.DrawRay(ray.origin, ray.direction * raycastDistance);
