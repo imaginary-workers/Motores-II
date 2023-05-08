@@ -20,7 +20,7 @@ namespace ProyectM2.Gameplay
         private void OnEnable()
         {
                 //TODO Suscribirse InputManager.CurrentInput.Circulito
-                InputManager.CurrentInput.Click += FireBack;
+                InputManager.CurrentInput.Click += FireBackChecker;
                 EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
         }
 
@@ -32,10 +32,10 @@ namespace ProyectM2.Gameplay
         private void OnDisable()
         {
                 //TODO Desuscribirse InputManager.CurrentInput.Circulito
-                InputManager.CurrentInput.Click -= FireBack;
+                InputManager.CurrentInput.Click -= FireBackChecker;
         }
 
-        private void OnTriggerEnter(Collider other)
+        protected virtual void OnTriggerEnter(Collider other)
         {
             var component = other.GetComponent<Bullet>();
             if (component == null || !component.IsReturnable) return;
@@ -52,7 +52,7 @@ namespace ProyectM2.Gameplay
             }
         }
 
-        public void FireBack(Vector3 position)
+        public void FireBackChecker(Vector3 position)
         {
             if (_returnableBullet == null) return;
             if (_enemyTarget == null) return;
@@ -63,12 +63,17 @@ namespace ProyectM2.Gameplay
             {
                 if (hit.collider.CompareTag("Player"))
                 {
-                    _animationManager.HipUpAnimation();
-                    _returnableBullet.gameObject.layer = _returnableLayer;
-                    _returnableBullet.SetBehaviour(new SeekBulletBehaviour(_returnableBullet.transform, _enemyTarget.transform, 50));
-                    _returnableBullet = null;
+                    FirebackAction();
                 }
             }
+        }
+
+        protected virtual void FirebackAction()
+        {
+            _animationManager.HipUpAnimation();
+            _returnableBullet.gameObject.layer = _returnableLayer;
+            _returnableBullet.SetBehaviour(new SeekBulletBehaviour(_returnableBullet.transform, _enemyTarget.transform, 50));
+            _returnableBullet = null;
         }
     }
 }

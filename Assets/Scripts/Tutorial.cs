@@ -1,7 +1,6 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 using ProyectM2.Persistence;
 
 namespace ProyectM2
@@ -9,6 +8,7 @@ namespace ProyectM2
     public class Tutorial : MonoBehaviour
     {
         [SerializeField] GameObject _canvasTutorial;
+        [SerializeField] GameObject _canvasFirebackTutorial;
         void Start()
         {
             var teleportWasUsed = SessionGameData.GetData("TeleportWasUsed");
@@ -18,7 +18,23 @@ namespace ProyectM2
                 StartCoroutine(Wait());
             }
         }
- 
+
+        private void OnEnable()
+        {
+            EventManager.StartListening("FirebackTutorial", OnFirebackTutorialHandler);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.StopListening("FirebackTutorial", OnFirebackTutorialHandler);
+        }
+
+        private void OnFirebackTutorialHandler(object[] obj)
+        {
+            if (obj.Length == 0) return;
+            _canvasFirebackTutorial.SetActive((bool) obj[0]);
+        }
+
         void AfterTutorial()
         {
             _canvasTutorial.SetActive(false);
