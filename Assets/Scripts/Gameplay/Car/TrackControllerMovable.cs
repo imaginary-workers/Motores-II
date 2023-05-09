@@ -26,6 +26,26 @@ namespace ProyectM2.Gameplay.Car
             var hasFordward = false;
 
             _time += Time.deltaTime;
+
+            RaycastHit hitInfoForward;
+            Ray rayForward = new Ray(_forward.transform.position, transform.forward);
+            Debug.Log("hola");
+            if (Physics.Raycast(rayForward, out hitInfoForward, raycastDistance, layerMask))
+            {
+                hasFordward = hitInfoForward.transform.gameObject != transform.GetChild(0).gameObject;
+            }
+            if (_forward)
+            {
+                if (hasFordward)
+                {
+                    int change = Random.Range(0, 2);
+                    if (change == 0) MoveRight();
+                    else MoveLeft();
+                }
+                _time = 0;
+                return;
+            }
+
             if (_time >= _maxTime)
             {
                 RaycastHit hitInfoRight;
@@ -59,22 +79,7 @@ namespace ProyectM2.Gameplay.Car
                     MoveRight();
                 }
             }
-            RaycastHit hitInfoForward;
-            Ray rayForward = new Ray(_forward.transform.position, transform.forward);
-            Debug.Log("hola");
-            if (Physics.Raycast(rayForward, out hitInfoForward, raycastDistance, layerMask))
-            {
-                hasFordward = hitInfoForward.transform.gameObject != transform.GetChild(0).gameObject;
-            }
-            if (_forward)
-            {
-                if (hasFordward)
-                {
-                    int change = Random.Range(0, 2);
-                    if (change == 0) MoveRight();
-                    else MoveLeft();
-                }
-            }
+
         }
         private void OnDrawGizmos()
         {
