@@ -82,7 +82,6 @@ namespace ProyectM2.UI
         public void GetCurrencyData()
         {
             _myJsonData = _myDataPersistance.LoadGame();
-            Debug.Log(_myJsonData);
             _currencyText.text = _myJsonData.totalCurrencyOfPlayer.ToString();
             var timeSpan = TimeSpan.FromSeconds(_myJsonData.timePlayed);
             _timePlayedText.text = timeSpan.ToString(@"hh\:mm\:ss");

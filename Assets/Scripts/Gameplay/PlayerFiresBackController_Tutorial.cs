@@ -8,7 +8,6 @@ namespace ProyectM2.Gameplay
         {
             base.OnTriggerEnter(other);
             if (returnableBullet == null) return;
-            Debug.Log("TRIGERIOOOOOOO");
             EventManager.TriggerEvent("FirebackTutorial", true);
         }
 
