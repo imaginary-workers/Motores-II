@@ -1,6 +1,7 @@
-using System;
+using ProyectM2.Gameplay;
 using UnityEngine;
 using ProyectM2.Music;
+using ProyectM2.Persistence;
 
 namespace ProyectM2.Sound
 {
@@ -18,20 +19,18 @@ namespace ProyectM2.Sound
         {
             EventManager.StartListening("CurrencyModified", CurrencyPlay);
             EventManager.StartListening("GasModified", LevelGas);
-            EventManager.StartListening("GameOver", GameOverSound);
+            EventManager.StartListening("EndGameOver", GameOverSound);
             EventManager.StartListening("Won", WonSound);
             EventManager.StartListening("GameOverBonusLevel", BonusGameOverSound);
             EventManager.StartListening("TeleportToBonusLevel", Teleport);
             EventManager.StartListening("TeleportReturnToLevel", Teleport);
         }
 
-
-
         private void OnDisable()
         {
             EventManager.StopListening("CurrencyModified", CurrencyPlay);
             EventManager.StopListening("GasModified", LevelGas);
-            EventManager.StopListening("GameOver", GameOverSound);
+            EventManager.StopListening("EndGameOver", GameOverSound);
             EventManager.StopListening("Won", WonSound);
             EventManager.StopListening("GameOverBonusLevel", BonusGameOverSound);
             EventManager.StopListening("TeleportToBonusLevel", Teleport);
@@ -58,25 +57,23 @@ namespace ProyectM2.Sound
 
         private void BonusGameOverSound(object[] obj)
         {
-            _source.clip = _gameOverBonusLevel;
-            _source.Play();
         }
 
         private void WonSound(object[] obj)
         {
             MusicManager.Instance.PlayMusic(_win);
-            //_source.clip = _win;
-            //_source.Play();
-            //_source.loop = true;
         }
 
         private void GameOverSound(object[] obj)
         {
+            if (obj.Length <= 0 ) return;
+            if ((GameOver)obj[0] == Gameplay.GameOver.Bonus)
+            {
+                _source.clip = _gameOverBonusLevel;
+                _source.Play();
+                return;
+            }
             MusicManager.Instance.PlayMusic(_gameOver);
-
-            //_source.clip = _gameOver;
-            //_source.Play();
         }
-
     }
 }

@@ -25,7 +25,7 @@ namespace ProyectM2.Gameplay.Car.Path
 
         private void Update()
         {
-            if (!_canMove || _currentPathTarget == null) return;
+            if (!_canMove || _currentPathTarget == null || _speed <= 0f) return;
             transform.position += (_currentPathTarget.transform.position - transform.position).normalized *
                                   _speed * Time.deltaTime;
             if (Vector3.Angle(_targetForward, transform.forward) <= 0.01f) return;

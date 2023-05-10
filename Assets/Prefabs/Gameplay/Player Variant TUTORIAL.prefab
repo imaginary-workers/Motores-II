@@ -70,16 +70,16 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 183300936984119577, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
---- !u!114 &4056497372106872187 stripped
+--- !u!114 &6416355106509732157 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1876319577606549681, guid: 7ccf943c99924994aa32f39dee857d18,
+  m_CorrespondingSourceObject: {fileID: 8884173324748561655, guid: 7ccf943c99924994aa32f39dee857d18,
     type: 3}
   m_PrefabInstance: {fileID: 2468417248745039306}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e82bc0968f0a6439e3a7eef9e6688d, type: 3}
+  m_Script: {fileID: 11500000, guid: e1e099b03d734f8b8effd971330cf884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!20 &7962781196435993848 stripped
@@ -111,5 +111,5 @@ MonoBehaviour:
     m_Bits: 8
   _maxTimeToFiresBack: 1
   _camera: {fileID: 7962781196435993848}
-  _animationManager: {fileID: 4056497372106872187}
+  _animationManager: {fileID: 6416355106509732157}
   _returnableLayer: 13

@@ -10,14 +10,13 @@ namespace ProyectM2.Gameplay.Car
         [SerializeField] protected int track = 0;
         public int Track => track;
         protected Vector3 _target;
-        [SerializeField] float _speed = 5;
 
         [SerializeField] protected AnimManager myAnim;
 
         protected virtual void Update()
         {
             if (Vector3.Distance(transform.localPosition, _target) < 0.01f) return;
-            transform.localPosition = Vector3.Lerp(transform.localPosition, _target, _speed * Time.deltaTime);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, _target, data.speed * Time.deltaTime);
 
         }
         public void MoveRight()
