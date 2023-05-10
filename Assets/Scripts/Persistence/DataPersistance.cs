@@ -22,7 +22,7 @@ namespace ProyectM2.Persistence
 
         public void SaveGame()
         {
-            var instanciaClase = new ValuesToSaveInJson(); //estamos creando instancia de la clase
+            var instanciaClase = new ValuesToSaveInJson();
             if (File.Exists(_path))
                 instanciaClase = LoadGame();
 
@@ -41,7 +41,7 @@ namespace ProyectM2.Persistence
         public ValuesToSaveInJson LoadGame()
         {
 
-            var instanciaClase = new ValuesToSaveInJson(); //estamos creando instancia de la clase
+            var instanciaClase = new ValuesToSaveInJson();
 
             if (File.Exists(_path))
             {
