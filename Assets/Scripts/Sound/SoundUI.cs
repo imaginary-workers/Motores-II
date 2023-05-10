@@ -1,5 +1,7 @@
+using ProyectM2.Gameplay;
 using UnityEngine;
 using ProyectM2.Music;
+using ProyectM2.Persistence;
 
 namespace ProyectM2.Sound
 {
@@ -55,8 +57,6 @@ namespace ProyectM2.Sound
 
         private void BonusGameOverSound(object[] obj)
         {
-            _source.clip = _gameOverBonusLevel;
-            _source.Play();
         }
 
         private void WonSound(object[] obj)
@@ -66,6 +66,13 @@ namespace ProyectM2.Sound
 
         private void GameOverSound(object[] obj)
         {
+            if (obj.Length <= 0 ) return;
+            if ((GameOver)obj[0] == Gameplay.GameOver.Bonus)
+            {
+                _source.clip = _gameOverBonusLevel;
+                _source.Play();
+                return;
+            }
             MusicManager.Instance.PlayMusic(_gameOver);
         }
     }

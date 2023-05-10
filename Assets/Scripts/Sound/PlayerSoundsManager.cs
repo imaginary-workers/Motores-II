@@ -1,11 +1,13 @@
-﻿namespace ProyectM2.Sound
+﻿using UnityEngine;
+
+namespace ProyectM2.Sound
 {
     public class PlayerSoundsManager: SoundsManager
     {
         protected override void OnEnable()
         {
             base.OnEnable();
-            EventManager.StopListening("StartGameOver", OnEndGameOverHandler);
+            EventManager.StartListening("StartGameOver", OnEndGameOverHandler);
         }
 
         protected override void OnDisable()
@@ -16,6 +18,7 @@
 
         private void OnEndGameOverHandler(object[] obj)
         {
+            Debug.Log("ENTROOOOOOOOOO");
             StopSound();
         }
     }

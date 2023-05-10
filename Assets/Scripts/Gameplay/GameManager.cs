@@ -29,7 +29,6 @@ namespace ProyectM2.Gameplay
         {
             EventManager.StartListening("EndGameOver", GameOver);
             EventManager.StartListening("Won", OnWonHandler);
-            EventManager.StartListening("GameOverBonusLevel", BonusGameOver);
             EventManager.StartListening("EnemyDiedCutSceneStarted", OnWonHandler);
             EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
             EventManager.StartListening("TeleportToBonusLevel", TeleportToBonusLevel);
@@ -42,7 +41,6 @@ namespace ProyectM2.Gameplay
         {
             EventManager.StopListening("EndGameOver", GameOver);
             EventManager.StopListening("Won", OnWonHandler);
-            EventManager.StopListening("GameOverBonusLevel",BonusGameOver);
             EventManager.StopListening("EnemyDiedCutSceneStarted", OnWonHandler);
             EventManager.StopListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StopListening("TeleportReturnToLevel", ReturnFromBonusLevel);
@@ -189,17 +187,18 @@ namespace ProyectM2.Gameplay
 
         public void GameOver(object[] obj)
         {
+            if (obj.Length <= 0 ) return;
+            if ((GameOver)obj[0] == Gameplay.GameOver.Bonus)
+            {
+                SessionGameData.SaveData("IsInBonusLevel", !_isInBonusLevel);
+                SessionGameData.GetData("levelCurrency");
+                SceneManager.Instance.ChangeScene(SceneManager.Instance.historyScene[^2]);
+                return;
+            }
             SessionGameData.ResetData();
             Time.timeScale = 0f;
             player.SetActive(false);
             _lose.SetActive(true);
-        }
-
-        private void BonusGameOver(object[] obj)
-        {
-            SessionGameData.SaveData("IsInBonusLevel", !_isInBonusLevel);
-            SessionGameData.GetData("levelCurrency");
-            SceneManager.Instance.ChangeScene(SceneManager.Instance.historyScene[^2]);
         }
 
         private void OnWonHandler(object[] obj)

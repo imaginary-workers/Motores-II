@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
-using ProyectM2.Persistence;
-using Unity.VisualScripting;
+﻿using UnityEngine;
 
 namespace ProyectM2.Gameplay.Car.Path
 {
     public class PlayerPathManager: PathManager
     {
-        private bool _isSlowingDown;
+        private bool _itHasGas = false;
         [SerializeField] private float _break = 5f;
 
         private void Awake()
@@ -25,7 +21,6 @@ namespace ProyectM2.Gameplay.Car.Path
             foreach (var target in pathTargets)
             {
                 var distance = (target.transform.position - transform.position).magnitude;
-                Debug.Log("<color=yellow>"+ target.name+" -> distance: ("+ distance+")</color>");
                 if (distance < closestDistance)
                 {
                     closest = target;
@@ -33,7 +28,6 @@ namespace ProyectM2.Gameplay.Car.Path
                 }
             }
 
-            Debug.Log("<color=red>" + closest.name + "</color>");
             return closest;
         }
 
@@ -45,17 +39,23 @@ namespace ProyectM2.Gameplay.Car.Path
         private void OnGameOverHandler(object[] obj)
         {
             if (obj.Length <= 0) return;
-            if ((GameOver)obj[0] != GameOver.Gas) return;
-            _isSlowingDown = true;
+            var gameOver = (GameOver)obj[0];
+            if (gameOver == GameOver.Gas)
+            {
+                _itHasGas = true;
+                return;
+            }
+
+            enabled = false;
         }
 
         private void LateUpdate()
         {
-            if (!_isSlowingDown) return;
+            if (!_itHasGas) return;
             _speed -= _break * Time.deltaTime;
             if (_speed <= 0)
             {
-                EventManager.TriggerEvent("EndGameOver");
+                EventManager.TriggerEvent("EndGameOver", GameOver.Gas);
                 enabled = false;
             }
         }

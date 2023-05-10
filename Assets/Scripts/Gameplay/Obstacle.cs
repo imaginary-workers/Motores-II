@@ -1,3 +1,4 @@
+using ProyectM2.Gameplay;
 using ProyectM2.SO;using UnityEngine;
 using ProyectM2.Persistence;
 
@@ -18,10 +19,7 @@ namespace ProyectM2
 
             if (other.gameObject.CompareTag("Player"))
             {
-                if (_isInBonusLevel)
-                    EventManager.TriggerEvent("GameOverBonusLevel");
-                else
-                    EventManager.TriggerEvent("GameOver");
+                EventManager.TriggerEvent("StartGameOver", _isInBonusLevel? GameOver.Bonus : GameOver.Crash);
             }
         }
     }
