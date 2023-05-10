@@ -10,6 +10,7 @@ using ProyectM2.Gameplay.Car.Path;
 
 namespace ProyectM2.Gameplay
 {
+    public enum GameOver { Gas, Crash, Bonus }
     public class GameManager : MonoBehaviour
     {
         public static int levelCurrency = 0;
@@ -26,7 +27,7 @@ namespace ProyectM2.Gameplay
 
         private void OnEnable()
         {
-            EventManager.StartListening("GameOver", GameOver);
+            EventManager.StartListening("EndGameOver", GameOver);
             EventManager.StartListening("Won", OnWonHandler);
             EventManager.StartListening("GameOverBonusLevel", BonusGameOver);
             EventManager.StartListening("EnemyDiedCutSceneStarted", OnWonHandler);
@@ -39,7 +40,7 @@ namespace ProyectM2.Gameplay
 
         private void OnDisable()
         {
-            EventManager.StopListening("GameOver", GameOver);
+            EventManager.StopListening("EndGameOver", GameOver);
             EventManager.StopListening("Won", OnWonHandler);
             EventManager.StopListening("GameOverBonusLevel",BonusGameOver);
             EventManager.StopListening("EnemyDiedCutSceneStarted", OnWonHandler);
@@ -124,7 +125,7 @@ namespace ProyectM2.Gameplay
         {
             levelGas -= value;
             if (levelGas <= 0)
-                EventManager.TriggerEvent("GameOver");
+                EventManager.TriggerEvent("StartGameOver", Gameplay.GameOver.Gas);
             else
                 EventManager.TriggerEvent("GasSubtract", levelGas);
         }
@@ -211,5 +212,12 @@ namespace ProyectM2.Gameplay
             yield return new WaitForSecondsRealtime(seconds);
             Won();
         }
+#if UNITY_EDITOR
+        [ContextMenu("Sacar Gas")]
+        public void asdasd()
+        {
+            SubstractGas(90);
+        }
+#endif
     }
 }

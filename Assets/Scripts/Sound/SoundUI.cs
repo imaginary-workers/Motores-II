@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using ProyectM2.Music;
 
@@ -18,20 +17,18 @@ namespace ProyectM2.Sound
         {
             EventManager.StartListening("CurrencyModified", CurrencyPlay);
             EventManager.StartListening("GasModified", LevelGas);
-            EventManager.StartListening("GameOver", GameOverSound);
+            EventManager.StartListening("EndGameOver", GameOverSound);
             EventManager.StartListening("Won", WonSound);
             EventManager.StartListening("GameOverBonusLevel", BonusGameOverSound);
             EventManager.StartListening("TeleportToBonusLevel", Teleport);
             EventManager.StartListening("TeleportReturnToLevel", Teleport);
         }
 
-
-
         private void OnDisable()
         {
             EventManager.StopListening("CurrencyModified", CurrencyPlay);
             EventManager.StopListening("GasModified", LevelGas);
-            EventManager.StopListening("GameOver", GameOverSound);
+            EventManager.StopListening("EndGameOver", GameOverSound);
             EventManager.StopListening("Won", WonSound);
             EventManager.StopListening("GameOverBonusLevel", BonusGameOverSound);
             EventManager.StopListening("TeleportToBonusLevel", Teleport);
@@ -65,18 +62,11 @@ namespace ProyectM2.Sound
         private void WonSound(object[] obj)
         {
             MusicManager.Instance.PlayMusic(_win);
-            //_source.clip = _win;
-            //_source.Play();
-            //_source.loop = true;
         }
 
         private void GameOverSound(object[] obj)
         {
             MusicManager.Instance.PlayMusic(_gameOver);
-
-            //_source.clip = _gameOver;
-            //_source.Play();
         }
-
     }
 }
