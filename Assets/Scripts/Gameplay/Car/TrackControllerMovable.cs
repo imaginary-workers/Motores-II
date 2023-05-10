@@ -33,16 +33,21 @@ namespace ProyectM2.Gameplay.Car
             {
                 hasFordward = hitInfoForward.transform.gameObject != transform.GetChild(0).gameObject;
             }
-            if (_forward)
+            else
+            {
+                hasFordward = false;
+            }
+
+            if (_forward != null)
             {
                 if (hasFordward)
                 {
                     int change = Random.Range(0, 2);
                     if (change == 0) MoveRight();
                     else MoveLeft();
+                    _time = 0;
+                    return;
                 }
-                _time = 0;
-                return;
             }
 
             if (_time >= _maxTime)

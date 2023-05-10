@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
-using ProyectM2.Persistence;
 
 namespace ProyectM2.Gameplay.Car.Path
 {
     public class PlayerPathManager: PathManager
     {
+        private bool _itHasGas = false;
+        [SerializeField] private float _break = 5f;
+
         private void Awake()
         {
             SetCurrentPathTarget(GetClosestPathTarget());
@@ -19,7 +21,6 @@ namespace ProyectM2.Gameplay.Car.Path
             foreach (var target in pathTargets)
             {
                 var distance = (target.transform.position - transform.position).magnitude;
-                Debug.Log("<color=yellow>"+ target.name+" -> distance: ("+ distance+")</color>");
                 if (distance < closestDistance)
                 {
                     closest = target;
@@ -27,8 +28,41 @@ namespace ProyectM2.Gameplay.Car.Path
                 }
             }
 
-            Debug.Log("<color=red>" + closest.name + "</color>");
             return closest;
+        }
+
+        private void OnEnable()
+        {
+            EventManager.StartListening("StartGameOver", OnGameOverHandler);
+        }
+
+        private void OnGameOverHandler(object[] obj)
+        {
+            if (obj.Length <= 0) return;
+            var gameOver = (GameOver)obj[0];
+            if (gameOver == GameOver.Gas)
+            {
+                _itHasGas = true;
+                return;
+            }
+
+            enabled = false;
+        }
+
+        private void LateUpdate()
+        {
+            if (!_itHasGas) return;
+            _speed -= _break * Time.deltaTime;
+            if (_speed <= 0)
+            {
+                EventManager.TriggerEvent("EndGameOver", GameOver.Gas);
+                enabled = false;
+            }
+        }
+
+        private void OnDisable()
+        {
+            EventManager.StopListening("StartGameOver", OnGameOverHandler);
         }
     }
 }

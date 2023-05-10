@@ -254,9 +254,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8037213228184361285}
   - component: {fileID: 2241185775180248663}
-  - component: {fileID: 1876319577606549681}
-  - component: {fileID: 6266483164755062192}
   - component: {fileID: 105307429576614643}
+  - component: {fileID: 2700965188084394374}
+  - component: {fileID: 8884173324748561655}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -300,34 +300,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1876319577606549681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4558093475183552361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e82bc0968f0a6439e3a7eef9e6688d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAnim: {fileID: 2241185775180248663}
-  _soundManager: {fileID: 6266483164755062192}
---- !u!114 &6266483164755062192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4558093475183552361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd0e4b9399667949bda2240d1fa3d7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _driving: {fileID: 8300000, guid: 9c7db14a7afdd1d499bda577ba521861, type: 3}
-  _source: {fileID: 105307429576614643}
 --- !u!82 &105307429576614643
 AudioSource:
   m_ObjectHideFlags: 0
@@ -425,6 +397,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2700965188084394374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4558093475183552361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e0f94c59ac402aa584a18d94208ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _driving: {fileID: 8300000, guid: 9c7db14a7afdd1d499bda577ba521861, type: 3}
+  _source: {fileID: 105307429576614643}
+--- !u!114 &8884173324748561655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4558093475183552361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e099b03d734f8b8effd971330cf884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myAnim: {fileID: 2241185775180248663}
 --- !u!1 &4828159261652359145
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +557,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: f5484aa616049a742a9099d35f8bc01b, type: 2}
   track: 0
   _speed: 15
-  myAnim: {fileID: 1876319577606549681}
+  myAnim: {fileID: 8884173324748561655}
   _substracttGas: 1.1
 --- !u!1 &5530683295635110520
 GameObject:
@@ -667,6 +666,7 @@ MonoBehaviour:
   _speedRotation: 15
   _targetTag: PathTarget
   _currentPathTarget: {fileID: 0}
+  _break: 5
 --- !u!65 &720027647
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -923,7 +923,7 @@ MonoBehaviour:
     m_Bits: 8
   _maxTimeToFiresBack: 2
   _camera: {fileID: 5530683297109053746}
-  _animationManager: {fileID: 1876319577606549681}
+  _animationManager: {fileID: 8884173324748561655}
   _returnableLayer: 13
 --- !u!1 &6892181066233639147
 GameObject:
