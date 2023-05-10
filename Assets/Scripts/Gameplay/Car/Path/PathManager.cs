@@ -28,8 +28,9 @@ namespace ProyectM2.Gameplay.Car.Path
             if (!_canMove || _currentPathTarget == null || _speed <= 0f) return;
             transform.position += (_currentPathTarget.transform.position - transform.position).normalized *
                                   _speed * Time.deltaTime;
-            if (Vector3.Angle(_targetForward, transform.forward) <= 0f) return;
-            transform.forward = Vector3.Lerp(transform.forward, _targetForward, _speedRotation * Time.deltaTime);
+            if (Vector3.Angle(_targetForward, transform.forward) <= 0.01f) return;
+            Quaternion targetRotation = Quaternion.LookRotation(_targetForward, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _speedRotation * Time.deltaTime);
 
         }
 
