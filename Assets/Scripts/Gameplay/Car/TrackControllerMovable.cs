@@ -29,7 +29,6 @@ namespace ProyectM2.Gameplay.Car
 
             RaycastHit hitInfoForward;
             Ray rayForward = new Ray(_forward.transform.position, transform.forward);
-            Debug.Log("hola");
             if (Physics.Raycast(rayForward, out hitInfoForward, raycastDistance, layerMask))
             {
                 hasFordward = hitInfoForward.transform.gameObject != transform.GetChild(0).gameObject;
