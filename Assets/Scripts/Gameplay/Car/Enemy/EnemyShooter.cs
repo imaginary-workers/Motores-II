@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace ProyectM2.Gameplay.Car
+namespace ProyectM2.Gameplay.Car.Enemy
 {
     public class EnemyShooter: MonoBehaviour
     {
@@ -13,6 +12,7 @@ namespace ProyectM2.Gameplay.Car
         private float _shootTime = 0;
         private ObjectPool _bulletPooler;
         private ObjectPool _returnBulletPooler;
+        private bool _isFirstBullet = true;
 
         private void Awake()
         {
@@ -25,15 +25,15 @@ namespace ProyectM2.Gameplay.Car
             _shootTime += Time.deltaTime;
             if (_shootTime >= _shootMaxTime)
             {
-                    GameObject bulletObject;
-                // Shoot
-                if (Random.Range(0f, 1f) >= _returnChance)
+                GameObject bulletObject;
+                if (Random.Range(0f, 1f) >= _returnChance && !_isFirstBullet)
                 {
                     bulletObject = _bulletPooler.GetObject();
                     bulletObject.GetComponent<Bullet>()?.SetBehaviour(new ForwardBulletBehaviour(5, bulletObject.transform, 5, _bulletPooler));
                 }
                 else
                 {
+                    _isFirstBullet = false;
                     bulletObject = _returnBulletPooler.GetObject();
                     bulletObject.GetComponent<Bullet>()?.SetBehaviour(new ForwardBulletBehaviour(5, bulletObject.transform, 5, _bulletPooler), true);
                 }
@@ -42,21 +42,6 @@ namespace ProyectM2.Gameplay.Car
                 bulletObject.transform.position = transform.position;
                 _shootTime = 0;
             }
-        }
-
-        private void OnEnable()
-        {
-            EventManager.StartListening("EnemyDiedCutSceneStarted", OnEnemyDiedCutSceneStartedHandler);
-        }
-
-        private void OnDisable()
-        {
-            EventManager.StopListening("EnemyDiedCutSceneStarted", OnEnemyDiedCutSceneStartedHandler);
-        }
-
-        private void OnEnemyDiedCutSceneStartedHandler(object[] obj)
-        {
-            Destroy(gameObject);
         }
     }
 }

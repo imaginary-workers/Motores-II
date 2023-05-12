@@ -1,29 +1,26 @@
-﻿using UnityEngine;
+﻿using ProyectM2.Gameplay.Car.Controller;
+using UnityEngine;
 
 namespace ProyectM2.Gameplay.Car.Path
 {
     public class InfinityPathTargetController : MonoBehaviour
     {
-        [SerializeField] private float _distanceFromPlayer = 10f;
-        private bool _infinite = false;
+        [SerializeField] private MoveController _moveController;
         private GameObject _player;
 
-#if UNITY_EDITOR
-        
-        [SerializeField] private MeshRenderer _renderer;
-#endif
-        private void Awake()
-        {
-#if UNITY_EDITOR
-            _renderer.material.color = Color.red;
-#endif
-        }
-
+        #region Unity
         private void OnEnable()
         {
             EventManager.StartListening("EnemyCutSceneStarted", NewInfiniteSection);
             EventManager.StartListening("SceneLoadComplete", LookForPlayer);
         }
+
+        private void OnDisable()
+        {
+            EventManager.StopListening("EnemyCutSceneStarted", NewInfiniteSection);
+            EventManager.StopListening("SceneLoadComplete", LookForPlayer);
+        }
+        #endregion
 
         private void LookForPlayer(object[] obj)
         {
@@ -33,28 +30,17 @@ namespace ProyectM2.Gameplay.Car.Path
                 var playerRoot = GameObject.Find("Player");
                 if (playerRoot != null)
                 {
-                    _player = playerRoot.GetComponentInChildren<PlayerTrackController>().gameObject;
+                    _player = playerRoot.GetComponentInChildren<TrackController>().gameObject;
                 }
             }
 
             _player = _player.transform.root.gameObject;
         }
 
-        private void OnDisable()
-        {
-            EventManager.StopListening("EnemyCutSceneStarted", NewInfiniteSection);
-            EventManager.StopListening("SceneLoadComplete", LookForPlayer);
-        }
-
         private void NewInfiniteSection(object[] obj)
         {
-            _infinite = true;
-        }
-
-        private void LateUpdate()
-        {
-            if (!_infinite) return;
-            transform.position = _player.transform.position + _player.transform.forward * _distanceFromPlayer;
+            _moveController.Speed = _player.GetComponent<MoveController>().Speed;
+            _moveController.Direction = _player.transform.forward;
         }
     }
 }

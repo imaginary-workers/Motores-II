@@ -1,14 +1,12 @@
-using System;
-using System.Collections.Generic;
-using ProyectM2.Sound;
+using ProyectM2.Gameplay.Car.Controller;
 using UnityEngine;
 
-namespace ProyectM2.Car
+namespace ProyectM2.Car.Controller
 {
-    public class AnimManager : MonoBehaviour
+    public class AnimationController : MonoBehaviour
     {
         [SerializeField] Animator _myAnim;
-        Dictionary<string, Action> _events = new Dictionary<string, Action>();
+        [SerializeField] TrackController _trackController;
         int turnLeftParameterId;
         int turnRightParameterId;
         int crashParameterId;
@@ -24,9 +22,20 @@ namespace ProyectM2.Car
             jumpParameterId = Animator.StringToHash("Jump");
         }
 
-        public void IDLE_ANIMATION()
+        private void OnEnable()
         {
-            
+            _trackController.Suscribe(TurnHandler);
+        }
+
+        private void OnDisable()
+        {
+            _trackController.Unsuscribe(TurnHandler);
+        }
+
+        private void TurnHandler(string dir)
+        {
+            if (dir == "Right") TurnRightAnimation();
+            else TurnLeftAnimation();
         }
 
         public void TurnLeftAnimation()
@@ -50,30 +59,9 @@ namespace ProyectM2.Car
             enabled = false;
         }
 
-        public void SetEvent(string key, Action method)
-        {
-            if (_events.ContainsKey(key))
-                return;
-            else
-                _events.Add(key, method);
-        }
-
-        public void RemoveEvent(string key)
-        {
-            if (_events.ContainsKey(key))
-                _events.Remove(key);
-        }
-
-        public void ExecuteEvent(string key)
-        {
-            if (_events.ContainsKey(key))
-                _events[key]();
-        }
-
         public void JumpAnimation()
         {
             _myAnim.SetTrigger(jumpParameterId);
         }
     }
-
 }

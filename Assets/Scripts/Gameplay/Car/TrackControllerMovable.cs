@@ -1,9 +1,11 @@
+using ProyectM2.Gameplay.Car.Controller;
 using UnityEngine;
 
 namespace ProyectM2.Gameplay.Car
 {
-    public class TrackControllerMovable : TrackControllerObstacle
+    public class TrackControllerMovable : MonoBehaviour
     {
+        [SerializeField] private TrackController _trackController;
         [SerializeField] float raycastDistance = 1f;
         [SerializeField] LayerMask layerMask;
         [SerializeField] GameObject _right;
@@ -11,6 +13,11 @@ namespace ProyectM2.Gameplay.Car
         [SerializeField] GameObject _forward;
         protected float _time;
         [SerializeField] protected int _maxTime;
+        private bool _hasHitRight = false;
+        private bool _hasHitLeft = false;
+        private bool _hasFordward = false;
+        private RaycastHit _hitInfo;
+        private Ray _ray;
 
         private void Start()
         {
@@ -18,73 +25,58 @@ namespace ProyectM2.Gameplay.Car
         }
         protected virtual void Update()
         {
-
-            base.Update();
-
-            var hasHitRight = false;
-            var hasHitLeft = false;
-            var hasFordward = false;
-
             _time += Time.deltaTime;
 
-            RaycastHit hitInfoForward;
-            Ray rayForward = new Ray(_forward.transform.position, transform.forward);
-            if (Physics.Raycast(rayForward, out hitInfoForward, raycastDistance, layerMask))
+            if (CheckNierObjects(_forward.transform))
             {
-                hasFordward = hitInfoForward.transform.gameObject != transform.GetChild(0).gameObject;
-            }
-            else
-            {
-                hasFordward = false;
-            }
+                _time = 0;
+                if (!CheckNierObjects(_right.transform))
+                    _trackController.MoveRight();
+                else if (!CheckNierObjects(_left.transform))
+                    _trackController.MoveLeft();
+                else
+                    //TODO hacer que se detenga
 
-            if (_forward != null)
-            {
-                if (hasFordward)
-                {
-                    int change = Random.Range(0, 2);
-                    if (change == 0) MoveRight();
-                    else MoveLeft();
-                    _time = 0;
-                    return;
-                }
+                    // if (Random.Range(0, 2) == 0) _trackController.MoveRight();
+                    // else _trackController.MoveLeft();
+                return;
             }
 
             if (_time >= _maxTime)
             {
-                RaycastHit hitInfoRight;
-                Ray ray = new Ray(_right.transform.position, _right.transform.forward);
-                if (Physics.Raycast(ray, out hitInfoRight, raycastDistance, layerMask))
-                {
-                    hasHitRight = hitInfoRight.transform.gameObject != transform.GetChild(0).gameObject;
-                }
-
-                RaycastHit hitInfoLeft;
-                ray = new Ray(_left.transform.position, _left.transform.forward);
-                if (Physics.Raycast(ray, out hitInfoLeft, raycastDistance, layerMask))
-                {
-                    hasHitLeft = hitInfoLeft.transform.gameObject != transform.GetChild(0).gameObject;
-                }
-
                 _time = 0;
+                _hasHitRight = CheckNierObjects(_right.transform);
+                _hasHitLeft = CheckNierObjects(_left.transform);
 
-                if (!hasHitRight && !hasHitLeft && !hasFordward)
+                if (!_hasHitRight && !_hasHitLeft)
                 {
                     int change = Random.Range(0, 2);
-                    if (change == 0) MoveRight();
-                    else MoveLeft();
+                    if (change == 0) _trackController.MoveRight();
+                    else _trackController.MoveLeft();
                 }
-                else if (hasHitRight)
+                else if (_hasHitRight)
                 {
-                    MoveLeft();
+                    _trackController.MoveLeft();
                 }
-                else if (hasHitLeft)
+                else if (_hasHitLeft)
                 {
-                    MoveRight();
+                    _trackController.MoveRight();
                 }
             }
-
         }
+
+        private bool CheckNierObjects(Transform origin)
+        {
+            _ray = new Ray(origin.position, origin.forward);
+            if (Physics.Raycast(_ray, out _hitInfo, raycastDistance, layerMask))
+            {
+                return _hitInfo.transform.gameObject != transform.GetChild(0).gameObject;
+            }
+
+            return false;
+        }
+
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             Ray ray = new Ray(_right.transform.position, _right.transform.forward * raycastDistance);
@@ -103,5 +95,6 @@ namespace ProyectM2.Gameplay.Car
             Gizmos.DrawRay(ray.origin, ray.direction * raycastDistance);
 
         }
+#endif
     }
 }

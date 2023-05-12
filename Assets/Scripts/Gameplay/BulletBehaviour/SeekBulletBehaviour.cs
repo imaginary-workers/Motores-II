@@ -4,10 +4,10 @@ namespace ProyectM2.Gameplay
 {
     public class SeekBulletBehaviour: IBulletBehaviour
     {
-        private Transform _target;
-        private float _speed;
-        private ObjectPool _pooler;
-        private Transform _transform;
+        private readonly Transform _target;
+        private readonly float _speed;
+        private readonly ObjectPool _pooler;
+        private readonly Transform _transform;
 
         public SeekBulletBehaviour(Transform transform, Transform target, float speed, ObjectPool pooler = null)
         {
@@ -19,9 +19,7 @@ namespace ProyectM2.Gameplay
 
         public void Update()
         {
-            var direction = _target.position - _transform.position;
-            direction.Normalize();
-            _transform.position += direction * _speed * Time.deltaTime;
+            _transform.position += (_target.position - _transform.position).normalized * _speed * Time.deltaTime;
         }
 
         public void OnTriggerEnter(Collider other)

@@ -55,6 +55,4 @@ namespace ProyectM2
             return obj;
         }
     }
-
-
 }

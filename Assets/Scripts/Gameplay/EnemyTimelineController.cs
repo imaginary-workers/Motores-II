@@ -9,7 +9,7 @@ namespace ProyectM2.Gameplay
     public class EnemyTimelineController : MonoBehaviour
     {
         [SerializeField] private float _range = 1f;
-        [SerializeField] private PathManager _enemyPathManager;
+        [SerializeField] private PathController enemyPathController;
         [SerializeField] private EnemyShooter _enemyShooter;
         [SerializeField] private TrackControllerMovable _enemyTrackController;
         [SerializeField] private PlayableDirector _playableDirector;
@@ -30,7 +30,7 @@ namespace ProyectM2.Gameplay
 
         private void OnEnemyCutSceneStarted(object[] obj)
         {
-            if (_enemyPathManager == null) return;
+            if (enemyPathController == null) return;
             StartCoroutine(CO_EnemyTimeline());
         }
 
@@ -46,10 +46,10 @@ namespace ProyectM2.Gameplay
 
         public void InitializeEnemy()
         {
-            _enemyPathManager.transform.position = GameManager.player.transform.position + GameManager.player.transform.forward * _range;
+            enemyPathController.transform.position = GameManager.player.transform.position + GameManager.player.transform.forward * _range;
 
-            var hits = Physics.BoxCastAll(_enemyPathManager.transform.position, new Vector3(ancho / 2, alto / 2, distancia / 2),
-                _enemyPathManager.transform.forward);
+            var hits = Physics.BoxCastAll(enemyPathController.transform.position, new Vector3(ancho / 2, alto / 2, distancia / 2),
+                enemyPathController.transform.forward);
 
             if (hits.Length > 0)
             {
@@ -70,8 +70,8 @@ namespace ProyectM2.Gameplay
 
                 if (closestPathTarget != null)
                 {
-                    _enemyPathManager.SetCurrentPathTarget(closestPathTarget);
-                    _enemyPathManager.transform.forward = transform.forward;
+                    enemyPathController.SetCurrentPathTarget(closestPathTarget);
+                    enemyPathController.transform.forward = transform.forward;
                     _enemyShooter.enabled = false;
                     _enemyTrackController.enabled = false;
                     _playableDirector.Play();

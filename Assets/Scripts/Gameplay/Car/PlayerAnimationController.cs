@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ProyectM2.Gameplay.Car
 {
-    public class PlayerAnimManager: AnimManager
+    public class PlayerAnimationController: AnimationController
     {
         [SerializeField] private float _secondsToLose = 2f;
 

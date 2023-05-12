@@ -1,13 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ProyectM2.Gameplay;
 using ProyectM2.Persistence;
 
 namespace ProyectM2.Managers.Levels
 {
-    public class LevelManager : MonoBehaviour, IObserver
+    public class LevelManager : MonoBehaviour
     {
         [SerializeField] Sections[] _sections;
         [SerializeField] Sections _infinitiveSection;
@@ -67,7 +65,7 @@ namespace ProyectM2.Managers.Levels
                 if (!_sectionsListInGame.Contains(section))
                 {
                     _sectionsListInGame.Add(section);
-                    section.Suscribe(this);
+                    section.Suscribe(Notify);
                 }
             }
         }
@@ -111,12 +109,12 @@ namespace ProyectM2.Managers.Levels
                 NewSection(_currentIndex);
                 if (!_isInInfinitiveSection)
                 {
-                    _sections[_currentIndex-1].Unsuscribe(this);
+                    _sections[_currentIndex-1].Unsuscribe(Notify);
                     _sectionsListInGame.Remove(_sections[_currentIndex-1]);
                 }
                 else
                 {
-                    _infinitiveSection.Unsuscribe(this);
+                    _infinitiveSection.Unsuscribe(Notify);
                 }
             }
         }

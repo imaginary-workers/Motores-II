@@ -4,10 +4,10 @@ namespace ProyectM2.Gameplay
 {
     public class ForwardBulletBehaviour : IBulletBehaviour
     {
-        private float _destroy;
-        private Transform _transform;
-        private float _velocity;
-        private ObjectPool _pooler;
+        private readonly float _destroy;
+        private readonly Transform _transform;
+        private readonly float _velocity;
+        private readonly ObjectPool _pooler;
         private float _time;
 
         public ForwardBulletBehaviour(float destroy, Transform transform, float velocity, ObjectPool pooler = null)
@@ -35,7 +35,7 @@ namespace ProyectM2.Gameplay
                 }
             }
         }
-
+        //TODO Seria bueno si no usa el trigger separar el comportamiento en otro componente (?
         public void OnTriggerEnter(Collider other)
         {
         }

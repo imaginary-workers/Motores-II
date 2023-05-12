@@ -24,6 +24,8 @@ namespace ProyectM2.Gameplay
         [SerializeField] public static bool _isInBonusLevel = false;
         [SerializeField] private PauseControllerUI _pauseController;
         bool _iWin = false;
+        public static bool isInCutScene;
+        public static bool isOnPause;
 
         private void OnEnable()
         {
@@ -34,6 +36,8 @@ namespace ProyectM2.Gameplay
             EventManager.StartListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StartListening("TeleportReturnToLevel", ReturnFromBonusLevel);
             EventManager.StartListening("OnPause", Pause);
+            EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
+            EventManager.StartListening("EnemyCutSceneEnded", OnEnemyCutSceneEnded);
         }
 
 
@@ -46,11 +50,23 @@ namespace ProyectM2.Gameplay
             EventManager.StopListening("TeleportReturnToLevel", ReturnFromBonusLevel);
             EventManager.StopListening("PlayerGetHit", OnPlayerGetHit);
             EventManager.StopListening("OnPause", Pause);
+            EventManager.StopListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
+            EventManager.StopListening("EnemyCutSceneEnded", OnEnemyCutSceneEnded);
+        }
+
+        private void OnEnemyCutSceneEnded(object[] obj)
+        {
+            isInCutScene = false;
+        }
+
+        private void OnEnemyCutSceneStarted(object[] obj)
+        {
+            isInCutScene = true;
         }
 
         private void Awake()
         {
-            player = FindObjectOfType<PlayerTrackController>().gameObject;
+            player = FindObjectOfType<PlayerCutSceneController>().gameObject;
         }
 
         private void Start()
@@ -77,7 +93,7 @@ namespace ProyectM2.Gameplay
                 if (SessionGameData.GetData("LastPositionOfPlayer") != null)
                 {
                     player.transform.root.position = (Vector3)SessionGameData.GetData("LastPositionOfPlayer");
-                    var playerPathManager = player.transform.root.GetComponent<PlayerPathManager>();
+                    var playerPathManager = player.transform.root.GetComponent<PlayerGasHandler>();
                     playerPathManager.SetCurrentPathTarget(playerPathManager.GetClosestPathTarget());
                     player.transform.root.forward = (Vector3)SessionGameData.GetData("ForwardOfPlayer");
                 }
@@ -168,6 +184,7 @@ namespace ProyectM2.Gameplay
         {
             if (obj.Length == 0) return;
             var isPause = (bool)obj[0];
+            isOnPause = isPause;
             PauseGame(isPause);
         }
 
@@ -203,6 +220,7 @@ namespace ProyectM2.Gameplay
 
         private void OnWonHandler(object[] obj)
         {
+            isInCutScene = true;
             StartCoroutine(WaitToWon(2f));
         }
 

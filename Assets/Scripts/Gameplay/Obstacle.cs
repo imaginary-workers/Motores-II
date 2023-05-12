@@ -1,5 +1,5 @@
 using ProyectM2.Gameplay;
-using ProyectM2.SO;using UnityEngine;
+using UnityEngine;
 using ProyectM2.Persistence;
 
 namespace ProyectM2
@@ -16,7 +16,6 @@ namespace ProyectM2
 
         private void OnTriggerEnter(Collider other)
         {
-
             if (other.gameObject.CompareTag("Player"))
             {
                 EventManager.TriggerEvent("StartGameOver", _isInBonusLevel? GameOver.Bonus : GameOver.Crash);

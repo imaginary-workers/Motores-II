@@ -6,7 +6,7 @@ namespace ProyectM2.Gameplay
 {
     public class EnemyDamageable : MonoBehaviour, IDamageable
     {
-        [SerializeField] private AnimManager _animManager;
+        [SerializeField] private AnimationController animationController;
         [SerializeField] private TrackController _trackController;
         [SerializeField] private int _life = 3;
 
@@ -17,11 +17,11 @@ namespace ProyectM2.Gameplay
             if (_life <= 0)
             {
                 EventManager.TriggerEvent("EnemyDiedCutSceneStarted", _trackController.Track);
-                _animManager.DeathAnimation();
+                animationController.DeathAnimation();
             }
             else
             {
-                _animManager.TurnLeftAnimation();
+                animationController.TurnLeftAnimation();
             }
         }
     }

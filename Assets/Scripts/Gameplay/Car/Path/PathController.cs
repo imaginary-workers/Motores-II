@@ -1,16 +1,21 @@
+using ProyectM2.Gameplay.Car.Controller;
+using ProyectM2.SO;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace ProyectM2.Gameplay.Car.Path
 {
-    public class PathManager : MonoBehaviour
+    public class PathController : MonoBehaviour
     {
-        [SerializeField] protected float _speed = 1;
-        [SerializeField] protected float _speedRotation = 1;
-        [SerializeField] protected string _targetTag = "PathTarget";
-        [SerializeField] protected GameObject _currentPathTarget;
-        protected Vector3 _targetForward;
-        protected bool _canMove = true;
+        [SerializeField] private DataCar _dataCar;
+        [SerializeField] private string _targetTag = "PathTarget";
+        [SerializeField] private GameObject _currentPathTarget;
+        [SerializeField] private MoveController _moveController;
+        private Vector3 _targetForward;
+
+        private void Awake()
+        {
+            _moveController.Speed = _dataCar.speedForward;
+        }
 
         public void SetCurrentPathTarget(GameObject target)
         {
@@ -18,20 +23,18 @@ namespace ProyectM2.Gameplay.Car.Path
             SetForwardToTarget(_currentPathTarget);
         }
 
-        protected void SetForwardToTarget(GameObject pathTarget)
+        private void SetForwardToTarget(GameObject pathTarget)
         {
             _targetForward = (pathTarget.transform.position - transform.position).normalized;
         }
 
         private void Update()
         {
-            if (!_canMove || _currentPathTarget == null || _speed <= 0f) return;
-            transform.position += (_currentPathTarget.transform.position - transform.position).normalized *
-                                  _speed * Time.deltaTime;
+            if (_currentPathTarget == null) return;
+            _moveController.Direction = (_currentPathTarget.transform.position - transform.position).normalized;
             if (Vector3.Angle(_targetForward, transform.forward) <= 0.01f) return;
             Quaternion targetRotation = Quaternion.LookRotation(_targetForward, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _speedRotation * Time.deltaTime);
-
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _dataCar.speedRotation * Time.deltaTime);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -41,8 +44,7 @@ namespace ProyectM2.Gameplay.Car.Path
                 _currentPathTarget = other.GetComponent<PathTargetInfo>().NextPathTarget;
                 if (_currentPathTarget == null)
                 {
-                    
-                    _canMove = false;
+                    _moveController.Speed = 0f;
                     return;
                 }
                 SetForwardToTarget(_currentPathTarget);

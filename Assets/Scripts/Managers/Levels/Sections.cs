@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using ProyectM2.Gameplay;
-using System;
 
 namespace ProyectM2.Managers.Levels
 {
-    public class Sections : MonoBehaviour, IObservable
+    public class Sections : MonoBehaviour
     {
-        IObserver _myObserver;
+        private event Action<string> _myObserver;
 
         [SerializeField] float _distanceToCreateSection;
         [SerializeField] float _distanceToDeleteSection;
@@ -52,18 +50,17 @@ namespace ProyectM2.Managers.Levels
 
         public void NotifyToObservers(string action)
         {
-            _myObserver?.Notify(action);
+            _myObserver?.Invoke(action);
         }
 
-        public void Suscribe(IObserver obs)
+        public void Suscribe(Action<string> obs)
         {
-            _myObserver = obs;
+            _myObserver += obs;
         }
 
-        public void Unsuscribe(IObserver obs)
+        public void Unsuscribe(Action<string> obs)
         {
-            if (obs == _myObserver)
-                _myObserver = null;
+            _myObserver -= obs;
         }
     }
 }

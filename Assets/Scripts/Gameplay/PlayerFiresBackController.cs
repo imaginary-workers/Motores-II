@@ -10,7 +10,7 @@ namespace ProyectM2.Gameplay
         [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private float _maxTimeToFiresBack = 1f;
         [SerializeField] private Camera _camera;
-        [SerializeField] private AnimManager _animationManager;
+        [SerializeField] private AnimationController _animationManager;
         protected Bullet returnableBullet;
         private float _timeToFiresBack;
         private GameObject _enemyTarget = null;
