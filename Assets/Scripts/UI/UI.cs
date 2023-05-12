@@ -7,7 +7,6 @@ namespace ProyectM2.UI
     {
         [SerializeField] private int _coin;
         [SerializeField] private TextMeshProUGUI _coinText;
-        // public TextMesh _coinText;
 
         private void Awake()
         {

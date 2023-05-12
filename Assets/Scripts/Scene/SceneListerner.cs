@@ -9,16 +9,15 @@ namespace ProyectM2.Scenes
             EventManager.StartListening("ChangeScene", ChangeSceneHandler);
         }
 
+        private void OnDisable()
+        {
+            EventManager.StopListening("ChangeScene", ChangeSceneHandler);
+        }
+
         private void ChangeSceneHandler(object[] obj)
         {
             if (obj.Length == 0) return;
             SceneManager.Instance.ChangeScene((Scene)obj[0]);
-        }
-
-        private void OnDisable()
-        {
-            EventManager.StopListening("ChangeScene", ChangeSceneHandler);
-
         }
     }
 }
