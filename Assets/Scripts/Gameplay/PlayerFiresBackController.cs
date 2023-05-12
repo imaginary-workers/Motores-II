@@ -16,10 +16,10 @@ namespace ProyectM2.Gameplay
         private GameObject _enemyTarget = null;
         private Ray _ray;
         [SerializeField] private int _returnableLayer;
+        [SerializeField] private float _bulletSpeed = 50f;
 
         private void OnEnable()
         {
-                //TODO Suscribirse InputManager.CurrentInput.Circulito
                 InputManager.CurrentInput.Click += FireBackChecker;
                 EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
         }
@@ -31,8 +31,8 @@ namespace ProyectM2.Gameplay
 
         private void OnDisable()
         {
-                //TODO Desuscribirse InputManager.CurrentInput.Circulito
                 InputManager.CurrentInput.Click -= FireBackChecker;
+                EventManager.StopListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
         }
 
         protected virtual void OnTriggerEnter(Collider other)
@@ -45,7 +45,6 @@ namespace ProyectM2.Gameplay
 
         private void Update()
         {
-            
             if (_timeToFiresBack < _maxTimeToFiresBack)
             {
                 _timeToFiresBack += Time.deltaTime;
@@ -72,7 +71,7 @@ namespace ProyectM2.Gameplay
         {
             _animationManager.HipUpAnimation();
             returnableBullet.gameObject.layer = _returnableLayer;
-            returnableBullet.SetBehaviour(new SeekBulletBehaviour(returnableBullet.transform, _enemyTarget.transform, 50));
+            returnableBullet.SetBehaviour(new SeekBulletBehaviour(returnableBullet.transform, _enemyTarget.transform, _bulletSpeed));
             returnableBullet = null;
         }
     }

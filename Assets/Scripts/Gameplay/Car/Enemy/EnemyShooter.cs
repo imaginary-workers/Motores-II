@@ -6,6 +6,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
     public class EnemyShooter: MonoBehaviour
     {
         [SerializeField] private float _shootMaxTime;
+        [SerializeField] private float _bulletSpeed = 5f;
         [SerializeField] private GameObject _damagingBulletPrefab;
         [SerializeField] private GameObject _returnBulletPrefab;
         [SerializeField, Range(0f, 1f)] private float _returnChance;
@@ -25,18 +26,12 @@ namespace ProyectM2.Gameplay.Car.Enemy
             _shootTime += Time.deltaTime;
             if (_shootTime >= _shootMaxTime)
             {
-                GameObject bulletObject;
-                if (Random.Range(0f, 1f) >= _returnChance && !_isFirstBullet)
-                {
-                    bulletObject = _bulletPooler.GetObject();
-                    bulletObject.GetComponent<Bullet>()?.SetBehaviour(new ForwardBulletBehaviour(5, bulletObject.transform, 5, _bulletPooler));
-                }
-                else
-                {
-                    _isFirstBullet = false;
-                    bulletObject = _returnBulletPooler.GetObject();
-                    bulletObject.GetComponent<Bullet>()?.SetBehaviour(new ForwardBulletBehaviour(5, bulletObject.transform, 5, _bulletPooler), true);
-                }
+                var pooler = _isFirstBullet || Random.Range(0f, 1f) >= _returnChance ? _returnBulletPooler : _bulletPooler;
+                var bulletObject = pooler.GetObject();
+                _isFirstBullet = false;
+                var bullet = bulletObject.GetComponent<Bullet>();
+                bullet.SetBehaviour(new ForwardBulletBehaviour(bullet.transform,_bulletSpeed));
+                bullet.SetPool(pooler);
                 bulletObject.transform.parent = null;
                 bulletObject.transform.forward = transform.forward;
                 bulletObject.transform.position = transform.position;

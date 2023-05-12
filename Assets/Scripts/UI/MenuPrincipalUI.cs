@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using ProyectM2.Gameplay;
-using ProyectM2.Managers;
 using ProyectM2.Persistence;
+using ProyectM2.Scenes;
 using TMPro;
 using UnityEngine;
 

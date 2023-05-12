@@ -39,7 +39,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
         {
             yield return new WaitForSeconds(_secondsToStartAnimation);
             InitializeEnemy();
-            yield return new WaitForSeconds((float) _playableDirector.duration);
+            yield return new WaitForSeconds((float)_playableDirector.duration);
             EventManager.TriggerEvent("EnemyCutSceneEnded");
             _enemyShooter.enabled = true;
             _enemyTrackController.enabled = true;
@@ -47,9 +47,11 @@ namespace ProyectM2.Gameplay.Car.Enemy
 
         public void InitializeEnemy()
         {
-            enemyPathController.transform.position = GameManager.player.transform.position + GameManager.player.transform.forward * _range;
+            enemyPathController.transform.position =
+                GameManager.player.transform.position + GameManager.player.transform.forward * _range;
 
-            GameObject closestPathTarget = Utility.GetClosestObjectWithTag(enemyPathController.transform.position, _targetTag);
+            GameObject closestPathTarget =
+                Utility.GetClosestObjectWithTag(enemyPathController.transform.position, _targetTag);
 
             //var hits = Physics.BoxCastAll(enemyPathController.transform.position, new Vector3(ancho / 2, alto / 2, distancia / 2),
             //    enemyPathController.transform.forward);
@@ -72,13 +74,12 @@ namespace ProyectM2.Gameplay.Car.Enemy
             //    }
 
             if (closestPathTarget != null)
-                {
-                    enemyPathController.SetCurrentPathTarget(closestPathTarget);
-                    enemyPathController.transform.forward = transform.forward;
-                    _enemyShooter.enabled = false;
-                    _enemyTrackController.enabled = false;
-                    _playableDirector.Play();
-                }
+            {
+                enemyPathController.SetCurrentPathTarget(closestPathTarget);
+                enemyPathController.transform.forward = transform.forward;
+                _enemyShooter.enabled = false;
+                _enemyTrackController.enabled = false;
+                _playableDirector.Play();
             }
         }
     }

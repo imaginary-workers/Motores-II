@@ -8,6 +8,7 @@ using System;
 using System.Collections;
 using ProyectM2.Gameplay.Car.Path;
 using ProyectM2.Gameplay.Car.Player;
+using ProyectM2.Scenes;
 
 namespace ProyectM2.Gameplay
 {
