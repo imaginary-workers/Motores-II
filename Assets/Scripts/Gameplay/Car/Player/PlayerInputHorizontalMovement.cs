@@ -4,22 +4,18 @@ using UnityEngine;
 
 namespace ProyectM2.Gameplay.Car.Player
 {
-    public class PlayerInputHandler: MonoBehaviour
+    public class PlayerInputHorizontalMovement: MonoBehaviour
     {
         [SerializeField] private TrackController _trackController;
-        private void Update()
-        {
-            InputManager.CurrentInput.OnUpdate();
-        }
 
         private void OnEnable()
         {
-            InputManager.CurrentInput.Horizontal += OnHorizontal;
+            InputManager.Instance.Strategy.Horizontal += OnHorizontal;
         }
 
         private void OnDisable()
         {
-            InputManager.CurrentInput.Horizontal -= OnHorizontal;
+            InputManager.Instance.Strategy.Horizontal -= OnHorizontal;
         }
         
         private void OnHorizontal(int hor)

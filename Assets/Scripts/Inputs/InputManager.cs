@@ -2,8 +2,24 @@ using UnityEngine;
 
 namespace ProyectM2.Inputs
 {
-    public class InputManager : MonoBehaviour
+    public class InputManager : Singleton<InputManager>
     {
-        public static IInput CurrentInput = new Swipe();
+        protected override void Awake()
+        {
+            itDestroyOnLoad = true;
+            base.Awake();
+        }
+
+        public IInputStrategy Strategy;
+
+        public void SetInputStrategy(IInputStrategy strategy)
+        {
+            Strategy = strategy;
+        }
+
+        private void Update()
+        {
+            Strategy?.OnUpdate();
+        }
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ProyectM2.Inputs
 {
-    public class Swipe: IInput
+    public class TactilStrategy: IInputStrategy
     {
         Vector2 startTouchPosition;
         Vector2 endTouchPosition;

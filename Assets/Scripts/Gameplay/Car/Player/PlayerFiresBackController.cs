@@ -20,7 +20,7 @@ namespace ProyectM2.Gameplay
 
         private void OnEnable()
         {
-                InputManager.CurrentInput.Click += FireBackChecker;
+                InputManager.Instance.Strategy.Click += FireBackChecker;
                 EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
         }
 
@@ -31,8 +31,8 @@ namespace ProyectM2.Gameplay
 
         private void OnDisable()
         {
-                InputManager.CurrentInput.Click -= FireBackChecker;
-                EventManager.StopListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
+            InputManager.Instance.Strategy.Click -= FireBackChecker;
+            EventManager.StopListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
         }
 
         protected virtual void OnTriggerEnter(Collider other)
