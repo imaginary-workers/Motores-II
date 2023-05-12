@@ -15,19 +15,6 @@ namespace ProyectM2.Persistence
             else 
                 return null;
         }
-        
-        public static bool TryGetData(string key, out object value)
-        {
-            if (sessionGameData.TryGetValue(key, out value))
-            {
-                return true;
-            }
-            else
-            {
-                value = null;
-                return false;
-            }
-        }
 
         public static void SaveData(string keyToSave, object valueToSave)
         {

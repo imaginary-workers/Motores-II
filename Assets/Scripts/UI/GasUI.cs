@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace ProyectM2
 {
-    public class GasUi : MonoBehaviour
+    public class GasUI : MonoBehaviour
     {
         public float _maxTime;
         public float _currentTime;
@@ -21,8 +21,6 @@ namespace ProyectM2
             _slider.value = _currentTime;
         }
 
-
-
         private void OnEnable()
         {
             EventManager.StartListening("GasModified", OnGasModified);
@@ -34,13 +32,11 @@ namespace ProyectM2
             if (obj.Length == 0) return;
             _currentTime = (float)obj[0];
             _slider.value = _currentTime;
-
         }
         private void OnDisable()
         {
             EventManager.StopListening("GasModified", OnGasModified);
             EventManager.StopListening("GasSubtract", OnGasModified);
-
         }
     }
 }
