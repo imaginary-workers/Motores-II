@@ -21,7 +21,6 @@ namespace ProyectM2.Sound
             EventManager.StartListening("GasModified", LevelGas);
             EventManager.StartListening("EndGameOver", GameOverSound);
             EventManager.StartListening("Won", WonSound);
-            EventManager.StartListening("GameOverBonusLevel", BonusGameOverSound);
             EventManager.StartListening("TeleportToBonusLevel", Teleport);
             EventManager.StartListening("TeleportReturnToLevel", Teleport);
         }
@@ -32,7 +31,6 @@ namespace ProyectM2.Sound
             EventManager.StopListening("GasModified", LevelGas);
             EventManager.StopListening("EndGameOver", GameOverSound);
             EventManager.StopListening("Won", WonSound);
-            EventManager.StopListening("GameOverBonusLevel", BonusGameOverSound);
             EventManager.StopListening("TeleportToBonusLevel", Teleport);
             EventManager.StopListening("TeleportReturnToLevel", Teleport);
         }
@@ -55,10 +53,6 @@ namespace ProyectM2.Sound
             _source.Play();
         }
 
-        private void BonusGameOverSound(object[] obj)
-        {
-        }
-
         private void WonSound(object[] obj)
         {
             MusicManager.Instance.PlayMusic(_win);
@@ -67,7 +61,7 @@ namespace ProyectM2.Sound
         private void GameOverSound(object[] obj)
         {
             if (obj.Length <= 0 ) return;
-            if ((GameOver)obj[0] == Gameplay.GameOver.Bonus)
+            if ((GameOver)obj[0] == GameOver.Bonus)
             {
                 _source.clip = _gameOverBonusLevel;
                 _source.Play();

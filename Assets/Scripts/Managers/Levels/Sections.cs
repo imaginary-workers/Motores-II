@@ -8,8 +8,8 @@ namespace ProyectM2.Managers.Levels
     {
         private event Action<string> _myObserver;
 
-        [SerializeField] float _distanceToCreateSection;
-        [SerializeField] float _distanceToDeleteSection;
+        [SerializeField] private float _distanceToCreateSection;
+        [SerializeField] private float _distanceToDeleteSection;
 
         Transform _nextPivot;
         Transform _lastPivot;

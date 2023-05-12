@@ -1,5 +1,4 @@
-using ProyectM2.Gameplay;
-using ProyectM2.Managers;
+using ProyectM2.Scenes;
 using UnityEngine;
 
 namespace ProyectM2
@@ -10,11 +9,5 @@ namespace ProyectM2
         {
             SceneManager.Instance.ChangeToMenuScene("Menu Principal");
         }
-
-        // public void RestartLevel()
-        // {
-        //     GameManager.Retry();
-        //     SceneManager.Instance.RestartLevel();
-        // }
     }
 }

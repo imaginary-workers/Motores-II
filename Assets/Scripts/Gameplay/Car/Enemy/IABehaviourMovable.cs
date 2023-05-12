@@ -1,9 +1,9 @@
 using ProyectM2.Gameplay.Car.Controller;
 using UnityEngine;
 
-namespace ProyectM2.Gameplay.Car
+namespace ProyectM2.Gameplay.Car.Enemy
 {
-    public class TrackControllerMovable : MonoBehaviour
+    public class IABehaviourMovable : MonoBehaviour
     {
         [SerializeField] private TrackController _trackController;
         [SerializeField] float raycastDistance = 1f;
@@ -15,7 +15,6 @@ namespace ProyectM2.Gameplay.Car
         [SerializeField] protected int _maxTime;
         private bool _hasHitRight = false;
         private bool _hasHitLeft = false;
-        private bool _hasFordward = false;
         private RaycastHit _hitInfo;
         private Ray _ray;
 
@@ -35,11 +34,10 @@ namespace ProyectM2.Gameplay.Car
                 else if (!CheckNierObjects(_left.transform))
                     _trackController.MoveLeft();
                 else
+                {
                     //TODO hacer que se detenga
+                }
 
-                    // if (Random.Range(0, 2) == 0) _trackController.MoveRight();
-                    // else _trackController.MoveLeft();
-                return;
             }
 
             if (_time >= _maxTime)
@@ -54,11 +52,11 @@ namespace ProyectM2.Gameplay.Car
                     if (change == 0) _trackController.MoveRight();
                     else _trackController.MoveLeft();
                 }
-                else if (_hasHitRight)
+                else if (_hasHitRight && !_hasHitLeft)
                 {
                     _trackController.MoveLeft();
                 }
-                else if (_hasHitLeft)
+                else if (_hasHitLeft && !_hasHitRight)
                 {
                     _trackController.MoveRight();
                 }

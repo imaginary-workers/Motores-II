@@ -3,7 +3,7 @@ using ProyectM2.SO;
 
 namespace ProyectM2.Gameplay.Recolectables
 {
-    public class Currency : MonoBehaviour
+    public class CurrencyRecolectable : MonoBehaviour
     {
         [SerializeField] GameObject currencyPrefab;
         [SerializeField] DataInt _currencyValue;

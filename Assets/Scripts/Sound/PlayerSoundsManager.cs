@@ -4,5 +4,6 @@ namespace ProyectM2.Sound
 {
     public class PlayerSoundsManager: SoundsManager
     {
+        
     }
 }

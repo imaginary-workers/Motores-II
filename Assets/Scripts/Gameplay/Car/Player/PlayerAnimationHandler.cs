@@ -1,12 +1,13 @@
 ﻿using System.Collections;
-using ProyectM2.Car;
+using ProyectM2.Car.Controller;
 using UnityEngine;
 
-namespace ProyectM2.Gameplay.Car
+namespace ProyectM2.Gameplay.Car.Player
 {
-    public class PlayerAnimationController: AnimationController
+    public class PlayerAnimationHandler: MonoBehaviour
     {
         [SerializeField] private float _secondsToLose = 2f;
+        [SerializeField] private AnimationController _animationController;
 
         private void OnEnable()
         {
@@ -23,7 +24,7 @@ namespace ProyectM2.Gameplay.Car
             if (obj.Length <=0) return;
             var gameOver = (GameOver) obj[0];
             if (gameOver != GameOver.Crash && gameOver != GameOver.Bonus) return;
-            DeathAnimation();
+            _animationController.DeathAnimation();
             StartCoroutine(WaitToGameOver(gameOver));
         }
 

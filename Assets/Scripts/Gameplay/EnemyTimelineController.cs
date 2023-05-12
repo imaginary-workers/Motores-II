@@ -1,5 +1,6 @@
 using System.Collections;
-using ProyectM2.Gameplay.Car;
+using ProyectM2.Assets.Scripts;
+using ProyectM2.Gameplay.Car.Enemy;
 using ProyectM2.Gameplay.Car.Path;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -11,9 +12,10 @@ namespace ProyectM2.Gameplay
         [SerializeField] private float _range = 1f;
         [SerializeField] private PathController enemyPathController;
         [SerializeField] private EnemyShooter _enemyShooter;
-        [SerializeField] private TrackControllerMovable _enemyTrackController;
+        [SerializeField] private IABehaviourMovable _enemyTrackController;
         [SerializeField] private PlayableDirector _playableDirector;
         [SerializeField] private float _secondsToStartAnimation = 4f;
+        [SerializeField] private string _targetTag = "PathTarget";
         public float distancia = 10f;
         public float ancho = 1f;
         public float alto = 1f;
@@ -48,27 +50,29 @@ namespace ProyectM2.Gameplay
         {
             enemyPathController.transform.position = GameManager.player.transform.position + GameManager.player.transform.forward * _range;
 
-            var hits = Physics.BoxCastAll(enemyPathController.transform.position, new Vector3(ancho / 2, alto / 2, distancia / 2),
-                enemyPathController.transform.forward);
+            GameObject closestPathTarget = Utility.GetClosestObjectWithTag(enemyPathController.transform.position, _targetTag);
 
-            if (hits.Length > 0)
-            {
-                var minDistance = Mathf.Infinity;
-                GameObject closestPathTarget = null;
+            //var hits = Physics.BoxCastAll(enemyPathController.transform.position, new Vector3(ancho / 2, alto / 2, distancia / 2),
+            //    enemyPathController.transform.forward);
 
-                foreach (RaycastHit hit in hits)
-                {
-                    if (hit.transform.CompareTag("PathTarget"))
-                    {
-                        if (hit.distance < minDistance)
-                        {
-                            minDistance = hit.distance;
-                            closestPathTarget = hit.collider.gameObject;
-                        }
-                    }
-                }
+            //if (hits.Length > 0)
+            //{
+            //    var minDistance = Mathf.Infinity;
+            //    GameObject closestPathTarget = null;
 
-                if (closestPathTarget != null)
+            //    foreach (RaycastHit hit in hits)
+            //    {
+            //        if (hit.transform.CompareTag("PathTarget"))
+            //        {
+            //            if (hit.distance < minDistance)
+            //            {
+            //                minDistance = hit.distance;
+            //                closestPathTarget = hit.collider.gameObject;
+            //            }
+            //        }
+            //    }
+
+            if (closestPathTarget != null)
                 {
                     enemyPathController.SetCurrentPathTarget(closestPathTarget);
                     enemyPathController.transform.forward = transform.forward;

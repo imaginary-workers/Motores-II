@@ -1,4 +1,5 @@
-﻿using ProyectM2.Gameplay.Car.Path;
+﻿using ProyectM2.Assets.Scripts;
+using ProyectM2.Gameplay.Car.Path;
 using UnityEngine;
 
 namespace ProyectM2.Gameplay.Car.Player
@@ -12,21 +13,23 @@ namespace ProyectM2.Gameplay.Car.Player
         }
         public GameObject GetClosestPathTarget()
         {
-            var pathTargets = GameObject.FindGameObjectsWithTag(_targetTag);
+            return Utility.GetClosestObjectWithTag(transform.position, _targetTag);
             
-            GameObject closest = null;
-            var closestDistance = Mathf.Infinity;
-            foreach (var target in pathTargets)
-            {
-                var distance = (target.transform.position - transform.position).magnitude;
-                if (distance < closestDistance)
-                {
-                    closest = target;
-                    closestDistance = distance;
-                }
-            }
+            //var pathTargets = GameObject.FindGameObjectsWithTag(_targetTag);
 
-            return closest;
+            //GameObject closest = null;
+            //var closestDistance = Mathf.Infinity;
+            //foreach (var target in pathTargets)
+            //{
+            //    var distance = (target.transform.position - transform.position).magnitude;
+            //    if (distance < closestDistance)
+            //    {
+            //        closest = target;
+            //        closestDistance = distance;
+            //    }
+            //}
+
+            //return closest;
         }
     }
 }

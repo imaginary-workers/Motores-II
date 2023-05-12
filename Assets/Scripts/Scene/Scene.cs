@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProyectM2.Managers
+namespace ProyectM2.Scenes
 {
     [Serializable]
     public struct Scene

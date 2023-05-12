@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ProyectM2.Gameplay.Recolectables
 {
-    public class Gas : MonoBehaviour
+    public class GasRecolectable : MonoBehaviour
     {
         [SerializeField] DataInt _gasValue;
         [SerializeField] GameObject _gas;

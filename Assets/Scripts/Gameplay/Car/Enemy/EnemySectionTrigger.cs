@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ProyectM2.Gameplay
+namespace ProyectM2.Gameplay.Car.Enemy
 {
     public class EnemySectionTrigger : MonoBehaviour
     {

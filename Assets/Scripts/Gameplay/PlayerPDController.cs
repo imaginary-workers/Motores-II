@@ -22,7 +22,6 @@ namespace ProyectM2.Gameplay
 
         private void OnEnemyDiedCutSceneStarted(object[] obj)
         {
-            //TODO timeline de muerte del died
             _playableDirector.playableAsset = _toNormalView;
             _playableDirector.Play();
         }

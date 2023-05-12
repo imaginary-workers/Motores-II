@@ -1,10 +1,11 @@
-using ProyectM2.Managers;
+using ProyectM2.Scenes;
 using UnityEngine;
 using ProyectM2.Persistence;
 
-namespace ProyectM2.Gameplay.Teleport
+
+namespace ProyectM2.Gameplay.Recolectables
 {
-    public class Teleport : MonoBehaviour
+    public class TeleportRecolectable : MonoBehaviour
     {
         [SerializeField] bool _isInBonusLevel = false;
         [SerializeField] bool _teleportWasUsed = false;
@@ -28,17 +29,18 @@ namespace ProyectM2.Gameplay.Teleport
         {
             if (other.CompareTag("Player"))
             {
+                SessionGameData.SaveData("IsInBonusLevel", !_isInBonusLevel);
+                
                 if (!_isInBonusLevel)
                 {
                     SessionGameData.SaveData("TeleportWasUsed", true);
-                    EventManager.TriggerEvent("TeleportToBonusLevel", _scene);
+                    EventManager.TriggerEvent("TeleportToBonusLevel");
                 }
                 else
                 {
-                    EventManager.TriggerEvent("TeleportReturnToLevel", _scene);
+                    EventManager.TriggerEvent("TeleportReturnToLevel");
                 }
-                SessionGameData.SaveData("IsInBonusLevel", !_isInBonusLevel);
-                SceneManager.Instance.ChangeScene(_scene);
+                EventManager.TriggerEvent("ChangeScene", _scene);
             }
         }
     }

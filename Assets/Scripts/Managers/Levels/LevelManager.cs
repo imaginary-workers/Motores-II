@@ -7,13 +7,12 @@ namespace ProyectM2.Managers.Levels
 {
     public class LevelManager : MonoBehaviour
     {
-        [SerializeField] Sections[] _sections;
-        [SerializeField] Sections _infinitiveSection;
-        List<Sections> _sectionsListInGame;
-        Sections[] _allSectionsInGame;
-        [SerializeField] int _currentIndex = 0;
-        [SerializeField] bool _isInInfinitiveSection = false;
-        [SerializeField] bool _isInBonusLevel = false;
+        [SerializeField] private Sections[] _sections;
+        [SerializeField] private Sections _infinitiveSection;
+        private List<Sections> _sectionsListInGame;
+        public int _currentIndex = 0;
+        public bool _isInInfinitiveSection = false;
+        private bool _isInBonusLevel = false;
 
 
         private void Awake()
@@ -25,25 +24,6 @@ namespace ProyectM2.Managers.Levels
             }
                
         }
-
-        private void OnEnable()
-        {
-            EventManager.StartListening("EnemyCutSceneStarted", NewInfinitiveSection);
-            EventManager.StartListening("EnemyDiedCutSceneStarted", DisableInfinitiveSection);
-            EventManager.StartListening("TeleportToBonusLevel", GoToBonusLevel);
-            EventManager.StartListening("TeleportReturnToLevel", GoToBonusLevel);
-        }
-
-
-        private void OnDisable()
-        {
-            EventManager.StopListening("EnemyCutSceneStarted", NewInfinitiveSection);
-            EventManager.StopListening("EnemyDiedCutSceneStarted", DisableInfinitiveSection);
-            EventManager.StopListening("TeleportToBonusLevel", GoToBonusLevel);
-            EventManager.StopListening("TeleportReturnToLevel", GoToBonusLevel);
-
-        }
-
         private void Start()
         {
             _sectionsListInGame = new List<Sections>();
@@ -55,24 +35,6 @@ namespace ProyectM2.Managers.Levels
                     NewSection(i);
                 }
             }
-        }
-
-        private void Update()
-        {
-            _allSectionsInGame = FindObjectsOfType<Sections>();
-            foreach (Sections section in _allSectionsInGame)
-            {
-                if (!_sectionsListInGame.Contains(section))
-                {
-                    _sectionsListInGame.Add(section);
-                    section.Suscribe(Notify);
-                }
-            }
-        }
-
-        private void GoToBonusLevel(object[] obj)
-        {
-            SessionGameData.SaveData("LastSectionIndex", _currentIndex - 1);
         }
 
         void NewSection(int sectionIndex)
@@ -90,16 +52,12 @@ namespace ProyectM2.Managers.Levels
 
                 _currentIndex++;
             }
-        }
 
-        void NewInfinitiveSection(object[] obj)
-        {
-            _isInInfinitiveSection = true;
-        }
-
-        void DisableInfinitiveSection(object[] obj)
-        {
-            _isInInfinitiveSection = false;
+            if (!_sectionsListInGame.Contains(_sections[sectionIndex]))
+            {
+                _sectionsListInGame.Add(_sections[sectionIndex]);
+                _sections[sectionIndex].Suscribe(Notify);
+            }
         }
 
         public void Notify(string action)
