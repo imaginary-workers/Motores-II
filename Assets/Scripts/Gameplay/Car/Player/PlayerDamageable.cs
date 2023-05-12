@@ -14,7 +14,9 @@ namespace ProyectM2.Gameplay.Car.Player
         }
         public void TakeDamage()
         {
+            Debug.Log("Damageable");
             EventManager.TriggerEvent("StartGameOver", _isInBonusLevel? GameOver.Bonus : GameOver.Crash);
+            enabled = false;
         }
     }
 }

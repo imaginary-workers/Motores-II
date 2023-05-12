@@ -9,7 +9,7 @@ namespace ProyectM2.Gameplay.Car.Path
         [SerializeField] private DataCar _dataCar;
         [SerializeField] protected string targetTag = "PathTarget";
         [SerializeField] private GameObject _currentPathTarget;
-        [SerializeField] private MoveController _moveController;
+        [SerializeField] protected MoveController _moveController;
         private Vector3 _targetForward;
 
         private void Awake()

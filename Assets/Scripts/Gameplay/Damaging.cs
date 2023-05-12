@@ -7,7 +7,11 @@ namespace ProyectM2
     {
         private void OnTriggerEnter(Collider other)
         {
-            other.gameObject.GetComponent<IDamageable>()?.TakeDamage();
+            var damageable = other.gameObject.GetComponent<IDamageable>();
+            if (damageable == null) return;
+            Debug.Log(gameObject.name + " => " + other.gameObject.name);
+            damageable?.TakeDamage();
+            Destroy(this);
         }
     }
 }
