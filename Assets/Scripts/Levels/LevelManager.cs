@@ -7,7 +7,7 @@ namespace ProyectM2.Levels
     public class LevelManager : MonoBehaviour
     {
         [SerializeField] private Section[] _infinitiveSection;
-        private List<Section> _sectionsListInGame;
+        private List<Section> _sectionsListInGame = new List<Section>();
         public int _currentIndex = 0;
         private bool _isInBonusLevel = false;
 
@@ -31,8 +31,8 @@ namespace ProyectM2.Levels
         public void Notify(Section section)
         {
             section.Unsuscribe(Notify);
-            _sectionsListInGame.Remove(section);
             NewSection(_currentIndex);
+            _sectionsListInGame.Remove(section);
             _infinitiveSection[_currentIndex].Suscribe(Notify);
         }
     }

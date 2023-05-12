@@ -1,5 +1,4 @@
-﻿using System;
-using ProyectM2.Assets.Scripts;
+﻿using ProyectM2.Assets.Scripts;
 using ProyectM2.Gameplay.Car.Path;
 using UnityEngine;
 

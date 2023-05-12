@@ -91,6 +91,8 @@ namespace ProyectM2.Gameplay
                 {
                     player.transform.root.position = (Vector3)SessionGameData.GetData("LastPositionOfPlayer");
                     player.transform.root.forward = (Vector3)SessionGameData.GetData("ForwardOfPlayer");
+                    var playerPathController = player.transform.root.GetComponent<PlayerPathController>();
+                    playerPathController.SetCurrentPathTarget(playerPathController.GetClosestPathTarget());
                 }
 
                 if (SessionGameData.GetData("levelGas") != null)

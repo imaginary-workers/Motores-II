@@ -80,6 +80,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5530683295989310673, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7779091803308591515, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
       propertyPath: _break
@@ -90,6 +95,7 @@ PrefabInstance:
     - {fileID: 2700965188084394374, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
     - {fileID: 1656855096, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
     - {fileID: 45154323089734138, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
+    - {fileID: 150645716243005996, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
 --- !u!1 &2089685300248986275 stripped
 GameObject:
