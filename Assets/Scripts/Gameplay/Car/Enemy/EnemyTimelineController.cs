@@ -1,11 +1,10 @@
 using System.Collections;
 using ProyectM2.Assets.Scripts;
-using ProyectM2.Gameplay.Car.Enemy;
 using ProyectM2.Gameplay.Car.Path;
 using UnityEngine;
 using UnityEngine.Playables;
 
-namespace ProyectM2.Gameplay
+namespace ProyectM2.Gameplay.Car.Enemy
 {
     public class EnemyTimelineController : MonoBehaviour
     {
