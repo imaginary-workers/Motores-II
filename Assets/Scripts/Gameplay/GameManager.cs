@@ -63,7 +63,7 @@ namespace ProyectM2.Gameplay
 
         private void Awake()
         {
-            player = FindObjectOfType<PlayerCutSceneController>().gameObject;
+            player = GameObject.FindObjectOfType<PlayerInputHorizontalMovement>().gameObject;
         }
 
         private void Start()

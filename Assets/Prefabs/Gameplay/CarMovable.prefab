@@ -46,13 +46,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1181802423626036418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd3984bdba840efb34745d65d1a8a4a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1afcfcab77bd4256a6ed1d0efae635c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: cb0f992015547cf44beb4634e79b7ddb, type: 2}
-  track: 0
-  _speed: 5
-  myAnim: {fileID: 7591941921013413699}
+  _dataCar: {fileID: 11400000, guid: cb0f992015547cf44beb4634e79b7ddb, type: 2}
 --- !u!114 &954404249219887053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,10 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5eec680e64326a408af6e056df64040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: cb0f992015547cf44beb4634e79b7ddb, type: 2}
-  track: 0
-  _speed: 5
-  myAnim: {fileID: 7591941921013413699}
+  _trackController: {fileID: 4235698527044564380}
   raycastDistance: 1.5
   layerMask:
     serializedVersion: 2
@@ -90,6 +84,7 @@ GameObject:
   - component: {fileID: 2012974242174914798}
   - component: {fileID: 2012974242174914795}
   - component: {fileID: 6282356896191354219}
+  - component: {fileID: 6669424911869639159}
   m_Layer: 9
   m_Name: CarMovable
   m_TagString: Untagged
@@ -175,10 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204754e9875888d46b6f6d6462d456d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 15
-  _speedRotation: 15
-  _targetTag: PathTarget
+  _dataCar: {fileID: 11400000, guid: cb0f992015547cf44beb4634e79b7ddb, type: 2}
+  targetTag: PathTarget
   _currentPathTarget: {fileID: 0}
+  _moveController: {fileID: 6669424911869639159}
 --- !u!65 &6282356896191354219
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -192,6 +187,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 12.14, y: 3.01, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6669424911869639159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012974242174914796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f720894908514373896d55574ef748aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4495210728217754109
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myAnim: {fileID: 5203101062790798531}
-  _soundManager: {fileID: 2125935167586647716}
+  _trackController: {fileID: 4235698527044564380}
 --- !u!82 &2775024722569953853
 AudioSource:
   m_ObjectHideFlags: 0

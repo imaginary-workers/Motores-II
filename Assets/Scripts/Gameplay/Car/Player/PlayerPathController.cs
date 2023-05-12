@@ -6,14 +6,13 @@ namespace ProyectM2.Gameplay.Car.Player
 {
     public class PlayerPathController: PathController
     {
-        [SerializeField] private string _targetTag = "PathTarget";
-         private void Start()
+        private void Start()
         {
             SetCurrentPathTarget(GetClosestPathTarget());
         }
         public GameObject GetClosestPathTarget()
         {
-            return Utility.GetClosestObjectWithTag(transform.position, _targetTag);
+            return Utility.GetClosestObjectWithTag(transform.position, targetTag);
         }
     }
 }

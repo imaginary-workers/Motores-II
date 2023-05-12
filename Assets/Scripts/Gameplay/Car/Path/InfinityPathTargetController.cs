@@ -1,4 +1,5 @@
 ﻿using ProyectM2.Gameplay.Car.Controller;
+using ProyectM2.Gameplay.Car.Player;
 using UnityEngine;
 
 namespace ProyectM2.Gameplay.Car.Path
@@ -27,7 +28,8 @@ namespace ProyectM2.Gameplay.Car.Path
             _player = GameManager.player;
             if (_player == null)
             {
-                var playerRoot = GameObject.Find("Player");
+                var playerRoot = GameObject.FindObjectOfType<PlayerInputHorizontalMovement>();
+                Debug.Log(playerRoot);
                 if (playerRoot != null)
                 {
                     _player = playerRoot.GetComponentInChildren<TrackController>().gameObject;

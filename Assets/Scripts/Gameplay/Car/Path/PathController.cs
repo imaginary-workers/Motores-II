@@ -7,7 +7,7 @@ namespace ProyectM2.Gameplay.Car.Path
     public class PathController : MonoBehaviour
     {
         [SerializeField] private DataCar _dataCar;
-        [SerializeField] private string _targetTag = "PathTarget";
+        [SerializeField] protected string targetTag = "PathTarget";
         [SerializeField] private GameObject _currentPathTarget;
         [SerializeField] private MoveController _moveController;
         private Vector3 _targetForward;
@@ -39,7 +39,7 @@ namespace ProyectM2.Gameplay.Car.Path
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag(_targetTag))
+            if (other.CompareTag(targetTag))
             {
                 _currentPathTarget = other.GetComponent<PathTargetInfo>().NextPathTarget;
                 if (_currentPathTarget == null)

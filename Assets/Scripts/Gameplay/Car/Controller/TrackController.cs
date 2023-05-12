@@ -11,6 +11,11 @@ namespace ProyectM2.Gameplay.Car.Controller
         protected AbstractTrackState _trackState;
         private event Action<string> _observers;
 
+        private void Awake()
+        {
+            _trackState = new TrackStateCenter(this);
+        }
+
         protected virtual void Update()
         {
             _trackState.Update();
