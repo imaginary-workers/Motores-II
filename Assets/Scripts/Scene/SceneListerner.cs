@@ -1,5 +1,4 @@
-﻿using ProyectM2.Managers;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ProyectM2.Scenes
 {

@@ -1,12 +1,7 @@
-using ProyectM2.SO;
 using UnityEngine;
-using ProyectM2.Gameplay.Car;
-using ProyectM2.Managers;
 using ProyectM2.Persistence;
 using ProyectM2.UI;
-using System;
 using System.Collections;
-using ProyectM2.Gameplay.Car.Path;
 using ProyectM2.Gameplay.Car.Player;
 using ProyectM2.Scenes;
 
