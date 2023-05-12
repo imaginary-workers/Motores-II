@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myAnim: {fileID: 6716627578280589318}
+  _trackController: {fileID: 8476096271981102496}
 --- !u!114 &2605888498485340850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,9 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5eec680e64326a408af6e056df64040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: cb0f992015547cf44beb4634e79b7ddb, type: 2}
-  track: 0
-  myAnim: {fileID: 4768198907676440285}
+  _trackController: {fileID: 8476096271981102496}
   raycastDistance: 1
   layerMask:
     serializedVersion: 2
@@ -116,6 +115,8 @@ GameObject:
   - component: {fileID: 1075485663278871596}
   - component: {fileID: 1075485663278871598}
   - component: {fileID: 4768198906690269614}
+  - component: {fileID: 8476096271981102496}
+  - component: {fileID: 2978222563316881375}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -159,10 +160,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204754e9875888d46b6f6d6462d456d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 25
-  _speedRotation: 1
+  _dataCar: {fileID: 11400000, guid: e13c7ae836ab86943a1c4171c2667f4c, type: 2}
   _targetTag: PathTarget
   _currentPathTarget: {fileID: 0}
+  _moveController: {fileID: 2978222563316881375}
 --- !u!65 &4768198906690269614
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -176,6 +177,31 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 12.14, y: 3.01, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8476096271981102496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075485663278871593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1afcfcab77bd4256a6ed1d0efae635c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataCar: {fileID: 11400000, guid: f5484aa616049a742a9099d35f8bc01b, type: 2}
+--- !u!114 &2978222563316881375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075485663278871593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f720894908514373896d55574ef748aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4682400280591434417
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,8 +247,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootMaxTime: 3
-  _damagingBulletPrefab: {fileID: 0}
-  _returnBulletPrefab: {fileID: 0}
+  _bulletSpeed: 5
+  _damagingBulletPrefab: {fileID: 3033615404707880644, guid: f26de7f385f4875498dc8e57904c4856,
+    type: 3}
+  _returnBulletPrefab: {fileID: 7849189213581055486, guid: 839e9b49332ef0046807a421e1428bb5,
+    type: 3}
   _returnChance: 0
 --- !u!1 &5863334848030155508
 GameObject:
