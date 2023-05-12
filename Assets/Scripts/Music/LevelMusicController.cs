@@ -30,7 +30,6 @@ namespace ProyectM2.Music
 
         private void OnGoToBonesHandler(object[] obj)
         {
-            //PlayerPrefs.SetFloat("LevelMusicPlayedTime", MusicManager.Instance.GetPlayedTime());
             SessionGameData.SaveData("LevelMusicPlayedTime", MusicManager.Instance.GetPlayedTime());
         }
 
@@ -42,11 +41,11 @@ namespace ProyectM2.Music
             var playedTime = 0f;
             if (!_isBonusLevel)
             {
-                //playedTime = PlayerPrefs.GetFloat("LevelMusicPlayedTime", 0);
-                if (SessionGameData.GetData("LevelMusicPlayedTime") == null)
-                    playedTime = 0;
-                else
-                    playedTime = (float)SessionGameData.GetData("LevelMusicPlayedTime");
+                var levelMusicPlayedTime = SessionGameData.GetData("LevelMusicPlayedTime");
+                if (levelMusicPlayedTime != null)
+                {
+                    playedTime = (float)levelMusicPlayedTime;
+                }
             }
 
             MusicManager.Instance.PlayMusic(_initMusicLevelClip, playedTime);

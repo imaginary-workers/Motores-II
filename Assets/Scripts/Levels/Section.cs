@@ -2,11 +2,11 @@ using System;
 using UnityEngine;
 using ProyectM2.Gameplay;
 
-namespace ProyectM2.Managers.Levels
+namespace ProyectM2.Levels
 {
-    public class Sections : MonoBehaviour
+    public class Section : MonoBehaviour
     {
-        private event Action<string> _myObserver;
+        private event Action<Section> _myObserver;
 
         [SerializeField] private float _distanceToCreateSection;
         [SerializeField] private float _distanceToDeleteSection;
@@ -39,7 +39,7 @@ namespace ProyectM2.Managers.Levels
             Vector3 dirToPastPivot = lastPivot.transform.position - player.transform.position;
             if (dirToNextPivot.sqrMagnitude <= (_distanceToCreateSection * _distanceToCreateSection) && !_createSectionNotifed)
             {
-                NotifyToObservers("CreateSection");   
+                NotifyToObservers(this);   
                 _createSectionNotifed = true;
             }
             if (dirToPastPivot.sqrMagnitude >= (_distanceToDeleteSection * _distanceToDeleteSection))
@@ -48,17 +48,17 @@ namespace ProyectM2.Managers.Levels
             }
         }
 
-        public void NotifyToObservers(string action)
+        public void NotifyToObservers(Section section)
         {
-            _myObserver?.Invoke(action);
+            _myObserver?.Invoke(section);
         }
 
-        public void Suscribe(Action<string> obs)
+        public void Suscribe(Action<Section> obs)
         {
             _myObserver += obs;
         }
 
-        public void Unsuscribe(Action<string> obs)
+        public void Unsuscribe(Action<Section> obs)
         {
             _myObserver -= obs;
         }

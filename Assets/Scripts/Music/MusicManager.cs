@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ProyectM2.Music
 {
@@ -12,28 +11,9 @@ namespace ProyectM2.Music
             _audioSource = Instantiate(audioSourcePrefab, transform).GetComponent<AudioSource>();
         }
 
-        private void OnEnable()
-        {
-            EventManager.StartListening("OnChangeScene", OnChangeSceneHandler);
-        }
-
-        private void OnChangeSceneHandler(object[] obj)
-        {
-            StopMusic();
-        }
-
-        private void OnDisable()
-        {
-            EventManager.StopListening("OnChangeScene", OnChangeSceneHandler);
-        }
-
         public float GetPlayedTime()
         {
             return _audioSource.time;
-        }
-
-        public void LoadMusic()
-        {   
         }
 
         public void PlayMusic(AudioClip clip, float from = 0f)
@@ -46,24 +26,6 @@ namespace ProyectM2.Music
         public void StopMusic()
         {
             _audioSource.Stop();
-        }
-
-        public void SetVolume()
-        {
-        }
-
-        public void PauseMusic()
-        {
-            _audioSource.Pause();
-        }
-
-        public void ResumeMusic()
-        {
-            _audioSource.Play();
-        }
-
-        public void SwitchMusic()
-        {
         }
     }
 }

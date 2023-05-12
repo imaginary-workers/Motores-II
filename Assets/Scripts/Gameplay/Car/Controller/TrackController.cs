@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ProyectM2.Gameplay.Car.Controller
 {
-    public abstract class TrackController : MonoBehaviour
+    public class TrackController : MonoBehaviour
     {
         [SerializeField] private DataCar _dataCar;
         protected AbstractTrackState _trackState;
