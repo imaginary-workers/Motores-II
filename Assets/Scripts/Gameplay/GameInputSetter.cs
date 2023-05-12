@@ -7,14 +7,14 @@ namespace ProyectM2.Gameplay
     {
         private void Awake()
         {
-            if (Application.platform == RuntimePlatform.Android)
-            {
-                InputManager.Instance.SetInputStrategy(new TactilStrategy());
-            }
-            else
-            {
-                InputManager.Instance.SetInputStrategy(new KeyboardMouseStrategy());
-            }
+            InputManager.Instance.SetInputStrategy(new TactilStrategy());
+            // if (Application.platform == RuntimePlatform.Android)
+            // {
+            // }
+            // else
+            // {
+            //     InputManager.Instance.SetInputStrategy(new KeyboardMouseStrategy());
+            // }
         }
     }
 }
