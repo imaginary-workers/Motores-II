@@ -5991,7 +5991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _distanceToCreateSection: 75
-  _distanceToDeleteSection: 150
+  _distanceToDeleteSection: 1000
 --- !u!1 &2661175443109565722
 GameObject:
   m_ObjectHideFlags: 0

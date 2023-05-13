@@ -8,6 +8,7 @@ namespace ProyectM2.Levels
     {
         [SerializeField] private Section[] _infinitiveSection;
         private List<Section> _sectionsListInGame = new List<Section>();
+
         public int _currentIndex = 0;
         private bool _isInBonusLevel = false;
 
@@ -17,23 +18,28 @@ namespace ProyectM2.Levels
             _sectionsListInGame.Add(firstSection);
         }
 
-        private void NewSection(int sectionIndex)
+        private Section NewSection(int sectionIndex)
         {
             _currentIndex = Random.Range(0, _infinitiveSection.Length);
-            Instantiate(_infinitiveSection[_currentIndex], _sectionsListInGame[^1].transform.Find("CreateSectionPivot").position, Quaternion.identity);
+          
+            Section newBlock = Instantiate(_infinitiveSection[_currentIndex], _sectionsListInGame[^1].transform.Find("CreateSectionPivot").position, Quaternion.identity);
+
 
             if (!_sectionsListInGame.Contains(_infinitiveSection[_currentIndex]))
             {
-                _sectionsListInGame.Add(_infinitiveSection[_currentIndex]);
+                _sectionsListInGame.Add(newBlock);
             }
+
+            return newBlock;
         }
 
         public void Notify(Section section)
         {
             section.Unsuscribe(Notify);
-            NewSection(_currentIndex);
+
+            NewSection(_currentIndex).Suscribe(Notify);
             _sectionsListInGame.Remove(section);
-            _infinitiveSection[_currentIndex].Suscribe(Notify);
+
         }
     }
 }
