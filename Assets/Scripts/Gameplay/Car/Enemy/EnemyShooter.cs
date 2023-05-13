@@ -30,7 +30,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
                 var bulletObject = pooler.GetObject();
                 _isFirstBullet = false;
                 var bullet = bulletObject.GetComponent<Bullet>();
-                bullet.SetBehaviour(new ForwardBulletBehaviour(bullet.transform,_bulletSpeed));
+                bullet.SetBehaviour(new ForwardBulletBehaviour(bullet.transform,_bulletSpeed), pooler == _returnBulletPooler);
                 bullet.SetPool(pooler);
                 bulletObject.transform.parent = null;
                 bulletObject.transform.forward = transform.forward;
