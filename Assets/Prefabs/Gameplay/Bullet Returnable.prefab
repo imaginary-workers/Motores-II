@@ -47,8 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b91d887beb9c92439ae93d01bb7c7c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destroyTime: 5
-  <IsReturnable>k__BackingField: 1
+  _destroyTime: 20
 --- !u!54 &7212366751422650695
 Rigidbody:
   m_ObjectHideFlags: 0
