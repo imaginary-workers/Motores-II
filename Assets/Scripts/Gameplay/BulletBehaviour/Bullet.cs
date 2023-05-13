@@ -21,6 +21,7 @@ namespace ProyectM2.Gameplay
         {
             _behaviour = behaviour;
             IsReturnable = returnable;
+            _time = 0;
         }
 
         private void OnEnable()
@@ -40,6 +41,7 @@ namespace ProyectM2.Gameplay
 
         private void OnTriggerEnter(Collider other)
         {
+            if (IsReturnable) return;
             other.GetComponent<IDamageable>()?.TakeDamage();
             DestroyBullet();
         }
