@@ -87,23 +87,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet Returnable Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7849189213581055487, guid: 839e9b49332ef0046807a421e1428bb5,
+        type: 3}
+      propertyPath: <IsReturnable>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 839e9b49332ef0046807a421e1428bb5, type: 3}
---- !u!1 &3033615404707880644 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7849189213581055486, guid: 839e9b49332ef0046807a421e1428bb5,
-    type: 3}
-  m_PrefabInstance: {fileID: 5112849068474207034}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7542482705133606369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3033615404707880644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dd73dd4f72ebb44c8ec9ada72903d09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

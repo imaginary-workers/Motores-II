@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1632333774187893167}
   - component: {fileID: 1632333774187893200}
   - component: {fileID: 7678453665934869941}
-  - component: {fileID: 5346363575006624283}
   - component: {fileID: 2188084981277302120}
   m_Layer: 12
   m_Name: Bullet
@@ -48,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b91d887beb9c92439ae93d01bb7c7c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyTime: 5
+  <IsReturnable>k__BackingField: 0
 --- !u!135 &7678453665934869941
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -61,19 +62,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.41
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5346363575006624283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632333774187893201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dd73dd4f72ebb44c8ec9ada72903d09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _events: {fileID: 11400000, guid: 5b59feda95cb8d946901acb168a0ece8, type: 2}
 --- !u!54 &2188084981277302120
 Rigidbody:
   m_ObjectHideFlags: 0
