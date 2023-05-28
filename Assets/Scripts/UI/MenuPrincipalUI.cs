@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using ProyectM2.Gameplay;
-using ProyectM2.Managers;
 using ProyectM2.Persistence;
+using ProyectM2.Scenes;
+using ProyectM2.UI.Commands;
 using TMPro;
 using UnityEngine;
 
@@ -26,7 +27,6 @@ namespace ProyectM2.UI
         private void Awake()
         {
             Time.timeScale = 1;
-            //_myDataPersistance.SaveGame();
             _currency.SetActive(true);
             _menu1.SetActive(true);
             _levelsMenu.SetActive(false);
@@ -38,7 +38,6 @@ namespace ProyectM2.UI
         private void Start()
         {
             GetCurrencyData();
-            
         }
 
         public void Play(int level)
@@ -98,42 +97,6 @@ namespace ProyectM2.UI
             if (commandStack.Count > 0) {
                 ICommand lastCommand = commandStack.Pop();
                 lastCommand.Undo();
-            }
-        }
-    }
-    public interface ICommand {
-        void Execute();
-        void Undo();
-    }
-    public class ChangeMenuCommand : ICommand {
-        private readonly GameObject[] _toShow;
-        private readonly GameObject[] _toHide;
-
-        public ChangeMenuCommand(GameObject[] toShow, GameObject[] toHide = null)
-        {
-            _toShow = toShow;
-            _toHide = toHide;
-        }
-
-        public virtual void Execute() {
-            foreach (var gameObject in _toHide)
-            {
-                gameObject.SetActive(false);
-            }
-            foreach (var gameObject in _toShow)
-            {
-                gameObject.SetActive(true);
-            }
-        }
-
-        public virtual void Undo() {
-            foreach (var gameObject in _toShow)
-            {
-                gameObject.SetActive(false);
-            }
-            foreach (var gameObject in _toHide)
-            {
-                gameObject.SetActive(true);
             }
         }
     }

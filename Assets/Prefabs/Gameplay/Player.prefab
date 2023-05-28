@@ -257,6 +257,7 @@ GameObject:
   - component: {fileID: 105307429576614643}
   - component: {fileID: 2700965188084394374}
   - component: {fileID: 8884173324748561655}
+  - component: {fileID: 7172416706964593739}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -423,7 +424,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e099b03d734f8b8effd971330cf884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _secondsToLose: 2
+  _animationController: {fileID: 7172416706964593739}
+--- !u!114 &7172416706964593739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4558093475183552361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e82bc0968f0a6439e3a7eef9e6688d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _myAnim: {fileID: 2241185775180248663}
+  _trackController: {fileID: 9192774911760611372}
 --- !u!1 &4828159261652359145
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +533,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9198388744057424281}
   - component: {fileID: 183394188}
+  - component: {fileID: 9192774911760611372}
+  - component: {fileID: 150645716243005996}
   m_Layer: 0
   m_Name: CochePadre
   m_TagString: Untagged
@@ -554,11 +572,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b9b90a36fe41f396ddd6630814d5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: f5484aa616049a742a9099d35f8bc01b, type: 2}
-  track: 0
-  _speed: 15
-  myAnim: {fileID: 8884173324748561655}
-  _substracttGas: 1.1
+  _trackController: {fileID: 0}
+  _animationController: {fileID: 0}
+--- !u!114 &9192774911760611372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5136902128944569942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1afcfcab77bd4256a6ed1d0efae635c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataCar: {fileID: 11400000, guid: f5484aa616049a742a9099d35f8bc01b, type: 2}
+--- !u!114 &150645716243005996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5136902128944569942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2537e73eb0f44c24bb9fccc5827995fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _break: 5
+  _substracttGas: 1.5
+  _moveController: {fileID: 4620909457973621616}
 --- !u!1 &5530683295635110520
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,6 +618,8 @@ GameObject:
   - component: {fileID: 1656855096}
   - component: {fileID: 1972525745378423354}
   - component: {fileID: 127793700}
+  - component: {fileID: 4620909457973621616}
+  - component: {fileID: 6930794991375618389}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -662,11 +707,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2537e73eb0f44c24bb9fccc5827995fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 32
-  _speedRotation: 15
-  _targetTag: PathTarget
-  _currentPathTarget: {fileID: 0}
   _break: 5
+  _substracttGas: 1.5
+  _moveController: {fileID: 4620909457973621616}
 --- !u!65 &720027647
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -728,6 +771,35 @@ PlayableDirector:
     value: {fileID: 682726092}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &4620909457973621616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5530683295635110520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f720894908514373896d55574ef748aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6930794991375618389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5530683295635110520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b1382df98c4f8fa61b245aa3fbccfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataCar: {fileID: 11400000, guid: f5484aa616049a742a9099d35f8bc01b, type: 2}
+  _targetTag: PathTarget
+  _currentPathTarget: {fileID: 0}
+  _moveController: {fileID: 4620909457973621616}
+  _targetTag: PathTarget
 --- !u!1 &5530683297109053744
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,8 +995,9 @@ MonoBehaviour:
     m_Bits: 8
   _maxTimeToFiresBack: 2
   _camera: {fileID: 5530683297109053746}
-  _animationManager: {fileID: 8884173324748561655}
+  _animationManager: {fileID: 7172416706964593739}
   _returnableLayer: 13
+  _bulletSpeed: 50
 --- !u!1 &6892181066233639147
 GameObject:
   m_ObjectHideFlags: 0

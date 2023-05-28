@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bfc5b02f719b0d4bb96e8ba097bc2d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sections: []
-  _infinitiveSection: {fileID: 0}
+  _infinitiveSection:
+  - {fileID: 8713346633398556539, guid: 2ad11da448ed9634c808f9183cea48b5, type: 3}
+  - {fileID: 2575713678710186509, guid: de4636e0dc20f814eb1022782ac63135, type: 3}
+  - {fileID: 7883370008453836223, guid: 0427ff4395996e04ebede8d45e65892e, type: 3}
   _currentIndex: 0
-  _isInInfinitiveSection: 0
-  _isInBonusLevel: 0

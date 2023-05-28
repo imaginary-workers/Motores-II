@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 
-namespace ProyectM2.Managers
+namespace ProyectM2.Scenes
 {
     public class SceneManager : Singleton<SceneManager>
     {

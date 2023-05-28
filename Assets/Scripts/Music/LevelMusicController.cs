@@ -30,7 +30,7 @@ namespace ProyectM2.Music
 
         private void OnGoToBonesHandler(object[] obj)
         {
-            PlayerPrefs.SetFloat("LevelMusicPlayedTime", MusicManager.Instance.GetPlayedTime());
+            SessionGameData.SaveData("LevelMusicPlayedTime", MusicManager.Instance.GetPlayedTime());
         }
 
         private void OnStartLevelHandler(object[] obj)
@@ -41,7 +41,11 @@ namespace ProyectM2.Music
             var playedTime = 0f;
             if (!_isBonusLevel)
             {
-                playedTime = PlayerPrefs.GetFloat("LevelMusicPlayedTime", 0);
+                var levelMusicPlayedTime = SessionGameData.GetData("LevelMusicPlayedTime");
+                if (levelMusicPlayedTime != null)
+                {
+                    playedTime = (float)levelMusicPlayedTime;
+                }
             }
 
             MusicManager.Instance.PlayMusic(_initMusicLevelClip, playedTime);

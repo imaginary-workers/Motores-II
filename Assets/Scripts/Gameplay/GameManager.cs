@@ -1,12 +1,9 @@
-using ProyectM2.SO;
 using UnityEngine;
-using ProyectM2.Gameplay.Car;
-using ProyectM2.Managers;
 using ProyectM2.Persistence;
 using ProyectM2.UI;
-using System;
 using System.Collections;
-using ProyectM2.Gameplay.Car.Path;
+using ProyectM2.Gameplay.Car.Player;
+using ProyectM2.Scenes;
 
 namespace ProyectM2.Gameplay
 {
@@ -24,6 +21,8 @@ namespace ProyectM2.Gameplay
         [SerializeField] public static bool _isInBonusLevel = false;
         [SerializeField] private PauseControllerUI _pauseController;
         bool _iWin = false;
+        public static bool isInCutScene;
+        public static bool isOnPause;
 
         private void OnEnable()
         {
@@ -34,6 +33,8 @@ namespace ProyectM2.Gameplay
             EventManager.StartListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StartListening("TeleportReturnToLevel", ReturnFromBonusLevel);
             EventManager.StartListening("OnPause", Pause);
+            EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
+            EventManager.StartListening("EnemyCutSceneEnded", OnEnemyCutSceneEnded);
         }
 
 
@@ -46,11 +47,23 @@ namespace ProyectM2.Gameplay
             EventManager.StopListening("TeleportReturnToLevel", ReturnFromBonusLevel);
             EventManager.StopListening("PlayerGetHit", OnPlayerGetHit);
             EventManager.StopListening("OnPause", Pause);
+            EventManager.StopListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
+            EventManager.StopListening("EnemyCutSceneEnded", OnEnemyCutSceneEnded);
+        }
+
+        private void OnEnemyCutSceneEnded(object[] obj)
+        {
+            isInCutScene = false;
+        }
+
+        private void OnEnemyCutSceneStarted(object[] obj)
+        {
+            isInCutScene = true;
         }
 
         private void Awake()
         {
-            player = FindObjectOfType<PlayerTrackController>().gameObject;
+            player = GameObject.FindObjectOfType<PlayerInputHorizontalMovement>().gameObject;
         }
 
         private void Start()
@@ -77,9 +90,9 @@ namespace ProyectM2.Gameplay
                 if (SessionGameData.GetData("LastPositionOfPlayer") != null)
                 {
                     player.transform.root.position = (Vector3)SessionGameData.GetData("LastPositionOfPlayer");
-                    var playerPathManager = player.transform.root.GetComponent<PlayerPathManager>();
-                    playerPathManager.SetCurrentPathTarget(playerPathManager.GetClosestPathTarget());
                     player.transform.root.forward = (Vector3)SessionGameData.GetData("ForwardOfPlayer");
+                    var playerPathController = player.transform.root.GetComponent<PlayerPathController>();
+                    playerPathController.SetCurrentPathTarget(playerPathController.GetClosestPathTarget());
                 }
 
                 if (SessionGameData.GetData("levelGas") != null)
@@ -168,6 +181,7 @@ namespace ProyectM2.Gameplay
         {
             if (obj.Length == 0) return;
             var isPause = (bool)obj[0];
+            isOnPause = isPause;
             PauseGame(isPause);
         }
 
@@ -203,6 +217,7 @@ namespace ProyectM2.Gameplay
 
         private void OnWonHandler(object[] obj)
         {
+            isInCutScene = true;
             StartCoroutine(WaitToWon(2f));
         }
 
