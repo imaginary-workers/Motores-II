@@ -17,6 +17,26 @@ PrefabInstance:
       objectReference: {fileID: 4740072240544397697}
     - target: {fileID: 3445099861746128876, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
+      propertyPath: m_Size.x
+      value: 1.4519377
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445099861746128876, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 4.505193
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445099861746128876, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.005661994
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445099861746128876, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.08943486
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445099861746128876, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
@@ -43,7 +63,7 @@ PrefabInstance:
     - target: {fileID: 5530683295635110524, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -68.71
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5530683295635110524, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
@@ -138,7 +158,12 @@ PrefabInstance:
     - target: {fileID: 7779091803308591515, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
       propertyPath: _break
-      value: 27
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825587844399754037, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.06
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 183300936984119577, guid: 7ccf943c99924994aa32f39dee857d18, type: 3}
@@ -279,6 +304,6 @@ MonoBehaviour:
     m_Bits: 8
   _maxTimeToFiresBack: 1
   _camera: {fileID: 7962781196435993848}
-  _animationManager: {fileID: 0}
+  _animationManager: {fileID: 4740072240544397697}
   _returnableLayer: 13
   _bulletSpeed: 50
