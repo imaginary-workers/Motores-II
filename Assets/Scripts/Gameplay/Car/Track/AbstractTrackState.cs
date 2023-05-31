@@ -12,8 +12,8 @@ namespace ProyectM2.Gameplay.Car.Track
             _controller = controller;
         }
 
-        public abstract void MoveRight();
-        public abstract void MoveLeft();
+        public abstract bool MoveRight();
+        public abstract bool MoveLeft();
         public Vector3 Track { get; set; } = Vector3.zero;
 
         public void Update()
