@@ -85,6 +85,56 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5530683297109053746, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: field of view
+      value: 41.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530683297109053746, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: far clip plane
+      value: 125.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530683297109053746, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530683297109053749, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 22.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530683297109053749, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -22
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530683297109053749, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9638975
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530683297109053749, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.26627362
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530683297109053749, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530683297109053749, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530683297109053749, guid: 7ccf943c99924994aa32f39dee857d18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 390.885
+      objectReference: {fileID: 0}
     - target: {fileID: 7779091803308591515, guid: 7ccf943c99924994aa32f39dee857d18,
         type: 3}
       propertyPath: _break
