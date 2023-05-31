@@ -30,14 +30,18 @@ namespace ProyectM2.Gameplay.Car.Controller
 
         public void MoveRight()
         {
-            _trackState.MoveRight();
-            NotifyToObservers("Right");
+            if (_trackState.MoveRight())
+            {
+                NotifyToObservers("Right");
+            }
         }
 
         public void MoveLeft()
         {
-            _trackState.MoveLeft();
-            NotifyToObservers("Left");
+            if (_trackState.MoveLeft())
+            {
+                NotifyToObservers("Left");
+            }
         }
 
         public void SetTrackState(AbstractTrackState state)

@@ -10,11 +10,12 @@ namespace ProyectM2.Gameplay.Car.Track
             Track = Vector3.zero + (Vector3.left * _controller.HorizontalRange);
         }
 
-        public override void MoveRight()
+        public override bool MoveRight()
         {
             _controller.SetTrackState(new TrackStateCenter(_controller));
+            return true;
         }
 
-        public override void MoveLeft() { }
+        public override bool MoveLeft() => false;
     }
 }
