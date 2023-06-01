@@ -1,3 +1,4 @@
+using ProyectM2.Assets.Scripts;
 using ProyectM2.Gameplay.Car.Controller;
 using UnityEngine;
 
@@ -11,12 +12,14 @@ namespace ProyectM2.Gameplay.Car.Enemy
         [SerializeField] GameObject _right;
         [SerializeField] GameObject _left;
         [SerializeField] GameObject _forward;
-        protected float _time;
+        [SerializeField] private GameObject _thisCar;
         [SerializeField] protected int _maxTime;
+        protected float _time;
         private bool _hasHitRight = false;
         private bool _hasHitLeft = false;
         private RaycastHit _hitInfo;
         private Ray _ray;
+        
 
         private void Start()
         {
@@ -26,25 +29,11 @@ namespace ProyectM2.Gameplay.Car.Enemy
         {
             _time += Time.deltaTime;
 
-            if (CheckNierObjects(_forward.transform))
-            {
-                _time = 0;
-                if (!CheckNierObjects(_right.transform))
-                    _trackController.MoveRight();
-                else if (!CheckNierObjects(_left.transform))
-                    _trackController.MoveLeft();
-                else
-                {
-                    //TODO hacer que se detenga
-                }
-
-            }
-
             if (_time >= _maxTime)
             {
                 _time = 0;
-                _hasHitRight = CheckNierObjects(_right.transform);
-                _hasHitLeft = CheckNierObjects(_left.transform);
+                _hasHitRight = Utility.CheckNierObjects(_right.transform, raycastDistance, layerMask, _thisCar);
+                _hasHitLeft = Utility.CheckNierObjects(_left.transform, raycastDistance, layerMask, _thisCar);
 
                 if (!_hasHitRight && !_hasHitLeft)
                 {
@@ -61,17 +50,6 @@ namespace ProyectM2.Gameplay.Car.Enemy
                     _trackController.MoveRight();
                 }
             }
-        }
-
-        private bool CheckNierObjects(Transform origin)
-        {
-            _ray = new Ray(origin.position, origin.forward);
-            if (Physics.Raycast(_ray, out _hitInfo, raycastDistance, layerMask))
-            {
-                return _hitInfo.transform.gameObject != transform.GetChild(0).gameObject;
-            }
-
-            return false;
         }
 
 #if UNITY_EDITOR

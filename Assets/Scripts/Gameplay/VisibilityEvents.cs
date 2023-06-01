@@ -10,13 +10,11 @@ namespace ProyectM2.Gameplay
 
         private void OnBecameVisible()
         {
-            Debug.Log("Debio RENAUDAR");
             OnObjectBecameVisible?.Invoke();
         }
 
         private void Start()
         {
-            Debug.Log("Debio DETENER");
             OnStart?.Invoke();
         }
     }

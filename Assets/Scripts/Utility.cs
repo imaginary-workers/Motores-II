@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ProyectM2.Assets.Scripts
 {
@@ -22,6 +21,18 @@ namespace ProyectM2.Assets.Scripts
             }
 
             return closestObject;
+        }
+        
+        public static bool CheckNierObjects(Transform origin, float distance, LayerMask layerMask, GameObject objectExcluded)
+        {
+            var ray = new Ray(origin.position, origin.forward);
+            RaycastHit _hitInfo;
+            if (Physics.Raycast(ray, out _hitInfo, distance, layerMask))
+            {
+                return _hitInfo.transform.gameObject != objectExcluded;
+            }
+
+            return false;
         }
     }
 }

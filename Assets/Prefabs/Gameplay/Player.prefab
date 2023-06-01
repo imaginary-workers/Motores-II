@@ -407,11 +407,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4558093475183552361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28e0f94c59ac402aa584a18d94208ae0, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bd0e4b9399667949bda2240d1fa3d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _driving: {fileID: 8300000, guid: 9c7db14a7afdd1d499bda577ba521861, type: 3}
   _source: {fileID: 105307429576614643}
+  _moveController: {fileID: 4620909457973621616}
 --- !u!114 &8884173324748561655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,10 +797,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dataCar: {fileID: 11400000, guid: f5484aa616049a742a9099d35f8bc01b, type: 2}
-  _targetTag: PathTarget
+  targetTag: PathTarget
   _currentPathTarget: {fileID: 0}
   _moveController: {fileID: 4620909457973621616}
-  _targetTag: PathTarget
 --- !u!1 &5530683297109053744
 GameObject:
   m_ObjectHideFlags: 0

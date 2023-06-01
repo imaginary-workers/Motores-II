@@ -198,6 +198,11 @@ PrefabInstance:
       propertyPath: _driving
       value: 
       objectReference: {fileID: 8300000, guid: 9c7db14a7afdd1d499bda577ba521861, type: 3}
+    - target: {fileID: 3617936614450795814, guid: 565636d826a80a146afab94fb365f387,
+        type: 3}
+      propertyPath: _moveController
+      value: 
+      objectReference: {fileID: 8418876742593266346}
     - target: {fileID: 3684082806820083455, guid: 565636d826a80a146afab94fb365f387,
         type: 3}
       propertyPath: enemyPathController
@@ -353,6 +358,7 @@ MonoBehaviour:
   _right: {fileID: 6098007017205240208}
   _left: {fileID: 927637706070964097}
   _forward: {fileID: 3899542975177966404}
+  _thisCar: {fileID: 5485230292621382574}
   _maxTime: 3
 --- !u!114 &2815267540097339619
 MonoBehaviour:
