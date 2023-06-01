@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2920680686885151501}
   - component: {fileID: 4235698527044564380}
   - component: {fileID: 954404249219887053}
+  - component: {fileID: 6609695507837359739}
   m_Layer: 9
   m_Name: CochePadre
   m_TagString: Untagged
@@ -70,7 +71,54 @@ MonoBehaviour:
   _right: {fileID: 7770638032152859941}
   _left: {fileID: 6644238321973498003}
   _forward: {fileID: 4495210728217754109}
+  _thisCar: {fileID: 1645833282241750282}
   _maxTime: 2
+--- !u!114 &6609695507837359739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181802423626036418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04392f89ab5846b9830776bf3a525a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _forward: {fileID: 5396376829270827254}
+  arriveDistance: 1.5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 648
+  _thisCar: {fileID: 1645833282241750282}
+  _moveController: {fileID: 6669424911869639159}
+  OnStartBreaking:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 954404249219887053}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4235698527044564380}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2012974242174914796
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _driving: {fileID: 8300000, guid: 9c7db14a7afdd1d499bda577ba521861, type: 3}
   _source: {fileID: 2775024722569953853}
+  _moveController: {fileID: 6669424911869639159}
 --- !u!1 &7770638032152859941
 GameObject:
   m_ObjectHideFlags: 0

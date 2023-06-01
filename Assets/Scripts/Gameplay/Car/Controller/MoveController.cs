@@ -2,7 +2,7 @@
 
 namespace ProyectM2.Gameplay.Car.Controller
 {
-    public class MoveController : MonoBehaviour
+    public class MoveController : MonoBehaviour, ISpeedProvider
     {
         private float _speed = 0;
         private bool _canMove = true;

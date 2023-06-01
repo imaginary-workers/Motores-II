@@ -1,11 +1,15 @@
+using System;
+using ProyectM2.Gameplay.Car.Controller;
 using UnityEngine;
 
 namespace ProyectM2.Sound
 {
-    public class SoundsManager : MonoBehaviour
+    public class EngineSoundController  : MonoBehaviour
     {
         [SerializeField] AudioClip _driving;
         [SerializeField] AudioSource _source;
+        [SerializeField] private MoveController _moveController;
+        private bool _isGameOnPause = true;
 
         private void Awake()
         {
@@ -15,6 +19,7 @@ namespace ProyectM2.Sound
         protected virtual void OnEnable()
         {
             EventManager.StartListening("OnPause", PauseRunSound);
+            EventManager.StartListening("OnPause", PauseRunSound);
         }
         
         protected virtual void OnDisable()
@@ -22,11 +27,24 @@ namespace ProyectM2.Sound
             EventManager.StopListening("OnPause", PauseRunSound);
         }
 
+        private void Update()
+        {
+            if (_isGameOnPause) return;
+            if (_moveController.Speed <= 0)
+            {
+                StopSound();
+            }
+            else
+            {
+                RunSound();
+            }
+        }
+
         private void PauseRunSound(object[] obj)
         {
             if (obj.Length == 0) return;
-            var isPause = (bool)obj[0];
-            if (isPause)
+            _isGameOnPause = (bool)obj[0];
+            if (_isGameOnPause)
             {
                 StopSound();
             }
