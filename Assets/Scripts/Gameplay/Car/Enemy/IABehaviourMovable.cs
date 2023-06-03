@@ -1,5 +1,7 @@
 using ProyectM2.Assets.Scripts;
+using ProyectM2.Car.Controller;
 using ProyectM2.Gameplay.Car.Controller;
+using System.Collections;
 using UnityEngine;
 
 namespace ProyectM2.Gameplay.Car.Enemy
@@ -14,12 +16,16 @@ namespace ProyectM2.Gameplay.Car.Enemy
         [SerializeField] GameObject _forward;
         [SerializeField] private GameObject _thisCar;
         [SerializeField] protected int _maxTime;
+        [SerializeField] AnimationController _ani;
         protected float _time;
         private bool _hasHitRight = false;
         private bool _hasHitLeft = false;
         private RaycastHit _hitInfo;
         private Ray _ray;
-        
+        int move;
+        float waitTime = 2f;
+
+
 
         private void Start()
         {
@@ -32,24 +38,50 @@ namespace ProyectM2.Gameplay.Car.Enemy
             if (_time >= _maxTime)
             {
                 _time = 0;
-                _hasHitRight = Utility.CheckNierObjects(_right.transform, raycastDistance, layerMask, _thisCar);
-                _hasHitLeft = Utility.CheckNierObjects(_left.transform, raycastDistance, layerMask, _thisCar);
+                RandomMove();
+                move = RandomMove();
 
-                if (!_hasHitRight && !_hasHitLeft)
+                if (move == 1)
                 {
-                    int change = Random.Range(0, 2);
-                    if (change == 0) _trackController.MoveRight();
-                    else _trackController.MoveLeft();
+                    _ani.LightRightAnimation();
+                    StartCoroutine(WaitAndMove(_trackController.MoveRight, waitTime));
                 }
-                else if (_hasHitRight && !_hasHitLeft)
+                else if (move == -1)
                 {
-                    _trackController.MoveLeft();
+                    _ani.LightLeftAnimation();
+                    StartCoroutine(WaitAndMove(_trackController.MoveLeft, waitTime));
                 }
-                else if (_hasHitLeft && !_hasHitRight)
-                {
-                    _trackController.MoveRight();
-                }
+                else return;
             }
+        }
+
+        private int RandomMove()
+        {
+
+            _hasHitRight = Utility.CheckNierObjects(_right.transform, raycastDistance, layerMask, _thisCar);
+            _hasHitLeft = Utility.CheckNierObjects(_left.transform, raycastDistance, layerMask, _thisCar);
+
+            if (!_hasHitRight && !_hasHitLeft)
+            {
+                int change = Random.Range(0, 2);
+                if (change == 0) return 1;
+                else return -1;
+            }
+            else if (_hasHitRight && !_hasHitLeft)
+            {
+                return -1;
+            }
+            else if (_hasHitLeft && !_hasHitRight)
+            {
+                return 1;
+            }
+            return 0;
+        }
+        private IEnumerator WaitAndMove(System.Action moveAction, float waitTime)
+        {
+            yield return new WaitForSeconds(waitTime);
+
+            moveAction.Invoke();
         }
 
 #if UNITY_EDITOR
