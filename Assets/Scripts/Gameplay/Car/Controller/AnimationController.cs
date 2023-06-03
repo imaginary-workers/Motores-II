@@ -12,6 +12,8 @@ namespace ProyectM2.Car.Controller
         int crashParameterId;
         int hipParameterId;
         int jumpParameterId;
+        int leftLight;
+        int rightLight;
 
         private void Start()
         {
@@ -20,6 +22,8 @@ namespace ProyectM2.Car.Controller
             crashParameterId = Animator.StringToHash("Crash");
             hipParameterId = Animator.StringToHash("Hip");
             jumpParameterId = Animator.StringToHash("Jump");
+            leftLight = Animator.StringToHash("LightLeft");
+            rightLight = Animator.StringToHash("LightRight");
         }
 
         private void OnEnable()
@@ -62,6 +66,15 @@ namespace ProyectM2.Car.Controller
         public void JumpAnimation()
         {
             _myAnim.SetTrigger(jumpParameterId);
+        }
+
+        public void LightLeftAnimation()
+        {
+            _myAnim.SetTrigger(leftLight);
+        }
+        public void LightRightAnimation()
+        {
+            _myAnim.SetTrigger(rightLight);           
         }
     }
 }
