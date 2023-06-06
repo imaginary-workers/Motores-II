@@ -17,13 +17,13 @@ namespace ProyectM2.Gameplay.Car.Enemy
         [SerializeField] private GameObject _thisCar;
         [SerializeField] protected int _maxTime;
         [SerializeField] AnimationController _ani;
+        [SerializeField, Range(0.1f, 5f)] float waitTime = 2f;
         protected float _time;
         private bool _hasHitRight = false;
         private bool _hasHitLeft = false;
         private RaycastHit _hitInfo;
         private Ray _ray;
         int move;
-        float waitTime = 2f;
 
 
 
