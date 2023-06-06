@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace ProyectM2.Gameplay.Car.Enemy
@@ -6,7 +7,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
     public class EnemyShooter: MonoBehaviour
     {
         [SerializeField] private float _shootMaxTime;
-        [SerializeField] private float _bulletSpeed = 5f;
+        [SerializeField] private float _bulletSpeed = 0f;
         [SerializeField] private GameObject _damagingBulletPrefab;
         [SerializeField] private GameObject _returnBulletPrefab;
         [SerializeField, Range(0f, 1f)] private float _returnChance;
@@ -31,12 +32,18 @@ namespace ProyectM2.Gameplay.Car.Enemy
                 _isFirstBullet = false;
                 var bullet = bulletObject.GetComponent<Bullet>();
                 bullet.SetBehaviour(new ForwardBulletBehaviour(bullet.transform,_bulletSpeed), pooler == _returnBulletPooler);
+                StartCoroutine(WaitSpeedBullet());
                 bullet.SetPool(pooler);
                 bulletObject.transform.parent = null;
                 bulletObject.transform.forward = transform.forward;
                 bulletObject.transform.position = transform.position;
                 _shootTime = 0;
             }
+        }
+        private IEnumerator WaitSpeedBullet()
+        {
+            yield return new WaitForSeconds(2);
+            _bulletSpeed = 5;
         }
     }
 }

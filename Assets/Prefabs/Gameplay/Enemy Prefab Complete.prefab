@@ -193,6 +193,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Timeline
       objectReference: {fileID: 0}
+    - target: {fileID: 2488051578375127061, guid: 565636d826a80a146afab94fb365f387,
+        type: 3}
+      propertyPath: _bulletSpeed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3617936614450795814, guid: 565636d826a80a146afab94fb365f387,
         type: 3}
       propertyPath: _driving
@@ -360,6 +365,8 @@ MonoBehaviour:
   _forward: {fileID: 3899542975177966404}
   _thisCar: {fileID: 5485230292621382574}
   _maxTime: 3
+  _ani: {fileID: 0}
+  waitTime: 2
 --- !u!114 &2815267540097339619
 MonoBehaviour:
   m_ObjectHideFlags: 0
