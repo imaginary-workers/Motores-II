@@ -1,14 +1,19 @@
-﻿using UnityEngine;
+﻿using ProyectM2.Persistence;
+using UnityEngine;
 
 namespace ProyectM2.Music
 {
     public class MusicManager : Singleton<MusicManager>
     {
         private AudioSource _audioSource;
+        private AudioSource _soundsAudioSource;
         [SerializeField] private GameObject audioSourcePrefab;
+        [SerializeField] private GameObject soundAudioSourcePrefab;
+
         private void Start()
         {
             _audioSource = Instantiate(audioSourcePrefab, transform).GetComponent<AudioSource>();
+            _soundsAudioSource = soundAudioSourcePrefab.GetComponent<AudioSource>();
         }
 
         public float GetPlayedTime()
@@ -27,5 +32,12 @@ namespace ProyectM2.Music
         {
             _audioSource.Stop();
         }
+
+        public void SetVolume(float musicVolume, float soundVolume)
+        {
+            _audioSource.volume = musicVolume;
+            _soundsAudioSource.volume = soundVolume;
+        }
+
     }
 }
