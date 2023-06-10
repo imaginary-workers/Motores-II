@@ -10,5 +10,7 @@ namespace ProyectM2
         public int lastLevel;
         public float maxGas;
         public float timePlayed;
+        public float musicVolume;
+        public float soundVolume;
     }
 }

@@ -6,7 +6,7 @@ using ProyectM2.Gameplay;
 
 namespace ProyectM2.Persistence
 {
-    public class DataPersistance : MonoBehaviour
+    public class DataPersistance : Singleton<DataPersistance>
     {
         string _path;
 
@@ -20,6 +20,15 @@ namespace ProyectM2.Persistence
             SaveGame();
         }
 
+        public void UpdateVolume(float musicVolume, float soundVolume)
+        {
+            var instanciaClase = LoadGame();
+            instanciaClase.musicVolume = musicVolume;
+            instanciaClase.soundVolume = soundVolume;
+            WriteJson(instanciaClase);
+
+        }
+
         public void SaveGame()
         {
             var instanciaClase = new ValuesToSaveInJson();
@@ -31,7 +40,12 @@ namespace ProyectM2.Persistence
             instanciaClase.timePlayed += Time.realtimeSinceStartup;
             GameManager.levelCurrency = 0;
 
-            string dataToSave = JsonUtility.ToJson(instanciaClase, true);
+            WriteJson(instanciaClase);
+        }
+
+        public void WriteJson(ValuesToSaveInJson data)
+        {
+            string dataToSave = JsonUtility.ToJson(data, true);
             byte[] bytesToEncode = Encoding.UTF8.GetBytes(dataToSave);
             string encodedText = Convert.ToBase64String(bytesToEncode);
 

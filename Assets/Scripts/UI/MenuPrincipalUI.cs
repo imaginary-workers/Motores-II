@@ -21,7 +21,6 @@ namespace ProyectM2.UI
         [SerializeField] private GameObject _gameDataWarningPopUp; 
         [SerializeField] private GameObject _backButton;
         [SerializeField] private GameObject _controllerMenu;
-        [SerializeField] private DataPersistance _myDataPersistance;
         ValuesToSaveInJson _myJsonData;
 
         private void Awake()
@@ -80,7 +79,7 @@ namespace ProyectM2.UI
 
         public void GetCurrencyData()
         {
-            _myJsonData = _myDataPersistance.LoadGame();
+            _myJsonData = DataPersistance.Instance.LoadGame();
             _currencyText.text = _myJsonData.totalCurrencyOfPlayer.ToString();
             var timeSpan = TimeSpan.FromSeconds(_myJsonData.timePlayed);
             _timePlayedText.text = timeSpan.ToString(@"hh\:mm\:ss");
