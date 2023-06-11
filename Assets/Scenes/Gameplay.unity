@@ -2968,10 +2968,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 976964986322891302, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468417249435687477, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938246600374502628, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280180044903054236, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7962781196564389810, guid: 027d160b6739a3641bd15249a3438508,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962781196564389810, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7962781196564389814, guid: 027d160b6739a3641bd15249a3438508,
         type: 3}

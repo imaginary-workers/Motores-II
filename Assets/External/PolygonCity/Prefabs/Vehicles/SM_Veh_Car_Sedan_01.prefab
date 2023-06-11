@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 7055079169816027618}
   m_Layer: 9
   m_Name: SM_Veh_Car_Sedan_01
-  m_TagString: Untagged
+  m_TagString: Traffic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -839,7 +839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd73dd4f72ebb44c8ec9ada72903d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _events: {fileID: 11400000, guid: e114b129a9aeb404391c8e03cc638d55, type: 2}
 --- !u!54 &7055079169816027618
 Rigidbody:
   m_ObjectHideFlags: 0

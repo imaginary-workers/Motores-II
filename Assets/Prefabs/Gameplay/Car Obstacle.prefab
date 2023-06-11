@@ -181,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _driving: {fileID: 8300000, guid: 9c7db14a7afdd1d499bda577ba521861, type: 3}
   _source: {fileID: 8320144714441343275}
+  _moveController: {fileID: 0}
 --- !u!1 &5013441844462729172
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +244,7 @@ GameObject:
   - component: {fileID: 5726987082529574354}
   m_Layer: 9
   m_Name: Car Obstacle
-  m_TagString: Untagged
+  m_TagString: Traffic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
