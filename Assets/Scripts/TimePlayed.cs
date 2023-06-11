@@ -1,4 +1,5 @@
 using ProyectM2.Persistence;
+using System.Collections;
 using UnityEngine;
 
 namespace ProyectM2
@@ -14,7 +15,8 @@ namespace ProyectM2
         {
             _myJsonData = DataPersistance.Instance.LoadGame();
             _timePlayed = _myJsonData.timePlayed;
-
+            Debug.Log("Load TimePlayed " + _timePlayed);
+            StartCoroutine(CO_SaveDataPlayed());
         }
 
         private void Update()
@@ -25,6 +27,15 @@ namespace ProyectM2
         public void ResetTime()
         {
             _timePlayed = 0f;
+        }
+
+        private IEnumerator CO_SaveDataPlayed()
+        {
+            while (true)
+            {
+                DataPersistance.Instance.UpdateTime(_timePlayed);
+                yield return new WaitForSecondsRealtime(5f);
+            }
         }
     }
 }

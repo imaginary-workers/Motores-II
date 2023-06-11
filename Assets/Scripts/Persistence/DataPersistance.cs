@@ -29,6 +29,15 @@ namespace ProyectM2.Persistence
 
         }
 
+        public void UpdateTime(float timePlayed)
+        {
+            var instanciaClase = LoadGame();
+            Debug.Log("Guardo Tiempo " + timePlayed + "Tiempo anterior " + instanciaClase.timePlayed);
+
+            instanciaClase.timePlayed = timePlayed;
+            WriteJson(instanciaClase);
+        }
+
         public void SaveGame()
         {
             var instanciaClase = new ValuesToSaveInJson();
@@ -37,7 +46,6 @@ namespace ProyectM2.Persistence
 
             instanciaClase.totalCurrencyOfPlayer += GameManager.levelCurrency;
             instanciaClase.totalCurrencyGainOfPlayer += GameManager.levelCurrency;
-            instanciaClase.timePlayed = TimePlayed.Instance.TotalTimePlayed;
             GameManager.levelCurrency = 0;
 
             WriteJson(instanciaClase);
@@ -63,7 +71,7 @@ namespace ProyectM2.Persistence
 
                 byte[] bytesToDecode = Convert.FromBase64String(dataToLoad);
                 string decodedText = Encoding.UTF8.GetString(bytesToDecode);
-
+                Debug.Log(decodedText);
                 JsonUtility.FromJsonOverwrite(decodedText, instanciaClase);
             }
 
