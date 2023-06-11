@@ -15,7 +15,6 @@ namespace ProyectM2
         {
             _myJsonData = DataPersistance.Instance.LoadGame();
             _timePlayed = _myJsonData.timePlayed;
-            Debug.Log("Load TimePlayed " + _timePlayed);
             StartCoroutine(CO_SaveDataPlayed());
         }
 
