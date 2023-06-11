@@ -49,9 +49,22 @@ namespace ProyectM2
         public void GetVolumeData()
         {
             _myJsonData = DataPersistance.Instance.LoadGame();
-            musicSlider.value = _myJsonData.musicVolume;
-            soundSlider.value = _myJsonData.soundVolume;
             MusicManager.Instance.SetVolume(_myJsonData.musicVolume, _myJsonData.soundVolume);
+            UpdateSlider(_myJsonData.musicVolume, _myJsonData.soundVolume);
+        }
+
+        public void ResetVolume()
+        {
+            float middleMusicVolume = (musicSlider.maxValue + musicSlider.minValue) / 2;
+            float middleSoundVolume = (soundSlider.maxValue + soundSlider.minValue) / 2;
+            MusicManager.Instance.SetVolume(middleMusicVolume, middleSoundVolume);
+            UpdateSlider(middleMusicVolume, middleSoundVolume);
+        }
+
+        public void UpdateSlider(float musicSliderValue, float soundSliderValue)
+        {
+            musicSlider.value = musicSliderValue;
+            soundSlider.value = soundSliderValue;
         }
     }
 }

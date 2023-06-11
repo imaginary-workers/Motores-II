@@ -419,6 +419,7 @@ MonoBehaviour:
   _gameDataWarningPopUp: {fileID: 1530494280}
   _backButton: {fileID: 2130471159}
   _controllerMenu: {fileID: 217665662}
+  _volumeController: {fileID: 1430582364}
   debuScene: Level 1
 --- !u!4 &202530671
 Transform:
@@ -4269,9 +4270,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1041987315}
-          m_TargetAssemblyTypeName: ProyectM2.Persistence.DataPersistance, Assembly-CSharp
-          m_MethodName: DeleteData
+        - m_Target: {fileID: 202530670}
+          m_TargetAssemblyTypeName: ProyectM2.UI.MenuPrincipalUI, Assembly-CSharp
+          m_MethodName: DeteleData
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

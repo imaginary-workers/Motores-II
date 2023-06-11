@@ -21,6 +21,7 @@ namespace ProyectM2.UI
         [SerializeField] private GameObject _gameDataWarningPopUp; 
         [SerializeField] private GameObject _backButton;
         [SerializeField] private GameObject _controllerMenu;
+        [SerializeField] private VolumeController _volumeController;
         ValuesToSaveInJson _myJsonData;
 
         private void Awake()
@@ -37,6 +38,14 @@ namespace ProyectM2.UI
         private void Start()
         {
             GetCurrencyData();
+        }
+
+        private void Update()
+        {
+
+            var timeSpan = TimeSpan.FromSeconds(TimePlayed.Instance.TotalTimePlayed);
+
+            _timePlayedText.text = timeSpan.ToString(@"hh\:mm\:ss");
         }
 
         public void Play(int level)
@@ -81,8 +90,13 @@ namespace ProyectM2.UI
         {
             _myJsonData = DataPersistance.Instance.LoadGame();
             _currencyText.text = _myJsonData.totalCurrencyOfPlayer.ToString();
-            var timeSpan = TimeSpan.FromSeconds(_myJsonData.timePlayed);
-            _timePlayedText.text = timeSpan.ToString(@"hh\:mm\:ss");
+        }
+
+        public void DeteleData()
+        {
+            TimePlayed.Instance.ResetTime();
+            _volumeController.ResetVolume();
+            DataPersistance.Instance.DeleteData();
         }
 
         private Stack<ICommand> commandStack = new Stack<ICommand>();
