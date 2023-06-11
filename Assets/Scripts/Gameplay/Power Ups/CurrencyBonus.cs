@@ -17,7 +17,7 @@ namespace ProyectM2
             {
                 data.value = 2;
             }
-            else data.value = 1;
+            //else data.value = 1;
         }
     }
 }
