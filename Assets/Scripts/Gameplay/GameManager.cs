@@ -23,6 +23,7 @@ namespace ProyectM2.Gameplay
         bool _iWin = false;
         public static bool isInCutScene;
         public static bool isOnPause;
+        CurrencyBonus _bonus;
 
         private void OnEnable()
         {
@@ -108,10 +109,18 @@ namespace ProyectM2.Gameplay
             Time.timeScale = 0;
         }
 
-        public static void AddCurrency(int value)
+        public static void AddCurrency(int value, CurrencyBonus bonus)
         {
-            levelCurrency += value;
-            EventManager.TriggerEvent("CurrencyModified", levelCurrency, value);
+            if (bonus)
+            {
+                levelCurrency += value * 2;
+                EventManager.TriggerEvent("CurrencyModified", levelCurrency, value);
+            }
+            else
+            {
+                levelCurrency += value;
+                EventManager.TriggerEvent("CurrencyModified", levelCurrency, value);
+            }
         }
 
         public static void SubstractCurrency(int value)
@@ -201,7 +210,7 @@ namespace ProyectM2.Gameplay
 
         public void GameOver(object[] obj)
         {
-            if (obj.Length <= 0 ) return;
+            if (obj.Length <= 0) return;
             if ((GameOver)obj[0] == Gameplay.GameOver.Bonus)
             {
                 SessionGameData.SaveData("IsInBonusLevel", !_isInBonusLevel);

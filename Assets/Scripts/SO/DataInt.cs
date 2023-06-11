@@ -7,6 +7,5 @@ namespace ProyectM2.SO
     public class DataInt : ScriptableObject
     {
         public int value = 1;
-
     }
 }
