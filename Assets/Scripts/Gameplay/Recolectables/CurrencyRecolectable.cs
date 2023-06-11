@@ -11,7 +11,7 @@ namespace ProyectM2.Gameplay.Recolectables
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
-            { 
+            {
                 GameManager.AddCurrency(_currencyValue.value);
                 Destroy(currencyPrefab);
             }
