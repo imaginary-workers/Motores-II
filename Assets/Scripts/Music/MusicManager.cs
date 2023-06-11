@@ -1,5 +1,6 @@
 ﻿using ProyectM2.Persistence;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace ProyectM2.Music
 {
@@ -35,8 +36,8 @@ namespace ProyectM2.Music
 
         public void SetVolume(float musicVolume, float soundVolume)
         {
-            _audioSource.volume = musicVolume;
-            _soundsAudioSource.volume = soundVolume;
+            _audioSource.outputAudioMixerGroup.audioMixer.SetFloat("MusicVolume", musicVolume);
+            _soundsAudioSource.outputAudioMixerGroup.audioMixer.SetFloat("SfxVolume", soundVolume);
         }
 
     }
