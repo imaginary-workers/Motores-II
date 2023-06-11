@@ -37,7 +37,7 @@ namespace ProyectM2.Persistence
 
             instanciaClase.totalCurrencyOfPlayer += GameManager.levelCurrency;
             instanciaClase.totalCurrencyGainOfPlayer += GameManager.levelCurrency;
-            instanciaClase.timePlayed += Time.realtimeSinceStartup;
+            instanciaClase.timePlayed = TimePlayed.Instance.TotalTimePlayed;
             GameManager.levelCurrency = 0;
 
             WriteJson(instanciaClase);
