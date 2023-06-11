@@ -26,13 +26,13 @@ namespace ProyectM2
         private void OnEnable()
         {
             musicSlider.onValueChanged.AddListener(OnMusicSliderValueChanged);
-            musicSlider.onValueChanged.AddListener(OnSoundSliderValueChanged);
+            soundSlider.onValueChanged.AddListener(OnSoundSliderValueChanged);
         }
 
         private void OnMusicSliderValueChanged(float value)
         {
             musicVolume = value;
-            MusicManager.Instance.SetVolume(musicVolume, soundVolume);
+            MusicManager.Instance.SetVolume(musicVolume, musicVolume);
         }
 
         private void OnSoundSliderValueChanged(float value)
@@ -49,7 +49,6 @@ namespace ProyectM2
         public void GetVolumeData()
         {
             _myJsonData = DataPersistance.Instance.LoadGame();
-            Debug.Log("GET music " + _myJsonData.musicVolume + " sound " + _myJsonData.soundVolume);
             musicSlider.value = _myJsonData.musicVolume;
             soundSlider.value = _myJsonData.soundVolume;
             MusicManager.Instance.SetVolume(_myJsonData.musicVolume, _myJsonData.soundVolume);

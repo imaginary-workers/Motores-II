@@ -46,6 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSourcePrefab: {fileID: 5065844427893265979, guid: dc2f4de633aa5e94f8b5601532a5ca65,
     type: 3}
-  soundAudioSourcePrefab: {fileID: 8449738936619425264, guid: 619b70c137a44cd45b2b9e0c5db51a5f,
+  soundAudioSourcePrefab: {fileID: 5763226937982657045, guid: b9c79f29cbdc71e45858e9a765b3eee8,
     type: 3}
-  _myDataPersistance: {fileID: 0}
