@@ -50,7 +50,10 @@ namespace ProyectM2.Sound
             }
             else
             {
-                RunSound();
+                if (_source != null)
+                {
+                    RunSound();
+                }
             }  
 
         }

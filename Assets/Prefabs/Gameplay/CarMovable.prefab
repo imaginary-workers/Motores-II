@@ -73,6 +73,8 @@ MonoBehaviour:
   _forward: {fileID: 4495210728217754109}
   _thisCar: {fileID: 1645833282241750282}
   _maxTime: 2
+  _ani: {fileID: 0}
+  waitTime: 2
 --- !u!114 &6609695507837359739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +137,7 @@ GameObject:
   - component: {fileID: 6669424911869639159}
   m_Layer: 9
   m_Name: CarMovable
-  m_TagString: Untagged
+  m_TagString: Traffic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -390,7 +392,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -574742281000837536, guid: 3c94b630959b2544bb6d075e99fea214,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9c7db14a7afdd1d499bda577ba521861, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

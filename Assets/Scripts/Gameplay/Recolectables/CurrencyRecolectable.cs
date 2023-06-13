@@ -7,12 +7,13 @@ namespace ProyectM2.Gameplay.Recolectables
     {
         [SerializeField] GameObject currencyPrefab;
         [SerializeField] DataInt _currencyValue;
+        CurrencyBonus _bonus;
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
-            { 
-                GameManager.AddCurrency(_currencyValue.value);
+            {
+                GameManager.AddCurrency(_currencyValue.value,_bonus);
                 Destroy(currencyPrefab);
             }
         }

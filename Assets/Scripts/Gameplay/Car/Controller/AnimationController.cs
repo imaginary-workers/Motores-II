@@ -14,6 +14,7 @@ namespace ProyectM2.Car.Controller
         int jumpParameterId;
         int leftLight;
         int rightLight;
+        int damaged;
 
         private void Start()
         {
@@ -24,6 +25,7 @@ namespace ProyectM2.Car.Controller
             jumpParameterId = Animator.StringToHash("Jump");
             leftLight = Animator.StringToHash("LightLeft");
             rightLight = Animator.StringToHash("LightRight");
+            damaged = Animator.StringToHash("Damaged");
         }
 
         private void OnEnable()
@@ -75,6 +77,10 @@ namespace ProyectM2.Car.Controller
         public void LightRightAnimation()
         {
             _myAnim.SetTrigger(rightLight);           
+        }
+        public void DamagedPlayerAnimation()
+        {
+            _myAnim.SetTrigger(damaged);
         }
     }
 }

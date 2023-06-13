@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2968,10 +2968,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 976964986322891302, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468417249435687477, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537695807616485177, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9c7db14a7afdd1d499bda577ba521861, type: 3}
+    - target: {fileID: 3645138640363049132, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938246600374502628, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6451126843462620792, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: _moveController
+      value: 
+      objectReference: {fileID: 8504336169685165214}
+    - target: {fileID: 7280180044903054236, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7962781196564389810, guid: 027d160b6739a3641bd15249a3438508,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962781196564389810, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7962781196564389814, guid: 027d160b6739a3641bd15249a3438508,
         type: 3}
@@ -3028,5 +3068,52 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7962781197317439771, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962781197319424819, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962781197319607341, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962781197319629903, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962781197319641201, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962781197319657467, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299746921308189417, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 027d160b6739a3641bd15249a3438508, type: 3}
+--- !u!114 &8504336169685165214 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7089036089207789242, guid: 027d160b6739a3641bd15249a3438508,
+    type: 3}
+  m_PrefabInstance: {fileID: 8504336169685165213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f720894908514373896d55574ef748aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

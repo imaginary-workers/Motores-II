@@ -374,6 +374,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8320144714441343275, guid: 41f9fac660a378846813ee0755cdcead,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9c7db14a7afdd1d499bda577ba521861, type: 3}
     - target: {fileID: 8488050906311572077, guid: 41f9fac660a378846813ee0755cdcead,
         type: 3}
       propertyPath: m_Size.x
@@ -443,6 +448,7 @@ MonoBehaviour:
   _thisCar: {fileID: 2072975557612200000}
   _maxTime: 3
   _ani: {fileID: 7154075876809028105}
+  waitTime: 2
 --- !u!1 &2072975557612200000 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4837681180631606812, guid: 41f9fac660a378846813ee0755cdcead,

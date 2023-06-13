@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1291,6 +1291,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2775024721732748704, guid: 796288f0d20986f4a9d2862502c82661,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -6034150943593909905, guid: 3c94b630959b2544bb6d075e99fea214,
+        type: 2}
+    - target: {fileID: 2775024722102839194, guid: 796288f0d20986f4a9d2862502c82661,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -6034150943593909905, guid: 3c94b630959b2544bb6d075e99fea214,
+        type: 2}
     - target: {fileID: 3789282499867533704, guid: 796288f0d20986f4a9d2862502c82661,
         type: 3}
       propertyPath: m_Name
@@ -1951,6 +1963,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car Obstacle Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1698783029897542638, guid: 4648caf7d09def44782ce2cd92558a90,
+        type: 3}
+      propertyPath: _moveController
+      value: 
+      objectReference: {fileID: 1796024642}
+    - target: {fileID: 3211421296058926967, guid: 4648caf7d09def44782ce2cd92558a90,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -6034150943593909905, guid: 3c94b630959b2544bb6d075e99fea214,
+        type: 2}
     - target: {fileID: 4267447396170419005, guid: 4648caf7d09def44782ce2cd92558a90,
         type: 3}
       propertyPath: waitTime
@@ -1958,6 +1981,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4648caf7d09def44782ce2cd92558a90, type: 3}
+--- !u!114 &1796024642 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1196846198775106446, guid: 4648caf7d09def44782ce2cd92558a90,
+    type: 3}
+  m_PrefabInstance: {fileID: 1796024641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f720894908514373896d55574ef748aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1888443886
 PrefabInstance:
   m_ObjectHideFlags: 0
