@@ -52,6 +52,8 @@ namespace ProyectM2.Persistence
                         instanciaClase.itemInInventory.Remove(item.Name);
                 }
             }
+
+            WriteJson(instanciaClase);
         }
 
         public void UpdateTime(float timePlayed)
