@@ -17,7 +17,7 @@ namespace ProyectM2.UI.Store
 
         private void Awake()
         {
-            _allItems = StoreListenerHandler.AllItems;
+            _allItems = ItemProvider.AllItems;
             foreach (var item in _allItems)
             {
                 if (_sectionsUI.Count == 0 || !_sectionsUI.Find((section) => section.SectionNameText.Equals(item.Type)))
