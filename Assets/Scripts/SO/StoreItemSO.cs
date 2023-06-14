@@ -7,7 +7,7 @@ namespace ProyectM2.SO
     public class StoreItemSO : ScriptableObject
     {
         public string name;
-        public string description;
+        [TextArea(3, 10)] public string description;
         public Image image;
         public float price;
         public string type;
