@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,14 +13,16 @@ namespace ProyectM2.UI.Store
         [SerializeField] private TextMeshProUGUI _descriptionText; 
         [SerializeField] private Image _itemImage;
         [SerializeField] private TextMeshProUGUI _typeText;
+        private IStoreItem _storeItem;
 
-        public void SetItemData(string nameText, float price, string type, string descriptionText, Image itemImage)
+        public void SetItemData(IStoreItem storeItem)
         {
-            NameText = nameText;
-            PriceText = price;
-            DescriptionText = descriptionText;
-            ItemImage = itemImage;
-            TypeText = type;
+            _storeItem = storeItem;
+            NameText = storeItem.Name;
+            PriceText = storeItem.Price;
+            ItemImage = storeItem.Image;
+            TypeText = storeItem.Type;
+            TypeText = storeItem.Type;
         }
 
         public string NameText
@@ -50,6 +53,11 @@ namespace ProyectM2.UI.Store
         {
             get => _typeText.text;
             set => _typeText.text = value;
+        }
+
+        public void PurchaseItemUI()
+        {
+            EventManager.TriggerEvent("BuyItem", _storeItem);
         }
     }
 }
