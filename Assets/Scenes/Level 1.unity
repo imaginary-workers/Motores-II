@@ -1980,11 +1980,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car Obstacle Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 1698783029897542638, guid: 4648caf7d09def44782ce2cd92558a90,
-        type: 3}
-      propertyPath: _moveController
-      value: 
-      objectReference: {fileID: 1796024642}
     - target: {fileID: 3211421296058926967, guid: 4648caf7d09def44782ce2cd92558a90,
         type: 3}
       propertyPath: OutputAudioMixerGroup
@@ -1998,18 +1993,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4648caf7d09def44782ce2cd92558a90, type: 3}
---- !u!114 &1796024642 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1196846198775106446, guid: 4648caf7d09def44782ce2cd92558a90,
-    type: 3}
-  m_PrefabInstance: {fileID: 1796024641}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f720894908514373896d55574ef748aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1888443886
 PrefabInstance:
   m_ObjectHideFlags: 0
