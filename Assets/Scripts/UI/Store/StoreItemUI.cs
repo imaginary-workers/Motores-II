@@ -12,12 +12,12 @@ namespace ProyectM2.UI.Store
         [SerializeField] private TextMeshProUGUI _price; 
         [SerializeField] private Image _itemImage;
         
-        public void SetItemData(string nameText, float price, string type, Image itemImage)
+        public void SetItemData(IStoreItem storeItem)
         {
-            NameText = nameText;
-            PriceText = price;
-            ItemImage = itemImage;
-            TypeText = type;
+            NameText = storeItem.Name;
+            PriceText = storeItem.Price;
+            ItemImage = storeItem.Image;
+            TypeText = storeItem.Type;
         }
 
         public string NameText
