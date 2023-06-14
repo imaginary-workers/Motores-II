@@ -28,5 +28,10 @@ namespace ProyectM2
 
             return allItems;
         }
+
+        public static IStoreItem FindSpecificItem(string itemName)
+        {
+            return _allItems.Find((item) => item.Name == itemName);
+        }
     }
 }
