@@ -1,4 +1,6 @@
-using ProyectM2.SO;
+using ProyectM2.Persistence;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,27 +8,21 @@ namespace ProyectM2
 {
     public class StoreListenerHandler : MonoBehaviour
     {
-        private static List<IStoreItem> _allItems;
-
-        public static List<IStoreItem> AllItems
+        private void OnEnable()
         {
-            get
-            {
-                if (_allItems == null)
-                {
-                    _allItems = FindAllItems();
-                }
-
-                return _allItems;
-            }
+            EventManager.StartListening("BuyItem", BuyItemHandler);
         }
 
-        private static List<IStoreItem> FindAllItems()
+        private void OnDisable()
         {
-            var allItems = new List<IStoreItem>();
-            allItems.AddRange(Resources.LoadAll<StoreItemSO>("StoreItems"));
+            EventManager.StopListening("BuyItem", BuyItemHandler);
+        }
 
-            return allItems;
+        private void BuyItemHandler(object[] obj)
+        {
+            var itemBought = (IStoreItem)obj[0];
+            itemBought = ItemProvider.FindSpecificItem(itemBought.Name);
+            DataPersistance.Instance.UpdateStoreData(itemBought, "Buy");
         }
     }
 }

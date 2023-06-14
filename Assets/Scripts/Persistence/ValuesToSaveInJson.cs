@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace ProyectM2
 {
@@ -12,5 +13,6 @@ namespace ProyectM2
         public float timePlayed;
         public float musicVolume;
         public float soundVolume;
+        public Dictionary<string, int> itemInInventory;
     }
 }
