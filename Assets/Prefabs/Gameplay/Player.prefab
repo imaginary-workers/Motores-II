@@ -325,7 +325,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6034150943593909905, guid: 3c94b630959b2544bb6d075e99fea214,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9c7db14a7afdd1d499bda577ba521861, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.121
   m_Pitch: 1
@@ -453,7 +453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _driving: {fileID: 8300000, guid: 9c7db14a7afdd1d499bda577ba521861, type: 3}
   _source: {fileID: 105307429576614643}
-  _moveController: {fileID: 0}
+  _moveController: {fileID: 4620909457973621616}
 --- !u!1 &4828159261652359145
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,9 +926,10 @@ GameObject:
   - component: {fileID: 5073401642139745096}
   - component: {fileID: 8539538064330522374}
   - component: {fileID: 7930065047698107354}
+  - component: {fileID: 5286112870184843555}
   m_Layer: 11
   m_Name: FireBack
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -997,6 +998,18 @@ MonoBehaviour:
   _animationManager: {fileID: 7172416706964593739}
   _returnableLayer: 13
   _bulletSpeed: 50
+--- !u!114 &5286112870184843555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5867921694572828451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da246037b7da42059226e071b183f570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6506162704560840245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,18 +1335,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &670738344287744856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5530683295989310673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da246037b7da42059226e071b183f570, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &5530683295989525407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 484704, guid: edf6cb56e12fba648b2cf1e7dfa5bf88,

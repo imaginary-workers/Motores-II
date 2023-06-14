@@ -519,6 +519,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2233263816356073548, guid: 37b449d742b6e8d48a631efcb9140177,
+        type: 3}
+      propertyPath: _ani
+      value: 
+      objectReference: {fileID: 597077142}
     - target: {fileID: 5485230292621382574, guid: 37b449d742b6e8d48a631efcb9140177,
         type: 3}
       propertyPath: m_IsActive
@@ -608,6 +613,18 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5546748178740552974, guid: 37b449d742b6e8d48a631efcb9140177, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 37b449d742b6e8d48a631efcb9140177, type: 3}
+--- !u!114 &597077142 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1331937865737694356, guid: 37b449d742b6e8d48a631efcb9140177,
+    type: 3}
+  m_PrefabInstance: {fileID: 597077141}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e82bc0968f0a6439e3a7eef9e6688d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &664834150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1963,11 +1980,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car Obstacle Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 1698783029897542638, guid: 4648caf7d09def44782ce2cd92558a90,
-        type: 3}
-      propertyPath: _moveController
-      value: 
-      objectReference: {fileID: 1796024642}
     - target: {fileID: 3211421296058926967, guid: 4648caf7d09def44782ce2cd92558a90,
         type: 3}
       propertyPath: OutputAudioMixerGroup
@@ -1981,18 +1993,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4648caf7d09def44782ce2cd92558a90, type: 3}
---- !u!114 &1796024642 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1196846198775106446, guid: 4648caf7d09def44782ce2cd92558a90,
-    type: 3}
-  m_PrefabInstance: {fileID: 1796024641}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f720894908514373896d55574ef748aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1888443886
 PrefabInstance:
   m_ObjectHideFlags: 0

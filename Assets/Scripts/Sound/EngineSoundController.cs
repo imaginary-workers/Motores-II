@@ -44,18 +44,18 @@ namespace ProyectM2.Sound
         {
             if (obj.Length == 0) return;
             _isGameOnPause = (bool)obj[0];
-            if (_isGameOnPause)
+
+            if (_source != null)
             {
-                StopSound();
-            }
-            else
-            {
-                if (_source != null)
+                if (_isGameOnPause)
+                {
+                    StopSound();
+                }
+                else
                 {
                     RunSound();
-                }
-            }  
-
+                }  
+            }
         }
 
         public void RunSound()
