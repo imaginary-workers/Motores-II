@@ -29,6 +29,33 @@ namespace ProyectM2.Persistence
 
         }
 
+        public void UpdateStoreData(IStoreItem item, string updateType)
+        {
+            var instanciaClase = LoadGame();
+
+            if (updateType == "Buy")
+            {
+                if (instanciaClase.itemInInventory.TryGetValue(item.Name, out int itemCount))
+                    instanciaClase.itemInInventory[item.Name] = itemCount + 1;
+                else
+                    instanciaClase.itemInInventory[item.Name] = 1;
+
+                instanciaClase.totalCurrencyOfPlayer -= (int)item.Price;
+            }
+            else if (updateType == "Used")
+            {
+                if (instanciaClase.itemInInventory.TryGetValue(item.Name, out int itemCount))
+                {
+                    instanciaClase.itemInInventory[item.Name] = itemCount - 1;
+
+                    if (instanciaClase.itemInInventory[item.Name] <= 0)
+                        instanciaClase.itemInInventory.Remove(item.Name);
+                }
+            }
+
+            WriteJson(instanciaClase);
+        }
+
         public void UpdateTime(float timePlayed)
         {
             var instanciaClase = LoadGame();
