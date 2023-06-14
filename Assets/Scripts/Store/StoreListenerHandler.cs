@@ -6,9 +6,9 @@ namespace ProyectM2
 {
     public class StoreListenerHandler : MonoBehaviour
     {
-        private static List<StoreItemSO> _allItems;
+        private static List<IStoreItem> _allItems;
 
-        public static List<StoreItemSO> AllItems
+        public static List<IStoreItem> AllItems
         {
             get
             {
@@ -21,9 +21,9 @@ namespace ProyectM2
             }
         }
 
-        private static List<StoreItemSO> FindAllItems()
+        private static List<IStoreItem> FindAllItems()
         {
-            var allItems = new List<StoreItemSO>();
+            var allItems = new List<IStoreItem>();
             allItems.AddRange(Resources.LoadAll<StoreItemSO>("StoreItems"));
 
             return allItems;
