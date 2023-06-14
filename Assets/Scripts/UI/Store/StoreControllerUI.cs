@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using ProyectM2.SO;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace ProyectM2.UI.Store
 {
@@ -10,8 +9,11 @@ namespace ProyectM2.UI.Store
         [SerializeField] private GameObject _sectionPrefab;
         [SerializeField] private GameObject _itemCardPrefab;
         [SerializeField] private GameObject _sectionParent;
+        [SerializeField] private StoreFloatingWindowUI _itemFloatingWindowUI;
         private List<IStoreItem> _allItems;
         private List<StoreSectionUI> _sectionsUI = new List<StoreSectionUI>();
+        private List<StoreItemUI> _itemsUI = new List<StoreItemUI>();
+        public UnityEvent OnItemSelectedEvent;
 
         private void Awake()
         {
@@ -25,10 +27,27 @@ namespace ProyectM2.UI.Store
                     sectionUI.SectionNameText = item.Type;
                     var itemGO = Instantiate(_itemCardPrefab);
                     var storeItemUI = itemGO.GetComponent<StoreItemUI>();
+                    _itemsUI.Add(storeItemUI);
                     storeItemUI.SetItemData(item);
                     sectionUI.AddItem(itemGO);
+                    storeItemUI.onItemSelected += OnItemSelected;
                 }
             }
         }
+
+        private void OnDestroy()
+        {
+            foreach (var itemUI in _itemsUI)
+            {
+                itemUI.onItemSelected -= OnItemSelected;
+            }
+        }
+
+        private void OnItemSelected(IStoreItem storeItem)
+        {
+            _itemFloatingWindowUI.SetItemData(storeItem);
+            OnItemSelectedEvent?.Invoke();
+        }
+
     }
 }

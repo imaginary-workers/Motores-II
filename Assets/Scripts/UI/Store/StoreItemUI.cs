@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,29 +8,24 @@ namespace ProyectM2.UI.Store
 {
     public class StoreItemUI : MonoBehaviour
     {
+        public event Action<IStoreItem> onItemSelected;
         [SerializeField] private TextMeshProUGUI _nameText;
-        [SerializeField] private TextMeshProUGUI _typeText;
         [SerializeField] private TextMeshProUGUI _price; 
         [SerializeField] private Image _itemImage;
-        
+        private IStoreItem _storeItem;
+
         public void SetItemData(IStoreItem storeItem)
         {
+            _storeItem = storeItem;
             NameText = storeItem.Name;
             PriceText = storeItem.Price;
             ItemImage = storeItem.Image;
-            TypeText = storeItem.Type;
         }
 
         public string NameText
         {
             get => _nameText.text;
             set => _nameText.text = value;
-        }
-        
-        public string TypeText
-        {
-            get => _typeText.text;
-            set => _typeText.text = value;
         }
         
         public float PriceText
@@ -42,6 +38,17 @@ namespace ProyectM2.UI.Store
         {
             get => _itemImage;
             set => _itemImage = value;
+        }
+
+        //Llamar desde el componente Button onclick
+        public void OnItemSelected()
+        {
+            onItemSelected?.Invoke(_storeItem);
+        }
+
+        private void OnDestroy()
+        {
+            onItemSelected = null;
         }
     }
 }
