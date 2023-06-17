@@ -1,3 +1,4 @@
+using ProyectM2.Persistence;
 using ProyectM2.SO;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,6 +33,11 @@ namespace ProyectM2
         public static IStoreItem FindSpecificItem(string itemName)
         {
             return _allItems.Find((item) => item.Name == itemName);
+        }
+
+        public static Dictionary<string, int> FindSavedItems()
+        {
+            return DataPersistance.Instance.LoadGame().itemsInInventory;
         }
     }
 }

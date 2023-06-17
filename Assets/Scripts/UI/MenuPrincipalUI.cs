@@ -15,6 +15,9 @@ namespace ProyectM2.UI
         [SerializeField] private TextMeshProUGUI _timePlayedText;
         [SerializeField] private GameObject _currency;
         [SerializeField] private GameObject _currencyStone;
+        [SerializeField] private GameObject _doubleCurrencyPowerUp;
+        [SerializeField] private GameObject _extraLifePowerUp;
+        [SerializeField] private GameObject _shieldPowerUp;
         [SerializeField] private GameObject _menu1; 
         [SerializeField] private GameObject _levelsMenu; 
         [SerializeField] private GameObject _gameDataMenu; 
@@ -33,6 +36,9 @@ namespace ProyectM2.UI
             _gameDataMenu.SetActive(false);
             _gameDataWarningPopUp.SetActive(false);
             _backButton.SetActive(false);
+            _doubleCurrencyPowerUp.SetActive(false);
+            _extraLifePowerUp.SetActive(false);
+            _shieldPowerUp.SetActive(false);
         }
 
         private void Start()
@@ -63,7 +69,7 @@ namespace ProyectM2.UI
 #endif
         public void GoToLevelsMenu()
         {
-            ExecuteCommand(new ChangeMenuCommand(new []{_levelsMenu, _backButton}, new []{_menu1}));
+            ExecuteCommand(new ChangeMenuCommand(new []{_levelsMenu, _backButton, _doubleCurrencyPowerUp, _extraLifePowerUp, _shieldPowerUp }, new []{_menu1}));
         }
 
         public void GoToPersistence()
@@ -78,7 +84,7 @@ namespace ProyectM2.UI
 
         public void GoToControllers()
         {
-            ExecuteCommand(new ChangeMenuCommand(new[] { _controllerMenu, _backButton}, new[] { _menu1, _currency, _currencyStone }));
+            ExecuteCommand(new ChangeMenuCommand(new[] { _controllerMenu, _backButton}, new[] { _menu1, _currency, _currencyStone, _doubleCurrencyPowerUp, _extraLifePowerUp, _shieldPowerUp }));
         }
 
         public void GoBack()
