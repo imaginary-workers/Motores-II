@@ -13,6 +13,24 @@ namespace ProyectM2
         public float timePlayed;
         public float musicVolume;
         public float soundVolume;
-        public Dictionary<string, int> itemsInInventory;
+        public List<Item> itemsInInventory;
+
+        public int FindItemIndex(string itemName)
+        {
+            return itemsInInventory.FindIndex((itemAux) => itemAux.itemName == itemName);
+        }
+    }
+
+    [Serializable]
+    public class Item
+    {
+        public string itemName;
+        public int itemQuantity;
+
+        public Item(string name, int quantity)
+        {
+            this.itemName = name;
+            this.itemQuantity = quantity;
+        }
     }
 }

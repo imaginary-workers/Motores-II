@@ -3,6 +3,7 @@ using System.IO;
 using System;
 using System.Text;
 using ProyectM2.Gameplay;
+using System.Collections.Generic;
 
 namespace ProyectM2.Persistence
 {
@@ -33,24 +34,32 @@ namespace ProyectM2.Persistence
         {
             var instanciaClase = LoadGame();
 
+            if (instanciaClase.itemsInInventory == null)
+            {
+                instanciaClase.itemsInInventory = new List<Item>();
+            }
+
+            var itemFoundedIndex = instanciaClase.FindItemIndex(item.Name);
             if (updateType == "Buy")
             {
-                if (instanciaClase.itemsInInventory.TryGetValue(item.Name, out int itemCount))
-                    instanciaClase.itemsInInventory[item.Name] = itemCount + 1;
+                if (itemFoundedIndex !=  -1)
+                    instanciaClase.itemsInInventory[itemFoundedIndex].itemQuantity += 1;
                 else
-                    instanciaClase.itemsInInventory[item.Name] = 1;
+                    instanciaClase.itemsInInventory.Add(new Item(item.Name, 1));
 
                 instanciaClase.totalCurrencyOfPlayer -= (int)item.Price;
             }
             else if (updateType == "Used")
             {
-                if (instanciaClase.itemsInInventory.TryGetValue(item.Name, out int itemCount))
+                if (itemFoundedIndex != -1)
                 {
-                    instanciaClase.itemsInInventory[item.Name] = itemCount - 1;
-
-                    if (instanciaClase.itemsInInventory[item.Name] <= 0)
-                        instanciaClase.itemsInInventory.Remove(item.Name);
+                    var itemFounded = instanciaClase.itemsInInventory[itemFoundedIndex];
+                    itemFounded.itemQuantity -= 1;
+                    if (itemFounded.itemQuantity <= 0)
+                        instanciaClase.itemsInInventory.Remove(itemFounded);
                 }
+                else
+                    Debug.LogError("Estas usando algo q no tenes");
             }
 
             WriteJson(instanciaClase);
@@ -94,12 +103,11 @@ namespace ProyectM2.Persistence
             if (File.Exists(_path))
             {
                 string dataToLoad = File.ReadAllText(_path);
-
                 byte[] bytesToDecode = Convert.FromBase64String(dataToLoad);
                 string decodedText = Encoding.UTF8.GetString(bytesToDecode);
+                Debug.Log(decodedText);
                 JsonUtility.FromJsonOverwrite(decodedText, instanciaClase);
             }
-
             return instanciaClase;
         }
 

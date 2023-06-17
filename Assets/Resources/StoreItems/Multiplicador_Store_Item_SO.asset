@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Multiplicador_Store_Item_SO
   m_EditorClassIdentifier: 
   name: Mutiplicador de Monedas
-  description: 
+  description: Multiplica tus monedas X2!!
   image: {fileID: 0}
-  price: 0
-  type: 
+  price: 10
+  type: Potenciadores

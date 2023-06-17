@@ -32,12 +32,8 @@ namespace ProyectM2
 
         public static IStoreItem FindSpecificItem(string itemName)
         {
-            return _allItems.Find((item) => item.Name == itemName);
+            return AllItems.Find((item) => item.Name == itemName);
         }
 
-        public static Dictionary<string, int> FindSavedItems()
-        {
-            return DataPersistance.Instance.LoadGame().itemsInInventory;
-        }
     }
 }
