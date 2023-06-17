@@ -882,7 +882,7 @@ PlayerSettings:
     Purchasing: 0
     UDP: 0
     UNet: 1
-    Unity Ads: 0
+    Unity Ads: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -896,10 +896,10 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: efb9e7ca-1728-4378-b2a8-2cd066f38460
+  cloudProjectId: 24331491-b12c-4c59-8565-0d48ce94be68
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Motores II
+  projectName: Poly Rush
   organizationId: gms-experiences
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
