@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace ProyectM2.Screen
 {
@@ -23,15 +24,23 @@ namespace ProyectM2.Screen
             newScreen.Activate();
         }
 
+        public void Push(string resourceName)
+        {
+            var go = Instantiate(Resources.Load<GameObject>(resourceName));
+            if (go.TryGetComponent(out IScreen newScreen))
+            {
+                Push(newScreen);
+            }
+        }
         public void Pop()
         {
             if (_stack.Count <= 1) return;
 
             _stack.Pop().Free();
 
-            //
-            // _stack.Push(newScreen);
-            // newScreen.Activate();
+            if (_stack.Count <= 0) return;
+            
+            _stack.Peek().Activate();
         }
     }
 }
