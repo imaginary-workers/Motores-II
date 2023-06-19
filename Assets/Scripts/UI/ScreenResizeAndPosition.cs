@@ -6,11 +6,14 @@ namespace ProyectM2.UI
     {
         [SerializeField, Range(0f, 1f)] private float porcent;
         [SerializeField] private Transform _prueba;
+        [SerializeField] private float _zPosition;
         private void Awake()
         {
             var scale = Screen.height * porcent;
             transform.localScale = new Vector3(scale, scale, scale);
-            transform.position = _prueba.transform.position;
+            var position = _prueba.transform.position;
+            position.z = _zPosition;
+            transform.position = position;
         }
     }
 }
