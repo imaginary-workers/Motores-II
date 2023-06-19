@@ -4,9 +4,11 @@ using UnityEngine;
 
 namespace ProyectM2.Sound
 {
-    public class EngineSoundController  : MonoBehaviour
+    public class EngineSoundController : MonoBehaviour
     {
         [SerializeField] AudioClip _driving;
+        [SerializeField] AudioClip _shootDamaging;
+        [SerializeField] AudioClip _shootRetornable;
         [SerializeField] AudioSource _source;
         [SerializeField] private MoveController _moveController;
         private bool _isGameOnPause = true;
@@ -21,12 +23,19 @@ namespace ProyectM2.Sound
             EventManager.StartListening("OnPause", PauseRunSound);
             EventManager.StartListening("OnPause", PauseRunSound);
         }
-        
+
         protected virtual void OnDisable()
         {
             EventManager.StopListening("OnPause", PauseRunSound);
         }
-
+        public void PlayShootingDamaging()
+        {
+            _source.PlayOneShot(_shootDamaging);
+        }
+        public void PlayShootingRetornable()
+        {
+            _source.PlayOneShot(_shootRetornable);
+        }
         private void Update()
         {
             if (_isGameOnPause) return;
@@ -54,12 +63,12 @@ namespace ProyectM2.Sound
                 else
                 {
                     RunSound();
-                }  
+                }
             }
         }
 
         public void RunSound()
-        {            
+        {
             if (_source.isPlaying && _source.clip == _driving) return;
             _source.clip = _driving;
             _source.loop = true;
