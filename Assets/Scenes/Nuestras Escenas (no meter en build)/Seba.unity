@@ -1160,6 +1160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvasTutorial: {fileID: 30630580}
+  _canvasFirebackTutorial: {fileID: 0}
+  _canvasEnemyTutorial: {fileID: 0}
 --- !u!4 &1447502912
 Transform:
   m_ObjectHideFlags: 0
