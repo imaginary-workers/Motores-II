@@ -2,8 +2,8 @@
 {
     public interface IScreen
     {
-        private void Activate();
-        private void Deactivate();
-        private void Free();
+        void Activate();
+        void Deactivate();
+        void Free();
     }
 }
