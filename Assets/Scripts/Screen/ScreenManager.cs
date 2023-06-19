@@ -29,9 +29,9 @@ namespace ProyectM2.Screen
 
             _stack.Pop().Free();
 
-
-            _stack.Push(newScreen);
-            newScreen.Activate();
+            //
+            // _stack.Push(newScreen);
+            // newScreen.Activate();
         }
     }
 }

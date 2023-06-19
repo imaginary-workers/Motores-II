@@ -9,7 +9,7 @@ namespace ProyectM2.UI
         [SerializeField] private float _zPosition;
         private void Awake()
         {
-            var scale = Screen.height * porcent;
+            var scale = UnityEngine.Screen.height * porcent;
             transform.localScale = new Vector3(scale, scale, scale);
             var position = _prueba.transform.position;
             position.z = _zPosition;
