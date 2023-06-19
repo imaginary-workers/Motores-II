@@ -133,12 +133,12 @@ PrefabInstance:
     - target: {fileID: 1882567015856353153, guid: e58c4d186b5508a49a5f905e868c2c26,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1882567015856353153, guid: e58c4d186b5508a49a5f905e868c2c26,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1882567015941343684, guid: e58c4d186b5508a49a5f905e868c2c26,
         type: 3}
@@ -250,10 +250,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: VerticalStore
       objectReference: {fileID: 0}
+    - target: {fileID: 1882567015941343687, guid: e58c4d186b5508a49a5f905e868c2c26,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1882567017518312973, guid: e58c4d186b5508a49a5f905e868c2c26,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -2282
       objectReference: {fileID: 0}
     - target: {fileID: 1882567017846554531, guid: e58c4d186b5508a49a5f905e868c2c26,
         type: 3}
@@ -1126,6 +1131,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080917642371220200, guid: 17a6760ed48d21e41a3597d8b0597250,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8080917642371220203, guid: 17a6760ed48d21e41a3597d8b0597250,
         type: 3}
