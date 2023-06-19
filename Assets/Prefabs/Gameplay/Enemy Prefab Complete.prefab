@@ -195,6 +195,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2488051578375127061, guid: 565636d826a80a146afab94fb365f387,
         type: 3}
+      propertyPath: _timeMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488051578375127061, guid: 565636d826a80a146afab94fb365f387,
+        type: 3}
       propertyPath: _bulletSpeed
       value: 0
       objectReference: {fileID: 0}
@@ -243,6 +248,16 @@ PrefabInstance:
       propertyPath: _animationController
       value: 
       objectReference: {fileID: 1331937865737694356}
+    - target: {fileID: 8285747656002069365, guid: 565636d826a80a146afab94fb365f387,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.256
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285747656002069365, guid: 565636d826a80a146afab94fb365f387,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.708
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8271523391821111381, guid: 565636d826a80a146afab94fb365f387, type: 3}
     - {fileID: 7393167161654076537, guid: 565636d826a80a146afab94fb365f387, type: 3}
