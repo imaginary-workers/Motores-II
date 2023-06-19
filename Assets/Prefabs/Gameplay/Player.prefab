@@ -926,7 +926,7 @@ GameObject:
   - component: {fileID: 5073401642139745096}
   - component: {fileID: 8539538064330522374}
   - component: {fileID: 7930065047698107354}
-  - component: {fileID: 5286112870184843555}
+  - component: {fileID: 1939452809406746277}
   m_Layer: 11
   m_Name: FireBack
   m_TagString: Player
@@ -998,7 +998,7 @@ MonoBehaviour:
   _animationManager: {fileID: 7172416706964593739}
   _returnableLayer: 13
   _bulletSpeed: 50
---- !u!114 &5286112870184843555
+--- !u!114 &1939452809406746277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1220,6 +1220,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8634298351688528647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5530683295989310673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da246037b7da42059226e071b183f570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5530683295989525407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 484704, guid: edf6cb56e12fba648b2cf1e7dfa5bf88,
@@ -1235,13 +1247,43 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1569516115594753326, guid: 190c60e12181ca04abf7c56d25cd6e29,
         type: 3}
+      propertyPath: _ani
+      value: 
+      objectReference: {fileID: 7172416706964593739}
+    - target: {fileID: 1569516115594753326, guid: 190c60e12181ca04abf7c56d25cd6e29,
+        type: 3}
       propertyPath: _player
       value: 
       objectReference: {fileID: 3445099861746128876}
+    - target: {fileID: 1569516115594753326, guid: 190c60e12181ca04abf7c56d25cd6e29,
+        type: 3}
+      propertyPath: _shield
+      value: 
+      objectReference: {fileID: 6506162704560840245}
+    - target: {fileID: 1569516115594753326, guid: 190c60e12181ca04abf7c56d25cd6e29,
+        type: 3}
+      propertyPath: _myrender
+      value: 
+      objectReference: {fileID: 5501059089682907392}
     - target: {fileID: 2976346876376005576, guid: 190c60e12181ca04abf7c56d25cd6e29,
         type: 3}
       propertyPath: m_Name
       value: Sheild
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976346876376005576, guid: 190c60e12181ca04abf7c56d25cd6e29,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976346876376005576, guid: 190c60e12181ca04abf7c56d25cd6e29,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3859078046828471932, guid: 190c60e12181ca04abf7c56d25cd6e29,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8865464653917134279, guid: 190c60e12181ca04abf7c56d25cd6e29,
         type: 3}
@@ -1303,6 +1345,18 @@ PrefabInstance:
 --- !u!4 &580091431620802618 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8865464653917134279, guid: 190c60e12181ca04abf7c56d25cd6e29,
+    type: 3}
+  m_PrefabInstance: {fileID: 8287911069280790013}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5501059089682907392 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4563029521195443453, guid: 190c60e12181ca04abf7c56d25cd6e29,
+    type: 3}
+  m_PrefabInstance: {fileID: 8287911069280790013}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6506162704560840245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2976346876376005576, guid: 190c60e12181ca04abf7c56d25cd6e29,
     type: 3}
   m_PrefabInstance: {fileID: 8287911069280790013}
   m_PrefabAsset: {fileID: 0}
