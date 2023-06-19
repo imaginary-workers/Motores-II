@@ -27,7 +27,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
 
 
 
-        private void Start()
+        private void Awake()
         {
             _time = 0;
         }

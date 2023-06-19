@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using ProyectM2.Sound;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -20,6 +21,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
         bool _isShooting = false;
         GameObject bulletObject;
         Bullet bullet;
+        [SerializeField] EngineSoundController _soundController;
 
         private void Awake()
         {
@@ -54,6 +56,11 @@ namespace ProyectM2.Gameplay.Car.Enemy
                 {
                     bulletObject.transform.parent = null;
                     bullet.OnBulletSpeed();
+                    if (bullet.IsReturnable)
+                    {
+                        _soundController.PlayShootingRetornable();
+                    }
+                    else _soundController.PlayShootingDamaging();
                     _isShooting = false;
                     _time = 0;
                 }
