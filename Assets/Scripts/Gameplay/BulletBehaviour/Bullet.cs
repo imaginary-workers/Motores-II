@@ -9,6 +9,7 @@ namespace ProyectM2.Gameplay
         private ObjectPool _pool;
         private float _time;
         [SerializeField] private float _destroyTime = 5f;
+         bool _canMove;
 
         public bool IsReturnable { get; private set; } = false;
 
@@ -23,7 +24,11 @@ namespace ProyectM2.Gameplay
             IsReturnable = returnable;
             _time = 0;
         }
-
+        public bool OnBulletSpeed()
+        {
+            if (!_canMove) _canMove = true;
+            return _canMove;
+        }
         private void OnEnable()
         {
             _time = 0;
@@ -31,6 +36,7 @@ namespace ProyectM2.Gameplay
 
         private void Update()
         {
+            if (!_canMove) return;
             _behaviour.Update();
             _time += Time.deltaTime;
             if (_time >= _destroyTime)
@@ -50,6 +56,7 @@ namespace ProyectM2.Gameplay
         {
             if (_pool == null)
             {
+                _canMove = false;
                 gameObject.SetActive(false);
             }
             else

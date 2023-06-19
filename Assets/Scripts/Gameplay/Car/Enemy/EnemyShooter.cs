@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 namespace ProyectM2.Gameplay.Car.Enemy
 {
-    public class EnemyShooter: MonoBehaviour
+    public class EnemyShooter : MonoBehaviour
     {
         [SerializeField] private float _shootMaxTime;
         [SerializeField] private float _bulletSpeed = 0f;
@@ -15,6 +15,11 @@ namespace ProyectM2.Gameplay.Car.Enemy
         private ObjectPool _bulletPooler;
         private ObjectPool _returnBulletPooler;
         private bool _isFirstBullet = true;
+        float _time;
+        [SerializeField] float _timeMaxIsMove;
+        bool _isShooting = false;
+        GameObject bulletObject;
+        Bullet bullet;
 
         private void Awake()
         {
@@ -24,26 +29,35 @@ namespace ProyectM2.Gameplay.Car.Enemy
 
         private void Update()
         {
-            _shootTime += Time.deltaTime;
-            if (_shootTime >= _shootMaxTime)
+
+            if (!_isShooting)
             {
-                var pooler = _isFirstBullet || Random.Range(0f, 1f) >= _returnChance ? _returnBulletPooler : _bulletPooler;
-                var bulletObject = pooler.GetObject();
-                _isFirstBullet = false;
-                var bullet = bulletObject.GetComponent<Bullet>();
-                bullet.SetBehaviour(new ForwardBulletBehaviour(bullet.transform,_bulletSpeed), pooler == _returnBulletPooler);
-                StartCoroutine(WaitSpeedBullet());
-                bullet.SetPool(pooler);
-                bulletObject.transform.parent = null;
+                _shootTime += Time.deltaTime;
+                if (_shootTime >= _shootMaxTime)
+                {
+                    _isShooting = true;
+                    var pooler = _isFirstBullet || Random.Range(0f, 1f) >= _returnChance ? _returnBulletPooler : _bulletPooler;
+                    bulletObject = pooler.GetObject();
+                    _isFirstBullet = false;
+                    bullet = bulletObject.GetComponent<Bullet>();
+                    bullet.SetBehaviour(new ForwardBulletBehaviour(bullet.transform, _bulletSpeed), pooler == _returnBulletPooler);
+                    bullet.SetPool(pooler);
+                    _shootTime = 0;
+                }
+            }
+            else
+            {
                 bulletObject.transform.forward = transform.forward;
                 bulletObject.transform.position = transform.position;
-                _shootTime = 0;
+                _time += Time.deltaTime;
+                if (_time > _timeMaxIsMove)
+                {
+                    bulletObject.transform.parent = null;
+                    bullet.OnBulletSpeed();
+                    _isShooting = false;
+                    _time = 0;
+                }
             }
-        }
-        private IEnumerator WaitSpeedBullet()
-        {
-            yield return new WaitForSeconds(2);
-            _bulletSpeed = 5;
         }
     }
 }
