@@ -20,7 +20,7 @@ namespace ProyectM2.UI.Store
             NameText = storeItem.Name;
             PriceText = storeItem.Price;
             ItemImage = storeItem.Image;
-            TypeText = storeItem.Type;
+            DescriptionText = storeItem.Description;
             // TypeText = storeItem.Type;
         }
 
