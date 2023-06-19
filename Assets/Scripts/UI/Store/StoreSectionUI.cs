@@ -14,9 +14,14 @@ namespace ProyectM2.UI.Store
             set => _sectionNameText.text = value;
         }
 
+        public Transform Container
+        {
+            get => _itemsContainer.transform;
+        }
+
         public void AddItem(GameObject item)
         {
-            item.transform.parent = _itemsContainer.transform;
+            item.transform.SetParent(_itemsContainer.transform);
         }
     }
 }

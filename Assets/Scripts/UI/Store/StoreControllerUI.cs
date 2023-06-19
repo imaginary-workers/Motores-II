@@ -8,7 +8,7 @@ namespace ProyectM2.UI.Store
     {
         [SerializeField] private GameObject _sectionPrefab;
         [SerializeField] private GameObject _itemCardPrefab;
-        [SerializeField] private GameObject _sectionParent;
+        [SerializeField] private Transform _sectionParent;
         [SerializeField] private StoreFloatingWindowUI _itemFloatingWindowUI;
         private List<IStoreItem> _allItems;
         private List<StoreSectionUI> _sectionsUI = new List<StoreSectionUI>();
@@ -20,18 +20,18 @@ namespace ProyectM2.UI.Store
             _allItems = ItemProvider.AllItems;
             foreach (var item in _allItems)
             {
-                if (_sectionsUI.Count == 0 || !_sectionsUI.Find((section) => section.SectionNameText.Equals(item.Type)))
+                var sectionUI = _sectionsUI.Find((section) => section.SectionNameText.Equals(item.Type));
+                if (_sectionsUI.Count == 0 || sectionUI == null)
                 {
                     var newSection = Instantiate(_sectionPrefab, _sectionParent.transform);
-                    var sectionUI = newSection.GetComponent<StoreSectionUI>();
+                    sectionUI = newSection.GetComponent<StoreSectionUI>();
                     sectionUI.SectionNameText = item.Type;
-                    var itemGO = Instantiate(_itemCardPrefab);
-                    var storeItemUI = itemGO.GetComponent<StoreItemUI>();
-                    _itemsUI.Add(storeItemUI);
-                    storeItemUI.SetItemData(item);
-                    sectionUI.AddItem(itemGO);
-                    storeItemUI.onItemSelected += OnItemSelected;
                 }
+                var itemGo = Instantiate(_itemCardPrefab, sectionUI.Container);
+                var itemUI = itemGo.GetComponent<StoreItemUI>();
+                _itemsUI.Add(itemUI);
+                itemUI.SetItemData(item);
+                itemUI.onItemSelected += OnItemSelected;
             }
         }
 
