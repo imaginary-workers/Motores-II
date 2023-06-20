@@ -57,6 +57,7 @@ namespace ProyectM2.UI.Store
         public void PurchaseItemUI()
         {
             EventManager.TriggerEvent("BuyItem", _storeItem);
+            gameObject.SetActive(false);
         }
     }
 }

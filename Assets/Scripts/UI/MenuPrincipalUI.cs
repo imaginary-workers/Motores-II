@@ -11,8 +11,10 @@ namespace ProyectM2.UI
 {
     public class MenuPrincipalUI : MonoBehaviour
     {
+        [Header("Texts")]
         [SerializeField] private TextMeshProUGUI _currencyText;
         [SerializeField] private TextMeshProUGUI _timePlayedText;
+        [Header("Elements")]
         [SerializeField] private GameObject _currency;
         [SerializeField] private GameObject _currencyStone;
         [SerializeField] private GameObject _doubleCurrencyPowerUp;
@@ -24,14 +26,18 @@ namespace ProyectM2.UI
         [SerializeField] private GameObject _gameDataWarningPopUp; 
         [SerializeField] private GameObject _backButton;
         [SerializeField] private GameObject _controllerMenu;
-        [SerializeField] private VolumeController _volumeController;
         [SerializeField] private GameObject _storePanel;
         [SerializeField] private GameObject _itemStoreWindow;
+        [Header("Dependencies")]
+        [SerializeField] private VolumeController _volumeController;
         ValuesToSaveInJson _myJsonData;
 
+        [ContextMenu("Prueba")]
         private void Awake()
         {
+#if !UNITY_EDITOR
             Time.timeScale = 1;
+#endif
             _currency.SetActive(true);
             _menu1.SetActive(true);
             _levelsMenu.SetActive(false);
@@ -47,7 +53,8 @@ namespace ProyectM2.UI
 
         private void Start()
         {
-            GetCurrencyData();
+            _myJsonData = DataPersistance.Instance.LoadGame();
+            _currencyText.text = _myJsonData.totalCurrencyOfPlayer.ToString();
         }
 
         private void Update()
@@ -90,6 +97,7 @@ namespace ProyectM2.UI
             ExecuteCommand(new ChangeMenuCommand(new[] { _controllerMenu, _backButton}, new[] { _menu1, _currency, _currencyStone, _doubleCurrencyPowerUp, _extraLifePowerUp, _shieldPowerUp }));
         }
 
+        [ContextMenu("Open Store")]
         public void GoToStoreMenu()
         {
             ExecuteCommand(new ChangeMenuCommand(new []{ _storePanel/*_levelsMenu, _backButton, _doubleCurrencyPowerUp, _extraLifePowerUp, _shieldPowerUp */}, new []{_menu1}));
@@ -98,12 +106,6 @@ namespace ProyectM2.UI
         public void GoBack()
         {
             UndoLastCommand();
-        }
-
-        public void GetCurrencyData()
-        {
-            _myJsonData = DataPersistance.Instance.LoadGame();
-            _currencyText.text = _myJsonData.totalCurrencyOfPlayer.ToString();
         }
 
         public void DeteleData()
