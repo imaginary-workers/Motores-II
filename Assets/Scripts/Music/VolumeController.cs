@@ -32,12 +32,12 @@ namespace ProyectM2
         private void OnMusicSliderValueChanged(float value)
         {
             musicVolume = value;
-            MusicManager.Instance.SetVolume(musicVolume, musicVolume);
+            MusicManager.Instance.SetVolume(musicVolume, soundVolume);
         }
 
         private void OnSoundSliderValueChanged(float value)
         {
-            soundVolume = soundSlider.value;
+            soundVolume = value;
             MusicManager.Instance.SetVolume(musicVolume, soundVolume);
         }
 
