@@ -34,8 +34,8 @@ namespace ProyectM2.Music
 
         public void SetVolume(float musicVolume, float soundVolume)
         {
-            _audioSource.outputAudioMixerGroup.audioMixer.SetFloat("MusicVolume", musicVolume);
-            _soundsAudioSource.outputAudioMixerGroup.audioMixer.SetFloat("SfxVolume", soundVolume);
+            _audioSource.outputAudioMixerGroup.audioMixer.SetFloat("MusicVolume", Mathf.Log10(musicVolume)*20);
+            _soundsAudioSource.outputAudioMixerGroup.audioMixer.SetFloat("SfxVolume", Mathf.Log10(soundVolume) * 20);
         }
 
     }
