@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,12 +21,18 @@ namespace ProyectM2.UI.Store
             _allItems = ItemProvider.AllItems;
             foreach (var item in _allItems)
             {
-                var sectionUI = _sectionsUI.Find((section) => section.SectionNameText.Equals(item.Type));
+                var sectionUI = _sectionsUI.Find((section) =>
+                    {
+                        var objA = section.SectionNameText.ToLower();
+                        var objB = item.Type.ToLower();
+                        return String.Equals(objA, objB);
+                    });
                 if (_sectionsUI.Count == 0 || sectionUI == null)
                 {
                     var newSection = Instantiate(_sectionPrefab, _sectionParent.transform);
                     sectionUI = newSection.GetComponent<StoreSectionUI>();
                     sectionUI.SectionNameText = item.Type;
+                    _sectionsUI.Add(sectionUI);
                 }
                 var itemGo = Instantiate(_itemCardPrefab, sectionUI.Container);
                 var itemUI = itemGo.GetComponent<StoreItemUI>();

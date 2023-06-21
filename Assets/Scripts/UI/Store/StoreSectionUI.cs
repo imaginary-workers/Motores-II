@@ -5,23 +5,23 @@ namespace ProyectM2.UI.Store
 {
     public class StoreSectionUI: MonoBehaviour
     {
+        private string _sectionName = "";
         [SerializeField] private TextMeshProUGUI _sectionNameText;
         [SerializeField] private GameObject _itemsContainer;
         
         public string SectionNameText
         {
-            get => _sectionNameText.text;
-            set => _sectionNameText.text = value;
+            get => _sectionName;
+            set
+            {
+                _sectionNameText.text = value;
+                _sectionName = value;
+            } 
         }
 
         public Transform Container
         {
             get => _itemsContainer.transform;
-        }
-
-        public void AddItem(GameObject item)
-        {
-            item.transform.SetParent(_itemsContainer.transform);
         }
     }
 }
