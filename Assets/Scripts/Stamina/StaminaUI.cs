@@ -18,7 +18,7 @@ namespace ProyectM2
         {
             if (_currentStamina >= _maxStamina)
             {
-                staminaTimeText.text = "Energia Completa";
+                staminaTimeText.text = "";
                 return;
             }
 

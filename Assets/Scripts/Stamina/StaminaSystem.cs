@@ -5,7 +5,7 @@ using ProyectM2.Persistence;
 
 namespace ProyectM2
 {
-    public class StaminaSystem : MonoBehaviour
+    public class StaminaSystem : Singleton<StaminaSystem>
     {
 
         [SerializeField] private int maxStamina = 10;
@@ -19,8 +19,10 @@ namespace ProyectM2
         private StaminaData myStaminaData;
         private StaminaUI myStaminaUI;
 
-        private void Awake()
+        protected override void Awake()
         {
+            itDestroyOnLoad = true;
+            base.Awake();
             myStaminaData = GetComponent<StaminaData>();
             myStaminaUI = GetComponent<StaminaUI>();
         }
@@ -91,11 +93,10 @@ namespace ProyectM2
             Save();
         }
 
-        public bool CanUseStamina(int staminaToUse)
+        public void UseStamina(int staminaToUse)
         {
 
-            if (!HasEnoughStamina(staminaToUse))
-                return false;
+            if (!HasEnoughStamina(staminaToUse)) return;
 
 
             currentStamina -= staminaToUse;
@@ -109,10 +110,9 @@ namespace ProyectM2
                     StartCoroutine(UpdateStamina());
                 }
             }
-            return true;
         }
 
-        bool HasEnoughStamina(int stamina) => currentStamina >= stamina;
+        public bool HasEnoughStamina(int stamina) => currentStamina >= stamina;
 
         void UpdateUI()
         {

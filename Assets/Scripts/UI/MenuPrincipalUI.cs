@@ -59,9 +59,14 @@ namespace ProyectM2.UI
 
         public void Play(int level)
         {
-            GameManager.currentLevel = level;
-            SceneManager.Instance.ChangeScene(new Scene("Level "+level, Scene.Type.Gameplay));
+            if (StaminaSystem.Instance.HasEnoughStamina(1))
+            {
+                StaminaSystem.Instance.UseStamina(1);
+                GameManager.currentLevel = level;
+                SceneManager.Instance.ChangeScene(new Scene("Level "+level, Scene.Type.Gameplay));
+            }
         }
+
 #if UNITY_EDITOR
         [SerializeField] private string debuScene;
         [ContextMenu("Play Debug")]

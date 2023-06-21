@@ -1761,7 +1761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxStamina: 10
-  timeToCharge: 10
+  timeToCharge: 120
 --- !u!4 &420501021
 Transform:
   m_ObjectHideFlags: 0
