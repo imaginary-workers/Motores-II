@@ -13,6 +13,9 @@ namespace ProyectM2
         public float timePlayed;
         public float musicVolume;
         public float soundVolume;
+        public int stamina;
+        public string nextStaminaTime;
+        public string lastStaminaTime;
         public List<Item> itemsInInventory;
 
         public int FindItemIndex(string itemName)
