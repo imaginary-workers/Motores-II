@@ -18,7 +18,7 @@ namespace ProyectM2.Persistence
             if (File.Exists(_path))
                 LoadGame();
 
-            SaveGame();
+            UpdateCurrency();
         }
 
         public void UpdateVolume(float musicVolume, float soundVolume)
@@ -73,7 +73,16 @@ namespace ProyectM2.Persistence
             WriteJson(instanciaClase);
         }
 
-        public void SaveGame()
+        public void UpdateStaminaData(int stamina, string nextStaminaTime, string lastStaminaTime)
+        {
+            var instanciaClase = LoadGame();
+            instanciaClase.stamina = stamina;
+            instanciaClase.nextStaminaTime = nextStaminaTime;
+            instanciaClase.lastStaminaTime = lastStaminaTime;
+            WriteJson(instanciaClase);
+        }
+
+        public void UpdateCurrency()
         {
             var instanciaClase = new ValuesToSaveInJson();
             if (File.Exists(_path))
@@ -115,7 +124,7 @@ namespace ProyectM2.Persistence
             if (File.Exists(_path))
                 File.Delete(_path);
 
-            SaveGame();
+            UpdateCurrency();
         }
     }
 }
