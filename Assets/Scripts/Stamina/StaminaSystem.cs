@@ -1,7 +1,6 @@
 using UnityEngine;
 using System;
 using System.Collections;
-using ProyectM2.Persistence;
 
 namespace ProyectM2
 {
@@ -9,22 +8,20 @@ namespace ProyectM2
     {
 
         [SerializeField] private int maxStamina = 10;
+        [SerializeField] private float timeToCharge = 10f;
+        [SerializeField] private StaminaData myStaminaData;
+        [SerializeField] private StaminaUI myStaminaUI;
         private int currentStamina;
         private DateTime nextStaminaTime;
         private DateTime lastStaminaTime;
-        [SerializeField] private float timeToCharge = 10f;
 
         private bool recharging;
 
-        private StaminaData myStaminaData;
-        private StaminaUI myStaminaUI;
 
         protected override void Awake()
         {
             itDestroyOnLoad = true;
             base.Awake();
-            myStaminaData = GetComponent<StaminaData>();
-            myStaminaUI = GetComponent<StaminaUI>();
         }
 
         private void Start()

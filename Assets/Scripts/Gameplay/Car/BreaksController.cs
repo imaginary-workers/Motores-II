@@ -27,11 +27,10 @@ namespace ProyectM2.Gameplay.Car
             {
                 IsBreaking = Utility.CheckNierObjects(_forward, arriveDistance, layerMask, _thisCar);
                 OnStartBreaking?.Invoke();
-                Debug.Log("Debio desactivar los componentes innecesarios");
             }
             else
             {
-                Vector3 directionToStop = transform.forward * -1f; // Dirección opuesta al frente del objeto
+                Vector3 directionToStop = transform.forward * -1f;
                 _arriveBehaviour.Arrive(transform.position + directionToStop);
             }
         }

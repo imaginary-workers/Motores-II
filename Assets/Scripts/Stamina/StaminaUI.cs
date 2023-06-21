@@ -1,6 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using ProyectM2.Ads;
 using TMPro;
 using UnityEngine;
 
@@ -13,6 +12,11 @@ namespace ProyectM2
 
         private int _currentStamina;
         private int _maxStamina;
+
+        private void Start()
+        {
+            AdsManager.Instance.LoadRewardedAd();
+        }
 
         public void UpdateTimer(DateTime nextStaminaTime)
         {
@@ -32,6 +36,11 @@ namespace ProyectM2
             _currentStamina = currentStamina;
             _maxStamina = maxStamina;
             staminaText.text = _currentStamina.ToString() + "/" + _maxStamina.ToString();
+        }
+
+        public void StaminaAd()
+        {
+            AdsManager.Instance.ShowRewardedAd();
         }
     }
 }

@@ -54,7 +54,6 @@ namespace ProyectM2.Ads
         [ContextMenu("Load Ad")]
         public void LoadRewardedAd()
         {
-            Debug.Log("Loading Ad: " + _adsConfig.rewarded);
             Advertisement.Load(_adsConfig.rewarded, this);
         }
 
@@ -83,8 +82,7 @@ namespace ProyectM2.Ads
         {
             if (adUnitId.Equals(_adsConfig.rewarded) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
             {
-                Debug.Log("Unity Ads Rewarded Ad Completed");
-                // Grant a reward.
+                StaminaSystem.Instance.RechargeStamina(1);  //ver luego
             }
 
             if (adUnitId.Equals(_adsConfig.rewarded) && showCompletionState.Equals(UnityAdsShowCompletionState.SKIPPED))

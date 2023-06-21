@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1148,6 +1148,7 @@ GameObject:
   - component: {fileID: 231789802}
   - component: {fileID: 231789800}
   - component: {fileID: 231789801}
+  - component: {fileID: 231789804}
   m_Layer: 5
   m_Name: EstaminaUI_MP
   m_TagString: Untagged
@@ -1224,11 +1225,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 231789800}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 231789804}
+        m_TargetAssemblyTypeName: ProyectM2.StaminaUI, Assembly-CSharp
+        m_MethodName: StaminaAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &231789802
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1259,6 +1272,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &231789804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231789799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0a95df6c12fc14faf9f5770566d5d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaText: {fileID: 1385845995}
+  staminaTimeText: {fileID: 1801910854}
 --- !u!1 &259268643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,7 +1507,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 85.35
+  m_fontSize: 95.55
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1713,7 +1740,6 @@ GameObject:
   m_Component:
   - component: {fileID: 420501021}
   - component: {fileID: 420501020}
-  - component: {fileID: 420501019}
   - component: {fileID: 420501018}
   m_Layer: 0
   m_Name: Stamina
@@ -1734,20 +1760,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d740c6b08ee5e0047b53c62ecf02e738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &420501019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 420501017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc0a95df6c12fc14faf9f5770566d5d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  staminaText: {fileID: 1385845995}
-  staminaTimeText: {fileID: 1801910854}
 --- !u!114 &420501020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1762,6 +1774,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxStamina: 10
   timeToCharge: 120
+  myStaminaData: {fileID: 420501018}
+  myStaminaUI: {fileID: 231789804}
 --- !u!4 &420501021
 Transform:
   m_ObjectHideFlags: 0
@@ -5605,7 +5619,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.1
+  m_fontSize: 56.7
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5882,7 +5896,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 104.8
+  m_fontSize: 114.05
   m_fontSizeBase: 111.3
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7155,7 +7169,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 74.4
+  m_fontSize: 80.55
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10207,7 +10221,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 69.75
+  m_fontSize: 75.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
