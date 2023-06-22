@@ -22,11 +22,11 @@ namespace ProyectM2.UI
         [SerializeField] private GameObject _levelsMenu; 
         [SerializeField] private GameObject _gameDataMenu; 
         [SerializeField] private GameObject _gameDataWarningPopUp; 
-        [SerializeField] private GameObject _backButton;
         [SerializeField] private GameObject _controllerMenu;
         [SerializeField] private VolumeController _volumeController;
         [SerializeField] private GameObject _storePanel;
         [SerializeField] private GameObject _itemStoreWindow;
+        [SerializeField] private GameObject _header;
         ValuesToSaveInJson _myJsonData;
 
         private void Awake()
@@ -37,12 +37,22 @@ namespace ProyectM2.UI
             _levelsMenu.SetActive(false);
             _gameDataMenu.SetActive(false);
             _gameDataWarningPopUp.SetActive(false);
-            _backButton.SetActive(false);
             _doubleCurrencyPowerUp.SetActive(false);
             _extraLifePowerUp.SetActive(false);
             _shieldPowerUp.SetActive(false);
             _storePanel.SetActive(false);
             _itemStoreWindow.SetActive(false);
+            _header.SetActive(true);
+        }
+
+        private void OnEnable()
+        {
+            EventManager.StartListening("CurrencyModified", GetCurrencyData);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.StartListening("CurrencyModified", GetCurrencyData);
         }
 
         private void Start()
@@ -77,24 +87,24 @@ namespace ProyectM2.UI
 #endif
         public void GoToLevelsMenu()
         {
-            ExecuteCommand(new ChangeMenuCommand(new []{_levelsMenu, _backButton, _doubleCurrencyPowerUp, _extraLifePowerUp, _shieldPowerUp }, new []{_menu1}));
+            ExecuteCommand(new ChangeMenuCommand(new []{_levelsMenu, _doubleCurrencyPowerUp, _extraLifePowerUp, _shieldPowerUp }, new []{_menu1}));
         }
 
         public void GoToPersistence()
         {
-            ExecuteCommand(new ChangeMenuCommand(new []{_gameDataMenu, _backButton}, new []{_menu1, _currency}));
+            ExecuteCommand(new ChangeMenuCommand(new []{_gameDataMenu}, new []{_menu1}));
         }
         
         public void GoToWarningDeleteSaveData()
         {
-            ExecuteCommand(new ChangeMenuCommand(new []{_gameDataWarningPopUp}, new []{_gameDataMenu, _backButton}));
+            ExecuteCommand(new ChangeMenuCommand(new []{_gameDataWarningPopUp}, new []{_gameDataMenu, _header}));
         }
 
         public void GoToControllers()
         {
-            ExecuteCommand(new ChangeMenuCommand(new[] { _controllerMenu, _backButton}, new[] { _menu1, _currency, _currencyStone, _doubleCurrencyPowerUp, _extraLifePowerUp, _shieldPowerUp }));
+            ExecuteCommand(new ChangeMenuCommand(new[] { _controllerMenu}, new[] { _menu1 }));
         }
-
+        [ContextMenu("Store")]
         public void GoToStoreMenu()
         {
             ExecuteCommand(new ChangeMenuCommand(new []{ _storePanel/*_levelsMenu, _backButton, _doubleCurrencyPowerUp, _extraLifePowerUp, _shieldPowerUp */}, new []{_menu1}));
@@ -109,6 +119,11 @@ namespace ProyectM2.UI
         {
             _myJsonData = DataPersistance.Instance.LoadGame();
             _currencyText.text = _myJsonData.totalCurrencyOfPlayer.ToString();
+        }
+
+        public void GetCurrencyData(object[] obj)
+        {
+            GetCurrencyData();
         }
 
         public void DeteleData()

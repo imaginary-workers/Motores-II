@@ -323,7 +323,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _moveController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1196846198775106446}
     - target: {fileID: 5627894973378827262, guid: 41f9fac660a378846813ee0755cdcead,
         type: 3}
       propertyPath: m_RootOrder

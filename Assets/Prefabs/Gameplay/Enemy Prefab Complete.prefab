@@ -205,6 +205,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2488051578375127061, guid: 565636d826a80a146afab94fb365f387,
         type: 3}
+      propertyPath: _timeMaxIsMove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488051578375127061, guid: 565636d826a80a146afab94fb365f387,
+        type: 3}
       propertyPath: _soundController
       value: 
       objectReference: {fileID: 8974700690600141194}

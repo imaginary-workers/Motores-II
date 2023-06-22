@@ -71,7 +71,10 @@ MonoBehaviour:
   _right: {fileID: 657920804402758885}
   _left: {fileID: 5863334848030155508}
   _forward: {fileID: 0}
+  _thisCar: {fileID: 0}
   _maxTime: 3
+  _ani: {fileID: 0}
+  waitTime: 2
 --- !u!1 &657920804402758885
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dataCar: {fileID: 11400000, guid: e13c7ae836ab86943a1c4171c2667f4c, type: 2}
-  _targetTag: PathTarget
+  targetTag: PathTarget
   _currentPathTarget: {fileID: 0}
   _moveController: {fileID: 2978222563316881375}
 --- !u!65 &4768198906690269614
@@ -248,11 +251,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shootMaxTime: 3
   _bulletSpeed: 5
-  _damagingBulletPrefab: {fileID: 3033615404707880644, guid: f26de7f385f4875498dc8e57904c4856,
+  _damagingBulletPrefab: {fileID: 1632333774187893201, guid: abd35ffd80f7775488bb64bba94666eb,
     type: 3}
   _returnBulletPrefab: {fileID: 7849189213581055486, guid: 839e9b49332ef0046807a421e1428bb5,
     type: 3}
   _returnChance: 0
+  _timeMaxIsMove: 1
+  _soundController: {fileID: 0}
 --- !u!1 &5863334848030155508
 GameObject:
   m_ObjectHideFlags: 0
