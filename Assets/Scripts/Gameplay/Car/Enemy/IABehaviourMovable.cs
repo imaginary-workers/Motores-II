@@ -38,7 +38,6 @@ namespace ProyectM2.Gameplay.Car.Enemy
             if (_time >= _maxTime)
             {
                 _time = 0;
-                RandomMove();
                 move = RandomMove();
 
                 if (move == 1)
