@@ -1147,6 +1147,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car Intelligent Movable
       objectReference: {fileID: 0}
+    - target: {fileID: 2125935167586647716, guid: 7477e24a4104fbe429d0ccc76932cc1c,
+        type: 3}
+      propertyPath: _driving
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775024722569953853, guid: 7477e24a4104fbe429d0ccc76932cc1c,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7477e24a4104fbe429d0ccc76932cc1c, type: 3}
 --- !u!1001 &1171103587
@@ -2138,6 +2148,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 36203230107337132, guid: 3214ad8163d41644bac243a4664e7d13,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2113473400786658374, guid: 3214ad8163d41644bac243a4664e7d13,
         type: 3}
       propertyPath: m_Name
@@ -2198,6 +2213,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2301928384742126430, guid: 3214ad8163d41644bac243a4664e7d13,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512417504458430727, guid: 3214ad8163d41644bac243a4664e7d13,
+        type: 3}
+      propertyPath: _currentPathTarget
+      value: 
+      objectReference: {fileID: 1408579982}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3214ad8163d41644bac243a4664e7d13, type: 3}
 --- !u!1001 &8011334013678336333
