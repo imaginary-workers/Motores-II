@@ -1,22 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using ProyectM2.Music;
 using ProyectM2.Persistence;
-using System;
 
 namespace ProyectM2
 {
     public class VolumeController : MonoBehaviour
     {
-        [SerializeField] private Slider musicSlider = null;
-        [SerializeField] private Slider soundSlider = null;
         public static float musicVolume = 0.5f;
         public static float soundVolume = 0.5f;
-
-        ValuesToSaveInJson _myJsonData;
-
+        [SerializeField] private Slider musicSlider = null;
+        [SerializeField] private Slider soundSlider = null;
+        private ValuesToSaveInJson _myJsonData;
 
         private void Awake()
         {

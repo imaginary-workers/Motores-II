@@ -126,5 +126,14 @@ namespace ProyectM2.Persistence
 
             UpdateCurrency();
         }
+#if UNITY_EDITOR
+        [ContextMenu("Borra Todo")]
+        public void DeleteDataTest()
+        {
+            Debug.Log(_path);
+            if (File.Exists(_path))
+                File.Delete(_path);
+        }
+#endif
     }
 }

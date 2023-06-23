@@ -16,4 +16,4 @@ MonoBehaviour:
   description: Multiplica tus monedas X2!!
   image: {fileID: 0}
   price: 10
-  type: Potenciadores
+  type: Potenciador

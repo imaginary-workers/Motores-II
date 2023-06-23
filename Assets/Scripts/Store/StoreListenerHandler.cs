@@ -1,7 +1,4 @@
 using ProyectM2.Persistence;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProyectM2
@@ -35,6 +32,7 @@ namespace ProyectM2
             var itemBought = item;
             itemBought = ItemProvider.FindSpecificItem(itemBought.Name);
             DataPersistance.Instance.UpdateStoreData(itemBought, transactionType);
+            EventManager.TriggerEvent("CurrencyModified");
         }
     }
 }

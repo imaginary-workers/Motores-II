@@ -38,7 +38,6 @@ namespace ProyectM2.Gameplay.Car.Enemy
             if (_time >= _maxTime)
             {
                 _time = 0;
-                RandomMove();
                 move = RandomMove();
 
                 if (move == 1)
@@ -57,10 +56,8 @@ namespace ProyectM2.Gameplay.Car.Enemy
 
         private int RandomMove()
         {
-
             _hasHitRight = Utility.CheckNierObjects(_right.transform, raycastDistance, layerMask, _thisCar);
             _hasHitLeft = Utility.CheckNierObjects(_left.transform, raycastDistance, layerMask, _thisCar);
-
             if (!_hasHitRight && !_hasHitLeft)
             {
                 int change = Random.Range(0, 2);
@@ -96,12 +93,6 @@ namespace ProyectM2.Gameplay.Car.Enemy
 
             Gizmos.color = Color.red;
             Gizmos.DrawRay(ray.origin, ray.direction * raycastDistance);
-
-            ray = new Ray(_forward.transform.position, _forward.transform.forward * raycastDistance);
-
-            Gizmos.color = Color.red;
-            Gizmos.DrawRay(ray.origin, ray.direction * raycastDistance);
-
         }
 #endif
     }
