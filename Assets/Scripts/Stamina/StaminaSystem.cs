@@ -6,10 +6,12 @@ namespace ProyectM2
 {
     public class StaminaSystem : Singleton<StaminaSystem>
     {
-
         [SerializeField] private int maxStamina = 10;
         [SerializeField] private float timeToCharge = 10f;
-        [SerializeField] private StaminaData myStaminaData;
+
+        [Header("Dependencies")] [SerializeField]
+        private StaminaData myStaminaData;
+
         [SerializeField] private StaminaUI myStaminaUI;
         private int currentStamina;
         private DateTime nextStaminaTime;
@@ -69,6 +71,7 @@ namespace ProyectM2
 
                 yield return new WaitForEndOfFrame();
             }
+
             recharging = false;
         }
 
@@ -82,8 +85,10 @@ namespace ProyectM2
                     recharging = false;
                     StopAllCoroutines();
                 }
+
                 return;
             }
+
             currentStamina += staminaToAdd;
 
             UpdateUI();
@@ -92,7 +97,6 @@ namespace ProyectM2
 
         public void UseStamina(int staminaToUse)
         {
-
             if (!HasEnoughStamina(staminaToUse)) return;
 
 
@@ -113,31 +117,25 @@ namespace ProyectM2
 
         void UpdateUI()
         {
-            if (myStaminaUI != null)
-                myStaminaUI.UpdateStamina(currentStamina, maxStamina);
+            myStaminaUI.UpdateStamina(currentStamina, maxStamina);
         }
 
         void UpdateTimer()
         {
-            if (myStaminaUI != null)
-                myStaminaUI.UpdateTimer(nextStaminaTime);
+            myStaminaUI.UpdateTimer(nextStaminaTime);
         }
 
         void Save()
         {
-            if (myStaminaData != null)
-                myStaminaData.SaveStaminaData(currentStamina, nextStaminaTime.ToString(), lastStaminaTime.ToString());
+            myStaminaData.SaveStaminaData(currentStamina, nextStaminaTime.ToString(), lastStaminaTime.ToString());
         }
 
         void Load()
         {
-            if (myStaminaData != null)
-            {
-                myStaminaData.LoadStaminaData();
-                currentStamina = myStaminaData.CurrentStamina;
-                nextStaminaTime = myStaminaData.NextStaminaTime;
-                lastStaminaTime = myStaminaData.LastStaminaTime;
-            }
+            myStaminaData.LoadStaminaData();
+            currentStamina = myStaminaData.CurrentStamina == -1 ? maxStamina : myStaminaData.CurrentStamina;
+            nextStaminaTime = myStaminaData.NextStaminaTime;
+            lastStaminaTime = myStaminaData.LastStaminaTime;
         }
 
         DateTime AddDuration(DateTime date, float duration)
