@@ -8,6 +8,11 @@ namespace ProyectM2.Music
         [SerializeField] private AudioClip _initMusicLevelClip;
         private float _playedTimeLevelMusic = 0f;
 
+        private void Start()
+        {
+            Activate();
+        }
+
         public void Activate()
         {
             MusicManager.Instance.PlayMusic(_initMusicLevelClip, _playedTimeLevelMusic);

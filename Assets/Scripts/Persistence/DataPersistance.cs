@@ -2,17 +2,19 @@ using UnityEngine;
 using System.IO;
 using System;
 using System.Text;
-using ProyectM2.Gameplay;
 using System.Collections.Generic;
+using ProyectM2.SO;
 
 namespace ProyectM2.Persistence
 {
     public class DataPersistance : Singleton<DataPersistance>
     {
-        string _path;
+        [SerializeField] private DataIntObservable _levelCurrency;
+        private string _path;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _path = Application.persistentDataPath + "/savedData.json";
 
             if (File.Exists(_path))
@@ -88,9 +90,9 @@ namespace ProyectM2.Persistence
             if (File.Exists(_path))
                 instanciaClase = LoadGame();
 
-            instanciaClase.totalCurrencyOfPlayer += GameManager.levelCurrency;
-            instanciaClase.totalCurrencyGainOfPlayer += GameManager.levelCurrency;
-            GameManager.levelCurrency = 0;
+            instanciaClase.totalCurrencyOfPlayer += _levelCurrency.value;
+            instanciaClase.totalCurrencyGainOfPlayer += _levelCurrency.value;
+            _levelCurrency.value = 0;
 
             WriteJson(instanciaClase);
         }
