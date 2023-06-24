@@ -5,7 +5,7 @@ using ProyectM2.SO;
 
 namespace ProyectM2.Sound
 {
-    public class SoundUI : MonoBehaviour
+    public class SoundUI : MonoBehaviour, IActivatable
     {
         [SerializeField] AudioClip _currency;
         [SerializeField] AudioClip _gas;
@@ -16,9 +16,11 @@ namespace ProyectM2.Sound
         [SerializeField] AudioClip _teleport;
 
         [SerializeField] private DataIntObservable _levelCurrency;
+        private bool _isActive = false;
 
         private void OnEnable()
         {
+            ScreenManager.Instance.Subscribe(this);
             EventManager.StartListening("GasModified", LevelGas);
             EventManager.StartListening("EndGameOver", GameOverSound);
             EventManager.StartListening("Won", WonSound);
@@ -29,6 +31,7 @@ namespace ProyectM2.Sound
 
         private void OnDisable()
         {
+            ScreenManager.Instance.Unsubscribe(this);
             EventManager.StopListening("GasModified", LevelGas);
             EventManager.StopListening("EndGameOver", GameOverSound);
             EventManager.StopListening("Won", WonSound);
@@ -39,29 +42,34 @@ namespace ProyectM2.Sound
 
         private void CurrencyPlay()
         {
+            if (!_isActive) return;
             _source.clip = _currency;
             _source.Play();
         }
 
         private void LevelGas(object[] obj)
         {
+            if (!_isActive) return;
             _source.clip = _gas;
             _source.Play();
         }
 
         private void Teleport(object[] obj)
         {
+            if (!_isActive) return;
             _source.clip = _teleport;
             _source.Play();
         }
 
         private void WonSound(object[] obj)
         {
+            if (!_isActive) return;
             MusicManager.Instance.PlayMusic(_win);
         }
 
         private void GameOverSound(object[] obj)
         {
+            if (!_isActive) return;
             if (obj.Length <= 0 ) return;
             if ((GameOver)obj[0] == GameOver.Bonus)
             {
@@ -70,6 +78,17 @@ namespace ProyectM2.Sound
                 return;
             }
             MusicManager.Instance.PlayMusic(_gameOver);
+        }
+
+        public void Activate()
+        {
+            _isActive = true;
+        }
+
+        public void Deactivate()
+        {
+            _isActive = false;
+            
         }
     }
 }

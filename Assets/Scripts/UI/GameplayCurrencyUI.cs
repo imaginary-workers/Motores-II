@@ -4,19 +4,15 @@ using UnityEngine;
 
 namespace ProyectM2.UI
 {
-    public class UI : MonoBehaviour
+    public class GameplayCurrencyUI : MonoBehaviour
     {
-        [SerializeField] private int _coin;
         [SerializeField] private TextMeshProUGUI _coinText;
         [SerializeField] private DataIntObservable _playerLevelCurrency;
 
-        private void Awake()
-        {
-            _coinText.text = _coin.ToString();
-        }
-
         private void OnEnable()
         {
+            Debug.Log("GameplayCurrencyUI");
+            OnCurrencyModified();
             _playerLevelCurrency.Subscribe(OnCurrencyModified);
         }
 
