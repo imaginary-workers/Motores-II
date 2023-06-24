@@ -9,10 +9,13 @@ namespace ProyectM2.UI
         [SerializeField] private TextMeshProUGUI _coinText;
         [SerializeField] private DataIntObservable _playerLevelCurrency;
 
-        private void OnEnable()
+        private void Start()
         {
             Debug.Log("GameplayCurrencyUI");
             OnCurrencyModified();
+        }
+        private void OnEnable()
+        {
             _playerLevelCurrency.Subscribe(OnCurrencyModified);
         }
 

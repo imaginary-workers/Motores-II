@@ -34,6 +34,19 @@ namespace ProyectM2.Gameplay
 
         private void Start()
         {
+            _pauseController.StartCountingDownToStart();
+        }
+
+        private void OnEnable()
+        {
+            EventManager.StartListening("EndGameOver", GameOver);
+            EventManager.StartListening("EnemyDiedCutSceneStarted", OnWonHandler);
+            EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
+            EventManager.StartListening("TeleportToBonusLevel", TeleportToBonusLevel);
+            EventManager.StartListening("TeleportReturnToLevel", ReturnFromBonusLevel);
+            EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
+            EventManager.StartListening("EnemyCutSceneEnded", OnEnemyCutSceneEnded);
+
             if (SessionGameData.GetData("IsInBonusLevel") != null)
             {
                 isInBonusLevel = (bool)SessionGameData.GetData("IsInBonusLevel");
@@ -74,19 +87,8 @@ namespace ProyectM2.Gameplay
                 _levelCurrency.value = 0;
             }
 
-            _pauseController.StartCountingDownToStart();
             Debug.Log(_levelCurrency.value);
-        }
 
-        private void OnEnable()
-        {
-            EventManager.StartListening("EndGameOver", GameOver);
-            EventManager.StartListening("EnemyDiedCutSceneStarted", OnWonHandler);
-            EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
-            EventManager.StartListening("TeleportToBonusLevel", TeleportToBonusLevel);
-            EventManager.StartListening("TeleportReturnToLevel", ReturnFromBonusLevel);
-            EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
-            EventManager.StartListening("EnemyCutSceneEnded", OnEnemyCutSceneEnded);
         }
 
 
@@ -127,7 +129,7 @@ namespace ProyectM2.Gameplay
             levelGas -= value;
             if (levelGas <= 0)
             {
-                CutSceneManager.Instance.StartCutScene();
+                //CutSceneManager.Instance.StartCutScene();
                 EventManager.TriggerEvent("StartGameOver", Gameplay.GameOver.Gas);
             }
             else
