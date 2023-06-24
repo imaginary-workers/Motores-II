@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ProyectM2.Gameplay
 {
-    public class PlayerFiresBackController: MonoBehaviour
+    public class PlayerFiresBackController : MonoBehaviour
     {
         [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private float _maxTimeToFiresBack = 1f;
@@ -17,10 +17,11 @@ namespace ProyectM2.Gameplay
         [NonSerialized] public GameObject enemyTarget = null;
         private float _timeToFiresBack;
         private Ray _ray;
+        public event Action<Vector3> OnFireBack;
 
         private void OnEnable()
         {
-                InputManager.Instance.Strategy.Click += FireBackChecker;
+            InputManager.Instance.Strategy.Click += FireBackChecker;
         }
 
         private void OnDisable()
@@ -64,7 +65,9 @@ namespace ProyectM2.Gameplay
         {
             _animationManager.HipUpAnimation();
             returnableBullet.gameObject.layer = _returnableLayer;
-            returnableBullet.SetBehaviour(new SeekBulletBehaviour(returnableBullet.transform, enemyTarget.transform, _bulletSpeed));
+            returnableBullet.SetBehaviour(new SeekBulletBehaviour(returnableBullet.transform, enemyTarget.transform,
+                _bulletSpeed));
+            OnFireBack?.Invoke(returnableBullet.transform.position);
             returnableBullet = null;
         }
     }
