@@ -19,10 +19,20 @@ namespace ProyectM2.Gameplay.Car.Controller
 
         protected virtual void Update()
         {
-            if (_isActive) return;
+            if (!_isActive) return;
             _trackState.Update();
         }
-        
+
+        private void OnEnable()
+        {
+            ScreenManager.Instance.Subscribe(this);
+        }
+
+        private void OnDisable()
+        {
+            ScreenManager.Instance.Unsubscribe(this);
+        }
+
         public float SpeedHorizontal
         {
             get => _dataCar.speedHorizontal;
@@ -32,7 +42,7 @@ namespace ProyectM2.Gameplay.Car.Controller
 
         public void MoveRight()
         {
-            if (_isActive) return;
+            if (!_isActive) return;
             if (_trackState.MoveRight())
             {
                 NotifyToObservers("Right");
@@ -41,7 +51,7 @@ namespace ProyectM2.Gameplay.Car.Controller
 
         public void MoveLeft()
         {
-            if (_isActive) return;
+            if (!_isActive) return;
             if (_trackState.MoveLeft())
             {
                 NotifyToObservers("Left");

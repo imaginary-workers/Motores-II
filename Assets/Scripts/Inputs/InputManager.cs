@@ -1,3 +1,4 @@
+using System;
 using ProyectM2.Gameplay;
 
 namespace ProyectM2.Inputs
@@ -7,15 +8,25 @@ namespace ProyectM2.Inputs
         public IInputStrategy Strategy;
         private bool _isActive = false;
 
-        public void SetInputStrategy(IInputStrategy strategy)
+        private void OnEnable()
         {
-            Strategy = strategy;
+            ScreenManager.Instance.Subscribe(this);
+        }
+
+        private void OnDisable()
+        {
+            ScreenManager.Instance.Subscribe(this);
         }
 
         private void Update()
         {
-            if (_isActive) return;
+            if (!_isActive) return;
             Strategy?.OnUpdate();
+        }
+
+        public void SetInputStrategy(IInputStrategy strategy)
+        {
+            Strategy = strategy;
         }
 
         public void Activate()
