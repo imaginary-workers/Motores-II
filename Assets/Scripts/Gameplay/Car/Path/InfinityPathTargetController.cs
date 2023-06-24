@@ -29,7 +29,6 @@ namespace ProyectM2.Gameplay.Car.Path
             if (_player == null)
             {
                 var playerRoot = GameObject.FindObjectOfType<PlayerInputHorizontalMovement>();
-                Debug.Log(playerRoot);
                 if (playerRoot != null)
                 {
                     _player = playerRoot.GetComponentInChildren<TrackController>().gameObject;

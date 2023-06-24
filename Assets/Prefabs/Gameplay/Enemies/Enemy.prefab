@@ -70,6 +70,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f720894908514373896d55574ef748aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canMove: 1
+  _visibilityController: {fileID: 0}
 --- !u!114 &4773305658605340707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,17 +186,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trackController: {fileID: 8429809009290719251}
+  _right: {fileID: 526109004833894752}
+  _left: {fileID: 6859762734452938609}
+  _thisCar: {fileID: 2301928384742126430}
+  _ani: {fileID: 4726134349088836708}
+  _visibilityController: {fileID: 0}
+  _isActive: 1
   raycastDistance: 2
   layerMask:
     serializedVersion: 2
     m_Bits: 648
-  _right: {fileID: 526109004833894752}
-  _left: {fileID: 6859762734452938609}
-  _forward: {fileID: 7345531401581880244}
-  _thisCar: {fileID: 2301928384742126430}
   _maxTime: 3
-  _ani: {fileID: 4726134349088836708}
-  waitTime: 2
+  _maxWaitTime: 2
 --- !u!114 &8429809009290719251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,16 +282,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bc0012ec5fa3da4e9bb55bedc68c7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 25
   enemyPathController: {fileID: 2512417504458430727}
-  _enemyShooter: {fileID: 4599236687550960713}
-  _enemyTrackController: {fileID: 5553855140638404796}
   _playableDirector: {fileID: 1039339919248491979}
+  _range: 25
   _secondsToStartAnimation: 4
   _targetTag: PathTarget
-  distancia: 10
-  ancho: 1
-  alto: 1
+  EnemyInitializeBeforeShow:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2301928384742126430}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 3414272718033715578}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 8429809009290719251}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  EnemyCutSceneEnded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8429809009290719251}
+        m_TargetAssemblyTypeName: ProyectM2.Gameplay.Car.Controller.TrackController,
+          Assembly-CSharp
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5553855140638404796}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 4599236687550960713}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &2113473400307830621
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,18 +465,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3414272718033715578}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 5553855140638404796}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
@@ -410,12 +475,13 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 8429809009290719251}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+        m_TargetAssemblyTypeName: ProyectM2.Gameplay.Car.Controller.TrackController,
+          Assembly-CSharp
+        m_MethodName: Deactivate
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -446,7 +512,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!54 &2113473400307830617
 Rigidbody:
@@ -778,11 +844,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd0e4b9399667949bda2240d1fa3d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _driving: {fileID: 0}
+  _driving: {fileID: 8300000, guid: 9c7db14a7afdd1d499bda577ba521861, type: 3}
   _shootDamaging: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
   _shootRetornable: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
   _source: {fileID: 8477250340921228395}
   _moveController: {fileID: 2826219332215267930}
+  _isActive: 1
 --- !u!114 &4726134349088836708
 MonoBehaviour:
   m_ObjectHideFlags: 0

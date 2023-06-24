@@ -1,8 +1,6 @@
-using System;
 using ProyectM2.Assets.Scripts;
 using ProyectM2.Car.Controller;
 using ProyectM2.Gameplay.Car.Controller;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -20,6 +18,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
         [Header("Optional")]
         [SerializeField, Tooltip("Solo si se tiene que activar unicamente si esta visible")]
         private VisibilityController _visibilityController;
+        [SerializeField, Tooltip("Si empieza activo -> true, sino -> false")] private bool _isActive = false;
         [Header("Config")]
         [SerializeField] private float raycastDistance = 1f;
         [SerializeField] private LayerMask layerMask;
@@ -32,7 +31,6 @@ namespace ProyectM2.Gameplay.Car.Enemy
         private RaycastHit _hitInfo;
         private Ray _ray;
         private int _move;
-        private bool _isActive = false;
         private float _waitingTime = 0f;
 
         private void Awake()

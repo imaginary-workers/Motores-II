@@ -11,7 +11,7 @@ namespace ProyectM2.Sound
         [SerializeField] AudioClip _shootRetornable;
         [SerializeField] AudioSource _source;
         [SerializeField] private MoveController _moveController;
-        private bool _isActive = false;
+        [SerializeField, Tooltip("Si empieza activo -> true, sino -> false")] private bool _isActive = false;
 
         private void Awake()
         {
