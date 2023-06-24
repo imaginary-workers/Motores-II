@@ -11,7 +11,8 @@ namespace ProyectM2.Gameplay.Car.Enemy
         {
             if (other.CompareTag("Player"))
             {
-                EventManager.TriggerEvent("EnemyCutSceneStarted", _enemy);
+                other.gameObject.GetComponentInChildren<PlayerFiresBackController>().enemyTarget = _enemy;
+                CutSceneManager.Instance.StartCutScene("EnemyArrival");
                 OnEnemyCutSceneStarted?.Invoke();
             }
         }

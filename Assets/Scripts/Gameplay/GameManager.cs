@@ -15,7 +15,6 @@ namespace ProyectM2.Gameplay
         private static float maxGas = 100;
         public static GameObject player;
         public static Vector3 positionInLevel = new(0, 0, 0);
-        public static bool isInCutScene;
         public static bool isOnPause;
         public static bool isInBonusLevel = false;
 
@@ -23,7 +22,7 @@ namespace ProyectM2.Gameplay
         [SerializeField] private GameObject _won;
         [SerializeField] private PauseControllerUI _pauseController;
         [SerializeField] private DataIntObservable _levelCurrency;
-        
+
         bool _iWin = false;
 
         private void Awake()
@@ -39,13 +38,11 @@ namespace ProyectM2.Gameplay
 
         private void OnEnable()
         {
+            CutSceneManager.Instance.Subscribe("EnemyDied", CutSceneState.Started, OnEnemyDiedCutSceneStarted);
             EventManager.StartListening("EndGameOver", GameOver);
-            EventManager.StartListening("EnemyDiedCutSceneStarted", OnWonHandler);
             EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
             EventManager.StartListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StartListening("TeleportReturnToLevel", ReturnFromBonusLevel);
-            EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
-            EventManager.StartListening("EnemyCutSceneEnded", OnEnemyCutSceneEnded);
 
             if (SessionGameData.GetData("IsInBonusLevel") != null)
             {
@@ -88,29 +85,15 @@ namespace ProyectM2.Gameplay
             }
 
             Debug.Log(_levelCurrency.value);
-
         }
-
 
         private void OnDisable()
         {
             EventManager.StopListening("EndGameOver", GameOver);
-            EventManager.StopListening("EnemyDiedCutSceneStarted", OnWonHandler);
+            CutSceneManager.Instance.Unsubscribe("EnemyDied", CutSceneState.Started, OnEnemyDiedCutSceneStarted);
             EventManager.StopListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StopListening("TeleportReturnToLevel", ReturnFromBonusLevel);
             EventManager.StopListening("PlayerGetHit", OnPlayerGetHit);
-            EventManager.StopListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
-            EventManager.StopListening("EnemyCutSceneEnded", OnEnemyCutSceneEnded);
-        }
-
-        private void OnEnemyCutSceneEnded(object[] obj)
-        {
-            isInCutScene = false;
-        }
-
-        private void OnEnemyCutSceneStarted(object[] obj)
-        {
-            isInCutScene = true;
         }
 
         public static void AddGas(int value)
@@ -129,7 +112,6 @@ namespace ProyectM2.Gameplay
             levelGas -= value;
             if (levelGas <= 0)
             {
-                //CutSceneManager.Instance.StartCutScene();
                 EventManager.TriggerEvent("StartGameOver", Gameplay.GameOver.Gas);
             }
             else
@@ -192,22 +174,23 @@ namespace ProyectM2.Gameplay
                 SceneManager.Instance.ChangeScene(SceneManager.Instance.historyScene[^2]);
                 return;
             }
+
             SessionGameData.ResetData();
             player.SetActive(false);
             _lose.SetActive(true);
             ScreenManager.Instance.Pause();
         }
 
-        private void OnWonHandler(object[] obj)
-        {
-            isInCutScene = true;
-            StartCoroutine(WaitToWon(2f));
-        }
-
         private IEnumerator WaitToWon(float seconds)
         {
             yield return new WaitForSecondsRealtime(seconds);
+            CutSceneManager.Instance.EndCutScene("EnemyDied");
             Won();
+        }
+
+        private void OnEnemyDiedCutSceneStarted()
+        {
+            StartCoroutine(WaitToWon(2f));
         }
     }
 }

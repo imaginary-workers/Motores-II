@@ -11,28 +11,21 @@ namespace ProyectM2.Gameplay
         [SerializeField] private float _maxTimeToFiresBack = 1f;
         [SerializeField] private Camera _camera;
         [SerializeField] private AnimationController _animationManager;
-        protected Bullet returnableBullet;
-        private float _timeToFiresBack;
-        private GameObject _enemyTarget = null;
-        private Ray _ray;
         [SerializeField] private int _returnableLayer;
         [SerializeField] private float _bulletSpeed = 50f;
+        protected Bullet returnableBullet;
+        [NonSerialized] public GameObject enemyTarget = null;
+        private float _timeToFiresBack;
+        private Ray _ray;
 
         private void OnEnable()
         {
                 InputManager.Instance.Strategy.Click += FireBackChecker;
-                EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
-        }
-
-        private void OnEnemyCutSceneStarted(object[] obj)
-        {
-            _enemyTarget = (GameObject) obj[0];
         }
 
         private void OnDisable()
         {
             InputManager.Instance.Strategy.Click -= FireBackChecker;
-            EventManager.StopListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
         }
 
         protected virtual void OnTriggerEnter(Collider other)
@@ -54,7 +47,7 @@ namespace ProyectM2.Gameplay
         public void FireBackChecker(Vector3 position)
         {
             if (returnableBullet == null) return;
-            if (_enemyTarget == null) return;
+            if (enemyTarget == null) return;
             if (_timeToFiresBack >= _maxTimeToFiresBack) return;
             _ray = _camera.ScreenPointToRay(position);
             RaycastHit hit;
@@ -71,7 +64,7 @@ namespace ProyectM2.Gameplay
         {
             _animationManager.HipUpAnimation();
             returnableBullet.gameObject.layer = _returnableLayer;
-            returnableBullet.SetBehaviour(new SeekBulletBehaviour(returnableBullet.transform, _enemyTarget.transform, _bulletSpeed));
+            returnableBullet.SetBehaviour(new SeekBulletBehaviour(returnableBullet.transform, enemyTarget.transform, _bulletSpeed));
             returnableBullet = null;
         }
     }
