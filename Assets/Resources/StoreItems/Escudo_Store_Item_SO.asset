@@ -16,4 +16,4 @@ MonoBehaviour:
   description: Te protege del primer golpe
   image: {fileID: 0}
   price: 10
-  type: Potenciadores
+  type: Potenciador

@@ -11,9 +11,9 @@ namespace ProyectM2
         public int lastLevel;
         public float maxGas;
         public float timePlayed;
-        public float musicVolume;
-        public float soundVolume;
-        public int stamina;
+        public float musicVolume = .5f;
+        public float soundVolume = .5f;
+        public int stamina = -1;
         public string nextStaminaTime;
         public string lastStaminaTime;
         public List<Item> itemsInInventory;

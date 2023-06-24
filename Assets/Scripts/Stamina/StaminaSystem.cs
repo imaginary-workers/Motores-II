@@ -1,28 +1,29 @@
 using UnityEngine;
 using System;
 using System.Collections;
-using ProyectM2.Persistence;
 
 namespace ProyectM2
 {
-    public class StaminaSystem : MonoBehaviour
+    public class StaminaSystem : Singleton<StaminaSystem>
     {
-
         [SerializeField] private int maxStamina = 10;
+        [SerializeField] private float timeToCharge = 10f;
+
+        [Header("Dependencies")] [SerializeField]
+        private StaminaData myStaminaData;
+
+        [SerializeField] private StaminaUI myStaminaUI;
         private int currentStamina;
         private DateTime nextStaminaTime;
         private DateTime lastStaminaTime;
-        [SerializeField] private float timeToCharge = 10f;
 
         private bool recharging;
 
-        private StaminaData myStaminaData;
-        private StaminaUI myStaminaUI;
 
-        private void Awake()
+        protected override void Awake()
         {
-            myStaminaData = GetComponent<StaminaData>();
-            myStaminaUI = GetComponent<StaminaUI>();
+            itDestroyOnLoad = true;
+            base.Awake();
         }
 
         private void Start()
@@ -70,6 +71,7 @@ namespace ProyectM2
 
                 yield return new WaitForEndOfFrame();
             }
+
             recharging = false;
         }
 
@@ -83,19 +85,19 @@ namespace ProyectM2
                     recharging = false;
                     StopAllCoroutines();
                 }
+
                 return;
             }
+
             currentStamina += staminaToAdd;
 
             UpdateUI();
             Save();
         }
 
-        public bool CanUseStamina(int staminaToUse)
+        public void UseStamina(int staminaToUse)
         {
-
-            if (!HasEnoughStamina(staminaToUse))
-                return false;
+            if (!HasEnoughStamina(staminaToUse)) return;
 
 
             currentStamina -= staminaToUse;
@@ -109,38 +111,31 @@ namespace ProyectM2
                     StartCoroutine(UpdateStamina());
                 }
             }
-            return true;
         }
 
-        bool HasEnoughStamina(int stamina) => currentStamina >= stamina;
+        public bool HasEnoughStamina(int stamina) => currentStamina >= stamina;
 
         void UpdateUI()
         {
-            if (myStaminaUI != null)
-                myStaminaUI.UpdateStamina(currentStamina, maxStamina);
+            myStaminaUI.UpdateStamina(currentStamina, maxStamina);
         }
 
         void UpdateTimer()
         {
-            if (myStaminaUI != null)
-                myStaminaUI.UpdateTimer(nextStaminaTime);
+            myStaminaUI.UpdateTimer(nextStaminaTime);
         }
 
         void Save()
         {
-            if (myStaminaData != null)
-                myStaminaData.SaveStaminaData(currentStamina, nextStaminaTime.ToString(), lastStaminaTime.ToString());
+            myStaminaData.SaveStaminaData(currentStamina, nextStaminaTime.ToString(), lastStaminaTime.ToString());
         }
 
         void Load()
         {
-            if (myStaminaData != null)
-            {
-                myStaminaData.LoadStaminaData();
-                currentStamina = myStaminaData.CurrentStamina;
-                nextStaminaTime = myStaminaData.NextStaminaTime;
-                lastStaminaTime = myStaminaData.LastStaminaTime;
-            }
+            myStaminaData.LoadStaminaData();
+            currentStamina = myStaminaData.CurrentStamina == -1 ? maxStamina : myStaminaData.CurrentStamina;
+            nextStaminaTime = myStaminaData.NextStaminaTime;
+            lastStaminaTime = myStaminaData.LastStaminaTime;
         }
 
         DateTime AddDuration(DateTime date, float duration)

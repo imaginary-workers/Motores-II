@@ -26,14 +26,23 @@ namespace ProyectM2.Gameplay.Car
             if (!IsBreaking)
             {
                 IsBreaking = Utility.CheckNierObjects(_forward, arriveDistance, layerMask, _thisCar);
-                OnStartBreaking?.Invoke();
-                Debug.Log("Debio desactivar los componentes innecesarios");
+                if (IsBreaking)
+                    OnStartBreaking?.Invoke();
             }
             else
             {
-                Vector3 directionToStop = transform.forward * -1f; // Dirección opuesta al frente del objeto
+                Vector3 directionToStop = transform.forward * -1f;
                 _arriveBehaviour.Arrive(transform.position + directionToStop);
             }
         }
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
+        {
+            var ray = new Ray(_forward.transform.position, _forward.transform.forward * arriveDistance);
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(ray.origin, ray.direction * arriveDistance);
+        }
+#endif
     }
 }
