@@ -14,7 +14,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
             _life--;
             if (_life <= 0)
             {
-                EventManager.TriggerEvent("EnemyDiedCutSceneStarted");
+                CutSceneManager.Instance.StartCutScene("EnemyDied");
             }
             else
             {

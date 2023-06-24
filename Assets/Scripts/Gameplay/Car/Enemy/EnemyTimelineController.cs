@@ -21,15 +21,15 @@ namespace ProyectM2.Gameplay.Car.Enemy
 
         private void OnEnable()
         {
-            EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
+            CutSceneManager.Instance.Subscribe("EnemyArrival", CutSceneState.Started, OnEnemyCutSceneStarted);
         }
 
         private void OnDisable()
         {
-            EventManager.StopListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
+            CutSceneManager.Instance.Unsubscribe("EnemyArrival", CutSceneState.Started, OnEnemyCutSceneStarted);
         }
 
-        private void OnEnemyCutSceneStarted(object[] obj)
+        private void OnEnemyCutSceneStarted()
         {
             StartCoroutine(CO_EnemyTimeline());
         }
@@ -39,7 +39,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
             yield return new WaitForSeconds(_secondsToStartAnimation);
             InitializeEnemy();
             yield return new WaitForSeconds((float)_playableDirector.duration);
-            EventManager.TriggerEvent("EnemyCutSceneEnded");
+            CutSceneManager.Instance.EndCutScene("EnemyArrival");
             EnemyCutSceneEnded?.Invoke();
         }
 

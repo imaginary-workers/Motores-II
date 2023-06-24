@@ -1,4 +1,3 @@
-using System;
 using ProyectM2.Gameplay;
 
 namespace ProyectM2.Inputs
@@ -11,6 +10,7 @@ namespace ProyectM2.Inputs
         private void OnEnable()
         {
             ScreenManager.Instance.Subscribe(this);
+            
         }
 
         private void OnDisable()
@@ -20,6 +20,7 @@ namespace ProyectM2.Inputs
 
         private void Update()
         {
+            if (CutSceneManager.Instance.IsOnCutScene) return;
             if (!_isActive) return;
             Strategy?.OnUpdate();
         }
