@@ -7,7 +7,6 @@ using ProyectM2.Scenes;
 
 namespace ProyectM2.Gameplay
 {
-    public enum GameOver { Gas, Crash, Bonus }
     public class GameManager : MonoBehaviour
     {
         public static int levelCurrency = 0;
@@ -18,12 +17,11 @@ namespace ProyectM2.Gameplay
         public static Vector3 positionInLevel = new(0, 0, 0);
         [SerializeField] private GameObject _lose;
         [SerializeField] private GameObject _won;
-        [SerializeField] public static bool _isInBonusLevel = false;
+        [SerializeField] public static bool isInBonusLevel = false;
         [SerializeField] private PauseControllerUI _pauseController;
         bool _iWin = false;
         public static bool isInCutScene;
         public static bool isOnPause;
-        CurrencyBonus _bonus;
 
         private void OnEnable()
         {
@@ -33,7 +31,6 @@ namespace ProyectM2.Gameplay
             EventManager.StartListening("PlayerGetHit", OnPlayerGetHit);
             EventManager.StartListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StartListening("TeleportReturnToLevel", ReturnFromBonusLevel);
-            EventManager.StartListening("OnPause", Pause);
             EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
             EventManager.StartListening("EnemyCutSceneEnded", OnEnemyCutSceneEnded);
         }
@@ -47,7 +44,6 @@ namespace ProyectM2.Gameplay
             EventManager.StopListening("TeleportToBonusLevel", TeleportToBonusLevel);
             EventManager.StopListening("TeleportReturnToLevel", ReturnFromBonusLevel);
             EventManager.StopListening("PlayerGetHit", OnPlayerGetHit);
-            EventManager.StopListening("OnPause", Pause);
             EventManager.StopListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
             EventManager.StopListening("EnemyCutSceneEnded", OnEnemyCutSceneEnded);
         }
@@ -71,10 +67,10 @@ namespace ProyectM2.Gameplay
         {
             if (SessionGameData.GetData("IsInBonusLevel") != null)
             {
-                _isInBonusLevel = (bool)SessionGameData.GetData("IsInBonusLevel");
+                isInBonusLevel = (bool)SessionGameData.GetData("IsInBonusLevel");
             }
 
-            if (!_isInBonusLevel)
+            if (!isInBonusLevel)
             {
                 if (SessionGameData.GetData("levelCurrency") != null)
                 {
@@ -105,13 +101,13 @@ namespace ProyectM2.Gameplay
                     levelGas = maxGas;
             }
 
+            ScreenManager.Instance.Pause();
             _pauseController.StartCountingDownToStart();
-            Time.timeScale = 0;
         }
 
-        public static void AddCurrency(int value, CurrencyBonus bonus)
+        public static void AddCurrency(int value)
         {
-            if (bonus)
+            if (isInBonusLevel)
             {
                 levelCurrency += value * 2;
                 EventManager.TriggerEvent("CurrencyModified", levelCurrency, value);
@@ -145,7 +141,10 @@ namespace ProyectM2.Gameplay
         {
             levelGas -= value;
             if (levelGas <= 0)
+            {
+                CutSceneManager.Instance.StartCutScene();
                 EventManager.TriggerEvent("StartGameOver", Gameplay.GameOver.Gas);
+            }
             else
                 EventManager.TriggerEvent("GasSubtract", levelGas);
         }
@@ -186,26 +185,12 @@ namespace ProyectM2.Gameplay
             SubstractCurrency(1);
         }
 
-        private void Pause(object[] obj)
-        {
-            if (obj.Length == 0) return;
-            var isPause = (bool)obj[0];
-            isOnPause = isPause;
-            PauseGame(isPause);
-        }
-
-        private void PauseGame(bool isPause)
-        {
-            Time.timeScale = isPause ? 0 : 1;
-        }
-
         public void Won()
         {
             _iWin = true;
             SessionGameData.ResetData();
             _won.SetActive(true);
             EventManager.TriggerEvent("Won");
-            PauseGame(true);
         }
 
         public void GameOver(object[] obj)
@@ -213,13 +198,12 @@ namespace ProyectM2.Gameplay
             if (obj.Length <= 0) return;
             if ((GameOver)obj[0] == Gameplay.GameOver.Bonus)
             {
-                SessionGameData.SaveData("IsInBonusLevel", !_isInBonusLevel);
+                SessionGameData.SaveData("IsInBonusLevel", !isInBonusLevel);
                 SessionGameData.GetData("levelCurrency");
                 SceneManager.Instance.ChangeScene(SceneManager.Instance.historyScene[^2]);
                 return;
             }
             SessionGameData.ResetData();
-            Time.timeScale = 0f;
             player.SetActive(false);
             _lose.SetActive(true);
         }
@@ -235,12 +219,5 @@ namespace ProyectM2.Gameplay
             yield return new WaitForSecondsRealtime(seconds);
             Won();
         }
-#if UNITY_EDITOR
-        [ContextMenu("Sacar Gas")]
-        public void asdasd()
-        {
-            SubstractGas(90);
-        }
-#endif
     }
 }

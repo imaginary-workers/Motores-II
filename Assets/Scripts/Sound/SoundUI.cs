@@ -1,7 +1,7 @@
 using ProyectM2.Gameplay;
 using UnityEngine;
 using ProyectM2.Music;
-using ProyectM2.Persistence;
+using ProyectM2.SO;
 
 namespace ProyectM2.Sound
 {
@@ -15,27 +15,29 @@ namespace ProyectM2.Sound
         [SerializeField] AudioClip _win;
         [SerializeField] AudioClip _teleport;
 
+        [SerializeField] private DataIntObservable _levelCurrency;
+
         private void OnEnable()
         {
-            EventManager.StartListening("CurrencyModified", CurrencyPlay);
             EventManager.StartListening("GasModified", LevelGas);
             EventManager.StartListening("EndGameOver", GameOverSound);
             EventManager.StartListening("Won", WonSound);
             EventManager.StartListening("TeleportToBonusLevel", Teleport);
             EventManager.StartListening("TeleportReturnToLevel", Teleport);
+            _levelCurrency.Subscribe(CurrencyPlay);
         }
 
         private void OnDisable()
         {
-            EventManager.StopListening("CurrencyModified", CurrencyPlay);
             EventManager.StopListening("GasModified", LevelGas);
             EventManager.StopListening("EndGameOver", GameOverSound);
             EventManager.StopListening("Won", WonSound);
             EventManager.StopListening("TeleportToBonusLevel", Teleport);
             EventManager.StopListening("TeleportReturnToLevel", Teleport);
+            _levelCurrency.Unsubscribe(CurrencyPlay);
         }
 
-        private void CurrencyPlay(object[] obj)
+        private void CurrencyPlay()
         {
             _source.clip = _currency;
             _source.Play();

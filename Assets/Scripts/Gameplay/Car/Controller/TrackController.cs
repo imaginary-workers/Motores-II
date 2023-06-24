@@ -5,10 +5,11 @@ using UnityEngine;
 
 namespace ProyectM2.Gameplay.Car.Controller
 {
-    public class TrackController : MonoBehaviour
+    public class TrackController : MonoBehaviour, IActivatable
     {
         [SerializeField] private DataCar _dataCar;
         protected AbstractTrackState _trackState;
+        private bool _isActive = false;
         private event Action<string> _observers;
 
         private void Awake()
@@ -18,6 +19,7 @@ namespace ProyectM2.Gameplay.Car.Controller
 
         protected virtual void Update()
         {
+            if (_isActive) return;
             _trackState.Update();
         }
         
@@ -30,6 +32,7 @@ namespace ProyectM2.Gameplay.Car.Controller
 
         public void MoveRight()
         {
+            if (_isActive) return;
             if (_trackState.MoveRight())
             {
                 NotifyToObservers("Right");
@@ -38,6 +41,7 @@ namespace ProyectM2.Gameplay.Car.Controller
 
         public void MoveLeft()
         {
+            if (_isActive) return;
             if (_trackState.MoveLeft())
             {
                 NotifyToObservers("Left");
@@ -62,6 +66,16 @@ namespace ProyectM2.Gameplay.Car.Controller
         public void Unsuscribe(Action<string> obs)
         {
             _observers -= obs;
+        }
+
+        public void Activate()
+        {
+            _isActive = true;
+        }
+
+        public void Deactivate()
+        {
+            _isActive = false;
         }
     }
 }

@@ -1,3 +1,4 @@
+using ProyectM2.SO;
 using TMPro;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace ProyectM2.UI
     {
         [SerializeField] private int _coin;
         [SerializeField] private TextMeshProUGUI _coinText;
+        [SerializeField] private DataIntObservable _playerLevelCurrency;
 
         private void Awake()
         {
@@ -15,20 +17,17 @@ namespace ProyectM2.UI
 
         private void OnEnable()
         {
-            EventManager.StartListening("CurrencyModified", OnCurrencyModified);
-        }
-
-        private void OnCurrencyModified(object[] obj)
-        {
-            if (obj.Length == 0) return;
-            _coin = (int)obj[0];
-            //_coin = (int)obj[1];
-            _coinText.text = _coin.ToString();
+            _playerLevelCurrency.Subscribe(OnCurrencyModified);
         }
 
         private void OnDisable()
         {
-            EventManager.StopListening("CurrencyModified", OnCurrencyModified);
+            _playerLevelCurrency.Unsubscribe(OnCurrencyModified);
+        }
+
+        private void OnCurrencyModified()
+        {
+            _coinText.text = _playerLevelCurrency.value.ToString();
         }
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1836,6 +1836,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coin: 0
   _coinText: {fileID: 1766541348805692420}
+  _playerLevelCurrency: {fileID: 11400000, guid: 259e93dacd4c0a44d971240bbbc8acff,
+    type: 2}
 --- !u!224 &1766541348805692440
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2904,6 +2906,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sounds
       objectReference: {fileID: 0}
+    - target: {fileID: 8449738936619425266, guid: 619b70c137a44cd45b2b9e0c5db51a5f,
+        type: 3}
+      propertyPath: _levelCurrency
+      value: 
+      objectReference: {fileID: 11400000, guid: 259e93dacd4c0a44d971240bbbc8acff,
+        type: 2}
     - target: {fileID: 8449738936619425267, guid: 619b70c137a44cd45b2b9e0c5db51a5f,
         type: 3}
       propertyPath: m_RootOrder

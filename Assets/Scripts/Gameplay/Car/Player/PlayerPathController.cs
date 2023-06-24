@@ -6,11 +6,16 @@ namespace ProyectM2.Gameplay.Car.Player
 {
     public class PlayerPathController: PathController
     {
+        private void Start()
+        {
+            SetCurrentPathTarget(GetClosestPathTarget());
+        }
+
         private void OnEnable()
         {
             EventManager.StartListening("StartGameOver", OnGameOver);
         }
-        
+
         private void OnDisable()
         {
             EventManager.StopListening("StartGameOver", OnGameOver);
@@ -21,10 +26,6 @@ namespace ProyectM2.Gameplay.Car.Player
             _moveController.Speed = 0;
         }
 
-        private void Start()
-        {
-            SetCurrentPathTarget(GetClosestPathTarget());
-        }
         public GameObject GetClosestPathTarget()
         {
             return Utility.GetClosestObjectWithTag(transform.position, targetTag);

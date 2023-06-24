@@ -31,7 +31,6 @@ namespace ProyectM2.UI
 
         private void Awake()
         {
-            Time.timeScale = 1;
             _currency.SetActive(true);
             _menu1.SetActive(true);
             _levelsMenu.SetActive(false);
