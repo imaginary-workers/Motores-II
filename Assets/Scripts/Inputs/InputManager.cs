@@ -1,17 +1,42 @@
+using System;
+using ProyectM2.Gameplay;
+
 namespace ProyectM2.Inputs
 {
-    public class InputManager : Singleton<InputManager>
+    public class InputManager : Singleton<InputManager>, IActivatable
     {
         public IInputStrategy Strategy;
+        private bool _isActive = false;
+
+        private void OnEnable()
+        {
+            ScreenManager.Instance.Subscribe(this);
+        }
+
+        private void OnDisable()
+        {
+            ScreenManager.Instance.Subscribe(this);
+        }
+
+        private void Update()
+        {
+            if (!_isActive) return;
+            Strategy?.OnUpdate();
+        }
 
         public void SetInputStrategy(IInputStrategy strategy)
         {
             Strategy = strategy;
         }
 
-        private void Update()
+        public void Activate()
         {
-            Strategy?.OnUpdate();
+            _isActive = true;
+        }
+
+        public void Deactivate()
+        {
+            _isActive = false;
         }
     }
 }

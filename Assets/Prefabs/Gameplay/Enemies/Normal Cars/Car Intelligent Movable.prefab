@@ -345,6 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f720894908514373896d55574ef748aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _visibilityController: {fileID: 6898811074500703482}
 --- !u!1 &4495210728217754109
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,9 +866,10 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 6669424911869639159}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+        m_TargetAssemblyTypeName: ProyectM2.Gameplay.Car.Controller.MoveController,
+          Assembly-CSharp
+        m_MethodName: Deactivate
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -928,9 +930,10 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 6669424911869639159}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+        m_TargetAssemblyTypeName: ProyectM2.Gameplay.Car.Controller.MoveController,
+          Assembly-CSharp
+        m_MethodName: Activate
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

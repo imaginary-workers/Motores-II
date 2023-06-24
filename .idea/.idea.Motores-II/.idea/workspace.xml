@@ -5,14 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5747736-5216-4ab4-8ad3-b7210000cf13" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/CutSceneManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/CutSceneManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/IActivatable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/IActivatable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/ScreenManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/ScreenManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SO/DataIntObservable.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Motores-II/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Motores-II/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Store/TagHolder.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Store/TagHolder.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreControllerUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreControllerUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreFloatingWindowUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreFloatingWindowUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreSectionUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreSectionUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/CurrencyObject.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/CurrencyObject.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Gameplay/Currency.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Gameplay/Currency.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Gameplay/Enemies/Normal Cars/Car Intelligent Movable.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Gameplay/Enemies/Normal Cars/Car Intelligent Movable.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Gameplay/Enemies/Normal Cars/Car Straight Movable.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Gameplay/Enemies/Normal Cars/Car Straight Movable.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SO/CurrencyData.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SO/CurrencyData.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Primera Pantalla.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Primera Pantalla.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ads/AdsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ads/AdsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Car/Controller/MoveController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Car/Controller/MoveController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Car/Controller/TrackController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Car/Controller/TrackController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Car/Player/PlayerGasHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Car/Player/PlayerGasHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Car/Player/PlayerPathController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Car/Player/PlayerPathController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Power Ups/CurrencyBonus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Power Ups/CurrencyBonus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Recolectables/CurrencyRecolectable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Recolectables/CurrencyRecolectable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Recolectables/GasRecolectable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Recolectables/GasRecolectable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/VisibilityEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/VisibilityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/VisibilityEvents.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/VisibilityController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inputs/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inputs/InputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/LevelMusicController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/LevelMusicController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Persistence/SessionGameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Persistence/SessionGameData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SO/DataInt.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SO/DataInt.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SO/DataIntObservable.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scene/SceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scene/SceneManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sound/EngineSoundController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Sound/EngineSoundController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sound/SoundUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Sound/SoundUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MenuPrincipalUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MenuPrincipalUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PauseControllerUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PauseControllerUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +55,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d2197dadd91c4b33887eb54fddfc169fb600/49/163df5ee/ConfigResponse.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Core/Variables/SceneVariables.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Framework/Logic/Negate.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -97,6 +131,8 @@
       <workItem from="1686855625661" duration="1174000" />
       <workItem from="1686922786292" duration="10928000" />
       <workItem from="1687014425043" duration="6410000" />
+      <workItem from="1687479481120" duration="8271000" />
+      <workItem from="1687526884206" duration="24697000" />
     </task>
     <servers />
   </component>

@@ -5,7 +5,6 @@ namespace ProyectM2.Persistence
 {
     public class SessionGameData : MonoBehaviour
     {
-
         private static Dictionary<string, object> sessionGameData = new();
         
         public static object GetData(string keyToReturnValue)

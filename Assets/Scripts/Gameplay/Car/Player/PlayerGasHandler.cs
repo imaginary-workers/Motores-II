@@ -3,20 +3,19 @@ using UnityEngine;
 
 namespace ProyectM2.Gameplay.Car.Player
 {
-    public class PlayerGasHandler: MonoBehaviour
+    public class PlayerGasHandler: MonoBehaviour, IActivatable
     {
         [SerializeField] private float _break = 5f;
         [SerializeField] float _substracttGas = 1.5f;
         [SerializeField] private MoveController _moveController;
         private bool _isGasEmpty = false;
+        private bool _isActive = false;
 
         #region Unity
-
         private void Update()
         {
-            if (GameManager.isInCutScene) return;
-            if (GameManager.isOnPause) return;
-            if (GameManager._isInBonusLevel) return;
+            if (!_isActive) return;
+            if (GameManager.isInBonusLevel) return;
             GameManager.SubstractGas(_substracttGas * Time.deltaTime);
         }
 
@@ -52,6 +51,16 @@ namespace ProyectM2.Gameplay.Car.Player
                 return;
             }
             enabled = false;
+        }
+
+        public void Activate()
+        {
+            _isActive = true;
+        }
+
+        public void Deactivate()
+        {
+            _isActive = false;
         }
     }
 }
