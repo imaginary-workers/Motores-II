@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87e4cb31d29846d8b9758f0527c28399, type: 3}
-  m_Name: Escudo_Store_Item_SO
+  m_Script: {fileID: 11500000, guid: 0b6b3323c41c1324e87feb3ab28d8288, type: 3}
+  m_Name: FullStaminaNotificationSO
   m_EditorClassIdentifier: 
-  name: Escudo
-  description: Te protege del primer golpe
-  image: {fileID: 0}
-  price: 10
-  type: Potenciador
+  title: Volve!, Tu Auto Te Espera
+  description: Ya tenes la energia completa, volve a recorrer las calles
+  iconId: full_stamina
+  repeatNotificationInHours: 0.03

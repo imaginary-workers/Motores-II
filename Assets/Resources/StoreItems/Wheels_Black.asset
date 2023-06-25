@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87e4cb31d29846d8b9758f0527c28399, type: 3}
-  m_Name: VidaExtra_Store_Item_SO
+  m_Name: Wheels_Black
   m_EditorClassIdentifier: 
-  name: Vida Extra
-  description: Permite continuar el nivel a pesar de haber perdido
+  name: Ruedas Negras
+  description: "Un conjunto de ruedas elegantes y resistentes en color negro. Ideal
+    para darle un toque sofisticado a tu veh\xEDculo."
   image: {fileID: 0}
   price: 10
-  type: Potenciador
+  type: 3
+  color: {r: 0.043137256, g: 0.0627451, b: 0.09019608, a: 1}
