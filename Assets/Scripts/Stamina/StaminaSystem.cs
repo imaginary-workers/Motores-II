@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using ProyectM2.SO;
 
 namespace ProyectM2
 {
@@ -8,6 +9,8 @@ namespace ProyectM2
     {
         [SerializeField] private int maxStamina = 10;
         [SerializeField] private float timeToCharge = 10f;
+        [SerializeField] private DataNotification dataNotificationSO; 
+        [SerializeField] private DataNotificationChannel dataNotificationChannelSO;
 
         [Header("Dependencies")] [SerializeField]
         private StaminaData myStaminaData;
@@ -19,6 +22,7 @@ namespace ProyectM2
 
         private bool recharging;
 
+        private int fullStaminaNotificationId = 0;
 
         protected override void Awake()
         {
@@ -31,6 +35,11 @@ namespace ProyectM2
             Load();
             UpdateUI();
             StartCoroutine(UpdateStamina());
+
+            if (currentStamina < maxStamina)
+            {
+                SendNotification();
+            }
         }
 
         IEnumerator UpdateStamina()
@@ -91,6 +100,8 @@ namespace ProyectM2
 
             currentStamina += staminaToAdd;
 
+            SendNotification();
+
             UpdateUI();
             Save();
         }
@@ -99,11 +110,13 @@ namespace ProyectM2
         {
             if (!HasEnoughStamina(staminaToUse)) return;
 
-
             currentStamina -= staminaToUse;
             UpdateUI();
+            
             if (currentStamina < maxStamina)
             {
+                SendNotification();
+
                 if (!recharging)
                 {
                     nextStaminaTime = AddDuration(DateTime.Now, timeToCharge);
@@ -136,6 +149,20 @@ namespace ProyectM2
             currentStamina = myStaminaData.CurrentStamina == -1 ? maxStamina : myStaminaData.CurrentStamina;
             nextStaminaTime = myStaminaData.NextStaminaTime;
             lastStaminaTime = myStaminaData.LastStaminaTime;
+        }
+
+        private void SendNotification()
+        {
+            if (fullStaminaNotificationId != -1)
+            {
+                NotificationSystem.Instance.CancelNotification(fullStaminaNotificationId);
+            }
+
+            fullStaminaNotificationId = NotificationSystem.Instance.SendNotification(
+                dataNotificationSO,
+                AddDuration(lastStaminaTime, timeToCharge * (maxStamina - currentStamina)),
+                dataNotificationChannelSO
+                );
         }
 
         DateTime AddDuration(DateTime date, float duration)
