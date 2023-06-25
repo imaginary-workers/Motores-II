@@ -42,6 +42,7 @@ namespace ProyectM2.UI
             _storePanel.SetActive(false);
             _itemStoreWindow.SetActive(false);
             _header.SetActive(true);
+            _controllerMenu.SetActive(false);
         }
 
         private void OnEnable()
