@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87e4cb31d29846d8b9758f0527c28399, type: 3}
-  m_Name: Escudo_Store_Item_SO
+  m_Name: Glass_Grey
   m_EditorClassIdentifier: 
-  name: Escudo
-  description: Te protege del primer golpe
-  image: {fileID: 21300000, guid: 1d211310940d57649b867a02d5f52ce6, type: 3}
+  name: Parabrisas Gris
+  description: "Un parabrisas en tonos grises que brinda una apariencia elegante
+    y sofisticada. Ideal para aquellos que prefieren una est\xE9tica discreta pero
+    distinguida."
+  image: {fileID: 0}
   price: 10
-  type: Potenciador
+  type: 2
+  color: {r: 0.47058824, g: 0.5294118, b: 0.5294118, a: 0.14901961}
