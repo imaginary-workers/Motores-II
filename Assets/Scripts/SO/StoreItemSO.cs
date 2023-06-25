@@ -14,6 +14,8 @@ namespace ProyectM2.SO
         [SerializeField, Tooltip("Para los items que no lleven imagen")]
         private Color color;
 
+        public string UKey { get; }
+
         public string Name
         {
             get => name;
