@@ -8,7 +8,7 @@ namespace ProyectM2.SO
     {
         public new string name;
         [TextArea(3, 10)] public string description;
-        public Image image;
+        public Sprite image;
         public float price;
         public string type;
 
@@ -22,7 +22,7 @@ namespace ProyectM2.SO
             get => description;
         }
 
-        public Image Image
+        public Sprite Image
         {
             get => image;
         }

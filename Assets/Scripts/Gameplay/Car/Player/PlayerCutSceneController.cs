@@ -13,17 +13,17 @@ namespace ProyectM2.Gameplay.Car.Player
 
         private void OnEnable()
         {
-            EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
-            EventManager.StartListening("EnemyDiedCutSceneStarted", OnEnemyDiedCutSceneStarted);
+            CutSceneManager.Instance.Subscribe("EnemyArrival", CutSceneState.Started, OnEnemyArrivalCutSceneStarted);
+            CutSceneManager.Instance.Subscribe("EnemyDied", CutSceneState.Started, OnEnemyDiedCutSceneHandler);
         }
 
         private void OnDisable()
         {
-            EventManager.StopListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
-            EventManager.StopListening("EnemyDiedCutSceneStarted", OnEnemyDiedCutSceneStarted);
+            CutSceneManager.Instance.Unsubscribe("EnemyArrival", CutSceneState.Started, OnEnemyArrivalCutSceneStarted);
+            CutSceneManager.Instance.Unsubscribe("EnemyDied", CutSceneState.Started, OnEnemyDiedCutSceneHandler);
         }
 
-        private void OnEnemyDiedCutSceneStarted(object[] obj)
+        private void OnEnemyDiedCutSceneHandler()
         {
             StartCoroutine(CO_Wait());
         }
@@ -34,7 +34,7 @@ namespace ProyectM2.Gameplay.Car.Player
             _animationController.JumpAnimation();
         }
 
-        private void OnEnemyCutSceneStarted(object[] obj)
+        private void OnEnemyArrivalCutSceneStarted()
         {
             _trackController.SetTrackState(new TrackStateCenter(_trackController));
         }

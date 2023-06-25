@@ -1,60 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace ProyectM2.UI.Store
 {
     public class StoreControllerUI : MonoBehaviour
     {
-        [SerializeField] private GameObject _sectionPrefab;
-        [SerializeField] private GameObject _itemCardPrefab;
-        [SerializeField] private Transform _sectionParent;
-        [SerializeField] private StoreFloatingWindowUI _itemFloatingWindowUI;
-        private List<IStoreItem> _allItems;
-        private List<StoreSectionUI> _sectionsUI = new List<StoreSectionUI>();
-        private List<StoreItemUI> _itemsUI = new List<StoreItemUI>();
-        public UnityEvent OnItemSelectedEvent;
+        [SerializeField] private List<StoreSectionUI> _sectionsUI;
 
-        private void Awake()
+        public void OpenSection(StoreSectionUI sectionController)
         {
-            _allItems = ItemProvider.AllItems;
-            foreach (var item in _allItems)
+            if (sectionController.IsVisible) return;
+
+            foreach (var sectionUI in _sectionsUI)
             {
-                var sectionUI = _sectionsUI.Find((section) =>
-                    {
-                        var objA = section.SectionNameText.ToLower();
-                        var objB = item.Type.ToLower();
-                        return String.Equals(objA, objB);
-                    });
-                if (_sectionsUI.Count == 0 || sectionUI == null)
-                {
-                    var newSection = Instantiate(_sectionPrefab, _sectionParent.transform);
-                    sectionUI = newSection.GetComponent<StoreSectionUI>();
-                    sectionUI.SectionNameText = item.Type;
-                    _sectionsUI.Add(sectionUI);
-                }
-                var itemGo = Instantiate(_itemCardPrefab, sectionUI.Container);
-                var itemUI = itemGo.GetComponent<StoreItemUI>();
-                _itemsUI.Add(itemUI);
-                itemUI.SetItemData(item);
-                itemUI.onItemSelected += OnItemSelected;
+                sectionUI.Hide();
             }
+            sectionController.Show();
         }
-
-        private void OnDestroy()
-        {
-            foreach (var itemUI in _itemsUI)
-            {
-                itemUI.onItemSelected -= OnItemSelected;
-            }
-        }
-
-        private void OnItemSelected(IStoreItem storeItem)
-        {
-            _itemFloatingWindowUI.SetItemData(storeItem);
-            OnItemSelectedEvent?.Invoke();
-        }
-
     }
 }

@@ -4,10 +4,10 @@ namespace ProyectM2.Gameplay.Car.Controller
 {
     public class MoveController : MonoBehaviour, ISpeedProvider, IActivatable
     {
+        [SerializeField, Tooltip("Si empieza activo -> true, sino -> false")]  private bool _canMove = false;
+        [SerializeField, Tooltip("Si se quiere activar solo si esta visible")]  private VisibilityController _visibilityController;
         private float _speed = 0;
-        private bool _canMove = false;
         private Vector3 _direction;
-        [SerializeField] private VisibilityController _visibilityController;
 
         private void Update()
         {
