@@ -1,21 +1,30 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace ProyectM2.UI.Store
 {
     public class StoreCameraMenu : MonoBehaviour
     {
+        [Serializable]
+        public class CameraConfiguration
+        {
+            public Transform _positionAndRotation;
+            [Range(1e-05f, 179f)] public float _cameraFOV = 51.6f;
+        }
+
         [SerializeField] private StoreSectionUI _chassisSection;
         [SerializeField] private StoreSectionUI _wheelsSection;
         [SerializeField] private StoreSectionUI _glassSection;
         [SerializeField] private StoreSectionUI _powerUpsSection;
-        [SerializeField] private Vector3 _chassisView;
-        [SerializeField] private Vector3 _glassView;
-        [SerializeField] private Vector3 _wheelView;
-        [SerializeField] private Vector3 _powerUpsView;
+        [SerializeField] private CameraConfiguration _chassisView;
+        [SerializeField] private CameraConfiguration _glassView;
+        [SerializeField] private CameraConfiguration _wheelView;
+        [SerializeField] private CameraConfiguration _powerUpsView;
+        [SerializeField] private CameraConfiguration _originalView;
         [SerializeField] private float _maxTimeToMoveCamera = 0.5f;
-        private Vector3 _nextView;
+        private CameraConfiguration _nextView;
+        private CameraConfiguration _initialView;
         private float _currentTime = -1f;
-        private Vector3 _initialView;
 
         private void OnEnable()
         {
@@ -23,7 +32,7 @@ namespace ProyectM2.UI.Store
             _wheelsSection.OnOpenMenu += GoToWheelsView;
             _glassSection.OnOpenMenu += GoToGlassView;
             _powerUpsSection.OnOpenMenu += GoToPowerUpsView;
-            _initialView = transform.position;
+            _initialView = _originalView;
         }
 
         public void LateUpdate()
