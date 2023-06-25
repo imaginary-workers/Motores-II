@@ -1,11 +1,10 @@
 ﻿using ProyectM2.Sound;
-using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace ProyectM2.Gameplay.Car.Enemy
 {
-    public class EnemyShooter : MonoBehaviour
+    public class EnemyShooter : MonoBehaviour, IActivatable
     {
         [SerializeField] private float _shootMaxTime;
         [SerializeField] private float _bulletSpeed = 0f;
@@ -22,6 +21,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
         GameObject bulletObject;
         Bullet bullet;
         [SerializeField] EngineSoundController _soundController;
+        private bool _isActive = true;
 
         private void Awake()
         {
@@ -31,7 +31,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
 
         private void Update()
         {
-
+            if (!_isActive) return;
             if (!_isShooting)
             {
                 _shootTime += Time.deltaTime;
@@ -55,7 +55,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
                 if (_time > _timeMaxIsMove)
                 {
                     bulletObject.transform.parent = null;
-                    bullet.OnBulletSpeed();
+                    bullet.Shoot();
                     if (bullet.IsReturnable)
                     {
                         _soundController.PlayShootingRetornable();
@@ -65,6 +65,16 @@ namespace ProyectM2.Gameplay.Car.Enemy
                     _time = 0;
                 }
             }
+        }
+
+        public void Activate()
+        {
+            _isActive = true;
+        }
+
+        public void Deactivate()
+        {
+            _isActive = false;
         }
     }
 }

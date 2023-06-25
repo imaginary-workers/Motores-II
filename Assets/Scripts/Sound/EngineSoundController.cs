@@ -1,44 +1,36 @@
-using System;
+using ProyectM2.Gameplay;
 using ProyectM2.Gameplay.Car.Controller;
 using UnityEngine;
 
 namespace ProyectM2.Sound
 {
-    public class EngineSoundController : MonoBehaviour
+    public class EngineSoundController : MonoBehaviour, IActivatable
     {
         [SerializeField] AudioClip _driving;
         [SerializeField] AudioClip _shootDamaging;
         [SerializeField] AudioClip _shootRetornable;
         [SerializeField] AudioSource _source;
         [SerializeField] private MoveController _moveController;
-        private bool _isGameOnPause = true;
+        [SerializeField, Tooltip("Si empieza activo -> true, sino -> false")] private bool _isActive = false;
 
         private void Awake()
         {
             _source.Stop();
         }
 
-        protected virtual void OnEnable()
+        private void OnEnable()
         {
-            EventManager.StartListening("OnPause", PauseRunSound);
-            EventManager.StartListening("OnPause", PauseRunSound);
+            ScreenManager.Instance.Subscribe(this);
         }
 
-        protected virtual void OnDisable()
+        private void OnDisable()
         {
-            EventManager.StopListening("OnPause", PauseRunSound);
+            ScreenManager.Instance.Unsubscribe(this);
         }
-        public void PlayShootingDamaging()
-        {
-            _source.PlayOneShot(_shootDamaging);
-        }
-        public void PlayShootingRetornable()
-        {
-            _source.PlayOneShot(_shootRetornable);
-        }
+
         private void Update()
         {
-            if (_isGameOnPause) return;
+            if (!_isActive) return;
             if (_moveController.Speed <= 0)
             {
                 StopSound();
@@ -49,22 +41,14 @@ namespace ProyectM2.Sound
             }
         }
 
-        private void PauseRunSound(object[] obj)
+        public void PlayShootingDamaging()
         {
-            if (obj.Length == 0) return;
-            _isGameOnPause = (bool)obj[0];
+            _source.PlayOneShot(_shootDamaging);
+        }
 
-            if (_source != null)
-            {
-                if (_isGameOnPause)
-                {
-                    StopSound();
-                }
-                else
-                {
-                    RunSound();
-                }
-            }
+        public void PlayShootingRetornable()
+        {
+            _source.PlayOneShot(_shootRetornable);
         }
 
         public void RunSound()
@@ -78,6 +62,17 @@ namespace ProyectM2.Sound
         public void StopSound()
         {
             _source.Stop();
+        }
+
+        public void Activate()
+        {
+            _isActive = true;
+        }
+
+        public void Deactivate()
+        {
+            _isActive = false;
+            StopSound();
         }
     }
 }

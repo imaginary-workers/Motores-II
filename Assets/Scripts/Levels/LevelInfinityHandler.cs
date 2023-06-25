@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ProyectM2.Gameplay;
+using UnityEngine;
 
 namespace ProyectM2.Levels
 {
@@ -9,16 +10,16 @@ namespace ProyectM2.Levels
 
         private void OnEnable()
         {
-            EventManager.StartListening("EnemyCutSceneStarted", NewInfinitiveSection);
+            CutSceneManager.Instance.Subscribe("EnemyArrival", CutSceneState.Started, NewInfinitiveSection);
         }
 
 
         private void OnDisable()
         {
-            EventManager.StopListening("EnemyCutSceneStarted", NewInfinitiveSection);
+            CutSceneManager.Instance.Unsubscribe("EnemyArrival", CutSceneState.Started, NewInfinitiveSection);
         }
 
-        void NewInfinitiveSection(object[] obj)
+        void NewInfinitiveSection()
         {
            _levelManager.SetFirstSection(_levelSection);
         }

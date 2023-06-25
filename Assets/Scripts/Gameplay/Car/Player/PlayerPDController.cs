@@ -10,23 +10,23 @@ namespace ProyectM2.Gameplay
         [SerializeField] private PlayableAsset _toNormalView;
         private void OnEnable()
         {
-            EventManager.StartListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
-            EventManager.StartListening("EnemyDiedCutSceneStarted", OnEnemyDiedCutSceneStarted);
+            CutSceneManager.Instance.Subscribe("EnemyArrival", CutSceneState.Started, OnEnemyCutSceneStarted);
+            CutSceneManager.Instance.Subscribe("EnemyDied", CutSceneState.Started, OnEnemyDiedCutSceneStarted);
         }
 
         private void OnDisable()
         {
-            EventManager.StopListening("EnemyCutSceneStarted", OnEnemyCutSceneStarted);
-            EventManager.StopListening("EnemyDiedCutSceneStarted", OnEnemyDiedCutSceneStarted);
+            CutSceneManager.Instance.Unsubscribe("EnemyArrival", CutSceneState.Started, OnEnemyCutSceneStarted);
+            CutSceneManager.Instance.Unsubscribe("EnemyDied", CutSceneState.Started, OnEnemyDiedCutSceneStarted);
         }
 
-        private void OnEnemyDiedCutSceneStarted(object[] obj)
+        private void OnEnemyDiedCutSceneStarted()
         {
             _playableDirector.playableAsset = _toNormalView;
             _playableDirector.Play();
         }
 
-        private void OnEnemyCutSceneStarted(object[] obj)
+        private void OnEnemyCutSceneStarted()
         {
             _playableDirector.playableAsset = _toEnemyView;
             _playableDirector.Play();

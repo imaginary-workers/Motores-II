@@ -10,7 +10,6 @@ namespace ProyectM2.Levels
         private List<Section> _sectionsListInGame = new List<Section>();
 
         public int _currentIndex = 0;
-        private bool _isInBonusLevel = false;
 
         public void SetFirstSection(Section firstSection)
         {

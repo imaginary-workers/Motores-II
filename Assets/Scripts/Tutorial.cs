@@ -1,4 +1,5 @@
 using System.Collections;
+using ProyectM2.Gameplay;
 using UnityEngine;
 using ProyectM2.Persistence;
 
@@ -23,13 +24,13 @@ namespace ProyectM2
         private void OnEnable()
         {
             EventManager.StartListening("FirebackTutorial", OnFirebackTutorialHandler);
-            EventManager.StartListening("EnemyCutSceneStarted", OnStartTutorialEnemyHandler);
+            CutSceneManager.Instance.Subscribe("EnemyArrival", CutSceneState.Started, OnStartTutorialEnemyHandler);
         }
 
         private void OnDisable()
         {
             EventManager.StopListening("FirebackTutorial", OnFirebackTutorialHandler);
-            EventManager.StopListening("EnemyCutSceneStarted", OnStartTutorialEnemyHandler);
+            CutSceneManager.Instance.Unsubscribe("EnemyArrival", CutSceneState.Started, OnStartTutorialEnemyHandler);
         }
 
         private void OnFirebackTutorialHandler(object[] obj)
@@ -40,7 +41,7 @@ namespace ProyectM2
             Time.timeScale = firebackTutorialActived? .1f : 1f;
         }
 
-        private void OnStartTutorialEnemyHandler(object[] obj)
+        private void OnStartTutorialEnemyHandler()
         {
             _canvasEnemyTutorial.SetActive(true);
             StartCoroutine(WaitToDesactive(_canvasEnemyTutorial, 4f));

@@ -1,4 +1,5 @@
 using System.Collections;
+using ProyectM2.Gameplay;
 using TMPro;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ namespace ProyectM2.UI
             _pauseMenu.SetActive(pause);
             if (pause)
             {
-                EventManager.TriggerEvent("OnPause", true);
+                ScreenManager.Instance.Pause();
                 StopAllCoroutines();
             }
             else
@@ -40,7 +41,7 @@ namespace ProyectM2.UI
                 yield return new WaitForSecondsRealtime(1);
             }
             _pauseCounterText.gameObject.SetActive(false);
-            EventManager.TriggerEvent("OnPause", false);
+            ScreenManager.Instance.Resume();
         }
     }
 }

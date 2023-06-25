@@ -6,14 +6,14 @@ namespace ProyectM2.Gameplay.Recolectables
     public class CurrencyRecolectable : MonoBehaviour
     {
         [SerializeField] GameObject currencyPrefab;
-        [SerializeField] DataInt _currencyValue;
-        CurrencyBonus _bonus;
+        [SerializeField] DataIntObservable _currencyValue;
+        [SerializeField] DataIntObservable _playerLevelCurrency;
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
-                GameManager.AddCurrency(_currencyValue.value,_bonus);
+                _playerLevelCurrency.value += _currencyValue.value;
                 Destroy(currencyPrefab);
             }
         }
