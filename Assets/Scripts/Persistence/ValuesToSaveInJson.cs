@@ -28,12 +28,16 @@ namespace ProyectM2
     public class Item
     {
         public string itemName;
+        public string itemType;
         public int itemQuantity;
+        public bool isActive;
 
-        public Item(string name, int quantity)
+        public Item(string name, string type, int quantity, bool isActive)
         {
             this.itemName = name;
+            this.itemType = type;
             this.itemQuantity = quantity;
+            this.isActive = isActive;
         }
     }
 }
