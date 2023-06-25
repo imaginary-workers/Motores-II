@@ -32,41 +32,6 @@ namespace ProyectM2.Persistence
 
         }
 
-        public void UpdateStoreData(IStoreItem item, string updateType)
-        {
-            var instanciaClase = LoadGame();
-
-            if (instanciaClase.itemsInInventory == null)
-            {
-                instanciaClase.itemsInInventory = new List<Item>();
-            }
-
-            var itemFoundedIndex = instanciaClase.FindItemIndex(item.Name);
-            if (updateType == "Buy")
-            {
-                if (itemFoundedIndex !=  -1)
-                    instanciaClase.itemsInInventory[itemFoundedIndex].itemQuantity += 1;
-                else
-                    instanciaClase.itemsInInventory.Add(new Item(item.Name, 1));
-
-                instanciaClase.totalCurrencyOfPlayer -= (int)item.Price;
-            }
-            else if (updateType == "Used")
-            {
-                if (itemFoundedIndex != -1)
-                {
-                    var itemFounded = instanciaClase.itemsInInventory[itemFoundedIndex];
-                    itemFounded.itemQuantity -= 1;
-                    if (itemFounded.itemQuantity <= 0)
-                        instanciaClase.itemsInInventory.Remove(itemFounded);
-                }
-                else
-                    Debug.LogError("Estas usando algo q no tenes");
-            }
-
-            WriteJson(instanciaClase);
-        }
-
         public void UpdateTime(float timePlayed)
         {
             var instanciaClase = LoadGame();
@@ -86,10 +51,7 @@ namespace ProyectM2.Persistence
 
         public void UpdateCurrency()
         {
-            var instanciaClase = new ValuesToSaveInJson();
-            if (File.Exists(_path))
-                instanciaClase = LoadGame();
-
+            var instanciaClase = LoadGame();
             instanciaClase.totalCurrencyOfPlayer += _levelCurrency.value;
             instanciaClase.totalCurrencyGainOfPlayer += _levelCurrency.value;
             _levelCurrency.value = 0;
