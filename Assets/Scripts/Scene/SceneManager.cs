@@ -36,7 +36,6 @@ namespace ProyectM2.Scenes
         }
         private IEnumerator CO_ChangeScene(Scene nextScene, bool restart = false)
         {
-            Time.timeScale = 0;
             EventManager.TriggerEvent("OnChangeScene");
             var sceneToLoad = new List<AsyncOperation>();
             _loadCanvasUI.SetLoadTextTo("Cargando");

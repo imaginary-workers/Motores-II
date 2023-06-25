@@ -59,12 +59,11 @@ namespace ProyectM2.Ads
 
         public void OnUnityAdsAdLoaded(string adUnitId)
         {
-            Debug.Log("Ad Loaded: " + adUnitId);
         }
 
         public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message)
         {
-            Debug.Log($"Error loading Ad Unit {adUnitId}: {error.ToString()} - {message}");
+            Debug.LogWarning($"Error loading Ad Unit {adUnitId}: {error.ToString()} - {message}");
             // Use the error details to determine whether to try to load another ad.
         }
 
@@ -87,7 +86,6 @@ namespace ProyectM2.Ads
 
             if (adUnitId.Equals(_adsConfig.rewarded) && showCompletionState.Equals(UnityAdsShowCompletionState.SKIPPED))
             {
-                Debug.Log("Unity Ads Rewarded Ad Skipped");
                 // Cancel reward.
             }
         }
@@ -95,18 +93,16 @@ namespace ProyectM2.Ads
 
         public void OnUnityAdsShowFailure(string adUnitId, UnityAdsShowError error, string message)
         {
-            Debug.Log($"Error showing Ad Unit {adUnitId}: {error.ToString()} - {message}");
+            Debug.LogWarning($"Error showing Ad Unit {adUnitId}: {error.ToString()} - {message}");
             // Use the error details to determine whether to try to load another ad.
         }
 
         public void OnUnityAdsShowStart(string adUnitId)
         {
-            Debug.Log("Empezo a mostrar el AD");
         }
 
         public void OnUnityAdsShowClick(string adUnitId)
         {
-            Debug.Log("Apretaste en el AD");
         }
         #endregion
     }

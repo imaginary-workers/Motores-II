@@ -14,14 +14,13 @@ namespace ProyectM2.UI
         [SerializeField] private TextMeshProUGUI _currencyText;
         [SerializeField] private TextMeshProUGUI _timePlayedText;
         [SerializeField] private GameObject _currency;
-        [SerializeField] private GameObject _currencyStone;
         [SerializeField] private GameObject _doubleCurrencyPowerUp;
         [SerializeField] private GameObject _extraLifePowerUp;
         [SerializeField] private GameObject _shieldPowerUp;
-        [SerializeField] private GameObject _menu1; 
-        [SerializeField] private GameObject _levelsMenu; 
-        [SerializeField] private GameObject _gameDataMenu; 
-        [SerializeField] private GameObject _gameDataWarningPopUp; 
+        [SerializeField] private GameObject _menu1;
+        [SerializeField] private GameObject _levelsMenu;
+        [SerializeField] private GameObject _gameDataMenu;
+        [SerializeField] private GameObject _gameDataWarningPopUp;
         [SerializeField] private GameObject _controllerMenu;
         [SerializeField] private VolumeController _volumeController;
         [SerializeField] private GameObject _storePanel;
@@ -29,9 +28,9 @@ namespace ProyectM2.UI
         [SerializeField] private GameObject _header;
         ValuesToSaveInJson _myJsonData;
 
+        [ContextMenu("Default Awake")]
         private void Awake()
         {
-            Time.timeScale = 1;
             _currency.SetActive(true);
             _menu1.SetActive(true);
             _levelsMenu.SetActive(false);
@@ -43,6 +42,7 @@ namespace ProyectM2.UI
             _storePanel.SetActive(false);
             _itemStoreWindow.SetActive(false);
             _header.SetActive(true);
+            _controllerMenu.SetActive(false);
         }
 
         private void OnEnable()
@@ -57,7 +57,7 @@ namespace ProyectM2.UI
 
         private void Start()
         {
-            GetCurrencyData();
+            UpdateCurrencyData();
         }
 
         private void Update()
@@ -73,7 +73,7 @@ namespace ProyectM2.UI
             {
                 StaminaSystem.Instance.UseStamina(1);
                 GameManager.currentLevel = level;
-                SceneManager.Instance.ChangeScene(new Scene("Level "+level, Scene.Type.Gameplay));
+                SceneManager.Instance.ChangeScene(new Scene("Level " + level, Scene.Type.Gameplay));
             }
         }
 
@@ -85,45 +85,57 @@ namespace ProyectM2.UI
             SceneManager.Instance.ChangeScene(new Scene(debuScene, Scene.Type.Gameplay));
         }
 #endif
+        [ContextMenu("LevelsMenu")]
         public void GoToLevelsMenu()
         {
-            ExecuteCommand(new ChangeMenuCommand(new []{_levelsMenu, _doubleCurrencyPowerUp, _extraLifePowerUp, _shieldPowerUp }, new []{_menu1}));
+            ExecuteCommand(new ChangeMenuCommand(
+                new[] { _levelsMenu, _doubleCurrencyPowerUp, _extraLifePowerUp, _shieldPowerUp }, new[] { _menu1 }));
         }
 
+        [ContextMenu("Persistence")]
         public void GoToPersistence()
         {
-            ExecuteCommand(new ChangeMenuCommand(new []{_gameDataMenu}, new []{_menu1}));
+            ExecuteCommand(new ChangeMenuCommand(new[] { _gameDataMenu }, new[] { _menu1 }));
         }
-        
+
+        [ContextMenu("WarningDeleteSaveData")]
         public void GoToWarningDeleteSaveData()
         {
-            ExecuteCommand(new ChangeMenuCommand(new []{_gameDataWarningPopUp}, new []{_gameDataMenu, _header}));
+            ExecuteCommand(new ChangeMenuCommand(new[] { _gameDataWarningPopUp }, new[] { _gameDataMenu, _header }));
         }
 
+        [ContextMenu("Controllers")]
         public void GoToControllers()
         {
-            ExecuteCommand(new ChangeMenuCommand(new[] { _controllerMenu}, new[] { _menu1 }));
-        }
-        [ContextMenu("Store")]
-        public void GoToStoreMenu()
-        {
-            ExecuteCommand(new ChangeMenuCommand(new []{ _storePanel/*_levelsMenu, _backButton, _doubleCurrencyPowerUp, _extraLifePowerUp, _shieldPowerUp */}, new []{_menu1}));
+            ExecuteCommand(new ChangeMenuCommand(new[] { _controllerMenu }, new[] { _menu1 }));
         }
 
+        [ContextMenu("StoreMenu")]
+        public void GoToStoreMenu()
+        {
+            ExecuteCommand(new ChangeMenuCommand(
+                new[]
+                {
+                    _storePanel /*_levelsMenu, _backButton, _doubleCurrencyPowerUp, _extraLifePowerUp, _shieldPowerUp */
+                }, new[] { _menu1 }));
+        }
+
+        [ContextMenu("GoBack")]
         public void GoBack()
         {
             UndoLastCommand();
         }
 
-        public void GetCurrencyData()
+        public void UpdateCurrencyData()
         {
+            DataPersistance.Instance.UpdateCurrency();
             _myJsonData = DataPersistance.Instance.LoadGame();
             _currencyText.text = _myJsonData.totalCurrencyOfPlayer.ToString();
         }
 
         public void GetCurrencyData(object[] obj)
         {
-            GetCurrencyData();
+            UpdateCurrencyData();
         }
 
         public void DeteleData()
@@ -131,17 +143,21 @@ namespace ProyectM2.UI
             TimePlayed.Instance.ResetTime();
             _volumeController.ResetVolume();
             DataPersistance.Instance.DeleteData();
+            UpdateCurrencyData();
         }
 
         private Stack<ICommand> commandStack = new Stack<ICommand>();
 
-        private void ExecuteCommand(ICommand command) {
+        private void ExecuteCommand(ICommand command)
+        {
             command.Execute();
             commandStack.Push(command);
         }
 
-        private void UndoLastCommand() {
-            if (commandStack.Count > 0) {
+        private void UndoLastCommand()
+        {
+            if (commandStack.Count > 0)
+            {
                 ICommand lastCommand = commandStack.Pop();
                 lastCommand.Undo();
             }

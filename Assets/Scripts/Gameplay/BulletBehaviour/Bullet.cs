@@ -1,37 +1,21 @@
-using System;
 using UnityEngine;
 
 namespace ProyectM2.Gameplay
 {
-    public class Bullet : MonoBehaviour
+    public class Bullet : MonoBehaviour, IActivatable
     {
+        [SerializeField] private float _destroyTime = 5f;
         private IBulletBehaviour _behaviour;
         private ObjectPool _pool;
         private float _time;
-        [SerializeField] private float _destroyTime = 5f;
-         bool _canMove;
+        private bool _canMove;
 
         public bool IsReturnable { get; private set; } = false;
-
-        public void SetPool(ObjectPool pool)
-        {
-            _pool = pool;
-        }
-
-        public void SetBehaviour(IBulletBehaviour behaviour, bool returnable = false)
-        {
-            _behaviour = behaviour;
-            IsReturnable = returnable;
-            _time = 0;
-        }
-        public bool OnBulletSpeed()
-        {
-            if (!_canMove) _canMove = true;
-            return _canMove;
-        }
+        
         private void OnEnable()
         {
             _time = 0;
+            ScreenManager.Instance.Subscribe(this);
         }
 
         private void Update()
@@ -52,6 +36,29 @@ namespace ProyectM2.Gameplay
             DestroyBullet();
         }
 
+        private void OnDisable()
+        {
+            gameObject.layer = 12;
+            ScreenManager.Instance.Unsubscribe(this);
+        }
+
+        public void SetPool(ObjectPool pool)
+        {
+            _pool = pool;
+        }
+
+        public void SetBehaviour(IBulletBehaviour behaviour, bool returnable = false)
+        {
+            _behaviour = behaviour;
+            IsReturnable = returnable;
+            _time = 0;
+        }
+
+        public void Shoot()
+        {
+            _canMove = true;
+        }
+
         private void DestroyBullet()
         {
             if (_pool == null)
@@ -65,9 +72,14 @@ namespace ProyectM2.Gameplay
             }
         }
 
-        private void OnDisable()
+        public void Activate()
         {
-            gameObject.layer = 12;
+            _canMove = true;
+        }
+
+        public void Deactivate()
+        {
+            _canMove = false;
         }
     }
 }

@@ -6,9 +6,9 @@ namespace ProyectM2.SO
     [CreateAssetMenu(fileName = "StoreItemSO", menuName = "SO/Store Item", order = 0)]
     public class StoreItemSO : ScriptableObject, IStoreItem
     {
-        public string name;
+        public new string name;
         [TextArea(3, 10)] public string description;
-        public Image image;
+        public Sprite image;
         public float price;
         public string type;
 
@@ -22,7 +22,7 @@ namespace ProyectM2.SO
             get => description;
         }
 
-        public Image Image
+        public Sprite Image
         {
             get => image;
         }

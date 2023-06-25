@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5029330865794682798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -30.245941, y: 0.739, z: 53.6257}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.601, y: 1.601, z: 1.601}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,6 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currencyPrefab: {fileID: 5029330865794682798}
   _currencyValue: {fileID: 11400000, guid: d8fe74befaa4a7143b56f8b9c50d3e38, type: 2}
+  _playerLevelCurrency: {fileID: 11400000, guid: 259e93dacd4c0a44d971240bbbc8acff,
+    type: 2}
 --- !u!65 &759885994985746897
 BoxCollider:
   m_ObjectHideFlags: 0

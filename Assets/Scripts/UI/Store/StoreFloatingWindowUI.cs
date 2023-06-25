@@ -42,10 +42,10 @@ namespace ProyectM2.UI.Store
             set => _price.text = value.ToString(CultureInfo.InvariantCulture);
         }
         
-        public Image ItemImage
+        public Sprite ItemImage
         {
-            get => _itemImage;
-            set => _itemImage = value;
+            get => _itemImage.sprite;
+            set => _itemImage.sprite = value;
         }
         
         public string TypeText
