@@ -34,22 +34,14 @@ namespace ProyectM2.Gameplay
             var component = other.GetComponent<Bullet>();
             if (component == null || !component.IsReturnable) return;
             returnableBullet = component;
-            _timeToFiresBack = 0f;
-        }
-
-        private void Update()
-        {
-            if (_timeToFiresBack < _maxTimeToFiresBack)
-            {
-                _timeToFiresBack += Time.deltaTime;
-            }
+            _timeToFiresBack = Time.realtimeSinceStartup;
         }
 
         public void FireBackChecker(Vector3 position)
         {
             if (returnableBullet == null) return;
             if (enemyTarget == null) return;
-            if (_timeToFiresBack >= _maxTimeToFiresBack) return;
+            if (Time.realtimeSinceStartup - _timeToFiresBack >= _maxTimeToFiresBack) return;
             _ray = _camera.ScreenPointToRay(position);
             RaycastHit hit;
             if (Physics.Raycast(_ray, out hit, Single.PositiveInfinity, _playerLayer))
