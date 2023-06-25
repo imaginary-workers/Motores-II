@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +12,7 @@ namespace ProyectM2.UI.Store
         [SerializeField] private StoreFloatingWindowUI _itemFloatingWindowUI;
         [SerializeField] private Transform _sectionContainer;
         public UnityEvent OnItemSelectedEvent;
+        public event Action OnOpenMenu;
         private List<StoreItemUI> _itemsUI = new List<StoreItemUI>();
         public bool IsVisible
         {
@@ -46,12 +48,14 @@ namespace ProyectM2.UI.Store
             }
         }
 
-        public void Show()
+        public virtual void Show()
         {
+            if (IsVisible) return;
             _sectionContainer.gameObject.SetActive(true);
+            OnOpenMenu?.Invoke();
         }
         
-        public void Hide()
+        public virtual void Hide()
         {
             _sectionContainer.gameObject.SetActive(false);
         }
