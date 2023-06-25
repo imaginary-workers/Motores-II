@@ -2,7 +2,7 @@
 
 namespace ProyectM2.Gameplay
 {
-    public class PlayerFiresBackController_Tutorial: PlayerFiresBackController
+    public class PlayerFiresBackController_Tutorial : PlayerFiresBackController
     {
         protected override void OnTriggerEnter(Collider other)
         {
@@ -13,8 +13,17 @@ namespace ProyectM2.Gameplay
 
         protected override void FirebackAction()
         {
+            if (returnableBullet == null) return;
             EventManager.TriggerEvent("FirebackTutorial", false);
             base.FirebackAction();
+        }
+        private void OnTriggerExit(Collider other)
+        {
+            if (returnableBullet != null)
+            {
+                EventManager.TriggerEvent("FirebackTutorial", false);
+                returnableBullet = null;
+            }
         }
     }
 }

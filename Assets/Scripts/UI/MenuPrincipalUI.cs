@@ -14,7 +14,6 @@ namespace ProyectM2.UI
         [SerializeField] private TextMeshProUGUI _currencyText;
         [SerializeField] private TextMeshProUGUI _timePlayedText;
         [SerializeField] private GameObject _currency;
-        [SerializeField] private GameObject _currencyStone;
         [SerializeField] private GameObject _doubleCurrencyPowerUp;
         [SerializeField] private GameObject _extraLifePowerUp;
         [SerializeField] private GameObject _shieldPowerUp;
@@ -31,7 +30,6 @@ namespace ProyectM2.UI
 
         private void Awake()
         {
-            Time.timeScale = 1;
             _currency.SetActive(true);
             _menu1.SetActive(true);
             _levelsMenu.SetActive(false);
@@ -57,7 +55,7 @@ namespace ProyectM2.UI
 
         private void Start()
         {
-            GetCurrencyData();
+            UpdateCurrencyData();
         }
 
         private void Update()
@@ -115,15 +113,16 @@ namespace ProyectM2.UI
             UndoLastCommand();
         }
 
-        public void GetCurrencyData()
+        public void UpdateCurrencyData()
         {
+            DataPersistance.Instance.UpdateCurrency();
             _myJsonData = DataPersistance.Instance.LoadGame();
             _currencyText.text = _myJsonData.totalCurrencyOfPlayer.ToString();
         }
 
         public void GetCurrencyData(object[] obj)
         {
-            GetCurrencyData();
+            UpdateCurrencyData();
         }
 
         public void DeteleData()
@@ -131,6 +130,7 @@ namespace ProyectM2.UI
             TimePlayed.Instance.ResetTime();
             _volumeController.ResetVolume();
             DataPersistance.Instance.DeleteData();
+            UpdateCurrencyData();
         }
 
         private Stack<ICommand> commandStack = new Stack<ICommand>();

@@ -12,13 +12,13 @@ namespace ProyectM2.Gameplay.Car.Path
         #region Unity
         private void OnEnable()
         {
-            EventManager.StartListening("EnemyCutSceneStarted", NewInfiniteSection);
+            CutSceneManager.Instance.Subscribe("EnemyArrival", CutSceneState.Started, NewInfiniteSection);
             EventManager.StartListening("SceneLoadComplete", LookForPlayer);
         }
 
         private void OnDisable()
         {
-            EventManager.StopListening("EnemyCutSceneStarted", NewInfiniteSection);
+            CutSceneManager.Instance.Unsubscribe("EnemyArrival", CutSceneState.Started, NewInfiniteSection);
             EventManager.StopListening("SceneLoadComplete", LookForPlayer);
         }
         #endregion
@@ -29,7 +29,6 @@ namespace ProyectM2.Gameplay.Car.Path
             if (_player == null)
             {
                 var playerRoot = GameObject.FindObjectOfType<PlayerInputHorizontalMovement>();
-                Debug.Log(playerRoot);
                 if (playerRoot != null)
                 {
                     _player = playerRoot.GetComponentInChildren<TrackController>().gameObject;
@@ -39,7 +38,7 @@ namespace ProyectM2.Gameplay.Car.Path
             _player = _player.transform.root.gameObject;
         }
 
-        private void NewInfiniteSection(object[] obj)
+        private void NewInfiniteSection()
         {
             _moveController.Speed = _player.GetComponent<MoveController>().Speed;
             _moveController.Direction = _player.transform.forward;

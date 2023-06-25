@@ -1834,8 +1834,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80182824bd7f9854dbe363cb8b3f4056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coin: 0
   _coinText: {fileID: 1766541348805692420}
+  _playerLevelCurrency: {fileID: 11400000, guid: 259e93dacd4c0a44d971240bbbc8acff,
+    type: 2}
 --- !u!224 &1766541348805692440
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2810,6 +2811,12 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 5974397291923725021, guid: fdac2c09a461b204badafb8872c97a9c,
         type: 3}
+      propertyPath: _levelCurrency
+      value: 
+      objectReference: {fileID: 11400000, guid: 259e93dacd4c0a44d971240bbbc8acff,
+        type: 2}
+    - target: {fileID: 5974397291923725021, guid: fdac2c09a461b204badafb8872c97a9c,
+        type: 3}
       propertyPath: _pauseController
       value: 
       objectReference: {fileID: 1766541348909096852}
@@ -2904,6 +2911,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sounds
       objectReference: {fileID: 0}
+    - target: {fileID: 8449738936619425266, guid: 619b70c137a44cd45b2b9e0c5db51a5f,
+        type: 3}
+      propertyPath: _levelCurrency
+      value: 
+      objectReference: {fileID: 11400000, guid: 259e93dacd4c0a44d971240bbbc8acff,
+        type: 2}
     - target: {fileID: 8449738936619425267, guid: 619b70c137a44cd45b2b9e0c5db51a5f,
         type: 3}
       propertyPath: m_RootOrder

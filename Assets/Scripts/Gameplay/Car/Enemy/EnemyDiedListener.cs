@@ -14,15 +14,15 @@ namespace ProyectM2.Gameplay.Car.Enemy
 
         private void OnEnable()
         {
-            EventManager.StartListening("EnemyDiedCutSceneStarted", OnEnemyDiedCutSceneStartedHandler);
+            CutSceneManager.Instance.Subscribe("EnemyDied", CutSceneState.Started, OnEnemyDiedCutSceneStartedHandler);
         }
 
         private void OnDisable()
         {
-            EventManager.StopListening("EnemyDiedCutSceneStarted", OnEnemyDiedCutSceneStartedHandler);
+            CutSceneManager.Instance.Unsubscribe("EnemyDied", CutSceneState.Started, OnEnemyDiedCutSceneStartedHandler);
         }
 
-        private void OnEnemyDiedCutSceneStartedHandler(object[] obj)
+        private void OnEnemyDiedCutSceneStartedHandler()
         {
             _animationController.DeathAnimation();
             _pathController.enabled = false;

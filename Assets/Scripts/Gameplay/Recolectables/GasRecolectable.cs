@@ -7,7 +7,7 @@ namespace ProyectM2.Gameplay.Recolectables
 {
     public class GasRecolectable : MonoBehaviour
     {
-        [SerializeField] DataInt _gasValue;
+        [SerializeField] DataIntObservable _gasValue;
         [SerializeField] GameObject _gas;
 
         private void OnTriggerEnter(Collider other)
