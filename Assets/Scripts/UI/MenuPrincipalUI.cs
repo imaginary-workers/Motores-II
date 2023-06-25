@@ -28,6 +28,7 @@ namespace ProyectM2.UI
         [SerializeField] private GameObject _header;
         ValuesToSaveInJson _myJsonData;
 
+        [ContextMenu("Default Awake")]
         private void Awake()
         {
             _currency.SetActive(true);
@@ -108,7 +109,6 @@ namespace ProyectM2.UI
             ExecuteCommand(new ChangeMenuCommand(new[] { _controllerMenu }, new[] { _menu1 }));
         }
 
-        [ContextMenu("Store")]
         [ContextMenu("StoreMenu")]
         public void GoToStoreMenu()
         {
@@ -119,6 +119,7 @@ namespace ProyectM2.UI
                 }, new[] { _menu1 }));
         }
 
+        [ContextMenu("GoBack")]
         public void GoBack()
         {
             UndoLastCommand();
