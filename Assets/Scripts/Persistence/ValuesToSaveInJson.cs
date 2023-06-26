@@ -19,23 +19,23 @@ namespace ProyectM2
         public string lastStaminaTime;
         public List<Item> itemsInInventory;
 
-        public int FindItemIndex(string itemName)
+        public int FindItemIndex(string itemID)
         {
-            return itemsInInventory.FindIndex((itemAux) => itemAux.itemName == itemName);
+            return itemsInInventory.FindIndex((itemAux) => itemAux.itemID == itemID);
         }
     }
 
     [Serializable]
     public class Item
     {
-        public string itemName;
+        public string itemID;
         public ItemType itemType;
         public int itemQuantity;
         public bool isActive;
 
         public Item(string name, ItemType type, int quantity, bool isActive)
         {
-            this.itemName = name;
+            this.itemID = name;
             this.itemType = type;
             this.itemQuantity = quantity;
             this.isActive = isActive;

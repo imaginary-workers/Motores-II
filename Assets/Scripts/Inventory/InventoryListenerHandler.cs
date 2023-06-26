@@ -90,7 +90,7 @@ namespace ProyectM2.Inventory
                 instanciaClase.itemsInInventory = new List<Item>();
             }
 
-            var itemFoundedIndex = instanciaClase.FindItemIndex(item.Name);
+            var itemFoundedIndex = instanciaClase.FindItemIndex(item.UKey);
             return (instanciaClase, itemFoundedIndex);
         }
 

@@ -30,9 +30,9 @@ namespace ProyectM2
             return allItems;
         }
 
-        public static IStoreItem FindSpecificItem(string itemName)
+        public static IStoreItem FindSpecificItem(string itemId)
         {
-            return AllItems.Find((item) => item.Name == itemName);
+            return AllItems.Find((item) => item.UKey == itemId);
         }
 
     }
