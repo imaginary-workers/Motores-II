@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currencyPrefab: {fileID: 5029330865794682798}
-  _currencyValue: {fileID: 11400000, guid: d8fe74befaa4a7143b56f8b9c50d3e38, type: 2}
+  _currencyValue: {fileID: 11400000, guid: 0a1ec87a8a742a44b81998946592f686, type: 2}
   _playerLevelCurrency: {fileID: 11400000, guid: 259e93dacd4c0a44d971240bbbc8acff,
     type: 2}
 --- !u!65 &759885994985746897

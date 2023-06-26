@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ProyectM2.Inventory;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -24,7 +25,7 @@ namespace ProyectM2.UI.Store
             var allItems = ItemProvider.AllItems;
             foreach (var item in allItems)
             {
-                if (item.Type.ToLower() != "chassis") continue;
+                if (item.Type != ItemType.Chassis) continue;
 
                 var itemGo = Instantiate(_itemCardPrefab, _sectionContainer);
                 var itemUI = itemGo.GetComponent<StoreItemUI>();

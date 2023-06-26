@@ -1,14 +1,15 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using ProyectM2.Inventory;
+using UnityEngine;
 
 namespace ProyectM2
 {
     public interface IStoreItem
     {
+        public string UKey { get; }
         public string Name { get; }
         public string Description { get; }
         public Sprite Image { get; }
         public float Price { get; }
-        public string Type { get; }
+        public ItemType Type { get; }
     }
 }

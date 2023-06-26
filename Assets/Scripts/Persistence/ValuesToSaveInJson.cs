@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ProyectM2.Inventory;
 
 namespace ProyectM2
 {
@@ -28,12 +29,16 @@ namespace ProyectM2
     public class Item
     {
         public string itemName;
+        public ItemType itemType;
         public int itemQuantity;
+        public bool isActive;
 
-        public Item(string name, int quantity)
+        public Item(string name, ItemType type, int quantity, bool isActive)
         {
             this.itemName = name;
+            this.itemType = type;
             this.itemQuantity = quantity;
+            this.isActive = isActive;
         }
     }
 }
