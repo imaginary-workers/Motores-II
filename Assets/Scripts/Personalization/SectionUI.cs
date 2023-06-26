@@ -12,6 +12,7 @@ namespace ProyectM2.Personalization
         [Header("Dependencies")]
         [SerializeField] private GameObject _itemCardPrefab;
         [SerializeField] private Transform _sectionContainer;
+        [SerializeField] private GameObject _sectionGameObject;
         [SerializeField] protected ItemType _sectionType;
         public UnityEvent<StoreItem> OnItemSelectedEvent;
         public event Action OnOpenMenu;
@@ -53,13 +54,13 @@ namespace ProyectM2.Personalization
         public virtual void Show()
         {
             if (IsVisible) return;
-            _sectionContainer.gameObject.SetActive(true);
+            _sectionGameObject.SetActive(true);
             OnOpenMenu?.Invoke();
         }
         
         public virtual void Hide()
         {
-            _sectionContainer.gameObject.SetActive(false);
+            _sectionGameObject.SetActive(false);
         }
     }
 }
