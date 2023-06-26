@@ -1,11 +1,10 @@
 using ProyectM2.Persistence;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace ProyectM2.Inventory
 {
-    public class InventoryListenerHandler : MonoBehaviour
+    public class InventoryManager : Singleton<InventoryManager>
     {
         private void OnEnable()
         {
@@ -90,6 +89,24 @@ namespace ProyectM2.Inventory
 
             var itemFoundedIndex = instanciaClase.FindItemIndex(item.UKey);
             return (instanciaClase, itemFoundedIndex);
+        }
+
+        public List<StoreItem> GetAllItems()
+        {
+            var instanciaClase = DataPersistance.Instance.LoadGame();
+            if (instanciaClase.itemsInInventory == null)
+            {
+                return new List<StoreItem>();
+            }
+
+            var items = new List<StoreItem>();
+            foreach (var item in instanciaClase.itemsInInventory)
+            {
+                var storeItem = ItemProvider.Instance.AllItems.Find((i) => i.UKey == item.itemID);
+                if (storeItem == null) continue;
+                items.Add(storeItem);
+            }
+            return items;
         }
     }
 }
