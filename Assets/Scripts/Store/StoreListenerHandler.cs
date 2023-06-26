@@ -1,3 +1,4 @@
+using ProyectM2.Inventory;
 using ProyectM2.Persistence;
 using UnityEngine;
 
@@ -18,7 +19,7 @@ namespace ProyectM2
         }
         private void BuyItemHandler(object[] obj)
         {
-            var itemBought = (IStoreItem)obj[0];
+            var itemBought = (StoreItem)obj[0];
 
             var instanciaClase = DataPersistance.Instance.LoadGame();
 

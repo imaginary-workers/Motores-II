@@ -1,39 +1,27 @@
-using ProyectM2.Persistence;
-using ProyectM2.SO;
 using System.Collections.Generic;
+using ProyectM2.Inventory;
+using ProyectM2.SO;
 using UnityEngine;
 
 namespace ProyectM2
 {
-    public class ItemProvider : MonoBehaviour
+    public class ItemProvider : Singleton<ItemProvider>
     {
-        private static List<IStoreItem> _allItems;
+        [SerializeField] private DataItemsSO _itemsSo;
 
-        public static List<IStoreItem> AllItems
+        private DataItemsSO _itemsSO;
+ 
+        public List<StoreItem> AllItems
         {
             get
             {
-                if (_allItems == null)
-                {
-                    _allItems = FindAllItems();
-                }
-
-                return _allItems;
+                return _itemsSo.AllItems();;
             }
         }
 
-        private static List<IStoreItem> FindAllItems()
-        {
-            var allItems = new List<IStoreItem>();
-            allItems.AddRange(Resources.LoadAll<StoreItemSO>("StoreItems"));
-
-            return allItems;
-        }
-
-        public static IStoreItem FindSpecificItem(string itemId)
+        public StoreItem FindSpecificItem(string itemId)
         {
             return AllItems.Find((item) => item.UKey == itemId);
         }
-
     }
 }

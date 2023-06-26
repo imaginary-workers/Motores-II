@@ -36,7 +36,7 @@ namespace ProyectM2
         {
             if (_canUsePowerUp)
             {
-                var item = ItemProvider.FindSpecificItem(_uniqueKeyFromPowerUp);
+                var item = ItemProvider.Instance.FindSpecificItem(_uniqueKeyFromPowerUp);
                 EventManager.TriggerEvent("UseItem", item);
                 _myText.color = Color.green;
                 _myText.text = (_itemCount - 1).ToString();
