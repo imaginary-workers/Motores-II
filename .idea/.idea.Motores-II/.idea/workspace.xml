@@ -5,9 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5747736-5216-4ab4-8ad3-b7210000cf13" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SO/DataSkinsSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SO/DataSkinsSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SO/StoreItemSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SO/StoreItemSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Store/IStoreItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Store/IStoreItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/ColorItemStore.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/ColorItemStore.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/IItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/IItem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/IPurchable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/IPurchable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemStoreGeneric.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemStoreGeneric.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MaterialItemData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MaterialItemData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/StoreItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/StoreItem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SO/DataItemsSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SO/ItemSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SO/ItemSo.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Motores-II/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Motores-II/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SO/DataSkinsSO.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SO/DataSkinsSO.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Primera Pantalla.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Primera Pantalla.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/InventoryListenerHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/InventoryListenerHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SO/DataSkinsSO.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SO/DataSkinsSO.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SO/DataItemsSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SO/StoreItemSO.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SO/StoreItemSO.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Store/IStoreItem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Store/IStoreItem.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Store/ItemProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Store/ItemProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Store/StoreListenerHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Store/StoreListenerHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PowerUps/PowerUpsUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PowerUps/PowerUpsUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreFloatingWindowUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreFloatingWindowUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreItemUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreItemUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreSectionUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreSectionUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +131,7 @@
       <workItem from="1687014425043" duration="6410000" />
       <workItem from="1687479481120" duration="8271000" />
       <workItem from="1687526884206" duration="24697000" />
-      <workItem from="1687707763585" duration="15653000" />
+      <workItem from="1687707763585" duration="20684000" />
     </task>
     <servers />
   </component>
