@@ -23,9 +23,9 @@ namespace ProyectM2.Inventory
 
         private void UseItemHandler(object[] obj)
         {
-            var itemBought = (IStoreItem)obj[0];
+            var itemBought = (IItem)obj[0];
 
-            itemBought = ItemProvider.FindSpecificItem(itemBought.Name);
+            itemBought = ItemProvider.Instance.FindSpecificItem(itemBought.Name);
 
             var (instanciaClase, itemFoundedIndex) = LoadGameData(itemBought);
 
@@ -38,14 +38,13 @@ namespace ProyectM2.Inventory
             }
 
             DataPersistance.Instance.WriteJson(instanciaClase);
-
         }
 
         private void BuyItemHandler(object[] obj)
         {
-            var itemBought = (IStoreItem)obj[0];
+            var itemBought = (IItem)obj[0];
 
-            itemBought = ItemProvider.FindSpecificItem(itemBought.Name);
+            itemBought = ItemProvider.Instance.FindSpecificItem(itemBought.Name);
 
             var (instanciaClase, itemFoundedIndex) = LoadGameData(itemBought);
 
@@ -56,18 +55,18 @@ namespace ProyectM2.Inventory
                 instanciaClase.itemsInInventory.Add(new Item(itemBought.Name, itemBought.Type, 1, false));
 
             DataPersistance.Instance.WriteJson(instanciaClase);
-
         }
 
         private void ActiveItemHandler(object[] obj)
         {
-            var itemBought = (IStoreItem)obj[0];
+            var itemBought = (IItem)obj[0];
 
-            itemBought = ItemProvider.FindSpecificItem(itemBought.Name);
+            itemBought = ItemProvider.Instance.FindSpecificItem(itemBought.Name);
 
             var (instanciaClase, itemFoundedIndex) = LoadGameData(itemBought);
 
-            var itemsToDeactivate = instanciaClase.itemsInInventory.Where(item => item.itemType == instanciaClase.itemsInInventory[itemFoundedIndex].itemType);
+            var itemsToDeactivate = instanciaClase.itemsInInventory.Where(item =>
+                item.itemType == instanciaClase.itemsInInventory[itemFoundedIndex].itemType);
 
 
             foreach (var itemToDesactivate in itemsToDeactivate)
@@ -78,10 +77,9 @@ namespace ProyectM2.Inventory
             instanciaClase.itemsInInventory[itemFoundedIndex].isActive = true;
 
             DataPersistance.Instance.WriteJson(instanciaClase);
-
         }
 
-        private (ValuesToSaveInJson, int) LoadGameData(IStoreItem item)
+        private (ValuesToSaveInJson, int) LoadGameData(IItem item)
         {
             var instanciaClase = DataPersistance.Instance.LoadGame();
 
@@ -93,6 +91,5 @@ namespace ProyectM2.Inventory
             var itemFoundedIndex = instanciaClase.FindItemIndex(item.UKey);
             return (instanciaClase, itemFoundedIndex);
         }
-
     }
 }
