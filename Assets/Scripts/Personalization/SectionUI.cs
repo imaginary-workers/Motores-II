@@ -11,10 +11,9 @@ namespace ProyectM2.Personalization
     {
         [Header("Dependencies")]
         [SerializeField] private GameObject _itemCardPrefab;
-        [SerializeField] private StoreFloatingWindowUI _itemFloatingWindowUI;
         [SerializeField] private Transform _sectionContainer;
         [SerializeField] protected ItemType _sectionType;
-        public UnityEvent OnItemSelectedEvent;
+        public UnityEvent<StoreItem> OnItemSelectedEvent;
         public event Action OnOpenMenu;
         private List<StoreItemUI> _itemsUI = new List<StoreItemUI>();
         public bool IsVisible
@@ -40,8 +39,7 @@ namespace ProyectM2.Personalization
 
         protected virtual void OnItemSelected(StoreItem storeItem)
         {
-            _itemFloatingWindowUI.SetItemData(storeItem);
-            OnItemSelectedEvent?.Invoke();
+            OnItemSelectedEvent?.Invoke(storeItem);
         }
 
         protected virtual void OnDestroy()

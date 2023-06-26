@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 6958611665010475496}
   - component: {fileID: 3399733533154627481}
   m_Layer: 5
-  m_Name: Store header
+  m_Name: header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,7 +497,6 @@ MonoBehaviour:
     type: 3}
   _itemFloatingWindowUI: {fileID: 0}
   _sectionContainer: {fileID: 8012980766959168495}
-  _sectionPanel: {fileID: 2419069147903589602}
   _sectionType: 1
   OnItemSelectedEvent:
     m_PersistentCalls:
@@ -653,7 +652,6 @@ MonoBehaviour:
     type: 3}
   _itemFloatingWindowUI: {fileID: 0}
   _sectionContainer: {fileID: 8023613936689073957}
-  _sectionPanel: {fileID: 2447718777693722664}
   _sectionType: 3
   OnItemSelectedEvent:
     m_PersistentCalls:
@@ -803,7 +801,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3461234495697602488}
   m_Layer: 5
-  m_Name: Store Body
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -845,7 +843,6 @@ GameObject:
   - component: {fileID: 6961702297124119564}
   - component: {fileID: 6961702297124119565}
   - component: {fileID: 3513467013158820844}
-  - component: {fileID: 4648008107110269996}
   m_Layer: 5
   m_Name: Store
   m_TagString: Untagged
@@ -930,18 +927,6 @@ MonoBehaviour:
   - {fileID: 1407156124346133008}
   - {fileID: 1407156124346133007}
   - {fileID: 1407156124346133006}
---- !u!114 &4648008107110269996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6961702297124119560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 955ce674aeb98d84a88d1370b62821d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7453349444114851986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,7 +1213,6 @@ MonoBehaviour:
     type: 3}
   _itemFloatingWindowUI: {fileID: 0}
   _sectionContainer: {fileID: 510941318209638537}
-  _sectionPanel: {fileID: 5311621328685598596}
   _sectionType: 2
   OnItemSelectedEvent:
     m_PersistentCalls:
@@ -1384,7 +1368,6 @@ MonoBehaviour:
     type: 3}
   _itemFloatingWindowUI: {fileID: 0}
   _sectionContainer: {fileID: 6184081279569684722}
-  _sectionPanel: {fileID: 1978157996376719359}
   _sectionType: 0
   OnItemSelectedEvent:
     m_PersistentCalls:
