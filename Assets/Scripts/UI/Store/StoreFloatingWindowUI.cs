@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using ProyectM2.Inventory;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,17 +12,15 @@ namespace ProyectM2.UI.Store
         [SerializeField] private TextMeshProUGUI _price; 
         [SerializeField] private TextMeshProUGUI _descriptionText; 
         [SerializeField] private Image _itemImage;
-        [SerializeField] private TextMeshProUGUI _typeText;
-        private IStoreItem _storeItem;
+        private StoreItem _item;
 
-        public void SetItemData(IStoreItem storeItem)
+        public void SetItemData(StoreItem item)
         {
-            _storeItem = storeItem;
-            NameText = storeItem.Name;
-            PriceText = storeItem.Price;
-            ItemImage = storeItem.Image;
-            DescriptionText = storeItem.Description;
-            // TypeText = storeItem.Type;
+            _item = item;
+            NameText = item.Name;
+            PriceText = item.Price;
+            ItemImage = item.Image;
+            DescriptionText = item.Description;
         }
 
         public string NameText
@@ -42,21 +41,24 @@ namespace ProyectM2.UI.Store
             set => _price.text = value.ToString(CultureInfo.InvariantCulture);
         }
         
-        public Sprite ItemImage
+        public ItemImage ItemImage
         {
-            get => _itemImage.sprite;
-            set => _itemImage.sprite = value;
-        }
-        
-        public string TypeText
-        {
-            get => _typeText.text;
-            set => _typeText.text = value;
+            set
+            {
+                if (value.sprite == null)
+                {
+                    _itemImage.color = value.color;
+                }
+                else
+                {
+                    _itemImage.sprite = value.sprite;
+                }
+            }
         }
 
         public void PurchaseItemUI()
         {
-            EventManager.TriggerEvent("BuyItem", _storeItem);
+            EventManager.TriggerEvent("BuyItem", _item);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace ProyectM2
 {
     public class PowerUpsUI : MonoBehaviour
     {
-        [SerializeField] private string _nameOfItemPowerUp;
+        [SerializeField] private string _uniqueKeyFromPowerUp;
         [SerializeField] private TextMeshProUGUI _myText;
         private int _itemCount;
         private bool _canUsePowerUp;
@@ -19,7 +19,7 @@ namespace ProyectM2
 
             var items = DataPersistance.Instance.LoadGame();
             var itemsInInventory = items.itemsInInventory;
-            var itemFoundedIndex = items.FindItemIndex(_nameOfItemPowerUp);
+            var itemFoundedIndex = items.FindItemIndex(_uniqueKeyFromPowerUp);
             if (itemFoundedIndex != -1)
             {
                 _itemCount = itemsInInventory[itemFoundedIndex].itemQuantity;
@@ -36,7 +36,7 @@ namespace ProyectM2
         {
             if (_canUsePowerUp)
             {
-                var item = ItemProvider.FindSpecificItem(_nameOfItemPowerUp);
+                var item = ItemProvider.Instance.FindSpecificItem(_uniqueKeyFromPowerUp);
                 EventManager.TriggerEvent("UseItem", item);
                 _myText.color = Color.green;
                 _myText.text = (_itemCount - 1).ToString();
