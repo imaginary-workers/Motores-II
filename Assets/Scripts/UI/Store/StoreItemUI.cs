@@ -14,6 +14,7 @@ namespace ProyectM2.UI.Store
         [SerializeField] private TextMeshProUGUI _price; 
         [SerializeField] private Image _itemImage;
         private StoreItem _item;
+        [SerializeField] private StoreFloatingWindowUI _itemPopUp;
 
         public void SetItemData(StoreItem item)
         {
@@ -53,6 +54,8 @@ namespace ProyectM2.UI.Store
         public void OnItemSelected()
         {
             onItemSelected?.Invoke(_item);
+            _itemPopUp.gameObject.SetActive(true);
+            _itemPopUp.SetItemData(_item);
         }
 
         private void OnDestroy()
