@@ -314,9 +314,9 @@ RectTransform:
   m_Father: {fileID: 985869445}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 44, y: 26}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 29, y: -356}
   m_SizeDelta: {x: 731.07, y: 311.1001}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &263533719
@@ -355,8 +355,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4290827731
+  m_fontColor: {r: 0.82745105, g: 0.8352942, b: 0.75294125, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -373,15 +373,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60.42
-  m_fontSizeBase: 60.42
+  m_fontSize: 53.2
+  m_fontSizeBase: 30
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -2.1728516, w: 68.03076}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1461,6 +1461,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4506947610406920885, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506947610406920885, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6238b2fdeb99e55488208c4ed68627aa,
+        type: 3}
+    - target: {fileID: 4506947610406920885, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506947610406920885, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4506947611180215976, guid: 5cbe3497c5efdb04dadf660dd8d45367,
         type: 3}
       propertyPath: m_RootOrder
@@ -1521,6 +1542,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 4506947611345528196, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: af7be72cd2a8d73419182a1f41f5bb3e,
+        type: 2}
+    - target: {fileID: 4506947611345528196, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.74509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506947611345528196, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.7058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506947611345528196, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.10980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506947611345528196, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506947611345528197, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cbe3497c5efdb04dadf660dd8d45367, type: 3}
 --- !u!1 &1926310837
@@ -1558,8 +1610,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 174}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
+  m_SizeDelta: {x: 0, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1926310839
 MonoBehaviour:
