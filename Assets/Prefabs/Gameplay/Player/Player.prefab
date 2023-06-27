@@ -529,8 +529,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _driving: {fileID: 8300000, guid: 9c7db14a7afdd1d499bda577ba521861, type: 3}
-  _shootDamaging: {fileID: 0}
-  _shootRetornable: {fileID: 0}
   _source: {fileID: 105307429576614643}
   _moveController: {fileID: 4620909457973621616}
   _isActive: 0
@@ -711,6 +709,7 @@ GameObject:
   - component: {fileID: 127793700}
   - component: {fileID: 4620909457973621616}
   - component: {fileID: 6930794991375618389}
+  - component: {fileID: 3882532670405923839}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -880,6 +879,18 @@ MonoBehaviour:
   targetTag: PathTarget
   _currentPathTarget: {fileID: 0}
   _moveController: {fileID: 4620909457973621616}
+--- !u!114 &3882532670405923839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5530683295635110520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d520f417b70f8024e998fbe3964ea968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5530683297109053744
 GameObject:
   m_ObjectHideFlags: 0

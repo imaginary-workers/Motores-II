@@ -3264,6 +3264,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1702381053739660853, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: SetMaterialSkins
+      value: 
+      objectReference: {fileID: 8504336169685165214}
     - target: {fileID: 2468417249435687477, guid: 027d160b6739a3641bd15249a3438508,
         type: 3}
       propertyPath: m_Enabled
@@ -3391,3 +3396,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 027d160b6739a3641bd15249a3438508, type: 3}
+--- !u!114 &8504336169685165214 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5451532285000206553, guid: 027d160b6739a3641bd15249a3438508,
+    type: 3}
+  m_PrefabInstance: {fileID: 8504336169685165213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a09d56360ed0e4e8eef88293766b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
