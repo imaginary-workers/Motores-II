@@ -123,7 +123,7 @@ MonoBehaviour:
     price: 10
     iObject: {fileID: 2100000, guid: 7553d707851242244925a2e707043d3f, type: 2}
   colorWheels:
-  - name: Ruedas Negras
+  - name: Negras
     description: "Un conjunto de ruedas elegantes y resistentes en color negro. Ideal
       para darle un toque sofisticado a tu veh\xEDculo."
     image:
@@ -132,7 +132,7 @@ MonoBehaviour:
     type: 3
     price: 10
     iObject: {r: 0.043137256, g: 0.0627451, b: 0.09019608, a: 1}
-  - name: Ruedas Rojas
+  - name: Rojas
     description: Ruedas vibrantes y llamativas en color rojo. Agrega un toque de
       audacia y estilo a tu auto mientras conduces.
     image:
@@ -141,7 +141,7 @@ MonoBehaviour:
     type: 3
     price: 10
     iObject: {r: 0.9607843, g: 0, b: 0.019607844, a: 1}
-  - name: Ruedas Azules
+  - name: Azules
     description: "Un conjunto de ruedas en color azul que destacan por su apariencia
       moderna y fresca. Perfectas para los amantes de la est\xE9tica."
     image:
@@ -150,7 +150,7 @@ MonoBehaviour:
     type: 3
     price: 10
     iObject: {r: 0, g: 0.039215688, b: 1, a: 1}
-  - name: Ruedas Grises
+  - name: Grises
     description: "Ruedas en tonos grises que brindan un aspecto m\xE1s discreto y
       sobrio. Ideales para aquellos que prefieren una apariencia cl\xE1sica y elegante."
     image:
