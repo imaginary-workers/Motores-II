@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f02ffe642434ea1a75b7be5ebf21e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemCardPrefab: {fileID: 4569976110119558998, guid: 686223f2b67fd404eab30ef9292dc7c1,
+  _itemCardPrefab: {fileID: 489075161780298393, guid: 0e6dcf49fbb04a9498258337a048e94f,
     type: 3}
   _sectionContainer: {fileID: 8012980766959168495}
   _sectionGameObject: {fileID: 3826239009382542882}
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f02ffe642434ea1a75b7be5ebf21e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemCardPrefab: {fileID: 4569976110119558998, guid: 686223f2b67fd404eab30ef9292dc7c1,
+  _itemCardPrefab: {fileID: 489075161780298393, guid: 0e6dcf49fbb04a9498258337a048e94f,
     type: 3}
   _sectionContainer: {fileID: 8023613936689073957}
   _sectionGameObject: {fileID: 3851635186410687208}
@@ -1209,7 +1209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f02ffe642434ea1a75b7be5ebf21e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemCardPrefab: {fileID: 4569976110119558998, guid: 686223f2b67fd404eab30ef9292dc7c1,
+  _itemCardPrefab: {fileID: 489075161780298393, guid: 0e6dcf49fbb04a9498258337a048e94f,
     type: 3}
   _sectionContainer: {fileID: 510941318209638537}
   _sectionGameObject: {fileID: 6718633958926112068}
