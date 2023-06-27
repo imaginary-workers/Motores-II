@@ -21,7 +21,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
         bool _isShooting = false;
         GameObject bulletObject;
         Bullet bullet;
-        [SerializeField] EngineSoundController _soundController;
+        [SerializeField] EnemyEngineSound _soundController;
         private bool _isActive = true;
 
         private void Awake()

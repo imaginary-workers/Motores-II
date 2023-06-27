@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using ProyectM2.Gameplay;
 using ProyectM2.Persistence;
 using ProyectM2.Scenes;
 using ProyectM2.UI.Commands;
@@ -13,6 +12,7 @@ namespace ProyectM2.UI
     {
         [SerializeField] private TextMeshProUGUI _currencyText;
         [SerializeField] private TextMeshProUGUI _timePlayedText;
+        [Header("Menus")] 
         [SerializeField] private GameObject _currency;
         [SerializeField] private GameObject _doubleCurrencyPowerUp;
         [SerializeField] private GameObject _extraLifePowerUp;
@@ -26,7 +26,9 @@ namespace ProyectM2.UI
         [SerializeField] private GameObject _storePanel;
         [SerializeField] private GameObject _itemStoreWindow;
         [SerializeField] private GameObject _header;
+        [SerializeField] private GameObject _inventoryPanel;
         ValuesToSaveInJson _myJsonData;
+        private Stack<ICommand> commandStack = new Stack<ICommand>();
 
         [ContextMenu("Default Awake")]
         private void Awake()
@@ -43,6 +45,7 @@ namespace ProyectM2.UI
             _itemStoreWindow.SetActive(false);
             _header.SetActive(true);
             _controllerMenu.SetActive(false);
+            _inventoryPanel.SetActive(false);
         }
 
         private void OnEnable()
@@ -72,7 +75,6 @@ namespace ProyectM2.UI
             if (StaminaSystem.Instance.HasEnoughStamina(1))
             {
                 StaminaSystem.Instance.UseStamina(1);
-                MyGameManager.currentLevel = level;
                 SceneManager.Instance.ChangeScene(new Scene("Level " + level, Scene.Type.Gameplay));
             }
         }
@@ -114,10 +116,16 @@ namespace ProyectM2.UI
         public void GoToStoreMenu()
         {
             ExecuteCommand(new ChangeMenuCommand(
-                new[]
-                {
-                    _storePanel /*_levelsMenu, _backButton, _doubleCurrencyPowerUp, _extraLifePowerUp, _shieldPowerUp */
-                }, new[] { _menu1 }));
+                new[] { _storePanel }, new[] { _menu1 }
+                ));
+        }
+
+        [ContextMenu("StoreMenu")]
+        public void GoToInventoryMenu()
+        {
+            ExecuteCommand(new ChangeMenuCommand(
+                new[] { _inventoryPanel }, new[] { _menu1 }
+            ));
         }
 
         [ContextMenu("GoBack")]
@@ -145,8 +153,6 @@ namespace ProyectM2.UI
             DataPersistance.Instance.DeleteData();
             UpdateCurrencyData();
         }
-
-        private Stack<ICommand> commandStack = new Stack<ICommand>();
 
         private void ExecuteCommand(ICommand command)
         {

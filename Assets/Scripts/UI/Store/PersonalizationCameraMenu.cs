@@ -1,10 +1,13 @@
 ﻿using System;
+using ProyectM2.Personalization;
+using ProyectM2.UI.Inventory;
+using ProyectM2.UI.Sections;
 using UnityEngine;
 
 namespace ProyectM2.UI.Store
 {
     [RequireComponent(typeof(Camera))]
-    public class StoreCameraMenu : MonoBehaviour
+    public class PersonalizationCameraMenu : MonoBehaviour
     {
         [Serializable]
         public class CameraConfiguration
@@ -15,12 +18,19 @@ namespace ProyectM2.UI.Store
 
         [SerializeField] private float _maxTimeToMoveCamera = 0.5f;
 
-        [Header("Store Sections")] [SerializeField]
-        private StoreSectionUI _chassisSection;
+        [Header("Store Sections")]
+        [SerializeField] private StoreSectionUI store_chassisSection;
+        [SerializeField] private StoreSectionUI store_wheelsSection;
+        [SerializeField] private StoreSectionUI store_glassSection;
+        [SerializeField] private StoreSectionUI store_powerUpsSection;
+        [SerializeField] private StoreSectionsControllerUI _storeSectionsController;
 
-        [SerializeField] private StoreSectionUI _wheelsSection;
-        [SerializeField] private StoreSectionUI _glassSection;
-        [SerializeField] private StoreSectionUI _powerUpsSection;
+        [Header("Personalization Sections")]
+        [SerializeField] private InventorySectionUI inve_chassisSection;
+        [SerializeField] private InventorySectionUI inve_wheelsSection;
+        [SerializeField] private InventorySectionUI inve_glassSection;
+        [SerializeField] private InventorySectionUI inve_powerUpsSection;
+        [SerializeField] private InventorySectionsControllerUI _inventorySectionsController;
 
         [Header("Camera Configs")] [SerializeField]
         private CameraConfiguration _chassisView;
@@ -45,10 +55,16 @@ namespace ProyectM2.UI.Store
 
         private void OnEnable()
         {
-            _chassisSection.OnOpenMenu += GoToChassisView;
-            _wheelsSection.OnOpenMenu += GoToWheelsView;
-            _glassSection.OnOpenMenu += GoToGlassView;
-            _powerUpsSection.OnOpenMenu += GoToPowerUpsView;
+            store_chassisSection.OnOpenMenu += GoToChassisView;
+            store_wheelsSection.OnOpenMenu += GoToWheelsView;
+            store_glassSection.OnOpenMenu += GoToGlassView;
+            store_powerUpsSection.OnOpenMenu += GoToPowerUpsView;
+            _storeSectionsController.OnGoToMainMenu += GoToStoreMenuView;
+            inve_chassisSection.OnOpenMenu += GoToChassisView;
+            inve_wheelsSection.OnOpenMenu += GoToWheelsView;
+            inve_glassSection.OnOpenMenu += GoToGlassView;
+            inve_powerUpsSection.OnOpenMenu += GoToPowerUpsView;
+            _inventorySectionsController.OnGoToMainMenu += GoToStoreMenuView;
         }
 
         public void LateUpdate()
@@ -75,33 +91,50 @@ namespace ProyectM2.UI.Store
 
         private void OnDisable()
         {
-            _chassisSection.OnOpenMenu -= GoToChassisView;
-            _wheelsSection.OnOpenMenu -= GoToWheelsView;
-            _glassSection.OnOpenMenu -= GoToGlassView;
-            _powerUpsSection.OnOpenMenu -= GoToPowerUpsView;
+            store_chassisSection.OnOpenMenu -= GoToChassisView;
+            store_wheelsSection.OnOpenMenu -= GoToWheelsView;
+            store_glassSection.OnOpenMenu -= GoToGlassView;
+            store_powerUpsSection.OnOpenMenu -= GoToPowerUpsView;
+            _storeSectionsController.OnGoToMainMenu -= GoToStoreMenuView;
+            inve_chassisSection.OnOpenMenu -= GoToChassisView;
+            inve_wheelsSection.OnOpenMenu -= GoToWheelsView;
+            inve_glassSection.OnOpenMenu -= GoToGlassView;
+            inve_powerUpsSection.OnOpenMenu -= GoToPowerUpsView;
+            _inventorySectionsController.OnGoToMainMenu -= GoToStoreMenuView;
         }
 
         private void GoToPowerUpsView()
         {
+            Debug.Log("GoToPowerUpsView");
             _nextCameraView = _powerUpsView;
             _currentTime = 0f;
         }
 
         private void GoToGlassView()
         {
+            Debug.Log("GoToGlassView");
             _nextCameraView = _glassView;
             _currentTime = 0f;
         }
 
         private void GoToWheelsView()
         {
+            Debug.Log("GoToWheelsView");
             _nextCameraView = _wheelView;
             _currentTime = 0f;
         }
 
         private void GoToChassisView()
         {
+            Debug.Log("GoToChassisView");
             _nextCameraView = _chassisView;
+            _currentTime = 0f;
+        }
+
+        private void GoToStoreMenuView()
+        {
+            Debug.Log("GoToMainMenuView");
+            _nextCameraView = _originalMenuView;
             _currentTime = 0f;
         }
     }

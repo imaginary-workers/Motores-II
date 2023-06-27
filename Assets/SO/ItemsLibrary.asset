@@ -18,193 +18,174 @@ MonoBehaviour:
       mate en tono negro, que brinda un aspecto elegante, resalta el dise\xF1o del
       autom\xF3vil y transmite una sensaci\xF3n de lujo y exclusividad."
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0.17254902, g: 0.18431373, b: 0.20000002, a: 1}
       sprite: {fileID: 0}
     type: 1
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {fileID: 2100000, guid: 7bb6e330cbd67154eb10d6e54d517fca, type: 2}
   - name: Hazzard
     description: "En conjunto, el auto naranja con l\xEDneas blancas es una opci\xF3n
       audaz y moderna que refleja personalidad y originalidad"
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0.8773585, g: 0.27092555, b: 0, a: 1}
       sprite: {fileID: 0}
     type: 1
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {fileID: 2100000, guid: f14096a97aa7bf546a3673b76b81665e, type: 2}
   - name: Verano
     description: "Un autom\xF3vil que combina la elegancia del blanco con la vitalidad
       del naranja, creando una est\xE9tica equilibrada y cautivadora."
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 1, g: 1, b: 1, a: 1}
       sprite: {fileID: 0}
     type: 1
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {fileID: 2100000, guid: c5c21abd89a7ca54a9beb4d758c10458, type: 2}
   - name: Apasionado
     description: "El autom\xF3vil exhibe una audaz y llamativa combinaci\xF3n de
       colores con su tono rojo anaranjado que resalta su energ\xEDa y pasi\xF3n."
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 1, g: 0.21773238, b: 0, a: 1}
       sprite: {fileID: 0}
     type: 1
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {fileID: 2100000, guid: 48d75064e59f817429da9ce151f6334e, type: 2}
   - name: Frescura
     description: "El autom\xF3vil exhibe un encantador tono verde agua que evoca
       frescura y tranquilidad."
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0.27450982, g: 0.5803922, b: 0.5882353, a: 1}
       sprite: {fileID: 0}
     type: 1
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {fileID: 2100000, guid: d87008e249f229c4b9f182947e7c891a, type: 2}
   - name: Eclipse
     description: "Con su color vibrante y detalles estilizados, este autom\xF3vil
       se destaca en cualquier entorno y refleja una actitud segura y vanguardista."
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0.30980393, g: 0.21960786, b: 0.50980395, a: 1}
       sprite: {fileID: 0}
     type: 1
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {fileID: 2100000, guid: b2f949e2cf6f0874396c654217e20e89, type: 2}
   - name: La Brisa
     description: "El color beige transmite una apariencia suave y elegante, mientras
       que las l\xEDneas celestes a\xF1aden un toque de vitalidad y serenidad al dise\xF1o."
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0.69803923, g: 0.67058825, b: 0.64705884, a: 1}
       sprite: {fileID: 0}
     type: 1
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {fileID: 2100000, guid: f81292655978b394eaf5d40eb20c5e6e, type: 2}
   - name: Sol Radiante
     description: "El autom\xF3vil se destaca por su aspecto audaz y juguet\xF3n,
       perfecto para aquellos que buscan un estilo \xFAnico y llamativo en la carretera."
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0.86666673, g: 0.7294118, b: 0.3137255, a: 1}
       sprite: {fileID: 0}
     type: 1
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {fileID: 2100000, guid: ae1d69e13418c324bb0cb5ed75ad31bf, type: 2}
   - name: Naturaleza
     description: "Esta combinaci\xF3n de colores crea un aspecto armonioso y atractivo,
       que transmite una sensaci\xF3n de calma y serenidad."
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0.41960788, g: 0.6431373, b: 0.34901962, a: 1}
       sprite: {fileID: 0}
     type: 1
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {fileID: 2100000, guid: 1b1add5ff6a463343a5fca0e666d117e, type: 2}
   - name: La Sombra
     description: "Un autom\xF3vil de color negro intenso con l\xEDneas rojas, que
       irradia elegancia y deportividad."
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0.2509804, g: 0.2627451, b: 0.2784314, a: 1}
       sprite: {fileID: 0}
     type: 1
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {fileID: 2100000, guid: 98e14ad718894dc4e8ad6e3467f656b5, type: 2}
   - name: Turbo
     description: "Prep\xE1rate para deslumbrar a todos con este autom\xF3vil celeste
       adornado con l\xEDneas naranjas, un verdadero destello de personalidad en movimiento."
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0.42145783, g: 0.59571904, b: 0.7264151, a: 1}
       sprite: {fileID: 0}
     type: 1
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {fileID: 2100000, guid: b45e93eccb443014f8868ecc451efec3, type: 2}
   - name: Rosa, la Maravillosa
     description: " Con un dise\xF1o moderno y aerodin\xE1mico, este auto combina
       estilo y funcionalidad. Su color rosa brillante irradia alegr\xEDa y personalidad."
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0.7075472, g: 0.29036137, b: 0.6652241, a: 1}
       sprite: {fileID: 0}
     type: 1
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {fileID: 2100000, guid: 7553d707851242244925a2e707043d3f, type: 2}
   colorWheels:
-  - name: Ruedas Negras
+  - name: Negras
     description: "Un conjunto de ruedas elegantes y resistentes en color negro. Ideal
       para darle un toque sofisticado a tu veh\xEDculo."
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0.043137256, g: 0.0627451, b: 0.09019608, a: 1}
       sprite: {fileID: 0}
     type: 3
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {r: 0.043137256, g: 0.0627451, b: 0.09019608, a: 1}
-  - name: Ruedas Rojas
+  - name: Rojas
     description: Ruedas vibrantes y llamativas en color rojo. Agrega un toque de
       audacia y estilo a tu auto mientras conduces.
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0.9607844, g: 0, b: 0.019607844, a: 1}
       sprite: {fileID: 0}
     type: 3
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {r: 0.9607843, g: 0, b: 0.019607844, a: 1}
-  - name: Ruedas Azules
+  - name: Azules
     description: "Un conjunto de ruedas en color azul que destacan por su apariencia
       moderna y fresca. Perfectas para los amantes de la est\xE9tica."
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0, g: 0.039215688, b: 1, a: 1}
       sprite: {fileID: 0}
     type: 3
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {r: 0, g: 0.039215688, b: 1, a: 1}
-  - name: Ruedas Grises
+  - name: Grises
     description: "Ruedas en tonos grises que brindan un aspecto m\xE1s discreto y
       sobrio. Ideales para aquellos que prefieren una apariencia cl\xE1sica y elegante."
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0.50980395, g: 0.50980395, b: 0.5294118, a: 1}
       sprite: {fileID: 0}
     type: 3
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {r: 0.50980395, g: 0.50980395, b: 0.5294118, a: 1}
   colorGlass:
-  - name: "Parabrisas Azul El\xE9ctrico"
+  - name: "Azul El\xE9ctrico"
     description: Un parabrisas de tono azul intenso y llamativo que agrega un toque
       de dinamismo y modernidad a tu auto.
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0, g: 1, b: 1, a: 1}
       sprite: {fileID: 0}
     type: 2
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {r: 0, g: 1, b: 1, a: 0.38039216}
-  - name: Parabrisas Gris
+  - name: Gris
     description: "Un parabrisas en tonos grises que brinda una apariencia elegante
       y sofisticada. Ideal para aquellos que prefieren una est\xE9tica discreta pero
       distinguida."
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0.47058827, g: 0.5294118, b: 0.5294118, a: 1}
       sprite: {fileID: 0}
     type: 2
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {r: 0.47058824, g: 0.5294118, b: 0.5294118, a: 0.38039216}
-  - name: Parabrisas Negro
+  - name: Negro
     description: "Un parabrisas en color negro, que le da un aspecto audaz y misterioso
       a tu veh\xEDculo. Perfecto para los amantes del estilo \xFAnico."
     image:
-      color: {r: 0, g: 0, b: 0, a: 0}
+      color: {r: 0, g: 0, b: 0, a: 1}
       sprite: {fileID: 0}
     type: 2
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
     iObject: {r: 0, g: 0, b: 0, a: 0.38039216}
   powerUps:
@@ -214,7 +195,6 @@ MonoBehaviour:
       color: {r: 0, g: 0, b: 0, a: 0}
       sprite: {fileID: 21300000, guid: 9889ccbed3f638a4f8651e9d2f6348a2, type: 3}
     type: 0
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
   - name: Vida Extra
     description: Permite continuar el nivel a pesar de haber perdido
@@ -222,7 +202,6 @@ MonoBehaviour:
       color: {r: 0, g: 0, b: 0, a: 0}
       sprite: {fileID: 21300000, guid: d936ca249e7d9824c9fde1a1f63912bc, type: 3}
     type: 0
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
   - name: Escudo
     description: Te protege del primer golpe
@@ -230,5 +209,4 @@ MonoBehaviour:
       color: {r: 0, g: 0, b: 0, a: 0}
       sprite: {fileID: 21300000, guid: 1d211310940d57649b867a02d5f52ce6, type: 3}
     type: 0
-    color: {r: 0, g: 0, b: 0, a: 0}
     price: 10
