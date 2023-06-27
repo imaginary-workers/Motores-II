@@ -7,5 +7,7 @@ namespace ProyectM2.Inventory
     public class ItemStoreGeneric<T>: StoreItem
     {
         [SerializeField] private T iObject;
+
+        public T IObject { get => iObject; set => iObject = value; }
     }
 }
