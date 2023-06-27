@@ -1,12 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using ProyectM2.Personalization;
 using UnityEngine;
 
 namespace ProyectM2.UI.Store
 {
     public class SectionsMainControllerUI : MonoBehaviour
     {
+        public event Action OnGoToMainMenu;
         [SerializeField, Tooltip("Poner el que se abrira primero de primero en la lista")]
-        private List<StoreSectionUI> _sectionsUI;
+        private List<SectionUI> _sectionsUI;
 
         private void Awake()
         {
@@ -17,7 +20,17 @@ namespace ProyectM2.UI.Store
             _sectionsUI[0].Show();
         }
 
-        public void OpenSection(StoreSectionUI sectionController)
+        private void OnEnable()
+        {
+            OpenSection(_sectionsUI[0]);
+        }
+
+        private void OnDisable()
+        {
+            OnGoToMainMenu?.Invoke();
+        }
+
+        public void OpenSection(SectionUI sectionController)
         {
             if (sectionController.IsVisible) return;
 

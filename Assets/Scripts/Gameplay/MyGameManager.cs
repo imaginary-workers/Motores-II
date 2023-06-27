@@ -10,12 +10,9 @@ namespace ProyectM2.Gameplay
 {
     public class MyGameManager: MonoBehaviour
     {
-        public static int currentLevel = 0;
         public static float levelGas = 100;
         private static float maxGas = 100;
         public static GameObject player;
-        public static Vector3 positionInLevel = new(0, 0, 0);
-        public static bool isOnPause;
         public static bool isInBonusLevel = false;
         
         [SerializeField] private GameObject _lose;
