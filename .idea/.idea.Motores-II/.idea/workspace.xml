@@ -6,16 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d5747736-5216-4ab4-8ad3-b7210000cf13" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Motores-II/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Motores-II/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Store/Store Complete.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Store/Store Complete.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Store/Store.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Store/Store.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Store.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Store.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/MyGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/MyGameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MenuPrincipalUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MenuPrincipalUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Store/SectionsMainControllerUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Store/SectionsMainControllerUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreCameraMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Store/PersonalizationCameraMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreCameraMenu.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Store/PersonalizationCameraMenu.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Store/PersonalizationCameraMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Store/PersonalizationCameraMenu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +100,7 @@
       <workItem from="1687479481120" duration="8271000" />
       <workItem from="1687526884206" duration="24697000" />
       <workItem from="1687707763585" duration="20684000" />
-      <workItem from="1687801301234" duration="16483000" />
+      <workItem from="1687801301234" duration="18153000" />
     </task>
     <servers />
   </component>
