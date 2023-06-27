@@ -229,6 +229,8 @@ MonoBehaviour:
   _nameText: {fileID: 4569976111325486389}
   _price: {fileID: 4569976110936836644}
   _itemImage: {fileID: 4569976109581002433}
+  _itemPopUp: {fileID: 3662019645247546838, guid: ed329387a134d4c4d89e98e4dc096e71,
+    type: 3}
 --- !u!1 &4569976110936836646
 GameObject:
   m_ObjectHideFlags: 0
