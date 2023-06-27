@@ -41,8 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5974397291923725027}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7fdd06a90694554e8c854b7b5e69244, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a308154205d4a9b8f219366c4d2a213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _events: {fileID: 0}
   _lose: {fileID: 0}
+  _won: {fileID: 0}
+  _pauseController: {fileID: 0}
+  _levelCurrency: {fileID: 11400000, guid: 259e93dacd4c0a44d971240bbbc8acff, type: 2}

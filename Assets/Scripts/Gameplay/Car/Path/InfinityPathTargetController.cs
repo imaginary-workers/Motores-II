@@ -25,7 +25,7 @@ namespace ProyectM2.Gameplay.Car.Path
 
         private void LookForPlayer(object[] obj)
         {
-            _player = GameManager.player;
+            _player = MyGameManager.player;
             if (_player == null)
             {
                 var playerRoot = GameObject.FindObjectOfType<PlayerInputHorizontalMovement>();

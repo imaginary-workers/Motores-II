@@ -14,7 +14,7 @@ namespace ProyectM2.Gameplay.Recolectables
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                GameManager.AddGas(_gasValue.value);
+                MyGameManager.AddGas(_gasValue.value);
                 Destroy(_gas);
             }
         }
