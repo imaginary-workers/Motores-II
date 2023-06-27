@@ -21,7 +21,7 @@ namespace ProyectM2.Levels
             _nextPivot = transform.Find("DistanceToCreateSectionPivot");
             _lastPivot = transform.Find("DeleteSectionPivot");
 
-            _myPlayer = GameManager.player;
+            _myPlayer = MyGameManager.player;
         }
 
         private void Update()
@@ -29,7 +29,7 @@ namespace ProyectM2.Levels
             if (_myPlayer != null)
                 CheckDistanceFromPlayer(_nextPivot, _lastPivot, _myPlayer);
             else
-                _myPlayer = GameManager.player;
+                _myPlayer = MyGameManager.player;
 
         }
 

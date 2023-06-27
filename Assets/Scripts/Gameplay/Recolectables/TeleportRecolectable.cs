@@ -40,6 +40,7 @@ namespace ProyectM2.Gameplay.Recolectables
                 {
                     EventManager.TriggerEvent("TeleportReturnToLevel");
                 }
+                ScreenManager.Instance.Pause();
                 EventManager.TriggerEvent("ChangeScene", _scene);
             }
         }
