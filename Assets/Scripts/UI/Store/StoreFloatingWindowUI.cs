@@ -16,6 +16,7 @@ namespace ProyectM2.UI.Store
 
         public void SetItemData(StoreItem item)
         {
+            Debug.Log("llega aca?");
             _item = item;
             NameText = item.Name;
             PriceText = item.Price;
