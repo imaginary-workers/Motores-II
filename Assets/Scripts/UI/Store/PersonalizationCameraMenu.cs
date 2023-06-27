@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ProyectM2.Personalization;
 using UnityEngine;
 
 namespace ProyectM2.UI.Store
@@ -15,15 +16,26 @@ namespace ProyectM2.UI.Store
         }
 
         [SerializeField] private float _maxTimeToMoveCamera = 0.5f;
-        [Header("Store Sections")]
-        [SerializeField] private List<StoreSectionUI> _chassisSection;
-        [SerializeField] private List<StoreSectionUI> _wheelsSection;
-        [SerializeField] private List<StoreSectionUI> _glassSection;
-        [SerializeField] private List<StoreSectionUI> _powerUpsSection;
-        [SerializeField] private List<SectionsMainControllerUI> _mainSections;
 
-        [Header("Camera Configs")]
-        [SerializeField] private CameraConfiguration _chassisView;
+        [Header("Store Sections")] [SerializeField]
+        private SectionUI store_chassisSection;
+
+        [SerializeField] private SectionUI store_wheelsSection;
+        [SerializeField] private SectionUI store_glassSection;
+        [SerializeField] private SectionUI store_powerUpsSection;
+        [SerializeField] private SectionsMainControllerUI store_mainSections;
+
+        [Header("Personalization Sections")] [SerializeField]
+        private SectionUI perso_chassisSection;
+
+        [SerializeField] private SectionUI perso_wheelsSection;
+        [SerializeField] private SectionUI perso_glassSection;
+        [SerializeField] private SectionUI perso_powerUpsSection;
+        [SerializeField] private SectionsMainControllerUI perso_mainSections;
+
+        [Header("Camera Configs")] [SerializeField]
+        private CameraConfiguration _chassisView;
+
         [SerializeField] private CameraConfiguration _glassView;
         [SerializeField] private CameraConfiguration _wheelView;
         [SerializeField] private CameraConfiguration _powerUpsView;
@@ -44,14 +56,16 @@ namespace ProyectM2.UI.Store
 
         private void OnEnable()
         {
-            for (int i = 0; i < 2; i++)
-            {
-                _chassisSection[i].OnOpenMenu += GoToChassisView;
-                _wheelsSection[i].OnOpenMenu += GoToWheelsView;
-                _glassSection[i].OnOpenMenu += GoToGlassView;
-                _powerUpsSection[i].OnOpenMenu += GoToPowerUpsView;
-                _mainSections[i].OnGoToMainMenu += GoToMainMenuView;
-            }
+            store_chassisSection.OnOpenMenu += GoToChassisView;
+            store_wheelsSection.OnOpenMenu += GoToWheelsView;
+            store_glassSection.OnOpenMenu += GoToGlassView;
+            store_powerUpsSection.OnOpenMenu += GoToPowerUpsView;
+            store_mainSections.OnGoToMainMenu += GoToMainMenuView;
+            perso_chassisSection.OnOpenMenu += GoToChassisView;
+            perso_wheelsSection.OnOpenMenu += GoToWheelsView;
+            perso_glassSection.OnOpenMenu += GoToGlassView;
+            perso_powerUpsSection.OnOpenMenu += GoToPowerUpsView;
+            perso_mainSections.OnGoToMainMenu += GoToMainMenuView;
         }
 
         public void LateUpdate()
@@ -78,42 +92,49 @@ namespace ProyectM2.UI.Store
 
         private void OnDisable()
         {
-            for (int i = 0; i < 2; i++)
-            {
-                _chassisSection[i].OnOpenMenu -= GoToChassisView;
-                _wheelsSection[i].OnOpenMenu -= GoToWheelsView;
-                _glassSection[i].OnOpenMenu -= GoToGlassView;
-                _powerUpsSection[i].OnOpenMenu -= GoToPowerUpsView;
-                _mainSections[i].OnGoToMainMenu -= GoToMainMenuView;
-            }
+            store_chassisSection.OnOpenMenu -= GoToChassisView;
+            store_wheelsSection.OnOpenMenu -= GoToWheelsView;
+            store_glassSection.OnOpenMenu -= GoToGlassView;
+            store_powerUpsSection.OnOpenMenu -= GoToPowerUpsView;
+            store_mainSections.OnGoToMainMenu -= GoToMainMenuView;
+            perso_chassisSection.OnOpenMenu -= GoToChassisView;
+            perso_wheelsSection.OnOpenMenu -= GoToWheelsView;
+            perso_glassSection.OnOpenMenu -= GoToGlassView;
+            perso_powerUpsSection.OnOpenMenu -= GoToPowerUpsView;
+            perso_mainSections.OnGoToMainMenu -= GoToMainMenuView;
         }
 
         private void GoToPowerUpsView()
         {
+            Debug.Log("GoToPowerUpsView");
             _nextCameraView = _powerUpsView;
             _currentTime = 0f;
         }
 
         private void GoToGlassView()
         {
+            Debug.Log("GoToGlassView");
             _nextCameraView = _glassView;
             _currentTime = 0f;
         }
 
         private void GoToWheelsView()
         {
+            Debug.Log("GoToWheelsView");
             _nextCameraView = _wheelView;
             _currentTime = 0f;
         }
 
         private void GoToChassisView()
         {
+            Debug.Log("GoToChassisView");
             _nextCameraView = _chassisView;
             _currentTime = 0f;
         }
-        
+
         private void GoToMainMenuView()
         {
+            Debug.Log("GoToMainMenuView");
             _nextCameraView = _originalMenuView;
             _currentTime = 0f;
         }
