@@ -3154,6 +3154,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2537695807616485177, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3645138640363049132, guid: 027d160b6739a3641bd15249a3438508,
         type: 3}
       propertyPath: m_IsActive

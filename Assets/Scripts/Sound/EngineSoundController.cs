@@ -1,5 +1,6 @@
 using ProyectM2.Gameplay;
 using ProyectM2.Gameplay.Car.Controller;
+using ProyectM2.Gameplay.Car.Enemy;
 using UnityEngine;
 
 namespace ProyectM2.Sound
@@ -7,9 +8,7 @@ namespace ProyectM2.Sound
     public class EngineSoundController : MonoBehaviour, IActivatable
     {
         [SerializeField] AudioClip _driving;
-        [SerializeField] AudioClip _shootDamaging;
-        [SerializeField] AudioClip _shootRetornable;
-        [SerializeField] AudioSource _source;
+        [SerializeField] protected AudioSource _source;
         [SerializeField] private MoveController _moveController;
         [SerializeField, Tooltip("Si empieza activo -> true, sino -> false")] private bool _isActive = false;
 
@@ -39,16 +38,6 @@ namespace ProyectM2.Sound
             {
                 RunSound();
             }
-        }
-
-        public void PlayShootingDamaging()
-        {
-            _source.PlayOneShot(_shootDamaging);
-        }
-
-        public void PlayShootingRetornable()
-        {
-            _source.PlayOneShot(_shootRetornable);
         }
 
         public void RunSound()
