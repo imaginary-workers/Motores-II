@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using ProyectM2.Inventory;
-using ProyectM2.UI.Store;
+using ProyectM2.UI;
+using ProyectM2.UI.Sections;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace ProyectM2.Personalization
 {
-    public abstract class SectionUI: MonoBehaviour
+    public abstract class SectionUI<T,TU> : MonoBehaviour where T : ItemData where TU : ItemCardUI<T>
     {
         [Header("Dependencies")]
         [SerializeField] private GameObject _itemCardPrefab;
         [SerializeField] private Transform _sectionContainer;
         [SerializeField] private GameObject _sectionGameObject;
         [SerializeField] protected ItemType _sectionType;
-        public UnityEvent<StoreItem> OnItemSelectedEvent;
+        public UnityEvent<T> OnItemSelectedEvent;
         public event Action OnOpenMenu;
-        private List<StoreItemUI> _itemsUI = new List<StoreItemUI>();
+        protected List<ItemCardUI<T>> _itemsUI = new List<ItemCardUI<T>>();
+
         public bool IsVisible
         {
             get => _sectionContainer.gameObject.activeInHierarchy;
@@ -29,25 +31,21 @@ namespace ProyectM2.Personalization
 
         protected abstract void SetAllItems();
 
-        protected void CreateNewItem(StoreItem item)
+        protected TU CreateNewItem(T item)
         {
             var itemGo = Instantiate(_itemCardPrefab, _sectionContainer);
-            var itemUI = itemGo.GetComponent<StoreItemUI>();
+            var itemUI = itemGo.GetComponent<TU>();
             _itemsUI.Add(itemUI);
             itemUI.SetItemData(item);
             itemUI.onItemSelected += OnItemSelected;
+            return itemUI;
         }
 
-        protected virtual void OnItemSelected(StoreItem storeItem)
+        protected void OnDestroy()
         {
-            OnItemSelectedEvent?.Invoke(storeItem);
-        }
-
-        protected virtual void OnDestroy()
-        {
-            foreach (var itemUI in _itemsUI)
+            foreach (var itemCardUI in _itemsUI)
             {
-                itemUI.onItemSelected -= OnItemSelected;
+                itemCardUI.onItemSelected -= OnItemSelected;
             }
         }
 
@@ -57,10 +55,15 @@ namespace ProyectM2.Personalization
             _sectionGameObject.SetActive(true);
             OnOpenMenu?.Invoke();
         }
-        
+
         public virtual void Hide()
         {
             _sectionGameObject.SetActive(false);
+        }
+        
+        protected virtual void OnItemSelected(T storeItem)
+        {
+            OnItemSelectedEvent?.Invoke(storeItem);
         }
     }
 }
