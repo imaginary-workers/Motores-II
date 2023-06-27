@@ -1,14 +1,14 @@
-using UnityEngine;
-using ProyectM2.Persistence;
-using ProyectM2.UI;
-using System.Collections;
+﻿using System.Collections;
 using ProyectM2.Gameplay.Car.Player;
+using ProyectM2.Persistence;
 using ProyectM2.Scenes;
 using ProyectM2.SO;
+using ProyectM2.UI;
+using UnityEngine;
 
 namespace ProyectM2.Gameplay
 {
-    public class GameManager : MonoBehaviour
+    public class MyGameManager: MonoBehaviour
     {
         public static int currentLevel = 0;
         public static float levelGas = 100;
@@ -17,12 +17,11 @@ namespace ProyectM2.Gameplay
         public static Vector3 positionInLevel = new(0, 0, 0);
         public static bool isOnPause;
         public static bool isInBonusLevel = false;
-
+        
         [SerializeField] private GameObject _lose;
         [SerializeField] private GameObject _won;
         [SerializeField] private PauseControllerUI _pauseController;
         [SerializeField] private DataIntObservable _levelCurrency;
-
         bool _iWin = false;
 
         private void Awake()
@@ -86,7 +85,7 @@ namespace ProyectM2.Gameplay
 
             Debug.Log(_levelCurrency.value);
         }
-
+        
         private void OnDisable()
         {
             EventManager.StopListening("EndGameOver", GameOver);
@@ -106,7 +105,7 @@ namespace ProyectM2.Gameplay
 
             EventManager.TriggerEvent("GasModified", levelGas);
         }
-
+        
         public static void SubstractGas(float value)
         {
             levelGas -= value;
@@ -130,7 +129,7 @@ namespace ProyectM2.Gameplay
         {
             SessionGameData.SaveData("CurrenciesOfBonusLevel", _levelCurrency.value);
         }
-
+        
         public void Retry()
         {
             _levelCurrency.value = 0;
@@ -153,7 +152,7 @@ namespace ProyectM2.Gameplay
         {
             _levelCurrency.value -= 1;
         }
-
+        
         [ContextMenu("Won")]
         public void Won()
         {
@@ -187,6 +186,7 @@ namespace ProyectM2.Gameplay
             CutSceneManager.Instance.EndCutScene("EnemyDied");
             Won();
         }
+        
 
         private void OnEnemyDiedCutSceneStarted()
         {

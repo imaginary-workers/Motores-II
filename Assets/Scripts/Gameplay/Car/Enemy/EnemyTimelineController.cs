@@ -46,7 +46,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
         public void InitializeEnemy()
         {
             enemyPathController.transform.position =
-                GameManager.player.transform.position + GameManager.player.transform.forward * _range;
+                MyGameManager.player.transform.position + MyGameManager.player.transform.forward * _range;
 
             var closestPathTarget =
                 Utility.GetClosestObjectWithTag(enemyPathController.transform.position, _targetTag);
