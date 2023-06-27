@@ -12,11 +12,14 @@ namespace ProyectM2.Gameplay.Car.Player
         private bool _isActive = false;
 
         #region Unity
+
+
         private void Update()
         {
+            Debug.Log("Active " + _isActive + " Bonus Level " + MyGameManager.isInBonusLevel);
             if (!_isActive) return;
-            if (GameManager.isInBonusLevel) return;
-            GameManager.SubstractGas(_substracttGas * Time.deltaTime);
+            if (MyGameManager.isInBonusLevel) return;
+            MyGameManager.SubstractGas(_substracttGas * Time.deltaTime);
         }
 
         private void LateUpdate()
@@ -32,11 +35,13 @@ namespace ProyectM2.Gameplay.Car.Player
 
         private void OnEnable()
         {
+            ScreenManager.Instance.Subscribe(this);
             EventManager.StartListening("StartGameOver", OnGameOverHandler);
         }
 
         private void OnDisable()
         {
+            ScreenManager.Instance.Unsubscribe(this);
             EventManager.StopListening("StartGameOver", OnGameOverHandler);
         }
         #endregion

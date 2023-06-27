@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using ProyectM2.Inventory;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,18 +9,18 @@ namespace ProyectM2.UI.Store
 {
     public class StoreItemUI : MonoBehaviour
     {
-        public event Action<IStoreItem> onItemSelected;
+        public event Action<StoreItem> onItemSelected;
         [SerializeField] private TextMeshProUGUI _nameText;
         [SerializeField] private TextMeshProUGUI _price; 
         [SerializeField] private Image _itemImage;
-        private IStoreItem _storeItem;
+        private StoreItem _item;
 
-        public void SetItemData(IStoreItem storeItem)
+        public void SetItemData(StoreItem item)
         {
-            _storeItem = storeItem;
-            NameText = storeItem.Name;
-            PriceText = storeItem.Price;
-            ItemImage = storeItem.Image;
+            _item = item;
+            NameText = item.Name;
+            PriceText = item.Price;
+            ItemImage = item.Image;
         }
 
         public string NameText
@@ -34,16 +35,24 @@ namespace ProyectM2.UI.Store
             set => _price.text = value.ToString(CultureInfo.InvariantCulture);
         }
         
-        public Sprite ItemImage
+        public ItemImage ItemImage
         {
-            get => _itemImage.sprite;
-            set => _itemImage.sprite = value;
+            set
+            {
+                if (value.sprite == null)
+                {
+                    _itemImage.color = value.color;
+                }
+                else
+                {
+                    _itemImage.sprite = value.sprite;
+                }
+            }
         }
 
-        //Llamar desde el componente Button onclick
         public void OnItemSelected()
         {
-            onItemSelected?.Invoke(_storeItem);
+            onItemSelected?.Invoke(_item);
         }
 
         private void OnDestroy()

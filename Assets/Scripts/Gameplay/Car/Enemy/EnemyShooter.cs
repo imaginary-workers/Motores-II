@@ -1,4 +1,5 @@
-﻿using ProyectM2.Sound;
+﻿using System;
+using ProyectM2.Sound;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -20,13 +21,23 @@ namespace ProyectM2.Gameplay.Car.Enemy
         bool _isShooting = false;
         GameObject bulletObject;
         Bullet bullet;
-        [SerializeField] EngineSoundController _soundController;
+        [SerializeField] EnemyEngineSound _soundController;
         private bool _isActive = true;
 
         private void Awake()
         {
             _bulletPooler = new ObjectPool(_damagingBulletPrefab, 2, transform);
             _returnBulletPooler = new ObjectPool(_returnBulletPrefab, 2, transform);
+        }
+
+        private void OnEnable()
+        {
+            ScreenManager.Instance.Subscribe(this);
+        }
+
+        private void OnDisable()
+        {
+            ScreenManager.Instance.Unsubscribe(this);
         }
 
         private void Update()
@@ -38,11 +49,14 @@ namespace ProyectM2.Gameplay.Car.Enemy
                 if (_shootTime >= _shootMaxTime)
                 {
                     _isShooting = true;
-                    var pooler = _isFirstBullet || Random.Range(0f, 1f) >= _returnChance ? _returnBulletPooler : _bulletPooler;
+                    var pooler = _isFirstBullet || Random.Range(0f, 1f) >= _returnChance
+                        ? _returnBulletPooler
+                        : _bulletPooler;
                     bulletObject = pooler.GetObject();
                     _isFirstBullet = false;
                     bullet = bulletObject.GetComponent<Bullet>();
-                    bullet.SetBehaviour(new ForwardBulletBehaviour(bullet.transform, _bulletSpeed), pooler == _returnBulletPooler);
+                    bullet.SetBehaviour(new ForwardBulletBehaviour(bullet.transform, _bulletSpeed),
+                        pooler == _returnBulletPooler);
                     bullet.SetPool(pooler);
                     _shootTime = 0;
                 }
@@ -61,6 +75,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
                         _soundController.PlayShootingRetornable();
                     }
                     else _soundController.PlayShootingDamaging();
+
                     _isShooting = false;
                     _time = 0;
                 }

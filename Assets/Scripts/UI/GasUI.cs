@@ -16,7 +16,7 @@ namespace ProyectM2
         void Start()
         {
             _maxTime = 100;
-            _currentTime = GameManager.levelGas;
+            _currentTime = MyGameManager.levelGas;
             _slider.maxValue = _maxTime;
             _slider.value = _currentTime;
         }

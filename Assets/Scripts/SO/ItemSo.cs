@@ -4,15 +4,17 @@ using UnityEngine;
 namespace ProyectM2.SO
 {
     [CreateAssetMenu(fileName = "StoreItemSO", menuName = "SO/Store Item", order = 0)]
-    public class StoreItemSO : ScriptableObject, IStoreItem
+    public class ItemSo : ScriptableObject, IItem
     {
         [SerializeField] private new string name;
         [SerializeField, TextArea(3, 10)] private string description;
-        [SerializeField] private Sprite image;
+        [SerializeField] private ItemImage image;
         [SerializeField] private float price;
         [SerializeField] private ItemType type;
         [SerializeField, Tooltip("Para los items que no lleven imagen")]
         private Color color;
+
+        public string UKey { get; }
 
         public string Name
         {
@@ -24,7 +26,7 @@ namespace ProyectM2.SO
             get => description;
         }
 
-        public Sprite Image
+        public ItemImage Image
         {
             get => image;
         }
