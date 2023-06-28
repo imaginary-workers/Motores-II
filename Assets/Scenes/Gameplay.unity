@@ -3346,6 +3346,11 @@ PrefabInstance:
       propertyPath: _particle
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4939619533722875161, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 8504336169685165215}
     - target: {fileID: 7280180044903054236, guid: 027d160b6739a3641bd15249a3438508,
         type: 3}
       propertyPath: m_IsActive
@@ -3470,3 +3475,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a09d56360ed0e4e8eef88293766b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &8504336169685165215 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 6895435384666377929, guid: 027d160b6739a3641bd15249a3438508,
+    type: 3}
+  m_PrefabInstance: {fileID: 8504336169685165213}
+  m_PrefabAsset: {fileID: 0}
