@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9427,7 +9427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.55, y: 0.24227026}
   m_AnchorMax: {x: 0.9777777, y: 0.32581076}
-  m_AnchoredPosition: {x: 4, y: 419.00092}
+  m_AnchoredPosition: {x: 4, y: 419.00095}
   m_SizeDelta: {x: -2.1999512, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &595206282
@@ -26010,7 +26010,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.24227026}
   m_AnchorMax: {x: 0.5, y: 0.32581076}
-  m_AnchoredPosition: {x: 6.5, y: 422.00085}
+  m_AnchoredPosition: {x: 6.5, y: 422.0009}
   m_SizeDelta: {x: 3.6450195, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1580544828
@@ -35166,6 +35166,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450973165144707082, guid: 7de9375a7b90b8e42a5d96fb1cf4941d,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: af7be72cd2a8d73419182a1f41f5bb3e,
+        type: 2}
+    - target: {fileID: 3450973165144707082, guid: 7de9375a7b90b8e42a5d96fb1cf4941d,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3514159900618259324, guid: af7be72cd2a8d73419182a1f41f5bb3e,
+        type: 2}
+    - target: {fileID: 3450973165144707082, guid: 7de9375a7b90b8e42a5d96fb1cf4941d,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4223121181191813790, guid: 7de9375a7b90b8e42a5d96fb1cf4941d,
         type: 3}
