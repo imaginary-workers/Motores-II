@@ -7,26 +7,27 @@ namespace ProyectM2
     public class CarRotationControler : MonoBehaviour
     {
         public GameObject objectToDetect;        
-        public MonoBehaviour scriptToActivate;
-        public MonoBehaviour scriptToActivate2;
+        public MonoBehaviour scriptToActivateAutomatic;
+        public MonoBehaviour scriptToActivateManual;
 
         private void OnEnable()
         {
+            scriptToActivateAutomatic.enabled = true;
             objectToDetect.SetActive(true);
-            if (scriptToActivate != null)
+            if (scriptToActivateAutomatic != null)
             {
-                scriptToActivate.enabled = false;
-                scriptToActivate2.enabled = true;
+                scriptToActivateAutomatic.enabled = false;
+                scriptToActivateManual.enabled = true;
             }
         }
 
         private void OnDisable()
         {
             objectToDetect.SetActive(false);
-            if (scriptToActivate != null)
+            if (scriptToActivateAutomatic != null)
             {
-                scriptToActivate.enabled = true;
-                scriptToActivate2.enabled = false;
+                scriptToActivateAutomatic.enabled = true;
+                scriptToActivateManual.enabled = false;
             }
         }
     }
