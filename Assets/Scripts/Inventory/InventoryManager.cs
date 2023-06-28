@@ -74,7 +74,6 @@ namespace ProyectM2.Inventory
                     itemToDesactivate.isActive = false;
                 }
             }
-
             instanciaClase.itemsInInventory[itemFoundedIndex].isActive = true;
 
             DataPersistance.Instance.WriteJson(instanciaClase);
