@@ -35,6 +35,7 @@ namespace ProyectM2.Gameplay
             if (component == null || !component.IsReturnable) return;
             returnableBullet = component;
             _timeToFiresBack = Time.realtimeSinceStartup;
+            Debug.Log("Trigger");
         }
 
         public void FireBackChecker(Vector3 position)
@@ -42,12 +43,14 @@ namespace ProyectM2.Gameplay
             if (returnableBullet == null) return;
             if (enemyTarget == null) return;
             if (Time.realtimeSinceStartup - _timeToFiresBack >= _maxTimeToFiresBack) return;
+            Debug.Log("FicreBackChecker");
             _ray = _camera.ScreenPointToRay(position);
             RaycastHit hit;
             if (Physics.Raycast(_ray, out hit, Single.PositiveInfinity, _playerLayer))
             {
                 if (hit.collider.CompareTag("Player"))
                 {
+                    Debug.Log("FireBackAction");
                     FirebackAction();
                 }
             }
