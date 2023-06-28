@@ -17,9 +17,6 @@ namespace ProyectM2.UI
         [SerializeField] private PlayerPersonalization _playerPersonalization;
         [Header("Menus")] 
         [SerializeField] private GameObject _currency;
-        [SerializeField] private GameObject _doubleCurrencyPowerUp;
-        [SerializeField] private GameObject _extraLifePowerUp;
-        [SerializeField] private GameObject _shieldPowerUp;
         [SerializeField] private GameObject _menu1;
         [SerializeField] private GameObject _levelsMenu;
         [SerializeField] private GameObject _gameDataMenu;
@@ -41,9 +38,6 @@ namespace ProyectM2.UI
             _levelsMenu.SetActive(false);
             _gameDataMenu.SetActive(false);
             _gameDataWarningPopUp.SetActive(false);
-            _doubleCurrencyPowerUp.SetActive(false);
-            _extraLifePowerUp.SetActive(false);
-            _shieldPowerUp.SetActive(false);
             _storePanel.SetActive(false);
             _itemStoreWindow.SetActive(false);
             _header.SetActive(true);
@@ -94,7 +88,7 @@ namespace ProyectM2.UI
         public void GoToLevelsMenu()
         {
             ExecuteCommand(new ChangeMenuCommand(
-                new[] { _levelsMenu, _doubleCurrencyPowerUp, _extraLifePowerUp, _shieldPowerUp }, new[] { _menu1 }));
+                new[] { _levelsMenu }, new[] { _menu1 }));
         }
 
         [ContextMenu("Persistence")]
