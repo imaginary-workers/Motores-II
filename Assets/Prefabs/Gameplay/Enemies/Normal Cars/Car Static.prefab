@@ -75,7 +75,6 @@ GameObject:
   - component: {fileID: 5627894973378827262}
   - component: {fileID: 5627894973378827263}
   - component: {fileID: 5627894973378827256}
-  - component: {fileID: 205656566133511805}
   m_Layer: 9
   m_Name: Car Static
   m_TagString: Traffic
@@ -149,19 +148,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &205656566133511805
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5627894973378827258}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12.14, y: 3.01, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4837681180631520396
 PrefabInstance:
   m_ObjectHideFlags: 0
