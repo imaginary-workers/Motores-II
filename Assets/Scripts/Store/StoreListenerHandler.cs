@@ -18,7 +18,7 @@ namespace ProyectM2
         }
         private void BuyItemHandler(object[] obj)
         {
-            var itemBought = (ItemData)obj[0];
+            var itemBought = ItemProvider.Instance.FindSpecificItem((string)obj[0]);
 
             var instanciaClase = DataPersistance.Instance.LoadGame();
 

@@ -41,4 +41,11 @@ namespace ProyectM2
             this.isActive = isActive;
         }
     }
+
+    public class NullItem : Item
+    {
+        public NullItem() : base("", ItemType.NULL, -1, false)
+        {
+        }
+    }
 }

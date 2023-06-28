@@ -5,6 +5,7 @@
         PowerUp,
         Chassis,
         Glass,
-        Wheels
+        Wheels,
+        NULL,
     }
 }
