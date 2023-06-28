@@ -27,6 +27,7 @@ namespace ProyectM2.Personalization
                 {
                     itemUI = _itemsUI[i];
                     itemUI.SetItemData(findSpecificItem);
+                    itemUI.onItemSelected += OnItemSelected;
                     itemsUICounts--;
                 }
                 else

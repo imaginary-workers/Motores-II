@@ -16,7 +16,9 @@ MonoBehaviour:
   description: "Un parabrisas en tonos grises que brinda una apariencia elegante
     y sofisticada. Ideal para aquellos que prefieren una est\xE9tica discreta pero
     distinguida."
-  image: {fileID: 0}
-  price: 10
+  image:
+    color: {r: 0, g: 0, b: 0, a: 0}
+    sprite: {fileID: 0}
+  price: 50
   type: 2
   color: {r: 0.47058824, g: 0.5294118, b: 0.5294118, a: 0.14901961}
