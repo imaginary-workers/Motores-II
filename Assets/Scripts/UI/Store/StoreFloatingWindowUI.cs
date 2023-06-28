@@ -18,7 +18,6 @@ namespace ProyectM2.UI.Store
 
         public void SetItemData(ItemData item)
         {
-            Debug.Log("llega aca?");
             _item = item;
             NameText = item.Name;
             PriceText = item.Price;
@@ -50,18 +49,20 @@ namespace ProyectM2.UI.Store
             {
                 if (value.sprite == null)
                 {
+                    _itemImage.sprite = null;
                     _itemImage.color = value.color;
                 }
                 else
                 {
                     _itemImage.sprite = value.sprite;
+                    _itemImage.color = Color.white;
                 }
             }
         }
 
         public void PurchaseItemUI()
         {
-            EventManager.TriggerEvent("BuyItem", _item);
+            EventManager.TriggerEvent("BuyItem", _item.UKey);
             _equip.SetActive(true);
             _buy.SetActive(false);
         }

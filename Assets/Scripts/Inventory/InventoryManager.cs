@@ -22,11 +22,11 @@ namespace ProyectM2.Inventory
 
         private void UseItemHandler(object[] obj)
         {
-            var itemBought = (IItem)obj[0];
 
-            itemBought = ItemProvider.Instance.FindSpecificItem(itemBought.Name);
+            var itemBought = ItemProvider.Instance.FindSpecificItem((string)obj[0]);
 
-            var (instanciaClase, itemFoundedIndex) = LoadGameData(itemBought);
+            var instanciaClase = LoadGameData();
+            var itemFoundedIndex = instanciaClase.FindItemIndex(itemBought.UKey);
 
             if (itemFoundedIndex != -1)
             {
@@ -41,12 +41,10 @@ namespace ProyectM2.Inventory
 
         private void BuyItemHandler(object[] obj)
         {
-            var itemBought = (IItem)obj[0];
+            var itemBought = ItemProvider.Instance.FindSpecificItem((string)obj[0]);
 
-            itemBought = ItemProvider.Instance.FindSpecificItem(itemBought.Name);
-
-            var (instanciaClase, itemFoundedIndex) = LoadGameData(itemBought);
-
+            var instanciaClase = LoadGameData();
+            var itemFoundedIndex = instanciaClase.FindItemIndex(itemBought.UKey);
 
             if (itemFoundedIndex != -1)
                 instanciaClase.itemsInInventory[itemFoundedIndex].itemQuantity += 1;
@@ -58,11 +56,10 @@ namespace ProyectM2.Inventory
 
         private void ActiveItemHandler(object[] obj)
         {
-            var itemBought = (IItem)obj[0];
+            var itemBought = ItemProvider.Instance.FindSpecificItem((string)obj[0]);
 
-            itemBought = ItemProvider.Instance.FindSpecificItem(itemBought.Name);
-
-            var (instanciaClase, itemFoundedIndex) = LoadGameData(itemBought);
+            var instanciaClase = LoadGameData();
+            var itemFoundedIndex = instanciaClase.FindItemIndex(itemBought.UKey);
 
             var itemsToDeactivate = instanciaClase.itemsInInventory.Where(item =>
                 item.itemType == instanciaClase.itemsInInventory[itemFoundedIndex].itemType);
@@ -78,35 +75,28 @@ namespace ProyectM2.Inventory
             DataPersistance.Instance.WriteJson(instanciaClase);
         }
 
-        private (ValuesToSaveInJson, int) LoadGameData(IItem item)
+        private ValuesToSaveInJson LoadGameData()
         {
             var instanciaClase = DataPersistance.Instance.LoadGame();
-
             if (instanciaClase.itemsInInventory == null)
             {
                 instanciaClase.itemsInInventory = new List<Item>();
             }
-
-            var itemFoundedIndex = instanciaClase.FindItemIndex(item.UKey);
-            return (instanciaClase, itemFoundedIndex);
+            return instanciaClase;
         }
 
-        public List<ItemData> GetAllItems()
+        public List<Item> GetAllItems()
         {
-            var instanciaClase = DataPersistance.Instance.LoadGame();
-            if (instanciaClase.itemsInInventory == null)
-            {
-                return new List<ItemData>();
-            }
+            return new List<Item>(LoadGameData().itemsInInventory);
+        }
 
-            var items = new List<ItemData>();
-            foreach (var item in instanciaClase.itemsInInventory)
-            {
-                var storeItem = ItemProvider.Instance.AllItems.Find((i) => i.UKey == item.itemID);
-                if (storeItem == null) continue;
-                items.Add(storeItem);
-            }
-            return items;
+        public Item FindItemInInventory(string itemId)
+        {
+            var gameData = LoadGameData();
+            var itemIndex = gameData.FindItemIndex(itemId);
+            if (itemIndex != -1)
+                return gameData.itemsInInventory[itemIndex];
+            return new NullItem();
         }
     }
 }

@@ -7,9 +7,7 @@ namespace ProyectM2
 {
     public class ItemProvider : Singleton<ItemProvider>
     {
-        [SerializeField] private DataItemsSO _itemsSo;
-
-        private DataItemsSO _itemsSO;
+        [SerializeField] DataItemsSO _itemsSo;
  
         public List<ItemData> AllItems
         {
@@ -22,6 +20,41 @@ namespace ProyectM2
         public ItemData FindSpecificItem(string itemId)
         {
             return AllItems.Find((item) => item.UKey == itemId);
+        }
+        public List<MaterialItemData> AllChasisItem
+        {
+            get
+            {
+                return _itemsSo.GetAllChassis();
+            }
+        }
+        public MaterialItemData FindMaterialSpecificItem(string itemId)
+        {
+            return AllChasisItem.Find((item) => item.UKey == itemId);
+        }
+
+        public List<ColorItemStore> AllWheelsItem
+        {
+            get
+            {
+                return _itemsSo.GetAllWheels();
+            }
+        }
+        public ColorItemStore ColorSpecificItemWheels(string itemId)
+        {
+            return AllWheelsItem.Find((item) => item.UKey == itemId);
+        }
+
+        public List<ColorItemStore> AllGlassItem
+        {
+            get
+            {
+                return _itemsSo.GetAllGlass();
+            }
+        }
+        public ColorItemStore ColorSpecificItemGlass(string itemId)
+        {
+            return AllGlassItem.Find((item) => item.UKey == itemId);
         }
     }
 }
