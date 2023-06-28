@@ -114,14 +114,22 @@ MonoBehaviour:
     price: 10
     iObject: {fileID: 2100000, guid: b45e93eccb443014f8868ecc451efec3, type: 2}
   - name: Rosa, la Maravillosa
-    description: " Con un dise\xF1o moderno y aerodin\xE1mico, este auto combina
-      estilo y funcionalidad. Su color rosa brillante irradia alegr\xEDa y personalidad."
+    description: "Con un dise\xF1o moderno y aerodin\xE1mico, este auto combina estilo
+      y funcionalidad. Su color rosa brillante irradia alegr\xEDa y personalidad."
     image:
       color: {r: 0.7075472, g: 0.29036137, b: 0.6652241, a: 1}
       sprite: {fileID: 0}
     type: 1
     price: 10
     iObject: {fileID: 2100000, guid: 7553d707851242244925a2e707043d3f, type: 2}
+  - name: Classic
+    description: Nada mejor que volver a los origenes
+    image:
+      color: {r: 0.3254902, g: 0.4156863, b: 0.63529414, a: 1}
+      sprite: {fileID: 0}
+    type: 1
+    price: 10000
+    iObject: {fileID: 2100000, guid: 14228014b03b8474a8710dc757550801, type: 2}
   colorWheels:
   - name: Negras
     description: "Un conjunto de ruedas elegantes y resistentes en color negro. Ideal
@@ -194,13 +202,6 @@ MonoBehaviour:
     image:
       color: {r: 0, g: 0, b: 0, a: 0}
       sprite: {fileID: 21300000, guid: 9889ccbed3f638a4f8651e9d2f6348a2, type: 3}
-    type: 0
-    price: 10
-  - name: Vida Extra
-    description: Permite continuar el nivel a pesar de haber perdido
-    image:
-      color: {r: 0, g: 0, b: 0, a: 0}
-      sprite: {fileID: 21300000, guid: d936ca249e7d9824c9fde1a1f63912bc, type: 3}
     type: 0
     price: 10
   - name: Escudo
