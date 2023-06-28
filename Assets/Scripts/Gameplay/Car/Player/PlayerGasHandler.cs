@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ProyectM2.Gameplay.Car.Player
 {
-    public class PlayerGasHandler: MonoBehaviour, IActivatable
+    public class PlayerGasHandler : MonoBehaviour, IActivatable
     {
         [SerializeField] private float _break = 5f;
         [SerializeField] float _substracttGas = 1.5f;
@@ -16,7 +16,6 @@ namespace ProyectM2.Gameplay.Car.Player
 
         private void Update()
         {
-            Debug.Log("Active " + _isActive + " Bonus Level " + MyGameManager.isInBonusLevel);
             if (!_isActive) return;
             if (MyGameManager.isInBonusLevel) return;
             MyGameManager.SubstractGas(_substracttGas * Time.deltaTime);

@@ -1,3 +1,4 @@
+using ProyectM2.Inventory;
 using ProyectM2.Persistence;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,40 +9,60 @@ namespace ProyectM2
 {
     public class PowerUpsUI : MonoBehaviour
     {
-        [SerializeField] private string _uniqueKeyFromPowerUp;
+        [SerializeField] private string _myItemName;
         [SerializeField] private TextMeshProUGUI _myText;
-        private int _itemCount;
-        private bool _canUsePowerUp;
+        private int _itemCount = 0;
+        [SerializeField] private bool _canUsePowerUp;
 
-        private void Start()
+        private void OnEnable()
         {
-            _canUsePowerUp = true;
+            _canUsePowerUp = false;
 
-            var items = DataPersistance.Instance.LoadGame();
-            var itemsInInventory = items.itemsInInventory;
-            var itemFoundedIndex = items.FindItemIndex(_uniqueKeyFromPowerUp);
-            if (itemFoundedIndex != -1)
+            var item = ItemProvider.Instance.FindSpecificItemByName(_myItemName);
+
+            var itemInInventory = InventoryManager.Instance.FindItemInInventory(item.UKey);
+
+            if (itemInInventory.itemType != ItemType.NULL)
             {
-                _itemCount = itemsInInventory[itemFoundedIndex].itemQuantity;
-                _myText.text = _itemCount.ToString();
+                _itemCount = itemInInventory.itemQuantity;
+                if (itemInInventory.isActive)
+                {
+                    UpdateUI(_itemCount, Color.green);
+                }
+                else
+                {
+                    _canUsePowerUp = true;
+                    UpdateUI(_itemCount, Color.black);
+                }
             }
             else
             {
-                _myText.text = "0";
-                _canUsePowerUp = false;
+                UpdateUI(_itemCount, Color.black);
             }
+
+
+        }
+
+        private void OnDisable()
+        {
+            _myText.color = Color.black;
         }
 
         public void SetActivationOfPowerUp()
         {
             if (_canUsePowerUp)
             {
-                var item = ItemProvider.Instance.FindSpecificItem(_uniqueKeyFromPowerUp);
-                EventManager.TriggerEvent("UseItem", item);
-                _myText.color = Color.green;
-                _myText.text = (_itemCount - 1).ToString();
+                var item = ItemProvider.Instance.FindSpecificItemByName(_myItemName);
+                EventManager.TriggerEvent("ActiveItem", item.UKey);
+                UpdateUI(_itemCount, Color.green);
                 _canUsePowerUp = false;
             }
+        }
+
+        public void UpdateUI(int quantity, Color color)
+        {
+                _myText.color = color;
+                _myText.text = quantity.ToString();
         }
 
     }

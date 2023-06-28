@@ -9,7 +9,7 @@ namespace ProyectM2
     {
         [SerializeField] DataItemsSO _itemsSo;
  
-        public List<StoreItem> AllItems
+        public List<ItemData> AllItems
         {
             get
             {
@@ -17,10 +17,16 @@ namespace ProyectM2
             }
         }
 
-        public StoreItem FindSpecificItem(string itemId)
+        public ItemData FindSpecificItem(string itemId)
         {
             return AllItems.Find((item) => item.UKey == itemId);
         }
+
+        public ItemData FindSpecificItemByName(string itemName)
+        {
+            return AllItems.Find((item) => item.Name == itemName);
+        }
+
         public List<MaterialItemData> AllChasisItem
         {
             get
@@ -40,7 +46,7 @@ namespace ProyectM2
                 return _itemsSo.GetAllWheels();
             }
         }
-        public ItemStoreGeneric<Color> ColorSpecificItemWheels(string itemId)
+        public ColorItemStore ColorSpecificItemWheels(string itemId)
         {
             return AllWheelsItem.Find((item) => item.UKey == itemId);
         }
@@ -52,9 +58,10 @@ namespace ProyectM2
                 return _itemsSo.GetAllGlass();
             }
         }
-        public ItemStoreGeneric<Color> ColorSpecificItemGlass(string itemId)
+        public ColorItemStore ColorSpecificItemGlass(string itemId)
         {
             return AllGlassItem.Find((item) => item.UKey == itemId);
         }
     }
 }
+

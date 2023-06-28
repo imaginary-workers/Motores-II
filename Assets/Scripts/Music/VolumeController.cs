@@ -44,8 +44,10 @@ namespace ProyectM2
         public void GetVolumeData()
         {
             _myJsonData = DataPersistance.Instance.LoadGame();
-            MusicManager.Instance.SetVolume(_myJsonData.musicVolume, _myJsonData.soundVolume);
-            UpdateSlider(_myJsonData.musicVolume, _myJsonData.soundVolume);
+            musicVolume = _myJsonData.musicVolume;
+            soundVolume = _myJsonData.soundVolume;
+            MusicManager.Instance.SetVolume(musicVolume, soundVolume);
+            UpdateSlider(musicVolume, soundVolume);
         }
 
         public void ResetVolume()

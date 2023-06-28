@@ -10,7 +10,6 @@ namespace ProyectM2
     public class Shield : MonoBehaviour
     {
 
-        PlayerDamageable _playerDamageable;
         [SerializeField] GameObject _shield;
         [SerializeField] Renderer _myrender;
         [SerializeField] BoxCollider _player;
@@ -35,7 +34,6 @@ namespace ProyectM2
             _player.enabled = true;
             _shield.SetActive(false);
 
-            Debug.Log("funciona");
         }
     }
 }

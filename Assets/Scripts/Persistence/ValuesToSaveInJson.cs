@@ -33,12 +33,19 @@ namespace ProyectM2
         public int itemQuantity;
         public bool isActive;
 
-        public Item(string name, ItemType type, int quantity, bool isActive)
+        public Item(string id, ItemType type, int quantity, bool isActive)
         {
-            this.itemID = name;
+            this.itemID = id;
             this.itemType = type;
             this.itemQuantity = quantity;
             this.isActive = isActive;
+        }
+    }
+
+    public class NullItem : Item
+    {
+        public NullItem() : base("", ItemType.NULL, -1, false)
+        {
         }
     }
 }

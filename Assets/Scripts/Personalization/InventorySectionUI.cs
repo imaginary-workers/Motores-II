@@ -5,14 +5,33 @@ namespace ProyectM2.Personalization
 {
     public class InventorySectionUI : SectionUI<ItemData, InventoryItemUI>
     {
+        private void OnEnable()
+        {
+            SetAllItems();
+        }
+
         protected override void SetAllItems()
         {
+            var itemsUICounts = _itemsUI.Count;
             var allItems = InventoryManager.Instance.GetAllItems();
-            foreach (var item in allItems)
+            allItems = allItems.FindAll(i => i.itemType == _sectionType);
+            for (int i = 0; i < allItems.Count; i++)
             {
-                if (item.itemType != _sectionType) continue;
-
-                CreateNewItem(ItemProvider.Instance.FindSpecificItem(item.itemID));
+                var findSpecificItem = ItemProvider.Instance.FindSpecificItem(allItems[i].itemID);
+                InventoryItemUI itemUI;
+                if (itemsUICounts > 0)
+                {
+                    itemUI = _itemsUI[i];
+                    itemUI.SetItemData(findSpecificItem);
+                    itemUI.onItemSelected += OnItemSelected;
+                    itemsUICounts--;
+                }
+                else
+                {
+                    itemUI = CreateNewItem(findSpecificItem);
+                }
+                itemUI.QuantityText = allItems[i].itemQuantity;
+                
             }
         }
     }

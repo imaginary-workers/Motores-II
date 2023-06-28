@@ -1,6 +1,7 @@
 using ProyectM2.Persistence;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace ProyectM2.Inventory
 {
@@ -9,29 +10,28 @@ namespace ProyectM2.Inventory
         private void OnEnable()
         {
             EventManager.StartListening("BuyItem", BuyItemHandler);
-            EventManager.StartListening("UseItem", UseItemHandler);
             EventManager.StartListening("ActiveItem", ActiveItemHandler);
         }
 
         private void OnDisable()
         {
             EventManager.StopListening("BuyItem", BuyItemHandler);
-            EventManager.StopListening("UseItem", UseItemHandler);
             EventManager.StopListening("ActiveItem", ActiveItemHandler);
         }
 
-        private void UseItemHandler(object[] obj)
+        private void UseItemHandler(string itemId)
         {
-            var itemBought = (IItem)obj[0];
 
-            itemBought = ItemProvider.Instance.FindSpecificItem(itemBought.Name);
+            var itemBought = ItemProvider.Instance.FindSpecificItem(itemId);
 
-            var (instanciaClase, itemFoundedIndex) = LoadGameData(itemBought);
+            var instanciaClase = LoadGameData();
+            var itemFoundedIndex = instanciaClase.FindItemIndex(itemBought.UKey);
 
             if (itemFoundedIndex != -1)
             {
                 var itemFounded = instanciaClase.itemsInInventory[itemFoundedIndex];
                 itemFounded.itemQuantity -= 1;
+                itemFounded.isActive = false;
                 if (itemFounded.itemQuantity <= 0)
                     instanciaClase.itemsInInventory.Remove(itemFounded);
             }
@@ -41,70 +41,73 @@ namespace ProyectM2.Inventory
 
         private void BuyItemHandler(object[] obj)
         {
-            var itemBought = (IItem)obj[0];
+            var itemBought = ItemProvider.Instance.FindSpecificItem((string)obj[0]);
 
-            itemBought = ItemProvider.Instance.FindSpecificItem(itemBought.Name);
-
-            var (instanciaClase, itemFoundedIndex) = LoadGameData(itemBought);
-
+            var instanciaClase = LoadGameData();
+            var itemFoundedIndex = instanciaClase.FindItemIndex(itemBought.UKey);
 
             if (itemFoundedIndex != -1)
                 instanciaClase.itemsInInventory[itemFoundedIndex].itemQuantity += 1;
             else
-                instanciaClase.itemsInInventory.Add(new Item(itemBought.Name, itemBought.Type, 1, false));
+                instanciaClase.itemsInInventory.Add(new Item(itemBought.UKey, itemBought.Type, 1, false));
 
             DataPersistance.Instance.WriteJson(instanciaClase);
         }
 
         private void ActiveItemHandler(object[] obj)
         {
-            var itemBought = (IItem)obj[0];
+            var itemBought = ItemProvider.Instance.FindSpecificItem((string)obj[0]);
 
-            itemBought = ItemProvider.Instance.FindSpecificItem(itemBought.Name);
+            var instanciaClase = LoadGameData();
+            var itemFoundedIndex = instanciaClase.FindItemIndex(itemBought.UKey);
 
-            var (instanciaClase, itemFoundedIndex) = LoadGameData(itemBought);
-
-            var itemsToDeactivate = instanciaClase.itemsInInventory.Where(item =>
-                item.itemType == instanciaClase.itemsInInventory[itemFoundedIndex].itemType);
-
-
-            foreach (var itemToDesactivate in itemsToDeactivate)
+            if (itemBought.Type != ItemType.PowerUp)
             {
-                itemToDesactivate.isActive = false;
-            }
+                var itemsToDeactivate = instanciaClase.itemsInInventory.Where(item =>
+                    item.itemType == instanciaClase.itemsInInventory[itemFoundedIndex].itemType);
 
+
+                foreach (var itemToDesactivate in itemsToDeactivate)
+                {
+                    itemToDesactivate.isActive = false;
+                }
+            }
             instanciaClase.itemsInInventory[itemFoundedIndex].isActive = true;
 
             DataPersistance.Instance.WriteJson(instanciaClase);
         }
 
-        private (ValuesToSaveInJson, int) LoadGameData(IItem item)
+        private ValuesToSaveInJson LoadGameData()
         {
             var instanciaClase = DataPersistance.Instance.LoadGame();
-
             if (instanciaClase.itemsInInventory == null)
             {
                 instanciaClase.itemsInInventory = new List<Item>();
             }
-
-            var itemFoundedIndex = instanciaClase.FindItemIndex(item.UKey);
-            return (instanciaClase, itemFoundedIndex);
+            return instanciaClase;
         }
 
         public List<Item> GetAllItems()
         {
-            var instanciaClase = DataPersistance.Instance.LoadGame();
-            if (instanciaClase.itemsInInventory == null)
-            {
-                return instanciaClase.itemsInInventory = new List<Item>();
-            }
+            return new List<Item>(LoadGameData().itemsInInventory);
+        }
 
-            var items = new List<Item>();
-            foreach (var item in instanciaClase.itemsInInventory)
+        public Item FindItemInInventory(string itemId)
+        {
+            var gameData = LoadGameData();
+            var itemIndex = gameData.FindItemIndex(itemId);
+            if (itemIndex != -1)
+                return gameData.itemsInInventory[itemIndex];
+            return new NullItem();
+        }
+
+        public void DesactivePowerUpsItems()
+        {
+            var powerUpsToDesactive = GetAllItems().FindAll((i) => i.itemType == ItemType.PowerUp && i.isActive);
+            foreach (var item in powerUpsToDesactive)
             {
-                items.Add(item);
+                UseItemHandler(item.itemID);
             }
-            return items;
         }
     }
 }

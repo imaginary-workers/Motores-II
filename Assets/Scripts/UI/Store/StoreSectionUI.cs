@@ -3,7 +3,7 @@ using ProyectM2.Personalization;
 
 namespace ProyectM2.UI.Store
 {
-    public class StoreSectionUI : SectionUI<StoreItem, StoreItemUI>
+    public class StoreSectionUI : SectionUI<ItemData, StoreItemUI>
     {
         protected override void SetAllItems()
         {

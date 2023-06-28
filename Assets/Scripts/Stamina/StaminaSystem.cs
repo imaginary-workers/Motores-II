@@ -22,7 +22,7 @@ namespace ProyectM2
 
         private bool recharging;
 
-        private int fullStaminaNotificationId = 0;
+        private int fullStaminaNotificationId = -1;
 
         protected override void Awake()
         {
@@ -115,7 +115,6 @@ namespace ProyectM2
             
             if (currentStamina < maxStamina)
             {
-                SendNotification();
 
                 if (!recharging)
                 {
@@ -123,6 +122,7 @@ namespace ProyectM2
                     Save();
                     StartCoroutine(UpdateStamina());
                 }
+                SendNotification();
             }
         }
 
@@ -153,14 +153,12 @@ namespace ProyectM2
 
         private void SendNotification()
         {
-            if (fullStaminaNotificationId != -1)
-            {
-                NotificationSystem.Instance.CancelNotification(fullStaminaNotificationId);
-            }
+
+            NotificationSystem.Instance.CancelNotification(fullStaminaNotificationId);
 
             fullStaminaNotificationId = NotificationSystem.Instance.SendNotification(
                 dataNotificationSO,
-                AddDuration(lastStaminaTime, timeToCharge * (maxStamina - currentStamina)),
+                AddDuration(nextStaminaTime, timeToCharge * (maxStamina - currentStamina - 1)),
                 dataNotificationChannelSO
                 );
         }

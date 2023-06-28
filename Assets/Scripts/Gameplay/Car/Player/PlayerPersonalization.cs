@@ -1,6 +1,4 @@
 using ProyectM2.Inventory;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProyectM2.Car
@@ -14,8 +12,12 @@ namespace ProyectM2.Car
 
         private void Start()
         {
+            UpdateSkinToActive();
+        }
+
+        public void UpdateSkinToActive()
+        {
             var allItems = InventoryManager.Instance.GetAllItems();
-            Debug.Log(allItems.Count);
             foreach (var item in allItems)
             {
                 if (!item.isActive) continue;
@@ -35,8 +37,8 @@ namespace ProyectM2.Car
                     default:
                         break;
                 }
-                Debug.Log(item);
             }
+
             _materialSkins.SetMaterialChasis(_chasisDefault);
             _materialSkins.SetColorGlass(_glassDefault);
             _materialSkins.SetColorWheels(_wheelsDefault);

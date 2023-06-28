@@ -35,10 +35,21 @@ namespace ProyectM2.Gameplay
             if (component == null || !component.IsReturnable) return;
             returnableBullet = component;
             _timeToFiresBack = Time.realtimeSinceStartup;
+            Time.timeScale = .1f;
+            Debug.Log("Trigger"+ (returnableBullet != null));
         }
-
+        protected virtual void OnTriggerExit(Collider other)
+        {
+            if (returnableBullet != null)
+            {
+                Debug.Log("ReturnalBullet entro");
+                Time.timeScale = 1f;
+                returnableBullet = null;
+            }
+        }
         public void FireBackChecker(Vector3 position)
         {
+            Debug.Log("FicreBackChecker" + " " + (returnableBullet != null) + " " + enemyTarget + " " + (Time.realtimeSinceStartup - _timeToFiresBack));
             if (returnableBullet == null) return;
             if (enemyTarget == null) return;
             if (Time.realtimeSinceStartup - _timeToFiresBack >= _maxTimeToFiresBack) return;
@@ -48,6 +59,7 @@ namespace ProyectM2.Gameplay
             {
                 if (hit.collider.CompareTag("Player"))
                 {
+                    Time.timeScale = 1f;
                     FirebackAction();
                 }
             }
