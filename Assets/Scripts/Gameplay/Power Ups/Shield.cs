@@ -10,7 +10,6 @@ namespace ProyectM2
     public class Shield : MonoBehaviour
     {
 
-        PlayerDamageable _playerDamageable;
         [SerializeField] GameObject _shield;
         [SerializeField] Renderer _myrender;
         [SerializeField] BoxCollider _player;
