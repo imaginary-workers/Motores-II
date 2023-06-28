@@ -12,7 +12,7 @@ namespace ProyectM2
         [SerializeField] private string _myItemName;
         [SerializeField] private TextMeshProUGUI _myText;
         private int _itemCount = 0;
-        private bool _canUsePowerUp;
+        [SerializeField] private bool _canUsePowerUp;
 
         private void OnEnable()
         {
@@ -39,6 +39,8 @@ namespace ProyectM2
             {
                 UpdateUI(_itemCount, Color.black);
             }
+
+
         }
 
         private void OnDisable()
@@ -52,7 +54,8 @@ namespace ProyectM2
             {
                 var item = ItemProvider.Instance.FindSpecificItemByName(_myItemName);
                 EventManager.TriggerEvent("ActiveItem", item.UKey);
-                SetActivationOfPowerUp();
+                UpdateUI(_itemCount, Color.green);
+                _canUsePowerUp = false;
             }
         }
 
@@ -60,7 +63,6 @@ namespace ProyectM2
         {
                 _myText.color = color;
                 _myText.text = quantity.ToString();
-                _canUsePowerUp = false;
         }
 
     }
