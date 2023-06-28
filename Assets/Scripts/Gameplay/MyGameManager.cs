@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using ProyectM2.Gameplay.Car.Player;
+using ProyectM2.Inventory;
 using ProyectM2.Persistence;
 using ProyectM2.Scenes;
 using ProyectM2.SO;
@@ -141,6 +142,7 @@ namespace ProyectM2.Gameplay
             }
 
             SessionGameData.ResetData();
+            InventoryManager.Instance.DesactivePowerUpsItems();
             SceneManager.Instance.ChangeToMenuScene("MainMenu");
         }
 
@@ -155,6 +157,7 @@ namespace ProyectM2.Gameplay
             _iWin = true;
             SessionGameData.ResetData();
             _won.SetActive(true);
+            InventoryManager.Instance.DesactivePowerUpsItems();
             ScreenManager.Instance.Pause();
             EventManager.TriggerEvent("Won");
         }
@@ -166,6 +169,7 @@ namespace ProyectM2.Gameplay
             {
                 SessionGameData.SaveData("IsInBonusLevel", !isInBonusLevel);
                 SessionGameData.GetData("levelCurrency");
+                InventoryManager.Instance.DesactivePowerUpsItems();
                 SceneManager.Instance.ChangeScene(SceneManager.Instance.historyScene[^2]);
                 return;
             }
