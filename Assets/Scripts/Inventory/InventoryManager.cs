@@ -1,6 +1,7 @@
 using ProyectM2.Persistence;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace ProyectM2.Inventory
 {
@@ -26,7 +27,8 @@ namespace ProyectM2.Inventory
 
             itemBought = ItemProvider.Instance.FindSpecificItem(itemBought.Name);
 
-            var (instanciaClase, itemFoundedIndex) = LoadGameData(itemBought);
+            var itemFoundedIndex = LoadGameData(itemBought);
+            var instanciaClase = LoadItemInInventory();
 
             if (itemFoundedIndex != -1)
             {
@@ -45,13 +47,13 @@ namespace ProyectM2.Inventory
 
             itemBought = ItemProvider.Instance.FindSpecificItem(itemBought.Name);
 
-            //var (instanciaClase, itemFoundedIndex) = LoadGameData(itemBought);
+            var itemFoundedIndex = LoadGameData(itemBought);
             var instanciaClase = LoadItemInInventory();
 
-            //if (itemFoundedIndex != -1)
-            //    instanciaClase.itemsInInventory[itemFoundedIndex].itemQuantity += 1;
-            //else
-            //    instanciaClase.itemsInInventory.Add(new Item(itemBought.Name, itemBought.Type, 1, false));
+            if (itemFoundedIndex != -1)
+                instanciaClase.itemsInInventory[itemFoundedIndex].itemQuantity += 1;
+            else
+                instanciaClase.itemsInInventory.Add(new Item(itemBought.Name, itemBought.Type, 1, false));
 
             DataPersistance.Instance.WriteJson(instanciaClase);
         }
@@ -62,7 +64,8 @@ namespace ProyectM2.Inventory
 
             itemBought = ItemProvider.Instance.FindSpecificItem(itemBought.Name);
 
-            var (instanciaClase, itemFoundedIndex) = LoadGameData(itemBought);
+            var itemFoundedIndex = LoadGameData(itemBought);
+            var instanciaClase = LoadItemInInventory();
 
             var itemsToDeactivate = instanciaClase.itemsInInventory.Where(item =>
                 item.itemType == instanciaClase.itemsInInventory[itemFoundedIndex].itemType);
@@ -78,12 +81,9 @@ namespace ProyectM2.Inventory
             DataPersistance.Instance.WriteJson(instanciaClase);
         }
 
-        private (ValuesToSaveInJson, int) LoadGameData(IItem item)
+        private int LoadGameData(IItem item)
         {
-            //var itemFoundedIndex = instanciaClase.FindItemIndex(item.UKey);
-            //return (instanciaClase, itemFoundedIndex);
-            return (new ValuesToSaveInJson(), 2); //borrar wei
-
+            return LoadItemInInventory().FindItemIndex(item.UKey);
         }
 
         private ValuesToSaveInJson LoadItemInInventory()
