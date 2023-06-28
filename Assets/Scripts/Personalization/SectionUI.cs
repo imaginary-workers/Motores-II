@@ -50,6 +50,7 @@ namespace ProyectM2.Personalization
 
         protected void OnItemSelected(ItemData item)
         {
+            Debug.Log("AHHHHHHH");
             OnItemSelectedEvent?.Invoke(item);
         }
 

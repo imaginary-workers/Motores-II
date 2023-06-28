@@ -21,8 +21,8 @@ namespace ProyectM2.UI.Store
         {
             var itemInInventory = InventoryManager.Instance.FindItemInInventory(item.UKey);
             ActiveButton(
-                itemInInventory.itemType == ItemType.NULL,
-                DataPersistance.Instance.LoadGame().totalCurrencyOfPlayer >= item.Price
+                itemInInventory.itemType != ItemType.NULL
+                 && DataPersistance.Instance.LoadGame().totalCurrencyOfPlayer >= item.Price
                 );
             _item = item;
             NameText = item.Name;
@@ -69,14 +69,14 @@ namespace ProyectM2.UI.Store
         public void PurchaseItemUI()
         {
             EventManager.TriggerEvent("BuyItem", _item.UKey);
-            ActiveButton(false, true);
+            ActiveButton(false);
         }
         
         // false si se activa el equip y true si se activa el comprar
-        private void ActiveButton(bool comprar, bool activo)
+        private void ActiveButton(bool activo)
         {
-            _equip.gameObject.SetActive(!comprar);
-            _buy.gameObject.SetActive(comprar);
+            _equip.gameObject.SetActive(false);
+            _buy.gameObject.SetActive(true);
             _buy.interactable = activo;
         }
     }

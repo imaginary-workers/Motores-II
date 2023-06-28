@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using ProyectM2.Inventory;
+﻿using ProyectM2.Inventory;
 using ProyectM2.UI.Inventory;
-using UnityEngine;
 
 namespace ProyectM2.Personalization
 {
@@ -27,6 +23,7 @@ namespace ProyectM2.Personalization
                 {
                     itemUI = _itemsUI[i];
                     itemUI.SetItemData(findSpecificItem);
+                    itemUI.onItemSelected += OnItemSelected;
                     itemsUICounts--;
                 }
                 else
