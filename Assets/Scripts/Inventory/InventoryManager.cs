@@ -33,6 +33,7 @@ namespace ProyectM2.Inventory
             {
                 var itemFounded = instanciaClase.itemsInInventory[itemFoundedIndex];
                 itemFounded.itemQuantity -= 1;
+                itemFounded.isActive = false;
                 if (itemFounded.itemQuantity <= 0)
                     instanciaClase.itemsInInventory.Remove(itemFounded);
             }
@@ -46,7 +47,7 @@ namespace ProyectM2.Inventory
 
             var instanciaClase = LoadGameData();
             var itemFoundedIndex = instanciaClase.FindItemIndex(itemBought.UKey);
-            Debug.Log(itemBought.Name + " " + itemBought.Type);
+
             if (itemFoundedIndex != -1)
                 instanciaClase.itemsInInventory[itemFoundedIndex].itemQuantity += 1;
             else
@@ -62,13 +63,16 @@ namespace ProyectM2.Inventory
             var instanciaClase = LoadGameData();
             var itemFoundedIndex = instanciaClase.FindItemIndex(itemBought.UKey);
 
-            var itemsToDeactivate = instanciaClase.itemsInInventory.Where(item =>
-                item.itemType == instanciaClase.itemsInInventory[itemFoundedIndex].itemType);
-
-
-            foreach (var itemToDesactivate in itemsToDeactivate)
+            if (itemBought.Type != ItemType.PowerUp)
             {
-                itemToDesactivate.isActive = false;
+                var itemsToDeactivate = instanciaClase.itemsInInventory.Where(item =>
+                    item.itemType == instanciaClase.itemsInInventory[itemFoundedIndex].itemType);
+
+
+                foreach (var itemToDesactivate in itemsToDeactivate)
+                {
+                    itemToDesactivate.isActive = false;
+                }
             }
 
             instanciaClase.itemsInInventory[itemFoundedIndex].isActive = true;
