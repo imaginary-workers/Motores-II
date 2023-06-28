@@ -17,13 +17,17 @@ namespace ProyectM2.Gameplay
             EventManager.TriggerEvent("FirebackTutorial", false);
             base.FirebackAction();
         }
-        private void OnTriggerExit(Collider other)
+        protected override void OnTriggerExit(Collider other)
         {
+
             if (returnableBullet != null)
             {
+                Debug.Log("ReturnalBullet entro");
                 EventManager.TriggerEvent("FirebackTutorial", false);
+                Time.timeScale = 1f;
                 returnableBullet = null;
             }
+
         }
     }
 }

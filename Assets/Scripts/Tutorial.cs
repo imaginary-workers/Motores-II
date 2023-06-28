@@ -37,8 +37,7 @@ namespace ProyectM2
         {
             if (obj.Length == 0) return;
             var firebackTutorialActived = (bool) obj[0];
-            _canvasFirebackTutorial.SetActive(firebackTutorialActived);
-            Time.timeScale = firebackTutorialActived? .1f : 1f;
+            _canvasFirebackTutorial.SetActive(firebackTutorialActived);            
         }
 
         private void OnStartTutorialEnemyHandler()
