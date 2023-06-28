@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using ProyectM2.Inventory;
+using ProyectM2.Persistence;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,14 +13,17 @@ namespace ProyectM2.UI.Store
         [SerializeField] private TextMeshProUGUI _price;
         [SerializeField] private TextMeshProUGUI _descriptionText;
         [SerializeField] private Image _itemImage;
-        [SerializeField] private GameObject _equip;
-        [SerializeField] private GameObject _buy;
+        [SerializeField] private Button _equip;
+        [SerializeField] private Button _buy;
         private ItemData _item;
 
         public void SetItemData(ItemData item)
         {
             var itemInInventory = InventoryManager.Instance.FindItemInInventory(item.UKey);
-            ActiveButton(itemInInventory.itemType == ItemType.NULL);
+            ActiveButton(
+                itemInInventory.itemType == ItemType.NULL,
+                DataPersistance.Instance.LoadGame().totalCurrencyOfPlayer >= item.Price
+                );
             _item = item;
             NameText = item.Name;
             PriceText = item.Price;
@@ -65,15 +69,15 @@ namespace ProyectM2.UI.Store
         public void PurchaseItemUI()
         {
             EventManager.TriggerEvent("BuyItem", _item.UKey);
-            ActiveButton(false);
+            ActiveButton(false, true);
         }
         
         // false si se activa el equip y true si se activa el comprar
-        private void ActiveButton(bool button)
+        private void ActiveButton(bool comprar, bool activo)
         {
-            _equip.SetActive(!button);
-            _buy.SetActive(button);
+            _equip.gameObject.SetActive(!comprar);
+            _buy.gameObject.SetActive(comprar);
+            _buy.interactable = activo;
         }
-
     }
 }

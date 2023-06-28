@@ -1,4 +1,7 @@
-﻿using ProyectM2.Inventory;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using ProyectM2.Inventory;
 using ProyectM2.UI.Inventory;
 using UnityEngine;
 
@@ -6,19 +9,32 @@ namespace ProyectM2.Personalization
 {
     public class InventorySectionUI : SectionUI<ItemData, InventoryItemUI>
     {
-        private int n = 1;
+        private void OnEnable()
+        {
+            SetAllItems();
+        }
+
         protected override void SetAllItems()
         {
+            var itemsUICounts = _itemsUI.Count;
             var allItems = InventoryManager.Instance.GetAllItems();
-            foreach (var item in allItems)
+            allItems = allItems.FindAll(i => i.itemType == _sectionType);
+            for (int i = 0; i < allItems.Count; i++)
             {
-                if (item.itemType != _sectionType) continue;
-                if (_sectionType == ItemType.Chassis)
+                var findSpecificItem = ItemProvider.Instance.FindSpecificItem(allItems[i].itemID);
+                InventoryItemUI itemUI;
+                if (itemsUICounts > 0)
                 {
-                    Debug.Log(n++);
+                    itemUI = _itemsUI[i];
+                    itemUI.SetItemData(findSpecificItem);
+                    itemsUICounts--;
                 }
-                var inventoryItemUI = CreateNewItem(ItemProvider.Instance.FindSpecificItem(item.itemID));
-                inventoryItemUI.QuantityText = item.itemQuantity;
+                else
+                {
+                    itemUI = CreateNewItem(findSpecificItem);
+                }
+                itemUI.QuantityText = allItems[i].itemQuantity;
+                
             }
         }
     }

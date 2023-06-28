@@ -496,7 +496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemCardPrefab: {fileID: 489075161780298393, guid: 0e6dcf49fbb04a9498258337a048e94f,
     type: 3}
-  _sectionContainer: {fileID: 8012980766959168495}
+  sectionContainer: {fileID: 8012980766959168495}
   _sectionGameObject: {fileID: 3826239009382542882}
   _sectionType: 1
   OnItemSelectedEvent:
@@ -652,7 +652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemCardPrefab: {fileID: 489075161780298393, guid: 0e6dcf49fbb04a9498258337a048e94f,
     type: 3}
-  _sectionContainer: {fileID: 8023613936689073957}
+  sectionContainer: {fileID: 8023613936689073957}
   _sectionGameObject: {fileID: 3851635186410687208}
   _sectionType: 3
   OnItemSelectedEvent:
@@ -1214,7 +1214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemCardPrefab: {fileID: 489075161780298393, guid: 0e6dcf49fbb04a9498258337a048e94f,
     type: 3}
-  _sectionContainer: {fileID: 510941318209638537}
+  sectionContainer: {fileID: 510941318209638537}
   _sectionGameObject: {fileID: 6718633958926112068}
   _sectionType: 2
   OnItemSelectedEvent:
@@ -1370,7 +1370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemCardPrefab: {fileID: 4569976110119558998, guid: 686223f2b67fd404eab30ef9292dc7c1,
     type: 3}
-  _sectionContainer: {fileID: 6184081279569684722}
+  sectionContainer: {fileID: 6184081279569684722}
   _sectionGameObject: {fileID: 1150703507926068543}
   _sectionType: 0
   OnItemSelectedEvent:

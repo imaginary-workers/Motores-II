@@ -11,19 +11,19 @@ namespace ProyectM2.Personalization
     {
         [Header("Dependencies")]
         [SerializeField] private GameObject _itemCardPrefab;
-        [SerializeField] private Transform _sectionContainer;
+        [SerializeField] protected Transform sectionContainer;
         [SerializeField] private GameObject _sectionGameObject;
         [SerializeField] protected ItemType _sectionType;
         public UnityEvent<ItemData> OnItemSelectedEvent;
         public event Action OnOpenMenu;
-        protected List<ItemCardUI> _itemsUI = new List<ItemCardUI>();
+        protected List<TU> _itemsUI = new List<TU>();
 
         public bool IsVisible
         {
-            get => _sectionContainer.gameObject.activeInHierarchy;
+            get => sectionContainer.gameObject.activeInHierarchy;
         }
 
-        private void Awake()
+        protected virtual void Awake()
         {
             SetAllItems();
         }
@@ -32,7 +32,7 @@ namespace ProyectM2.Personalization
 
         protected TU CreateNewItem(T item)
         {
-            var itemGo = Instantiate(_itemCardPrefab, _sectionContainer);
+            var itemGo = Instantiate(_itemCardPrefab, sectionContainer);
             var itemUI = itemGo.GetComponent<TU>();
             _itemsUI.Add(itemUI);
             itemUI.SetItemData(item);
@@ -48,7 +48,7 @@ namespace ProyectM2.Personalization
             }
         }
 
-        private void OnItemSelected(ItemData item)
+        protected void OnItemSelected(ItemData item)
         {
             OnItemSelectedEvent?.Invoke(item);
         }
