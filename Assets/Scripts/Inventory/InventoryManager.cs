@@ -45,13 +45,13 @@ namespace ProyectM2.Inventory
 
             itemBought = ItemProvider.Instance.FindSpecificItem(itemBought.Name);
 
-            var (instanciaClase, itemFoundedIndex) = LoadGameData(itemBought);
+            //var (instanciaClase, itemFoundedIndex) = LoadGameData(itemBought);
+            var instanciaClase = LoadItemInInventory();
 
-
-            if (itemFoundedIndex != -1)
-                instanciaClase.itemsInInventory[itemFoundedIndex].itemQuantity += 1;
-            else
-                instanciaClase.itemsInInventory.Add(new Item(itemBought.Name, itemBought.Type, 1, false));
+            //if (itemFoundedIndex != -1)
+            //    instanciaClase.itemsInInventory[itemFoundedIndex].itemQuantity += 1;
+            //else
+            //    instanciaClase.itemsInInventory.Add(new Item(itemBought.Name, itemBought.Type, 1, false));
 
             DataPersistance.Instance.WriteJson(instanciaClase);
         }
@@ -80,27 +80,26 @@ namespace ProyectM2.Inventory
 
         private (ValuesToSaveInJson, int) LoadGameData(IItem item)
         {
-            var instanciaClase = DataPersistance.Instance.LoadGame();
+            //var itemFoundedIndex = instanciaClase.FindItemIndex(item.UKey);
+            //return (instanciaClase, itemFoundedIndex);
+            return (new ValuesToSaveInJson(), 2); //borrar wei
 
-            if (instanciaClase.itemsInInventory == null)
-            {
-                instanciaClase.itemsInInventory = new List<Item>();
-            }
-
-            var itemFoundedIndex = instanciaClase.FindItemIndex(item.UKey);
-            return (instanciaClase, itemFoundedIndex);
         }
 
-        public List<Item> GetAllItems()
+        private ValuesToSaveInJson LoadItemInInventory()
         {
             var instanciaClase = DataPersistance.Instance.LoadGame();
             if (instanciaClase.itemsInInventory == null)
             {
-                return instanciaClase.itemsInInventory = new List<Item>();
+                instanciaClase.itemsInInventory = new List<Item>();
             }
-
+            return instanciaClase;
+        }
+        public List<Item> GetAllItems()
+        {
+            
             var items = new List<Item>();
-            foreach (var item in instanciaClase.itemsInInventory)
+            foreach (var item in LoadItemInInventory().itemsInInventory)
             {
                 items.Add(item);
             }

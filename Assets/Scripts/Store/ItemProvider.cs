@@ -40,7 +40,7 @@ namespace ProyectM2
                 return _itemsSo.GetAllWheels();
             }
         }
-        public ItemStoreGeneric<Color> ColorSpecificItemWheels(string itemId)
+        public ColorItemStore ColorSpecificItemWheels(string itemId)
         {
             return AllWheelsItem.Find((item) => item.UKey == itemId);
         }
@@ -52,7 +52,7 @@ namespace ProyectM2
                 return _itemsSo.GetAllGlass();
             }
         }
-        public ItemStoreGeneric<Color> ColorSpecificItemGlass(string itemId)
+        public ColorItemStore ColorSpecificItemGlass(string itemId)
         {
             return AllGlassItem.Find((item) => item.UKey == itemId);
         }
