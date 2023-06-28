@@ -3,7 +3,6 @@ using ProyectM2;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 namespace ProyectM2
 {

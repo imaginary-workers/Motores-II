@@ -16,7 +16,6 @@ namespace ProyectM2.Gameplay.Car.Player
 
         private void Update()
         {
-            Debug.Log("Active " + _isActive + " Bonus Level " + MyGameManager.isInBonusLevel);
             if (!_isActive) return;
             if (MyGameManager.isInBonusLevel) return;
             MyGameManager.SubstractGas(_substracttGas * Time.deltaTime);

@@ -80,7 +80,6 @@ namespace ProyectM2.Gameplay
                 _levelCurrency.value = 0;
             }
 
-            Debug.Log(_levelCurrency.value);
         }
         
         private void OnDisable()
