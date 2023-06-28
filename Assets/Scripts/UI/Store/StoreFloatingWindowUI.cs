@@ -19,16 +19,22 @@ namespace ProyectM2.UI.Store
 
         public void SetItemData(ItemData item)
         {
-            var itemInInventory = InventoryManager.Instance.FindItemInInventory(item.UKey);
             ActiveButton(
-                itemInInventory.itemType != ItemType.NULL
-                 && DataPersistance.Instance.LoadGame().totalCurrencyOfPlayer >= item.Price
+                Filtro(item)
                 );
             _item = item;
             NameText = item.Name;
             PriceText = item.Price;
             ItemImage = item.Image;
             DescriptionText = item.Description;
+        }
+
+        private static bool Filtro(ItemData item)
+        {
+            var itemInInventory = InventoryManager.Instance.FindItemInInventory(item.UKey);
+            var currency = DataPersistance.Instance.LoadGame().totalCurrencyOfPlayer;
+            return (itemInInventory.itemType == ItemType.NULL || itemInInventory.itemType == ItemType.PowerUp)
+                   && currency >= item.Price;
         }
 
         public string NameText
@@ -69,7 +75,7 @@ namespace ProyectM2.UI.Store
         public void PurchaseItemUI()
         {
             EventManager.TriggerEvent("BuyItem", _item.UKey);
-            ActiveButton(false);
+            ActiveButton(Filtro(_item));
         }
         
         // false si se activa el equip y true si se activa el comprar
