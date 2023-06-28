@@ -49,11 +49,13 @@ namespace ProyectM2.UI.Store
             {
                 if (value.sprite == null)
                 {
+                    _itemImage.sprite = null;
                     _itemImage.color = value.color;
                 }
                 else
                 {
                     _itemImage.sprite = value.sprite;
+                    _itemImage.color = Color.white;
                 }
             }
         }

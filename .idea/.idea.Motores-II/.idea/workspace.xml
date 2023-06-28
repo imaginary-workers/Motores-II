@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5747736-5216-4ab4-8ad3-b7210000cf13" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Motores-II/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Motores-II/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/ColorItemStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/ColorItemStore.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/InventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/InventoryManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemStoreGeneric.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemDataContainer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemStoreGeneric.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemDataContainer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MaterialItemData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MaterialItemData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/StoreItem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/StoreItem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Personalization/SectionUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Personalization/SectionUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SO/DataItemsSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SO/DataItemsSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Store/ItemProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Store/ItemProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Store/StoreListenerHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Store/StoreListenerHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Inventory/InventoryItemUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Inventory/InventoryItemUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Sections/ItemCardUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Sections/ItemCardUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreFloatingWindowUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreFloatingWindowUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreItemUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreItemUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreSectionUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Store/StoreSectionUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

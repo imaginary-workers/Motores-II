@@ -1,7 +1,6 @@
 using ProyectM2.Persistence;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace ProyectM2.Inventory
 {
