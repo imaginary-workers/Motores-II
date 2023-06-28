@@ -18,6 +18,8 @@ namespace ProyectM2.UI.Store
 
         public void SetItemData(ItemData item)
         {
+            var itemInInventory = InventoryManager.Instance.FindItemInInventory(item.UKey);
+            ActiveButton(itemInInventory.itemType == ItemType.NULL);
             _item = item;
             NameText = item.Name;
             PriceText = item.Price;
@@ -63,8 +65,14 @@ namespace ProyectM2.UI.Store
         public void PurchaseItemUI()
         {
             EventManager.TriggerEvent("BuyItem", _item.UKey);
-            _equip.SetActive(true);
-            _buy.SetActive(false);
+            ActiveButton(false);
+        }
+        
+        // false si se activa el equip y true si se activa el comprar
+        private void ActiveButton(bool button)
+        {
+            _equip.SetActive(!button);
+            _buy.SetActive(button);
         }
 
     }
