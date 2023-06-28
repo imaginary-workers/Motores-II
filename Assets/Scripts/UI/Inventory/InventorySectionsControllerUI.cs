@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ProyectM2.Inventory;
 using ProyectM2.Personalization;
 using UnityEngine;
 
@@ -39,6 +40,11 @@ namespace ProyectM2.UI.Inventory
                 sectionUI.Hide();
             }
             sectionController.Show();
+        }
+
+        public void ActiveSkinSelected(ItemData item)
+        {
+            EventManager.TriggerEvent("ActiveItem", item.UKey);
         }
     }
 }

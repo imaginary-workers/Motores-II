@@ -41,11 +41,11 @@ namespace ProyectM2
                     {
                         _currencyValue.value = 2;
                     }
-                    EventManager.TriggerEvent("UseItem", itemData.UKey);
                 }
 
             }
         }
 
+        
     }
 }

@@ -10,21 +10,19 @@ namespace ProyectM2.Inventory
         private void OnEnable()
         {
             EventManager.StartListening("BuyItem", BuyItemHandler);
-            EventManager.StartListening("UseItem", UseItemHandler);
             EventManager.StartListening("ActiveItem", ActiveItemHandler);
         }
 
         private void OnDisable()
         {
             EventManager.StopListening("BuyItem", BuyItemHandler);
-            EventManager.StopListening("UseItem", UseItemHandler);
             EventManager.StopListening("ActiveItem", ActiveItemHandler);
         }
 
-        private void UseItemHandler(object[] obj)
+        private void UseItemHandler(string itemId)
         {
 
-            var itemBought = ItemProvider.Instance.FindSpecificItem((string)obj[0]);
+            var itemBought = ItemProvider.Instance.FindSpecificItem(itemId);
 
             var instanciaClase = LoadGameData();
             var itemFoundedIndex = instanciaClase.FindItemIndex(itemBought.UKey);
@@ -101,6 +99,15 @@ namespace ProyectM2.Inventory
             if (itemIndex != -1)
                 return gameData.itemsInInventory[itemIndex];
             return new NullItem();
+        }
+
+        public void DesactivePowerUpsItems()
+        {
+            var powerUpsToDesactive = GetAllItems().FindAll((i) => i.itemType == ItemType.PowerUp && i.isActive);
+            foreach (var item in powerUpsToDesactive)
+            {
+                UseItemHandler(item.itemID);
+            }
         }
     }
 }
