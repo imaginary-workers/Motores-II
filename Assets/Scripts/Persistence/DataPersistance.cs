@@ -78,6 +78,7 @@ namespace ProyectM2.Persistence
                 string dataToLoad = File.ReadAllText(_path);
                 byte[] bytesToDecode = Convert.FromBase64String(dataToLoad);
                 string decodedText = Encoding.UTF8.GetString(bytesToDecode);
+                Debug.Log(decodedText);
                 JsonUtility.FromJsonOverwrite(decodedText, instanciaClase);
             }
             return instanciaClase;
