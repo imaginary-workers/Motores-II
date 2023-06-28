@@ -22,6 +22,7 @@ namespace ProyectM2
 
             var instanciaClase = DataPersistance.Instance.LoadGame();
 
+            instanciaClase.totalCurrencyOfPlayer -= (int)itemBought.Price;
             instanciaClase.totalCurrencyGainOfPlayer -= (int)itemBought.Price;
             DataPersistance.Instance.WriteJson(instanciaClase);
             EventManager.TriggerEvent("CurrencyModified");

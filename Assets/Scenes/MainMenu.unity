@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -775,7 +775,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 99
+  m_fontSize: 82.6
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4313,7 +4313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798a6711156ef5c49ae2c75f9e49d8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uniqueKeyFromPowerUp: 
+  _myItemName: Mutiplicador de Monedas
   _myText: {fileID: 832381455}
 --- !u!222 &274538720
 CanvasRenderer:
@@ -7293,7 +7293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.31050003, y: 0.14650005}
   m_AnchorMax: {x: 0.7347215, y: 0.23063514}
-  m_AnchoredPosition: {x: -1.3000488, y: 425.49985}
+  m_AnchoredPosition: {x: -1.3000488, y: 425.49982}
   m_SizeDelta: {x: 2.4000962, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &483299090
@@ -11594,7 +11594,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 168.35
+  m_fontSize: 139.05
   m_fontSizeBase: 111.3
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -14146,7 +14146,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 74
+  m_fontSize: 61.7
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -15123,7 +15123,7 @@ PrefabInstance:
     - target: {fileID: 1843333166375408172, guid: b0bf3ebb12110924d8e8b41f75cca4b6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -231.00003
+      value: -231
       objectReference: {fileID: 0}
     - target: {fileID: 1843333166375408172, guid: b0bf3ebb12110924d8e8b41f75cca4b6,
         type: 3}
@@ -20513,7 +20513,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 95.1
+  m_fontSize: 78.45
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -21313,7 +21313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798a6711156ef5c49ae2c75f9e49d8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uniqueKeyFromPowerUp: 
+  _myItemName: Escudo
   _myText: {fileID: 548773704}
 --- !u!222 &1272394137
 CanvasRenderer:
@@ -22005,7 +22005,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 99
+  m_fontSize: 83.6
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -25995,7 +25995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798a6711156ef5c49ae2c75f9e49d8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uniqueKeyFromPowerUp: 
+  _myItemName: Vida Extra
   _myText: {fileID: 2074242529}
 --- !u!222 &1578555506
 CanvasRenderer:

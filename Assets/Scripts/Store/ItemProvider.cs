@@ -21,6 +21,12 @@ namespace ProyectM2
         {
             return AllItems.Find((item) => item.UKey == itemId);
         }
+
+        public ItemData FindSpecificItemByName(string itemName)
+        {
+            return AllItems.Find((item) => item.Name == itemName);
+        }
+
         public List<MaterialItemData> AllChasisItem
         {
             get

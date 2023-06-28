@@ -46,7 +46,7 @@ namespace ProyectM2.Inventory
 
             var instanciaClase = LoadGameData();
             var itemFoundedIndex = instanciaClase.FindItemIndex(itemBought.UKey);
-
+            Debug.Log(itemBought.Name + " " + itemBought.Type);
             if (itemFoundedIndex != -1)
                 instanciaClase.itemsInInventory[itemFoundedIndex].itemQuantity += 1;
             else
