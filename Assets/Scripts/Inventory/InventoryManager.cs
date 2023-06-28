@@ -84,15 +84,10 @@ namespace ProyectM2.Inventory
             }
             return instanciaClase;
         }
+
         public List<Item> GetAllItems()
         {
-            
-            var items = new List<Item>();
-            foreach (var item in LoadGameData().itemsInInventory)
-            {
-                items.Add(item);
-            }
-            return items;
+            return new List<Item>(LoadGameData().itemsInInventory);
         }
 
         public Item FindItemInInventory(string itemId)
