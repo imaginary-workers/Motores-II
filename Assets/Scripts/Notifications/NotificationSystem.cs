@@ -7,23 +7,10 @@ namespace ProyectM2
     public class NotificationSystem : Singleton<NotificationSystem>
     {
 
-        private string _channelId;
-
-        protected override void Awake()
+        private void Awake()
         {
             base.Awake();
-            var newChannel = new AndroidNotificationChannel
-            {
-                Id = "stamina_ch",
-                Name = "Stamina Channel",
-                Description = "Canal de notificaciones de estamina",
-                Importance = Importance.High
-            };
-
-            AndroidNotificationCenter.RegisterNotificationChannel(newChannel);
-            _channelId = newChannel.Id;
         }
-
         private void Start()
         {
             AndroidNotificationCenter.CancelAllNotifications();
@@ -41,9 +28,8 @@ namespace ProyectM2
             };
 
             if (notificationData.RepeatNotificationInHours != 0)
-                notification.RepeatInterval = TimeSpan.FromHours(notificationData.RepeatNotificationInHours);
-
-            return AndroidNotificationCenter.SendNotification(notification, _channelId);
+                notification.RepeatInterval = TimeSpan.FromHours(notificationData.RepeatNotificationInHours); 
+            return AndroidNotificationCenter.SendNotification(notification, channelId);
         }
 
         private string GetChannelId(INotificationChannel myChannelId)

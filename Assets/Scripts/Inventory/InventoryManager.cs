@@ -1,6 +1,7 @@
 using ProyectM2.Persistence;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace ProyectM2.Inventory
 {
@@ -49,7 +50,7 @@ namespace ProyectM2.Inventory
             if (itemFoundedIndex != -1)
                 instanciaClase.itemsInInventory[itemFoundedIndex].itemQuantity += 1;
             else
-                instanciaClase.itemsInInventory.Add(new Item(itemBought.Name, itemBought.Type, 1, false));
+                instanciaClase.itemsInInventory.Add(new Item(itemBought.UKey, itemBought.Type, 1, false));
 
             DataPersistance.Instance.WriteJson(instanciaClase);
         }
