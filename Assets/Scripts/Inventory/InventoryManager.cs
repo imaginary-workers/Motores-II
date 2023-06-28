@@ -25,8 +25,8 @@ namespace ProyectM2.Inventory
 
             var itemBought = ItemProvider.Instance.FindSpecificItem((string)obj[0]);
 
-            var itemFoundedIndex = LoadGameData(itemBought.UKey);
-            var instanciaClase = LoadItemInInventory();
+            var instanciaClase = LoadGameData();
+            var itemFoundedIndex = instanciaClase.FindItemIndex(itemBought.UKey);
 
             if (itemFoundedIndex != -1)
             {
@@ -43,8 +43,8 @@ namespace ProyectM2.Inventory
         {
             var itemBought = ItemProvider.Instance.FindSpecificItem((string)obj[0]);
 
-            var itemFoundedIndex = LoadGameData(itemBought.UKey);
-            var instanciaClase = LoadItemInInventory();
+            var instanciaClase = LoadGameData();
+            var itemFoundedIndex = instanciaClase.FindItemIndex(itemBought.UKey);
 
             if (itemFoundedIndex != -1)
                 instanciaClase.itemsInInventory[itemFoundedIndex].itemQuantity += 1;
@@ -58,8 +58,8 @@ namespace ProyectM2.Inventory
         {
             var itemBought = ItemProvider.Instance.FindSpecificItem((string)obj[0]);
 
-            var itemFoundedIndex = LoadGameData(itemBought.UKey);
-            var instanciaClase = LoadItemInInventory();
+            var instanciaClase = LoadGameData();
+            var itemFoundedIndex = instanciaClase.FindItemIndex(itemBought.UKey);
 
             var itemsToDeactivate = instanciaClase.itemsInInventory.Where(item =>
                 item.itemType == instanciaClase.itemsInInventory[itemFoundedIndex].itemType);
@@ -75,12 +75,7 @@ namespace ProyectM2.Inventory
             DataPersistance.Instance.WriteJson(instanciaClase);
         }
 
-        private int LoadGameData(string itemId)
-        {
-            return LoadItemInInventory().FindItemIndex(itemId);
-        }
-
-        private ValuesToSaveInJson LoadItemInInventory()
+        private ValuesToSaveInJson LoadGameData()
         {
             var instanciaClase = DataPersistance.Instance.LoadGame();
             if (instanciaClase.itemsInInventory == null)
@@ -93,11 +88,19 @@ namespace ProyectM2.Inventory
         {
             
             var items = new List<Item>();
-            foreach (var item in LoadItemInInventory().itemsInInventory)
+            foreach (var item in LoadGameData().itemsInInventory)
             {
                 items.Add(item);
             }
             return items;
+        }
+
+        public Item FindItemInInventory(string itemId)
+        {
+            var gameData = LoadGameData();
+            var itemIndex = gameData.FindItemIndex(itemId);
+
+            return gameData.itemsInInventory[itemIndex];
         }
     }
 }
