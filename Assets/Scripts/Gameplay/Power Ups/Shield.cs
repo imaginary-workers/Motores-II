@@ -35,7 +35,6 @@ namespace ProyectM2
             _player.enabled = true;
             _shield.SetActive(false);
 
-            Debug.Log("funciona");
         }
     }
 }
