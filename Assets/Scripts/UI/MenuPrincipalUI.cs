@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ProyectM2.Car;
 using ProyectM2.Persistence;
 using ProyectM2.Scenes;
 using ProyectM2.UI.Commands;
@@ -10,8 +11,10 @@ namespace ProyectM2.UI
 {
     public class MenuPrincipalUI : MonoBehaviour
     {
+        [Header("Dependencies")]
         [SerializeField] private TextMeshProUGUI _currencyText;
         [SerializeField] private TextMeshProUGUI _timePlayedText;
+        [SerializeField] private PlayerPersonalization _playerPersonalization;
         [Header("Menus")] 
         [SerializeField] private GameObject _currency;
         [SerializeField] private GameObject _doubleCurrencyPowerUp;
@@ -115,16 +118,16 @@ namespace ProyectM2.UI
         [ContextMenu("StoreMenu")]
         public void GoToStoreMenu()
         {
-            ExecuteCommand(new ChangeMenuCommand(
-                new[] { _storePanel }, new[] { _menu1 }
+            ExecuteCommand(new ChangeInventoryStoreCommand(
+                new[] { _storePanel }, new[] { _menu1 }, _playerPersonalization
                 ));
         }
 
         [ContextMenu("StoreMenu")]
         public void GoToInventoryMenu()
         {
-            ExecuteCommand(new ChangeMenuCommand(
-                new[] { _inventoryPanel }, new[] { _menu1 }
+            ExecuteCommand(new ChangeInventoryStoreCommand(
+                new[] { _inventoryPanel }, new[] { _menu1 }, _playerPersonalization
             ));
         }
 
