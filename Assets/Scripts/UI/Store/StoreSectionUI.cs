@@ -1,8 +1,9 @@
-﻿using ProyectM2.Personalization;
+﻿using ProyectM2.Inventory;
+using ProyectM2.Personalization;
 
 namespace ProyectM2.UI.Store
 {
-    public class StoreSectionUI : SectionUI
+    public class StoreSectionUI : SectionUI<StoreItem, StoreItemUI>
     {
         protected override void SetAllItems()
         {

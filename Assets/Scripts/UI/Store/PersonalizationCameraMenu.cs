@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using ProyectM2.Personalization;
+using ProyectM2.UI.Inventory;
+using ProyectM2.UI.Sections;
 using UnityEngine;
 
 namespace ProyectM2.UI.Store
@@ -17,21 +18,19 @@ namespace ProyectM2.UI.Store
 
         [SerializeField] private float _maxTimeToMoveCamera = 0.5f;
 
-        [Header("Store Sections")] [SerializeField]
-        private SectionUI store_chassisSection;
+        [Header("Store Sections")]
+        [SerializeField] private StoreSectionUI store_chassisSection;
+        [SerializeField] private StoreSectionUI store_wheelsSection;
+        [SerializeField] private StoreSectionUI store_glassSection;
+        [SerializeField] private StoreSectionUI store_powerUpsSection;
+        [SerializeField] private StoreSectionsControllerUI _storeSectionsController;
 
-        [SerializeField] private SectionUI store_wheelsSection;
-        [SerializeField] private SectionUI store_glassSection;
-        [SerializeField] private SectionUI store_powerUpsSection;
-        [SerializeField] private SectionsMainControllerUI store_mainSections;
-
-        [Header("Personalization Sections")] [SerializeField]
-        private SectionUI perso_chassisSection;
-
-        [SerializeField] private SectionUI perso_wheelsSection;
-        [SerializeField] private SectionUI perso_glassSection;
-        [SerializeField] private SectionUI perso_powerUpsSection;
-        [SerializeField] private SectionsMainControllerUI perso_mainSections;
+        [Header("Personalization Sections")]
+        [SerializeField] private InventorySectionUI inve_chassisSection;
+        [SerializeField] private InventorySectionUI inve_wheelsSection;
+        [SerializeField] private InventorySectionUI inve_glassSection;
+        [SerializeField] private InventorySectionUI inve_powerUpsSection;
+        [SerializeField] private InventorySectionsControllerUI _inventorySectionsController;
 
         [Header("Camera Configs")] [SerializeField]
         private CameraConfiguration _chassisView;
@@ -60,12 +59,12 @@ namespace ProyectM2.UI.Store
             store_wheelsSection.OnOpenMenu += GoToWheelsView;
             store_glassSection.OnOpenMenu += GoToGlassView;
             store_powerUpsSection.OnOpenMenu += GoToPowerUpsView;
-            store_mainSections.OnGoToMainMenu += GoToMainMenuView;
-            perso_chassisSection.OnOpenMenu += GoToChassisView;
-            perso_wheelsSection.OnOpenMenu += GoToWheelsView;
-            perso_glassSection.OnOpenMenu += GoToGlassView;
-            perso_powerUpsSection.OnOpenMenu += GoToPowerUpsView;
-            perso_mainSections.OnGoToMainMenu += GoToMainMenuView;
+            _storeSectionsController.OnGoToMainMenu += GoToStoreMenuView;
+            inve_chassisSection.OnOpenMenu += GoToChassisView;
+            inve_wheelsSection.OnOpenMenu += GoToWheelsView;
+            inve_glassSection.OnOpenMenu += GoToGlassView;
+            inve_powerUpsSection.OnOpenMenu += GoToPowerUpsView;
+            _inventorySectionsController.OnGoToMainMenu += GoToStoreMenuView;
         }
 
         public void LateUpdate()
@@ -96,12 +95,12 @@ namespace ProyectM2.UI.Store
             store_wheelsSection.OnOpenMenu -= GoToWheelsView;
             store_glassSection.OnOpenMenu -= GoToGlassView;
             store_powerUpsSection.OnOpenMenu -= GoToPowerUpsView;
-            store_mainSections.OnGoToMainMenu -= GoToMainMenuView;
-            perso_chassisSection.OnOpenMenu -= GoToChassisView;
-            perso_wheelsSection.OnOpenMenu -= GoToWheelsView;
-            perso_glassSection.OnOpenMenu -= GoToGlassView;
-            perso_powerUpsSection.OnOpenMenu -= GoToPowerUpsView;
-            perso_mainSections.OnGoToMainMenu -= GoToMainMenuView;
+            _storeSectionsController.OnGoToMainMenu -= GoToStoreMenuView;
+            inve_chassisSection.OnOpenMenu -= GoToChassisView;
+            inve_wheelsSection.OnOpenMenu -= GoToWheelsView;
+            inve_glassSection.OnOpenMenu -= GoToGlassView;
+            inve_powerUpsSection.OnOpenMenu -= GoToPowerUpsView;
+            _inventorySectionsController.OnGoToMainMenu -= GoToStoreMenuView;
         }
 
         private void GoToPowerUpsView()
@@ -132,7 +131,7 @@ namespace ProyectM2.UI.Store
             _currentTime = 0f;
         }
 
-        private void GoToMainMenuView()
+        private void GoToStoreMenuView()
         {
             Debug.Log("GoToMainMenuView");
             _nextCameraView = _originalMenuView;
