@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ProyectM2.Inventory
 {
     [Serializable]
-    public class ItemStoreGeneric<T>: StoreItem
+    public class ItemDataContainer<T>: ItemData
     {
         [SerializeField] private T iObject;
 

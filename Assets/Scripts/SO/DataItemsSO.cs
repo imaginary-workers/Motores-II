@@ -10,7 +10,7 @@ namespace ProyectM2.SO
         public List<MaterialItemData> materialesChassis;
         public List<ColorItemStore> colorWheels;
         public List<ColorItemStore> colorGlass;
-        public List<StoreItem> powerUps;
+        public List<ItemData> powerUps;
 
         [ContextMenu("AddNewChassis")]
         private void AddNewChassis()
@@ -46,8 +46,8 @@ namespace ProyectM2.SO
         private void AddNewPowerUp()
         {
             if (powerUps == null)
-                powerUps = new List<StoreItem>();
-            var itemData = new StoreItem();
+                powerUps = new List<ItemData>();
+            var itemData = new ItemData();
             itemData.Type = ItemType.PowerUp;
             powerUps.Add(itemData);
         }
@@ -68,14 +68,14 @@ namespace ProyectM2.SO
             return new List<ColorItemStore>(colorGlass);
         }
 
-        public List<StoreItem> GetAllPowerUp()
+        public List<ItemData> GetAllPowerUp()
         {
-            return new List<StoreItem>(powerUps);
+            return new List<ItemData>(powerUps);
         }
 
-        public List<StoreItem> AllItems()
+        public List<ItemData> AllItems()
         {
-            var storeItems = new List<StoreItem>();
+            var storeItems = new List<ItemData>();
             storeItems.AddRange(materialesChassis);
             storeItems.AddRange(colorGlass);
             storeItems.AddRange(colorWheels);

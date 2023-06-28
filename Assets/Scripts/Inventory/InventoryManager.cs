@@ -91,15 +91,15 @@ namespace ProyectM2.Inventory
             return (instanciaClase, itemFoundedIndex);
         }
 
-        public List<StoreItem> GetAllItems()
+        public List<ItemData> GetAllItems()
         {
             var instanciaClase = DataPersistance.Instance.LoadGame();
             if (instanciaClase.itemsInInventory == null)
             {
-                return new List<StoreItem>();
+                return new List<ItemData>();
             }
 
-            var items = new List<StoreItem>();
+            var items = new List<ItemData>();
             foreach (var item in instanciaClase.itemsInInventory)
             {
                 var storeItem = ItemProvider.Instance.AllItems.Find((i) => i.UKey == item.itemID);

@@ -6,10 +6,10 @@ using UnityEngine;
 
 namespace ProyectM2.UI.Store
 {
-    public class StoreItemUI : ItemCardUI<StoreItem>
+    public class StoreItemUI : ItemCardUI
     {
         [SerializeField] private TextMeshProUGUI _price; 
-        public override void SetItemData(StoreItem item)
+        public override void SetItemData(ItemData item)
         {
             base.SetItemData(item);
             PriceText = item.Price;
