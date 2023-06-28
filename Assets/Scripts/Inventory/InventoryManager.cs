@@ -23,11 +23,10 @@ namespace ProyectM2.Inventory
 
         private void UseItemHandler(object[] obj)
         {
-            var itemBought = (IItem)obj[0];
 
-            itemBought = ItemProvider.Instance.FindSpecificItem(itemBought.Name);
+            var itemBought = ItemProvider.Instance.FindSpecificItem((string)obj[0]);
 
-            var itemFoundedIndex = LoadGameData(itemBought);
+            var itemFoundedIndex = LoadGameData(itemBought.UKey);
             var instanciaClase = LoadItemInInventory();
 
             if (itemFoundedIndex != -1)
@@ -43,11 +42,9 @@ namespace ProyectM2.Inventory
 
         private void BuyItemHandler(object[] obj)
         {
-            var itemBought = (IItem)obj[0];
+            var itemBought = ItemProvider.Instance.FindSpecificItem((string)obj[0]);
 
-            itemBought = ItemProvider.Instance.FindSpecificItem(itemBought.Name);
-
-            var itemFoundedIndex = LoadGameData(itemBought);
+            var itemFoundedIndex = LoadGameData(itemBought.UKey);
             var instanciaClase = LoadItemInInventory();
 
             if (itemFoundedIndex != -1)
@@ -60,11 +57,9 @@ namespace ProyectM2.Inventory
 
         private void ActiveItemHandler(object[] obj)
         {
-            var itemBought = (IItem)obj[0];
+            var itemBought = ItemProvider.Instance.FindSpecificItem((string)obj[0]);
 
-            itemBought = ItemProvider.Instance.FindSpecificItem(itemBought.Name);
-
-            var itemFoundedIndex = LoadGameData(itemBought);
+            var itemFoundedIndex = LoadGameData(itemBought.UKey);
             var instanciaClase = LoadItemInInventory();
 
             var itemsToDeactivate = instanciaClase.itemsInInventory.Where(item =>
@@ -81,9 +76,9 @@ namespace ProyectM2.Inventory
             DataPersistance.Instance.WriteJson(instanciaClase);
         }
 
-        private int LoadGameData(IItem item)
+        private int LoadGameData(string itemId)
         {
-            return LoadItemInInventory().FindItemIndex(item.UKey);
+            return LoadItemInInventory().FindItemIndex(itemId);
         }
 
         private ValuesToSaveInJson LoadItemInInventory()
