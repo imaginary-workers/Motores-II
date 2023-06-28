@@ -13,12 +13,14 @@ namespace ProyectM2
         [SerializeField] AudioClip _shootRetornable;
         [SerializeField] AudioClip _damaged;
 
-        private void OnEnable()
+        protected override void OnEnable()
         {
+            base.OnEnable();
             _enemyDamageable.Suscribe(Damaged);
         }
-        private void OnDisable()
+        protected override void OnDisable()
         {
+            base.OnDisable();
             _enemyDamageable.Unsuscribe(Damaged);
         }
         public void PlayShootingDamaging()
