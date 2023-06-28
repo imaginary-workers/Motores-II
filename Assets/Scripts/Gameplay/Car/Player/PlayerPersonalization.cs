@@ -1,6 +1,4 @@
 using ProyectM2.Inventory;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProyectM2.Car
@@ -13,6 +11,11 @@ namespace ProyectM2.Car
         [SerializeField] Color _glassDefault;
 
         private void Start()
+        {
+            UpdateSkinToActive();
+        }
+
+        public void UpdateSkinToActive()
         {
             var allItems = InventoryManager.Instance.GetAllItems();
             foreach (var item in allItems)
@@ -35,6 +38,7 @@ namespace ProyectM2.Car
                         break;
                 }
             }
+
             _materialSkins.SetMaterialChasis(_chasisDefault);
             _materialSkins.SetColorGlass(_glassDefault);
             _materialSkins.SetColorWheels(_wheelsDefault);
