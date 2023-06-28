@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1225,6 +1225,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2070315632791071238, guid: 6187de258d38fd1408708191c558846c,
+        type: 3}
+      propertyPath: _currentPathTarget
+      value: 
+      objectReference: {fileID: 1148851646}
     - target: {fileID: 2536172749414782790, guid: 6187de258d38fd1408708191c558846c,
         type: 3}
       propertyPath: m_RootOrder
@@ -5185,6 +5190,33 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1909698237}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1148851648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148851646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a70e2d0653ad41d79045db4457f3f8ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveController: {fileID: 1148851649}
+--- !u!114 &1148851649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148851646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f720894908514373896d55574ef748aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canMove: 0
+  _visibilityController: {fileID: 0}
 --- !u!1001 &1152404346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9773,7 +9805,7 @@ PrefabInstance:
     - target: {fileID: 2226802666979975504, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_Name
-      value: PathTrack (1)
+      value: PathTrack 2
       objectReference: {fileID: 0}
     - target: {fileID: 2226802666979975505, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
@@ -9798,7 +9830,7 @@ PrefabInstance:
     - target: {fileID: 2226802666979975505, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1887.8147
+      value: 1870.8147
       objectReference: {fileID: 0}
     - target: {fileID: 2226802666979975505, guid: 70c11ecf7a1c9a0418d1031e3034485b,
         type: 3}
