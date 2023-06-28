@@ -7,9 +7,10 @@ namespace ProyectM2.Car
 {
     public class PlayerPersonalization : MonoBehaviour
     {
-        [SerializeField] private GameObject _chassis; 
-        [SerializeField] private GameObject _wheels; 
-        [SerializeField] private GameObject _windshield;
+        [SerializeField] SetMaterialSkins _materialSkins;
+        [SerializeField] Material _chasisDefault;
+        [SerializeField] Color _wheelsDefault;
+        [SerializeField] Color _glassDefault;
 
         private void Start()
         {
@@ -17,8 +18,28 @@ namespace ProyectM2.Car
             Debug.Log(allItems.Count);
             foreach (var item in allItems)
             {
+                if (!item.isActive) continue;
+                switch (item.itemType)
+                {
+                    case ItemType.PowerUp:
+                        break;
+                    case ItemType.Chassis:
+                        _chasisDefault = ItemProvider.Instance.FindMaterialSpecificItem(item.itemID).IObject;
+                        break;
+                    case ItemType.Glass:
+                        _glassDefault = ItemProvider.Instance.ColorSpecificItemGlass(item.itemID).IObject;
+                        break;
+                    case ItemType.Wheels:
+                        _wheelsDefault = ItemProvider.Instance.ColorSpecificItemWheels(item.itemID).IObject;
+                        break;
+                    default:
+                        break;
+                }
                 Debug.Log(item);
             }
+            _materialSkins.SetMaterialChasis(_chasisDefault);
+            _materialSkins.SetColorGlass(_glassDefault);
+            _materialSkins.SetColorWheels(_wheelsDefault);
         }
     }
 }

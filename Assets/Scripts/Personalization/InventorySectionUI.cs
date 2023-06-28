@@ -10,9 +10,9 @@ namespace ProyectM2.Personalization
             var allItems = InventoryManager.Instance.GetAllItems();
             foreach (var item in allItems)
             {
-                if (item.Type != _sectionType) continue;
+                if (item.itemType != _sectionType) continue;
 
-                CreateNewItem(item);
+                CreateNewItem(ItemProvider.Instance.FindSpecificItem(item.itemID));
             }
         }
     }
