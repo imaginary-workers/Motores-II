@@ -14,9 +14,9 @@ namespace ProyectM2.UI.Store
         [SerializeField] private Image _itemImage;
         [SerializeField] private GameObject _equip;
         [SerializeField] private GameObject _buy;
-        private StoreItem _item;
+        private ItemData _item;
 
-        public void SetItemData(StoreItem item)
+        public void SetItemData(ItemData item)
         {
             Debug.Log("llega aca?");
             _item = item;

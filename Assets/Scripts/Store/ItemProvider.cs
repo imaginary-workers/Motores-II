@@ -9,7 +9,7 @@ namespace ProyectM2
     {
         [SerializeField] DataItemsSO _itemsSo;
  
-        public List<StoreItem> AllItems
+        public List<ItemData> AllItems
         {
             get
             {
@@ -17,7 +17,7 @@ namespace ProyectM2
             }
         }
 
-        public StoreItem FindSpecificItem(string itemId)
+        public ItemData FindSpecificItem(string itemId)
         {
             return AllItems.Find((item) => item.UKey == itemId);
         }

@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using ProyectM2.Inventory;
-using ProyectM2.UI;
 using ProyectM2.UI.Sections;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace ProyectM2.Personalization
 {
-    public abstract class SectionUI<T,TU> : MonoBehaviour where T : ItemData where TU : ItemCardUI<T>
+    public abstract class SectionUI<T,TU> : MonoBehaviour where T : ItemData where TU : ItemCardUI
     {
         [Header("Dependencies")]
         [SerializeField] private GameObject _itemCardPrefab;
         [SerializeField] private Transform _sectionContainer;
         [SerializeField] private GameObject _sectionGameObject;
         [SerializeField] protected ItemType _sectionType;
-        public UnityEvent<T> OnItemSelectedEvent;
+        public UnityEvent<ItemData> OnItemSelectedEvent;
         public event Action OnOpenMenu;
-        protected List<ItemCardUI<T>> _itemsUI = new List<ItemCardUI<T>>();
+        protected List<ItemCardUI> _itemsUI = new List<ItemCardUI>();
 
         public bool IsVisible
         {
@@ -49,6 +48,11 @@ namespace ProyectM2.Personalization
             }
         }
 
+        private void OnItemSelected(ItemData item)
+        {
+            OnItemSelectedEvent?.Invoke(item);
+        }
+
         public virtual void Show()
         {
             if (IsVisible) return;
@@ -59,11 +63,6 @@ namespace ProyectM2.Personalization
         public virtual void Hide()
         {
             _sectionGameObject.SetActive(false);
-        }
-        
-        protected virtual void OnItemSelected(T storeItem)
-        {
-            OnItemSelectedEvent?.Invoke(storeItem);
         }
     }
 }

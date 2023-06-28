@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 namespace ProyectM2.UI.Sections
 {
-    public class ItemCardUI<T> : MonoBehaviour where T : ItemData
+    public class ItemCardUI : MonoBehaviour
     {
-        public event Action<T> onItemSelected;
+        public event Action<ItemData> onItemSelected;
         [SerializeField] protected TextMeshProUGUI _nameText;
         [SerializeField] protected Image _itemImage;
-        protected T _item;
-        public virtual void SetItemData(T item)
+        protected ItemData _item;
+
+        public virtual void SetItemData(ItemData item)
         {
             _item = item;
             NameText = item.Name;

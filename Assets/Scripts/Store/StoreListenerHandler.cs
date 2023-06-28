@@ -9,7 +9,6 @@ namespace ProyectM2
         private void OnEnable()
         {
             EventManager.StartListening("BuyItem", BuyItemHandler);
-
         }
 
         private void OnDisable()
@@ -19,7 +18,7 @@ namespace ProyectM2
         }
         private void BuyItemHandler(object[] obj)
         {
-            var itemBought = (StoreItem)obj[0];
+            var itemBought = (ItemData)obj[0];
 
             var instanciaClase = DataPersistance.Instance.LoadGame();
 
