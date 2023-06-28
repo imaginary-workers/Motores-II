@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2779,90 +2779,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2188727792067840346}
   m_CullTransparentMesh: 1
---- !u!1001 &6684791599401502506
+--- !u!1001 &7107803892172420139
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 36203230107337132, guid: 3214ad8163d41644bac243a4664e7d13,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113473400786658374, guid: 3214ad8163d41644bac243a4664e7d13,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy Boss Truck
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113473400786658375, guid: 3214ad8163d41644bac243a4664e7d13,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113473400786658375, guid: 3214ad8163d41644bac243a4664e7d13,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -385.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113473400786658375, guid: 3214ad8163d41644bac243a4664e7d13,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113473400786658375, guid: 3214ad8163d41644bac243a4664e7d13,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 423.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113473400786658375, guid: 3214ad8163d41644bac243a4664e7d13,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113473400786658375, guid: 3214ad8163d41644bac243a4664e7d13,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113473400786658375, guid: 3214ad8163d41644bac243a4664e7d13,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113473400786658375, guid: 3214ad8163d41644bac243a4664e7d13,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113473400786658375, guid: 3214ad8163d41644bac243a4664e7d13,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113473400786658375, guid: 3214ad8163d41644bac243a4664e7d13,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113473400786658375, guid: 3214ad8163d41644bac243a4664e7d13,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2301928384742126430, guid: 3214ad8163d41644bac243a4664e7d13,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2512417504458430727, guid: 3214ad8163d41644bac243a4664e7d13,
+    - target: {fileID: 2070315632791071238, guid: 6187de258d38fd1408708191c558846c,
         type: 3}
       propertyPath: _currentPathTarget
       value: 
       objectReference: {fileID: 1408579982}
+    - target: {fileID: 2536172749414782790, guid: 6187de258d38fd1408708191c558846c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536172749414782790, guid: 6187de258d38fd1408708191c558846c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -385.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536172749414782790, guid: 6187de258d38fd1408708191c558846c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536172749414782790, guid: 6187de258d38fd1408708191c558846c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 423.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536172749414782790, guid: 6187de258d38fd1408708191c558846c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536172749414782790, guid: 6187de258d38fd1408708191c558846c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536172749414782790, guid: 6187de258d38fd1408708191c558846c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536172749414782790, guid: 6187de258d38fd1408708191c558846c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536172749414782790, guid: 6187de258d38fd1408708191c558846c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536172749414782790, guid: 6187de258d38fd1408708191c558846c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536172749414782790, guid: 6187de258d38fd1408708191c558846c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536172749414782791, guid: 6187de258d38fd1408708191c558846c,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy Boss Truck
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3214ad8163d41644bac243a4664e7d13, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 6187de258d38fd1408708191c558846c, type: 3}
 --- !u!1001 &8011334013678336333
 PrefabInstance:
   m_ObjectHideFlags: 0
