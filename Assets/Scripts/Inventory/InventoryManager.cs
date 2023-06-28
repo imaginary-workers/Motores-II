@@ -94,8 +94,9 @@ namespace ProyectM2.Inventory
         {
             var gameData = LoadGameData();
             var itemIndex = gameData.FindItemIndex(itemId);
-
-            return gameData.itemsInInventory[itemIndex];
+            if (itemIndex != -1)
+                return gameData.itemsInInventory[itemIndex];
+            return new NullItem();
         }
     }
 }
