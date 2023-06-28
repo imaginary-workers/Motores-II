@@ -9,11 +9,7 @@ namespace ProyectM2.UI.Inventory
     public class InventoryItemUI : ItemCardUI
     {
         [SerializeField] private TextMeshProUGUI _quantity;
-        public void SetItemData(ItemData item)
-        {
-            SetItemData(item);
-        }
-
+    
         public float QuantityText
         {
             get => int.Parse(_quantity.text);
