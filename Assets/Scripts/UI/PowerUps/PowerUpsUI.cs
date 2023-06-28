@@ -25,18 +25,25 @@ namespace ProyectM2
             if (itemInInventory.itemType != ItemType.NULL)
             {
                 _itemCount = itemInInventory.itemQuantity;
-                _myText.text = _itemCount.ToString();
-                _canUsePowerUp = true;
+                if (itemInInventory.isActive)
+                {
+                    UpdateUI(_itemCount, Color.green);
+                }
+                else
+                {
+                    _canUsePowerUp = true;
+                    UpdateUI(_itemCount, Color.black);
+                }
             }
             else
             {
-                _myText.text = _itemCount.ToString();
+                UpdateUI(_itemCount, Color.black);
             }
         }
 
         private void OnDisable()
         {
-            _myText.color = Color.white;
+            _myText.color = Color.black;
         }
 
         public void SetActivationOfPowerUp()
@@ -44,11 +51,16 @@ namespace ProyectM2
             if (_canUsePowerUp)
             {
                 var item = ItemProvider.Instance.FindSpecificItemByName(_myItemName);
-                EventManager.TriggerEvent("UseItem", item.UKey);
-                _myText.color = Color.green;
-                _myText.text = (_itemCount - 1).ToString();
-                _canUsePowerUp = false;
+                EventManager.TriggerEvent("ActiveItem", item.UKey);
+                SetActivationOfPowerUp();
             }
+        }
+
+        public void UpdateUI(int quantity, Color color)
+        {
+                _myText.color = color;
+                _myText.text = quantity.ToString();
+                _canUsePowerUp = false;
         }
 
     }
