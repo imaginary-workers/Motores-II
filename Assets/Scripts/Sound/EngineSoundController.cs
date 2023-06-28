@@ -17,12 +17,12 @@ namespace ProyectM2.Sound
             _source.Stop();
         }
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             ScreenManager.Instance.Subscribe(this);
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             ScreenManager.Instance.Unsubscribe(this);
         }
@@ -55,11 +55,14 @@ namespace ProyectM2.Sound
 
         public void Activate()
         {
+            Debug.Log("active");
             _isActive = true;
         }
 
         public void Deactivate()
         {
+            Debug.Log("desactivado");
+
             _isActive = false;
             StopSound();
         }
