@@ -130,7 +130,9 @@ namespace ProyectM2.Gameplay
         public void Retry()
         {
             _levelCurrency.value = 0;
+            InventoryManager.Instance.DesactivePowerUpsItems();
             SessionGameData.ResetData();
+            StaminaSystem.Instance.UseStamina(1);
             SceneManager.Instance.RestartLevel();
         }
 
