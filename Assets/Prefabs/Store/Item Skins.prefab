@@ -180,12 +180,12 @@ PrefabInstance:
     - target: {fileID: 4569976111198442684, guid: 686223f2b67fd404eab30ef9292dc7c1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -125
+      value: 15.88
       objectReference: {fileID: 0}
     - target: {fileID: 4569976111198442684, guid: 686223f2b67fd404eab30ef9292dc7c1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -170
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 686223f2b67fd404eab30ef9292dc7c1, type: 3}
