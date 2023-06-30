@@ -1,8 +1,7 @@
-using UnityEngine;
 using Unity.Notifications.Android;
 using System;
 
-namespace ProyectM2
+namespace ProyectM2.Notifications
 {
     public class NotificationSystem : Singleton<NotificationSystem>
     {
@@ -39,9 +38,7 @@ namespace ProyectM2
             foreach (var notificationCh in notificationChannels)
             {
                 if (notificationCh.Id == channelId)
-                {
                     return channelId;
-                }
             }
 
             var newChannel = new AndroidNotificationChannel

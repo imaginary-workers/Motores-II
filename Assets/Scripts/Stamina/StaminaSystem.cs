@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using ProyectM2.SO;
+using ProyectM2.Notifications;
 
 namespace ProyectM2
 {
