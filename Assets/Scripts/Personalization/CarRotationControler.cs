@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProyectM2
+namespace ProyectM2.Personalization
 {
     public class CarRotationControler : MonoBehaviour
     {

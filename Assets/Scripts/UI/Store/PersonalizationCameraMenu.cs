@@ -117,21 +117,18 @@ namespace ProyectM2.UI.Store
 
         private void GoToWheelsView()
         {
-            Debug.Log("GoToWheelsView");
             _nextCameraView = _wheelView;
             _currentTime = 0f;
         }
 
         private void GoToChassisView()
         {
-            Debug.Log("GoToChassisView");
             _nextCameraView = _chassisView;
             _currentTime = 0f;
         }
 
         private void GoToStoreMenuView()
         {
-            Debug.Log("GoToMainMenuView");
             _nextCameraView = _originalMenuView;
             _currentTime = 0f;
         }
