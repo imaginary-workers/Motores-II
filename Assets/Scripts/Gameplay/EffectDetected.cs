@@ -1,14 +1,13 @@
-using ProyectM2.Gameplay;
+using ProyectM2.Gameplay.Car.Player;
 using UnityEngine;
 
-namespace ProyectM2
+namespace ProyectM2.Gameplay
 {
     public class EffectDetected : MonoBehaviour, IActivatable
     {
         [SerializeField] ParticleSystem _particle;
         [SerializeField] PlayerFiresBackController _playerFiresBackController;
 
-        private bool _isPlaying;
         private float _particleCountDown = 0f;
         private bool _isActive = true;
 

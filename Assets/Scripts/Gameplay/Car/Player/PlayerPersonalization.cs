@@ -1,14 +1,14 @@
 using ProyectM2.Inventory;
 using UnityEngine;
 
-namespace ProyectM2.Car
+namespace ProyectM2.Gameplay.Car.Player
 {
     public class PlayerPersonalization : MonoBehaviour
     {
-        [SerializeField] SetMaterialSkins _materialSkins;
-        [SerializeField] Material _chasisDefault;
-        [SerializeField] Color _wheelsDefault;
-        [SerializeField] Color _glassDefault;
+        [SerializeField] private SetMaterialSkins _materialSkins;
+        [SerializeField] private Material _chasisDefault;
+        [SerializeField] private Color _wheelsDefault;
+        [SerializeField] private Color _glassDefault;
 
         private void Start()
         {

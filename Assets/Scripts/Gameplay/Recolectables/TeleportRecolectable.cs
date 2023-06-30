@@ -7,9 +7,9 @@ namespace ProyectM2.Gameplay.Recolectables
 {
     public class TeleportRecolectable : MonoBehaviour
     {
-        [SerializeField] bool _isInBonusLevel = false;
-        [SerializeField] bool _teleportWasUsed = false;
-        [SerializeField] Scene _scene;
+        [SerializeField] private bool _isInBonusLevel = false;
+        [SerializeField] private bool _teleportWasUsed = false;
+        [SerializeField] private Scene _scene;
 
         private void Awake()
         {

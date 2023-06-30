@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ProyectM2.Gameplay
+namespace ProyectM2.Gameplay.Car.Player
 {
     public class PlayerFiresBackController_Tutorial : PlayerFiresBackController
     {

@@ -11,20 +11,20 @@ namespace ProyectM2.Gameplay
 {
     public class MyGameManager: MonoBehaviour
     {
-        public static float levelGas = 100;
-        private static float maxGas = 100;
-        public static GameObject player;
-        public static bool isInBonusLevel = false;
         
         [SerializeField] private GameObject _lose;
         [SerializeField] private GameObject _won;
         [SerializeField] private PauseControllerUI _pauseController;
         [SerializeField] private DataIntObservable _levelCurrency;
+        public static float levelGas = 100;
+        private static float maxGas = 100;
+        public static GameObject player;
+        public static bool isInBonusLevel = false;
         bool _iWin = false;
 
         private void Awake()
         {
-            player = GameObject.FindObjectOfType<PlayerInputHorizontalMovement>().gameObject;
+            player = FindObjectOfType<PlayerInputHorizontalMovement>().gameObject;
             ScreenManager.Instance.Pause();
         }
 
@@ -153,7 +153,6 @@ namespace ProyectM2.Gameplay
             _levelCurrency.value -= 1;
         }
         
-        [ContextMenu("Won")]
         public void Won()
         {
             _iWin = true;
