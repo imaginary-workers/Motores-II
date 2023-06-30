@@ -1,8 +1,7 @@
-using ProyectM2.Inventory;
 using ProyectM2.Persistence;
 using UnityEngine;
 
-namespace ProyectM2
+namespace ProyectM2.Store
 {
     public class StoreListenerHandler : MonoBehaviour
     {

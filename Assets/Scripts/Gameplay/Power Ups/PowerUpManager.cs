@@ -3,6 +3,7 @@ using ProyectM2.SO;
 using System.Collections.Generic;
 using ProyectM2.Persistence;
 using UnityEngine;
+using ProyectM2.Store;
 
 namespace ProyectM2.Gameplay.PowerUps
 {

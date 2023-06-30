@@ -3,7 +3,7 @@ using ProyectM2.Inventory;
 using ProyectM2.SO;
 using UnityEngine;
 
-namespace ProyectM2
+namespace ProyectM2.Store
 {
     public class ItemProvider : Singleton<ItemProvider>
     {
