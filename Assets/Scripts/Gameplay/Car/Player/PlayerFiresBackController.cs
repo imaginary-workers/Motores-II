@@ -42,14 +42,12 @@ namespace ProyectM2.Gameplay
         {
             if (returnableBullet != null)
             {
-                Debug.Log("ReturnalBullet entro");
                 Time.timeScale = 1f;
                 returnableBullet = null;
             }
         }
         public void FireBackChecker(Vector3 position)
         {
-            Debug.Log("FicreBackChecker" + " " + (returnableBullet != null) + " " + enemyTarget + " " + (Time.realtimeSinceStartup - _timeToFiresBack));
             if (returnableBullet == null) return;
             if (enemyTarget == null) return;
             if (Time.realtimeSinceStartup - _timeToFiresBack >= _maxTimeToFiresBack) return;

@@ -40,7 +40,6 @@ namespace ProyectM2.Ads
 
         public void OnInitializationComplete()
         {
-            Debug.Log($"Completed initializating Ad Services");
         }
 
         public void OnInitializationFailed(UnityAdsInitializationError error, string message)
@@ -64,7 +63,6 @@ namespace ProyectM2.Ads
         public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message)
         {
             Debug.LogWarning($"Error loading Ad Unit {adUnitId}: {error.ToString()} - {message}");
-            // Use the error details to determine whether to try to load another ad.
         }
 
         #endregion
@@ -81,7 +79,7 @@ namespace ProyectM2.Ads
         {
             if (adUnitId.Equals(_adsConfig.rewarded) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
             {
-                StaminaSystem.Instance.RechargeStamina(1);  //ver luego
+                StaminaSystem.Instance.RechargeStamina(1);
             }
 
             if (adUnitId.Equals(_adsConfig.rewarded) && showCompletionState.Equals(UnityAdsShowCompletionState.SKIPPED))
@@ -94,7 +92,6 @@ namespace ProyectM2.Ads
         public void OnUnityAdsShowFailure(string adUnitId, UnityAdsShowError error, string message)
         {
             Debug.LogWarning($"Error showing Ad Unit {adUnitId}: {error.ToString()} - {message}");
-            // Use the error details to determine whether to try to load another ad.
         }
 
         public void OnUnityAdsShowStart(string adUnitId)

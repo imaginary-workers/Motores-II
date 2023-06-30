@@ -94,7 +94,6 @@ namespace ProyectM2.Persistence
         [ContextMenu("Borra Todo")]
         public void DeleteDataTest()
         {
-            Debug.Log(_path);
             if (File.Exists(_path))
                 File.Delete(_path);
         }

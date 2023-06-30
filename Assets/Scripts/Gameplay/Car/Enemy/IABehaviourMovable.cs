@@ -65,11 +65,11 @@ namespace ProyectM2.Gameplay.Car.Enemy
                 _waitingTime = _maxWaitTime;
                 if (_move == 1)
                 {
-                    _ani.LightRightAnimation();
+                    _ani.RightLightAnimation();
                 }
                 else
                 {
-                    _ani.LightLeftAnimation();
+                    _ani.LeftLightAnimation();
                 }
             }
         }

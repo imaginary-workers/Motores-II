@@ -22,7 +22,6 @@ namespace ProyectM2.Gameplay
 
             if (returnableBullet != null)
             {
-                Debug.Log("ReturnalBullet entro");
                 EventManager.TriggerEvent("FirebackTutorial", false);
                 Time.timeScale = 1f;
                 returnableBullet = null;

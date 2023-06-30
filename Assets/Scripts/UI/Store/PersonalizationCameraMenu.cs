@@ -105,14 +105,12 @@ namespace ProyectM2.UI.Store
 
         private void GoToPowerUpsView()
         {
-            Debug.Log("GoToPowerUpsView");
             _nextCameraView = _powerUpsView;
             _currentTime = 0f;
         }
 
         private void GoToGlassView()
         {
-            Debug.Log("GoToGlassView");
             _nextCameraView = _glassView;
             _currentTime = 0f;
         }

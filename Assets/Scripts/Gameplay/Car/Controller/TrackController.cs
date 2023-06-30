@@ -33,10 +33,7 @@ namespace ProyectM2.Gameplay.Car.Controller
             ScreenManager.Instance.Unsubscribe(this);
         }
 
-        public float SpeedHorizontal
-        {
-            get => _dataCar.speedHorizontal;
-        }
+        public float SpeedHorizontal { get => _dataCar.speedHorizontal; }
 
         public float HorizontalRange { get => _dataCar.horizontalRange; }
 

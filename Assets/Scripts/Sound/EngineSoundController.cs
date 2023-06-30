@@ -1,6 +1,5 @@
 using ProyectM2.Gameplay;
 using ProyectM2.Gameplay.Car.Controller;
-using ProyectM2.Gameplay.Car.Enemy;
 using UnityEngine;
 
 namespace ProyectM2.Sound
@@ -55,14 +54,11 @@ namespace ProyectM2.Sound
 
         public void Activate()
         {
-            Debug.Log("active");
             _isActive = true;
         }
 
         public void Deactivate()
         {
-            Debug.Log("desactivado");
-
             _isActive = false;
             StopSound();
         }
