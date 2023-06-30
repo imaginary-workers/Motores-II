@@ -1,6 +1,7 @@
 using ProyectM2.Inventory;
 using ProyectM2.SO;
 using System.Collections.Generic;
+using ProyectM2.Persistence;
 using UnityEngine;
 
 namespace ProyectM2.Gameplay.PowerUps
