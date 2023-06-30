@@ -11,10 +11,10 @@ namespace ProyectM2.Levels
         [SerializeField] private float _distanceToCreateSection;
         [SerializeField] private float _distanceToDeleteSection;
 
-        Transform _nextPivot;
-        Transform _lastPivot;
-        GameObject _myPlayer;
-        bool _createSectionNotifed = false;
+        private Transform _nextPivot;
+        private Transform _lastPivot;
+        private GameObject _myPlayer;
+        private bool _createSectionNotifed = false;
 
         private void Start()
         {
@@ -35,8 +35,8 @@ namespace ProyectM2.Levels
 
         void CheckDistanceFromPlayer(Transform nextPivot, Transform lastPivot, GameObject player)
         {
-            Vector3 dirToNextPivot = player.transform.position - nextPivot.transform.position;
-            Vector3 dirToPastPivot = lastPivot.transform.position - player.transform.position;
+            var dirToNextPivot = player.transform.position - nextPivot.transform.position;
+            var dirToPastPivot = lastPivot.transform.position - player.transform.position;
             if (dirToNextPivot.sqrMagnitude <= (_distanceToCreateSection * _distanceToCreateSection) && !_createSectionNotifed)
             {
                 NotifyToObservers(this);   

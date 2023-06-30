@@ -21,7 +21,7 @@ namespace ProyectM2.Levels
         {
             _currentIndex = Random.Range(0, _infinitiveSection.Length);
           
-            Section newBlock = Instantiate(_infinitiveSection[_currentIndex], _sectionsListInGame[^1].transform.Find("CreateSectionPivot").position, Quaternion.identity);
+            var newBlock = Instantiate(_infinitiveSection[_currentIndex], _sectionsListInGame[^1].transform.Find("CreateSectionPivot").position, Quaternion.identity);
 
 
             if (!_sectionsListInGame.Contains(_infinitiveSection[_currentIndex]))
