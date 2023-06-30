@@ -4,6 +4,7 @@ using ProyectM2.Inventory;
 using ProyectM2.Persistence;
 using ProyectM2.Scenes;
 using ProyectM2.SO;
+using ProyectM2.Stamina;
 using ProyectM2.UI;
 using UnityEngine;
 

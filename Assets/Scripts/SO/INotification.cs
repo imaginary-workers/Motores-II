@@ -1,4 +1,4 @@
-﻿namespace ProyectM2
+﻿namespace ProyectM2.SO
 {
     public interface INotification
     {

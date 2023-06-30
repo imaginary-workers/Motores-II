@@ -7,13 +7,13 @@ namespace ProyectM2.Sound
 {
     public class SoundUI : MonoBehaviour, IActivatable
     {
-        [SerializeField] AudioClip _currency;
-        [SerializeField] AudioClip _gas;
-        [SerializeField] AudioSource _source;
-        [SerializeField] AudioClip _gameOver;
-        [SerializeField] AudioClip _gameOverBonusLevel;
-        [SerializeField] AudioClip _win;
-        [SerializeField] AudioClip _teleport;
+        [SerializeField] private AudioClip _currency;
+        [SerializeField] private AudioClip _gas;
+        [SerializeField] private AudioSource _source;
+        [SerializeField] private AudioClip _gameOver;
+        [SerializeField] private AudioClip _gameOverBonusLevel;
+        [SerializeField] private AudioClip _win;
+        [SerializeField] private AudioClip _teleport;
 
         [SerializeField] private DataIntObservable _levelCurrency;
         private bool _isActive = false;

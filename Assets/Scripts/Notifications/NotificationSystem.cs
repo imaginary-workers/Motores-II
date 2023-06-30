@@ -1,15 +1,11 @@
 using Unity.Notifications.Android;
 using System;
+using ProyectM2.SO;
 
 namespace ProyectM2.Notifications
 {
     public class NotificationSystem : Singleton<NotificationSystem>
     {
-
-        private void Awake()
-        {
-            base.Awake();
-        }
         private void Start()
         {
             AndroidNotificationCenter.CancelAllNotifications();

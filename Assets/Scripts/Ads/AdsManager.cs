@@ -1,4 +1,5 @@
-﻿using Unity.Services.RemoteConfig;
+﻿using ProyectM2.Stamina;
+using Unity.Services.RemoteConfig;
 using UnityEngine;
 using UnityEngine.Advertisements;
 

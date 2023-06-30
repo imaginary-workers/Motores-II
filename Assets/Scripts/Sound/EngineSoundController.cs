@@ -6,7 +6,7 @@ namespace ProyectM2.Sound
 {
     public class EngineSoundController : MonoBehaviour, IActivatable
     {
-        [SerializeField] AudioClip _driving;
+        [SerializeField] private AudioClip _driving;
         [SerializeField] protected AudioSource _source;
         [SerializeField] private MoveController _moveController;
         [SerializeField, Tooltip("Si empieza activo -> true, sino -> false")] private bool _isActive = false;
