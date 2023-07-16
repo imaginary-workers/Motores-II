@@ -3,11 +3,11 @@ using ProyectM2.Ads;
 using TMPro;
 using UnityEngine;
 
-namespace ProyectM2
+namespace ProyectM2.Stamina
 {
     public class StaminaUI : MonoBehaviour
     {
-        [SerializeField] TextMeshProUGUI staminaText = null;
+        [SerializeField] private TextMeshProUGUI staminaText = null;
         [SerializeField] private TextMeshProUGUI staminaTimeText = null;
 
         private int _currentStamina;

@@ -1,4 +1,5 @@
 ﻿using ProyectM2.Inventory;
+using ProyectM2.Store;
 using ProyectM2.UI.Inventory;
 
 namespace ProyectM2.Personalization

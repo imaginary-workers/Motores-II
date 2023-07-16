@@ -78,7 +78,6 @@ namespace ProyectM2.UI.Store
             ActiveButton(Filtro(_item));
         }
         
-        // false si se activa el equip y true si se activa el comprar
         private void ActiveButton(bool activo)
         {
             _equip.gameObject.SetActive(false);

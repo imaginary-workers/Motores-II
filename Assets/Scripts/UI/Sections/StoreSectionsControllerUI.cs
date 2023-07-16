@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using ProyectM2.Personalization;
 using ProyectM2.UI.Store;
 using UnityEngine;
 

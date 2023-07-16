@@ -11,7 +11,6 @@ namespace ProyectM2.UI
 
         private void Start()
         {
-            Debug.Log("GameplayCurrencyUI");
             OnCurrencyModified();
         }
         private void OnEnable()

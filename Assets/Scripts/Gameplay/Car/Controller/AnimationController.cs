@@ -5,16 +5,16 @@ namespace ProyectM2.Car.Controller
 {
     public class AnimationController : MonoBehaviour
     {
-        [SerializeField] Animator _myAnim;
-        [SerializeField] TrackController _trackController;
-        int turnLeftParameterId;
-        int turnRightParameterId;
-        int crashParameterId;
-        int hipParameterId;
-        int jumpParameterId;
-        int leftLight;
-        int rightLight;
-        int damaged;
+        [SerializeField] private Animator _myAnim;
+        [SerializeField] private TrackController _trackController;
+        private int turnLeftParameterId;
+        private int turnRightParameterId;
+        private int crashParameterId;
+        private int hipParameterId;
+        private int jumpParameterId;
+        private int leftLight;
+        private int rightLight;
+        private int damaged;
 
         private void Start()
         {
@@ -70,11 +70,11 @@ namespace ProyectM2.Car.Controller
             _myAnim.SetTrigger(jumpParameterId);
         }
 
-        public void LightLeftAnimation()
+        public void LeftLightAnimation()
         {
             _myAnim.SetTrigger(leftLight);
         }
-        public void LightRightAnimation()
+        public void RightLightAnimation()
         {
             _myAnim.SetTrigger(rightLight);           
         }

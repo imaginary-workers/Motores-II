@@ -1,18 +1,12 @@
-using ProyectM2.Inventory;
-using System.Collections;
-using System.Collections.Generic;
+using ProyectM2.Personalization;
+using ProyectM2.Store;
 using UnityEngine;
 
-namespace ProyectM2
+namespace ProyectM2.Inventory
 {
     public class ItemCarChange : MonoBehaviour
     {
-        [SerializeField] SetMaterialSkins SetMaterialSkins;
-
-        private void Start()
-        {
-
-        }
+        [SerializeField] private SetMaterialSkins SetMaterialSkins;
 
         public void MaterialCarChange(ItemData Itemdata)
         {

@@ -2,7 +2,6 @@ using UnityEngine;
 using System.IO;
 using System;
 using System.Text;
-using System.Collections.Generic;
 using ProyectM2.SO;
 
 namespace ProyectM2.Persistence
@@ -90,14 +89,5 @@ namespace ProyectM2.Persistence
 
             UpdateCurrency();
         }
-#if UNITY_EDITOR
-        [ContextMenu("Borra Todo")]
-        public void DeleteDataTest()
-        {
-            Debug.Log(_path);
-            if (File.Exists(_path))
-                File.Delete(_path);
-        }
-#endif
     }
 }

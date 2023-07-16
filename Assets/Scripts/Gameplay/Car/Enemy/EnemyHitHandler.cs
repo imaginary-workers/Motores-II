@@ -5,7 +5,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
 {
     public class EnemyHitHandler : MonoBehaviour
     {
-        [SerializeField] EnemyDamageable _enemyDamageable;
+        [SerializeField] private  EnemyDamageable _enemyDamageable;
         [SerializeField] private AnimationController _animationController;
 
         private void OnEnable()
@@ -15,7 +15,6 @@ namespace ProyectM2.Gameplay.Car.Enemy
 
         private void Hit()
         {
-            //TODO Cambiar la animacion de dano temporal por una fija
             _animationController.TurnLeftAnimation();
         }
 

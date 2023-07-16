@@ -2,7 +2,7 @@ using ProyectM2.Persistence;
 using System;
 using UnityEngine;
 
-namespace ProyectM2
+namespace ProyectM2.Stamina
 {
     public class StaminaData : MonoBehaviour
     {

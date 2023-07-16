@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
-using ProyectM2.Car;
+using ProyectM2.Gameplay.Car.Player;
+using ProyectM2.Music;
 using ProyectM2.Persistence;
 using ProyectM2.Scenes;
+using ProyectM2.Stamina;
 using ProyectM2.UI.Commands;
 using TMPro;
 using UnityEngine;

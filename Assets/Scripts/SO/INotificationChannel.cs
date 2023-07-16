@@ -1,6 +1,6 @@
 ﻿using Unity.Notifications.Android;
 
-namespace ProyectM2
+namespace ProyectM2.SO
 {
     public interface INotificationChannel
     {

@@ -1,10 +1,11 @@
 using ProyectM2.Inventory;
 using ProyectM2.SO;
-using System.Collections;
 using System.Collections.Generic;
+using ProyectM2.Persistence;
 using UnityEngine;
+using ProyectM2.Store;
 
-namespace ProyectM2
+namespace ProyectM2.Gameplay.PowerUps
 {
     public class PowerUpManager : MonoBehaviour
     {
@@ -22,25 +23,18 @@ namespace ProyectM2
             {
                 var itemData = ItemProvider.Instance.FindSpecificItem(item.itemID);
 
-                Debug.Log(itemData.Name + " " + item.isActive);
                 if (!item.isActive)
                 {
                     if (itemData.Name == _currencyMultiplyPowerUpName)
-                    {
                         _currencyValue.value = 1;
-                    }
                 }
                 else
                 {
                     if (itemData.Name == _shieldPowerUpName)
-                    {
                         _shield.SetActive(true);
-                    }
 
                     if (itemData.Name == _currencyMultiplyPowerUpName)
-                    {
                         _currencyValue.value = 2;
-                    }
                 }
 
             }

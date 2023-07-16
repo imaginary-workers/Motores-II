@@ -5,8 +5,8 @@ namespace ProyectM2.Levels
 {
     public class LevelInfinityHandler : MonoBehaviour
     {
-        [SerializeField] LevelManager _levelManager;
-        [SerializeField] Section _levelSection;
+        [SerializeField] private LevelManager _levelManager;
+        [SerializeField] private Section _levelSection;
 
         private void OnEnable()
         {

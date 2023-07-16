@@ -1,16 +1,11 @@
-using UnityEngine;
 using Unity.Notifications.Android;
 using System;
+using ProyectM2.SO;
 
-namespace ProyectM2
+namespace ProyectM2.Notifications
 {
     public class NotificationSystem : Singleton<NotificationSystem>
     {
-
-        private void Awake()
-        {
-            base.Awake();
-        }
         private void Start()
         {
             AndroidNotificationCenter.CancelAllNotifications();
@@ -39,9 +34,7 @@ namespace ProyectM2
             foreach (var notificationCh in notificationChannels)
             {
                 if (notificationCh.Id == channelId)
-                {
                     return channelId;
-                }
             }
 
             var newChannel = new AndroidNotificationChannel

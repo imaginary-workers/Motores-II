@@ -1,11 +1,9 @@
 using ProyectM2.Inventory;
-using ProyectM2.Persistence;
-using System.Collections;
-using System.Collections.Generic;
+using ProyectM2.Store;
 using TMPro;
 using UnityEngine;
 
-namespace ProyectM2
+namespace ProyectM2.Gameplay.PowerUps
 {
     public class PowerUpsUI : MonoBehaviour
     {

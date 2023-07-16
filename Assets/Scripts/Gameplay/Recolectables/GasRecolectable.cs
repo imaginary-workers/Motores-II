@@ -1,6 +1,4 @@
 using ProyectM2.SO;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProyectM2.Gameplay.Recolectables

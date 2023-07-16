@@ -1,13 +1,12 @@
 using ProyectM2.Gameplay;
 using ProyectM2.Gameplay.Car.Controller;
-using ProyectM2.Gameplay.Car.Enemy;
 using UnityEngine;
 
 namespace ProyectM2.Sound
 {
     public class EngineSoundController : MonoBehaviour, IActivatable
     {
-        [SerializeField] AudioClip _driving;
+        [SerializeField] private AudioClip _driving;
         [SerializeField] protected AudioSource _source;
         [SerializeField] private MoveController _moveController;
         [SerializeField, Tooltip("Si empieza activo -> true, sino -> false")] private bool _isActive = false;
@@ -55,14 +54,11 @@ namespace ProyectM2.Sound
 
         public void Activate()
         {
-            Debug.Log("active");
             _isActive = true;
         }
 
         public void Deactivate()
         {
-            Debug.Log("desactivado");
-
             _isActive = false;
             StopSound();
         }

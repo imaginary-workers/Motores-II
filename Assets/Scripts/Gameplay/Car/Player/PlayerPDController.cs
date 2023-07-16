@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Playables;
 
-namespace ProyectM2.Gameplay
+namespace ProyectM2.Gameplay.Car.Player
 {
     public class PlayerPDController : MonoBehaviour
     {
