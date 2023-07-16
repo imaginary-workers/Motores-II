@@ -10,16 +10,17 @@ namespace ProyectM2.Gameplay.Car.Track
             Track = Vector3.zero;
         }
 
-        public override bool MoveRight()
+        public override void MoveRight()
         {
             _controller.SetTrackState(new TrackStateRight(_controller));
-            return true;
         }
 
-        public override bool MoveLeft()
+        public override void MoveLeft()
         {
             _controller.SetTrackState(new TrackStateLeft(_controller));
-            return true;
         }
+
+        public override bool CanMoveRight() => true;
+        public override bool CanMoveLeft() => true;
     }
 }

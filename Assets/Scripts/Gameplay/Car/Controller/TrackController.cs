@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ProyectM2.Gameplay.Car.Controller
 {
-    public class TrackController : MonoBehaviour, IActivatable
+    public class TrackController : MonoBehaviour, IActivatable, ITrackState
     {
         [SerializeField] private DataCar _dataCar;
         protected AbstractTrackState _trackState;
@@ -43,8 +43,9 @@ namespace ProyectM2.Gameplay.Car.Controller
         public void MoveRight()
         {
             if (!_isActive) return;
-            if (_trackState.MoveRight())
+            if (_trackState.CanMoveRight())
             {
+                _trackState.MoveRight();
                 NotifyToObservers("Right");
             }
         }
@@ -52,11 +53,16 @@ namespace ProyectM2.Gameplay.Car.Controller
         public void MoveLeft()
         {
             if (!_isActive) return;
-            if (_trackState.MoveLeft())
+            if (_trackState.CanMoveLeft())
             {
+                _trackState.MoveLeft();
                 NotifyToObservers("Left");
             }
         }
+
+        public bool CanMoveRight() => _trackState.CanMoveRight();
+
+        public bool CanMoveLeft() => _trackState.CanMoveLeft();
 
         public void SetTrackState(AbstractTrackState state)
         {
