@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using ProyectM2.Inventory;
 
-namespace ProyectM2
+namespace ProyectM2.Persistence
 {
     [Serializable]
     public class ValuesToSaveInJson

@@ -1,7 +1,7 @@
 using Unity.Notifications.Android;
 using UnityEngine;
 
-namespace ProyectM2
+namespace ProyectM2.SO
 {
     [CreateAssetMenu(fileName = "NotificationChannelSO", menuName = "SO/NotificationChannel", order = 0)]
     public class DataNotificationChannel : ScriptableObject, INotificationChannel

@@ -8,8 +8,6 @@ public class luz : MonoBehaviour
     public bool titila = false;
     public float timeDelay;
 
-
-    // Update is called once per frame
     void Update()
     {
         if (titila == false)

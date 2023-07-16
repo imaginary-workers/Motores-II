@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ProyectM2
+namespace ProyectM2.Personalization
 {
     public class CarRotation : MonoBehaviour
     {

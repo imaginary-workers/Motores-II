@@ -1,16 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
-using ProyectM2.Music;
 using ProyectM2.Persistence;
 
-namespace ProyectM2
+namespace ProyectM2.Music
 {
     public class VolumeController : MonoBehaviour
     {
-        public static float musicVolume = 0.5f;
-        public static float soundVolume = 0.5f;
         [SerializeField] private Slider musicSlider = null;
         [SerializeField] private Slider soundSlider = null;
+        public static float musicVolume = 0.5f;
+        public static float soundVolume = 0.5f;
         private ValuesToSaveInJson _myJsonData;
 
         private void Awake()
@@ -52,8 +51,8 @@ namespace ProyectM2
 
         public void ResetVolume()
         {
-            float middleMusicVolume = (musicSlider.maxValue + musicSlider.minValue) / 2;
-            float middleSoundVolume = (soundSlider.maxValue + soundSlider.minValue) / 2;
+            var middleMusicVolume = (musicSlider.maxValue + musicSlider.minValue) / 2;
+            var middleSoundVolume = (soundSlider.maxValue + soundSlider.minValue) / 2;
             MusicManager.Instance.SetVolume(middleMusicVolume, middleSoundVolume);
             UpdateSlider(middleMusicVolume, middleSoundVolume);
         }

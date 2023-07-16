@@ -1,8 +1,5 @@
-using ProyectM2.Assets.Scripts;
 using ProyectM2.Car.Controller;
-using ProyectM2.Gameplay.Car.Player;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProyectM2
@@ -10,10 +7,10 @@ namespace ProyectM2
     public class Shield : MonoBehaviour
     {
 
-        [SerializeField] GameObject _shield;
-        [SerializeField] Renderer _myrender;
-        [SerializeField] BoxCollider _player;
-        [SerializeField] AnimationController _ani;
+        [SerializeField] private GameObject _shield;
+        [SerializeField] private Renderer _myrender;
+        [SerializeField] private BoxCollider _player;
+        [SerializeField] private AnimationController _ani;
 
 
 

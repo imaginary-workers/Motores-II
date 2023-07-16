@@ -9,7 +9,6 @@ namespace ProyectM2.Gameplay.Car.Enemy
         [SerializeField] private int _life = 3;
         private event Action _myObserver;
 
-        [ContextMenu("Take Damage")]
         public void TakeDamage()
         {
             _life--;

@@ -1,17 +1,14 @@
 using ProyectM2.Gameplay;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ProyectM2
+namespace ProyectM2.UI
 {
     public class GasUI : MonoBehaviour
     {
-        public float _maxTime;
-        public float _currentTime;
-        public Slider _slider;
+        [SerializeField] private float _maxTime;
+        [SerializeField] private Slider _slider;
+        private float _currentTime;
 
         void Start()
         {

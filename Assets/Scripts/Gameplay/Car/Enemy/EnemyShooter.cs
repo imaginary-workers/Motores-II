@@ -1,5 +1,5 @@
-﻿using System;
-using ProyectM2.Sound;
+﻿using ProyectM2.Sound;
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,16 +12,16 @@ namespace ProyectM2.Gameplay.Car.Enemy
         [SerializeField] private GameObject _damagingBulletPrefab;
         [SerializeField] private GameObject _returnBulletPrefab;
         [SerializeField, Range(0f, 1f)] private float _returnChance;
+        [SerializeField] private float _timeMaxIsMove;
+        [SerializeField] private EnemyEngineSound _soundController;
         private float _shootTime = 0;
         private ObjectPool _bulletPooler;
         private ObjectPool _returnBulletPooler;
         private bool _isFirstBullet = true;
-        float _time;
-        [SerializeField] float _timeMaxIsMove;
-        bool _isShooting = false;
-        GameObject bulletObject;
-        Bullet bullet;
-        [SerializeField] EnemyEngineSound _soundController;
+        private float _time;
+        private bool _isShooting = false;
+        private GameObject bulletObject;
+        private Bullet bullet;
         private bool _isActive = true;
 
         private void Awake()
