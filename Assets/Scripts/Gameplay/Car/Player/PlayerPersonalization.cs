@@ -28,15 +28,25 @@ namespace ProyectM2.Gameplay.Car.Player
                     case ItemType.PowerUp:
                         break;
                     case ItemType.Chassis:
-                        _chasisDefault = ItemProvider.Instance.FindMaterialSpecificItem(item.itemID).IObject;
+                        MaterialItemData itemDataM = ItemProvider.Instance.FindMaterialSpecificItem(item.itemID);
+                        if (itemDataM != null)
+                            _chasisDefault = itemDataM.IObject;
+                        else Debug.LogWarning($"Id NOT FOUND: {item.itemID}");
                         break;
                     case ItemType.Glass:
-                        _glassDefault = ItemProvider.Instance.ColorSpecificItemGlass(item.itemID).IObject;
+                        ColorItemStore itemDataC = ItemProvider.Instance.ColorSpecificItemGlass(item.itemID);
+                        if (itemDataC != null)
+                            _glassDefault = itemDataC.IObject;
+                        else Debug.LogWarning($"Id NOT FOUND: {item.itemID}");
                         break;
                     case ItemType.Wheels:
-                        _wheelsDefault = ItemProvider.Instance.ColorSpecificItemWheels(item.itemID).IObject;
+                        ColorItemStore itemDataCW = ItemProvider.Instance.ColorSpecificItemWheels(item.itemID);
+                        if (itemDataCW != null)
+                            _wheelsDefault = itemDataCW.IObject;
+                        else Debug.LogWarning($"Id NOT FOUND: {item.itemID}");
                         break;
                     default:
+                        Debug.LogWarning($"Id Type DOES'NT EXIST: Type->{item.itemType} | id -> {item.itemID}");
                         break;
                 }
             }
