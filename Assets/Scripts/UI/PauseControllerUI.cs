@@ -13,10 +13,10 @@ namespace ProyectM2.UI
 
         public void SetPauseMenu(bool pause)
         {
-            _pauseButton.SetActive(!pause);
             _pauseMenu.SetActive(pause);
             if (pause)
             {
+                _pauseButton.SetActive(!pause);
                 ScreenManager.Instance.Pause();
                 StopAllCoroutines();
             }
@@ -42,6 +42,7 @@ namespace ProyectM2.UI
             }
             _pauseCounterText.gameObject.SetActive(false);
             ScreenManager.Instance.Resume();
+            _pauseButton.SetActive(true);
         }
     }
 }
