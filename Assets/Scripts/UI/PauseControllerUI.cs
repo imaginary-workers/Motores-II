@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using ProyectM2.Gameplay;
 using TMPro;
@@ -11,12 +12,17 @@ namespace ProyectM2.UI
         [SerializeField] private GameObject _pauseMenu;
         [SerializeField] private TextMeshProUGUI _pauseCounterText;
 
+        private void Awake()
+        {
+            _pauseButton.SetActive(false);
+        }
+
         public void SetPauseMenu(bool pause)
         {
-            _pauseButton.SetActive(!pause);
             _pauseMenu.SetActive(pause);
             if (pause)
             {
+                _pauseButton.SetActive(!pause);
                 ScreenManager.Instance.Pause();
                 StopAllCoroutines();
             }
@@ -40,8 +46,10 @@ namespace ProyectM2.UI
                 _pauseCounterText.text = i.ToString();
                 yield return new WaitForSecondsRealtime(1);
             }
+
             _pauseCounterText.gameObject.SetActive(false);
             ScreenManager.Instance.Resume();
+            _pauseButton.SetActive(true);
         }
     }
 }
