@@ -2,7 +2,9 @@
 {
     public interface ITrackState
     {
-        bool MoveRight();
-        bool MoveLeft();
+        public void MoveRight();
+        public void MoveLeft();
+        public bool CanMoveRight();
+        public bool CanMoveLeft();
     }
 }

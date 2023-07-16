@@ -9,22 +9,27 @@ namespace ProyectM2.Gameplay.Car.Enemy
 {
     public class IABehaviourMovable : MonoBehaviour, IActivatable
     {
-        [Header("Dependencies")]
-        [SerializeField] private TrackController _trackController;
+        [Header("Dependencies")] [SerializeField]
+        private TrackController _trackController;
+
         [SerializeField] private GameObject _right;
         [SerializeField] private GameObject _left;
         [SerializeField] private GameObject _thisCar;
         [SerializeField] private AnimationController _ani;
-        [Header("Optional")]
-        [SerializeField, Tooltip("Solo si se tiene que activar unicamente si esta visible")]
+
+        [Header("Optional")] [SerializeField, Tooltip("Solo si se tiene que activar unicamente si esta visible")]
         private VisibilityController _visibilityController;
-        [SerializeField, Tooltip("Si empieza activo -> true, sino -> false")] private bool _isActive = false;
-        [Header("Config")]
-        [SerializeField] private float raycastDistance = 1f;
+
+        [SerializeField, Tooltip("Si empieza activo -> true, sino -> false")]
+        private bool _isActive = false;
+
+        [Header("Config")] [SerializeField] private float raycastDistance = 1f;
         [SerializeField] private LayerMask layerMask;
         [SerializeField] private int _maxTime;
+
         [FormerlySerializedAs("waitTime")] [SerializeField, Range(0.1f, 5f)]
         private float _maxWaitTime = 2f;
+
         private float _time;
         private bool _hasHitRight = false;
         private bool _hasHitLeft = false;
@@ -37,6 +42,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
         {
             _time = 0;
         }
+
         private void Update()
         {
             if (!_isActive) return;
@@ -50,9 +56,10 @@ namespace ProyectM2.Gameplay.Car.Enemy
                     else
                         _trackController.MoveLeft();
                 }
+
                 return;
             }
-            
+
             _time += Time.deltaTime;
 
             if (_time >= _maxTime)
@@ -61,7 +68,9 @@ namespace ProyectM2.Gameplay.Car.Enemy
                 _move = RandomMove();
 
                 if (_move == 0) return;
-                
+                if (_move == 1 && !_trackController.CanMoveRight()) return;
+                if (_move == -1 && !_trackController.CanMoveLeft()) return;
+
                 _waitingTime = _maxWaitTime;
                 if (_move == 1)
                 {
@@ -92,6 +101,7 @@ namespace ProyectM2.Gameplay.Car.Enemy
             {
                 return 1;
             }
+
             return 0;
         }
 
