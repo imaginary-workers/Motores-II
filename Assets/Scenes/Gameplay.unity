@@ -135,6 +135,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3662019645027942796, guid: 92a5bf5f9c7c8b74cab52984156f114f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1766541348322486490}
+    - target: {fileID: 3662019645027942796, guid: 92a5bf5f9c7c8b74cab52984156f114f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RewardStamina
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662019645027942796, guid: 92a5bf5f9c7c8b74cab52984156f114f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ProyectM2.UI.LoseControllerMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3662019645247546833, guid: 92a5bf5f9c7c8b74cab52984156f114f,
         type: 3}
       propertyPath: m_Pivot.x
@@ -260,6 +275,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3662019645689344262, guid: 92a5bf5f9c7c8b74cab52984156f114f,
+        type: 3}
+      propertyPath: m_Name
+      value: Restart Level
+      objectReference: {fileID: 0}
     - target: {fileID: 8495761653917302736, guid: 92a5bf5f9c7c8b74cab52984156f114f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -337,6 +357,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &68790658 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3662019645689344260, guid: 92a5bf5f9c7c8b74cab52984156f114f,
+    type: 3}
+  m_PrefabInstance: {fileID: 68790653}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68790656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &118152289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,7 +1669,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxTime: 10
-  _currentTime: 0
   _slider: {fileID: 1766541348159515347}
 --- !u!224 &1766541348159515346
 RectTransform:
@@ -1818,13 +1849,14 @@ GameObject:
   - component: {fileID: 1766541348322486489}
   - component: {fileID: 1766541348322486471}
   - component: {fileID: 1766541348322486470}
+  - component: {fileID: 1766541348322486490}
   m_Layer: 5
   m_Name: Lose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1766541348322486489
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1847,6 +1879,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1766541348322486490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766541348322486488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a0a9b74ec24520baffacca84407c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _restartButton: {fileID: 68790658}
 --- !u!114 &1766541348495262854
 MonoBehaviour:
   m_ObjectHideFlags: 0

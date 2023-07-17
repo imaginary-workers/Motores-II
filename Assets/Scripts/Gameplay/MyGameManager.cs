@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using ProyectM2.Ads;
 using ProyectM2.Gameplay.Car.Player;
 using ProyectM2.Inventory;
 using ProyectM2.Persistence;
@@ -32,6 +33,8 @@ namespace ProyectM2.Gameplay
         private void Start()
         {
             _pauseController.StartCountingDownToStart();
+            AdsManager.Instance.LoadRewardedAd();
+            
         }
 
         private void OnEnable()
