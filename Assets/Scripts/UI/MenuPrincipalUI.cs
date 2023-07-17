@@ -29,6 +29,7 @@ namespace ProyectM2.UI
         [SerializeField] private GameObject _itemStoreWindow;
         [SerializeField] private GameObject _header;
         [SerializeField] private GameObject _inventoryPanel;
+        [SerializeField] private GameObject _popUpWindowStore;
         ValuesToSaveInJson _myJsonData;
         private Stack<ICommand> commandStack = new Stack<ICommand>();
 
@@ -115,7 +116,7 @@ namespace ProyectM2.UI
         public void GoToStoreMenu()
         {
             ExecuteCommand(new ChangeInventoryStoreCommand(
-                new[] { _storePanel }, new[] { _menu1 }, _playerPersonalization
+                new[] { _storePanel }, new[] { _menu1 }, _playerPersonalization, _popUpWindowStore
                 ));
         }
 
