@@ -91,12 +91,9 @@ namespace ProyectM2.Stamina
             {
                 if (recharging)
                 {
-                    UpdateTimer();
                     recharging = false;
                     StopAllCoroutines();
                 }
-
-                return;
             }
 
             currentStamina += staminaToAdd;
@@ -104,6 +101,7 @@ namespace ProyectM2.Stamina
             SendNotification();
 
             UpdateUI();
+            UpdateTimer();
             Save();
         }
 
@@ -112,6 +110,7 @@ namespace ProyectM2.Stamina
             if (!HasEnoughStamina(staminaToUse)) return;
 
             currentStamina -= staminaToUse;
+            Debug.Log("Use stamina " + currentStamina);
             UpdateUI();
             
             if (currentStamina < maxStamina)
@@ -120,11 +119,11 @@ namespace ProyectM2.Stamina
                 if (!recharging)
                 {
                     nextStaminaTime = AddDuration(DateTime.Now, timeToCharge);
-                    Save();
                     StartCoroutine(UpdateStamina());
                 }
                 SendNotification();
             }
+            Save();
         }
 
         public bool HasEnoughStamina(int stamina) => currentStamina >= stamina;
