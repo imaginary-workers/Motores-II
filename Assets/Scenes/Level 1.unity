@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2785,6 +2785,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 123037651886384968, guid: 6187de258d38fd1408708191c558846c,
+        type: 3}
+      propertyPath: _gasBulletPrefab
+      value: 
+      objectReference: {fileID: 6631228029987369681, guid: 5849dd088cfd78c46bd7fb0a4bd07799,
+        type: 3}
     - target: {fileID: 2070315632791071238, guid: 6187de258d38fd1408708191c558846c,
         type: 3}
       propertyPath: _currentPathTarget

@@ -110,7 +110,7 @@ namespace ProyectM2.Stamina
             if (!HasEnoughStamina(staminaToUse)) return;
 
             currentStamina -= staminaToUse;
-            Debug.Log("Use stamina " + currentStamina);
+
             UpdateUI();
             
             if (currentStamina < maxStamina)
