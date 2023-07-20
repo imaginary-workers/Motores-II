@@ -17,13 +17,14 @@ namespace ProyectM2.Stamina
         private StaminaData myStaminaData;
 
         [SerializeField] private StaminaUI myStaminaUI;
-        private int currentStamina;
+        public int CurrentStamina { get; private set; }
         private DateTime nextStaminaTime;
         private DateTime lastStaminaTime;
 
         private bool recharging;
 
         private int fullStaminaNotificationId = -1;
+
 
         protected override void Awake()
         {
@@ -37,7 +38,7 @@ namespace ProyectM2.Stamina
             UpdateUI();
             StartCoroutine(UpdateStamina());
 
-            if (currentStamina < maxStamina)
+            if (CurrentStamina < maxStamina)
             {
                 SendNotification();
             }
@@ -47,7 +48,7 @@ namespace ProyectM2.Stamina
         {
             UpdateTimer();
             recharging = true;
-            while (currentStamina < maxStamina)
+            while (CurrentStamina < maxStamina)
             {
                 DateTime currentTime = DateTime.Now;
                 DateTime nextTime = nextStaminaTime;
@@ -56,10 +57,10 @@ namespace ProyectM2.Stamina
                 bool addingStamina = false;
                 while (currentTime > nextTime)
                 {
-                    if (currentStamina >= maxStamina) break;
+                    if (CurrentStamina >= maxStamina) break;
 
 
-                    currentStamina += 1;
+                    CurrentStamina += 1;
                     addingStamina = true;
                     DateTime timeToAdd = nextTime;
 
@@ -86,8 +87,8 @@ namespace ProyectM2.Stamina
         }
 
         public void RechargeStamina(int staminaToAdd)
-        {
-            if (currentStamina >= maxStamina)
+        {           
+            if (CurrentStamina >= maxStamina)
             {
                 if (recharging)
                 {
@@ -96,24 +97,25 @@ namespace ProyectM2.Stamina
                 }
             }
 
-            currentStamina += staminaToAdd;
+            CurrentStamina += staminaToAdd;
 
             SendNotification();
 
             UpdateUI();
             UpdateTimer();
             Save();
+            EventManager.TriggerEvent("UpdateStamina");
         }
 
         public void UseStamina(int staminaToUse)
         {
             if (!HasEnoughStamina(staminaToUse)) return;
 
-            currentStamina -= staminaToUse;
+            CurrentStamina -= staminaToUse;
 
             UpdateUI();
             
-            if (currentStamina < maxStamina)
+            if (CurrentStamina < maxStamina)
             {
 
                 if (!recharging)
@@ -124,13 +126,14 @@ namespace ProyectM2.Stamina
                 SendNotification();
             }
             Save();
+            EventManager.TriggerEvent("UpdateStamina");
         }
 
-        public bool HasEnoughStamina(int stamina) => currentStamina >= stamina;
+        public bool HasEnoughStamina(int stamina) => CurrentStamina >= stamina;
 
         void UpdateUI()
         {
-            myStaminaUI.UpdateStamina(currentStamina, maxStamina);
+            myStaminaUI.UpdateStamina(CurrentStamina, maxStamina);
         }
 
         void UpdateTimer()
@@ -140,13 +143,13 @@ namespace ProyectM2.Stamina
 
         void Save()
         {
-            myStaminaData.SaveStaminaData(currentStamina, nextStaminaTime.ToString(), lastStaminaTime.ToString());
+            myStaminaData.SaveStaminaData(CurrentStamina, nextStaminaTime.ToString(), lastStaminaTime.ToString());
         }
 
         void Load()
         {
             myStaminaData.LoadStaminaData();
-            currentStamina = myStaminaData.CurrentStamina == -1 ? maxStamina : myStaminaData.CurrentStamina;
+            CurrentStamina = myStaminaData.CurrentStamina == -1 ? maxStamina : myStaminaData.CurrentStamina;
             nextStaminaTime = myStaminaData.NextStaminaTime;
             lastStaminaTime = myStaminaData.LastStaminaTime;
         }
@@ -158,7 +161,7 @@ namespace ProyectM2.Stamina
 
             fullStaminaNotificationId = NotificationSystem.Instance.SendNotification(
                 dataNotificationSO,
-                AddDuration(nextStaminaTime, timeToCharge * (maxStamina - currentStamina - 1)),
+                AddDuration(nextStaminaTime, timeToCharge * (maxStamina - CurrentStamina - 1)),
                 dataNotificationChannelSO
                 );
         }
