@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ProyectM2.Stamina
 {
-    public class StaminaData : MonoBehaviour
+    public class StaminaData : Singleton<StaminaData>
     {
         public int CurrentStamina => _currentStamina;
         private int _currentStamina;
