@@ -8,15 +8,12 @@ namespace ProyectM2.Stamina
 {
     public class StaminaSystem : Singleton<StaminaSystem>
     {
+
         [SerializeField] private int maxStamina = 10;
         [SerializeField] private float timeToCharge = 10f;
         [SerializeField] private DataNotification dataNotificationSO; 
         [SerializeField] private DataNotificationChannel dataNotificationChannelSO;
 
-        [Header("Dependencies")] [SerializeField]
-        private StaminaData myStaminaData;
-
-        [SerializeField] private StaminaUI myStaminaUI;
         public int CurrentStamina { get; private set; }
         private DateTime nextStaminaTime;
         private DateTime lastStaminaTime;
@@ -24,13 +21,6 @@ namespace ProyectM2.Stamina
         private bool recharging;
 
         private int fullStaminaNotificationId = -1;
-
-
-        protected override void Awake()
-        {
-            itDestroyOnLoad = true;
-            base.Awake();
-        }
 
         private void Start()
         {
@@ -61,6 +51,7 @@ namespace ProyectM2.Stamina
 
 
                     CurrentStamina += 1;
+                    UpdateUI();
                     addingStamina = true;
                     DateTime timeToAdd = nextTime;
 
@@ -76,7 +67,6 @@ namespace ProyectM2.Stamina
                     lastStaminaTime = DateTime.Now;
                 }
 
-                UpdateUI();
                 UpdateTimer();
                 Save();
 
@@ -104,7 +94,6 @@ namespace ProyectM2.Stamina
             UpdateUI();
             UpdateTimer();
             Save();
-            EventManager.TriggerEvent("UpdateStamina");
         }
 
         public void UseStamina(int staminaToUse)
@@ -126,32 +115,31 @@ namespace ProyectM2.Stamina
                 SendNotification();
             }
             Save();
-            EventManager.TriggerEvent("UpdateStamina");
         }
 
         public bool HasEnoughStamina(int stamina) => CurrentStamina >= stamina;
 
         void UpdateUI()
         {
-            myStaminaUI.UpdateStamina(CurrentStamina, maxStamina);
+            EventManager.TriggerEvent("UpdateStamina", CurrentStamina, maxStamina);
         }
 
         void UpdateTimer()
         {
-            myStaminaUI.UpdateTimer(nextStaminaTime);
+            EventManager.TriggerEvent("ModifyStaminaTimer", nextStaminaTime);
         }
 
         void Save()
         {
-            myStaminaData.SaveStaminaData(CurrentStamina, nextStaminaTime.ToString(), lastStaminaTime.ToString());
+            StaminaData.Instance.SaveStaminaData(CurrentStamina, nextStaminaTime.ToString(), lastStaminaTime.ToString());
         }
 
         void Load()
         {
-            myStaminaData.LoadStaminaData();
-            CurrentStamina = myStaminaData.CurrentStamina == -1 ? maxStamina : myStaminaData.CurrentStamina;
-            nextStaminaTime = myStaminaData.NextStaminaTime;
-            lastStaminaTime = myStaminaData.LastStaminaTime;
+            StaminaData.Instance.LoadStaminaData();
+            CurrentStamina = StaminaData.Instance.CurrentStamina == -1 ? maxStamina : StaminaData.Instance.CurrentStamina;
+            nextStaminaTime = StaminaData.Instance.NextStaminaTime;
+            lastStaminaTime = StaminaData.Instance.LastStaminaTime;
         }
 
         private void SendNotification()
