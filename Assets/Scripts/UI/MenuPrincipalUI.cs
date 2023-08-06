@@ -7,6 +7,7 @@ using ProyectM2.Scenes;
 using ProyectM2.Stamina;
 using ProyectM2.UI.Commands;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 namespace ProyectM2.UI
@@ -30,6 +31,7 @@ namespace ProyectM2.UI
         [SerializeField] private GameObject _header;
         [SerializeField] private GameObject _inventoryPanel;
         [SerializeField] private GameObject _popUpWindowStore;
+        [SerializeField] private GameObject _warningExitGame;
         ValuesToSaveInJson _myJsonData;
         private Stack<ICommand> commandStack = new Stack<ICommand>();
 
@@ -46,6 +48,7 @@ namespace ProyectM2.UI
             _header.SetActive(true);
             _controllerMenu.SetActive(false);
             _inventoryPanel.SetActive(false);
+            _warningExitGame.SetActive(false);
         }
 
         private void OnEnable()
@@ -106,6 +109,12 @@ namespace ProyectM2.UI
             ExecuteCommand(new ChangeMenuCommand(new[] { _gameDataWarningPopUp }, new[] { _gameDataMenu, _header }));
         }
 
+        [ContextMenu("WarningExitGame")]
+        public void GoToWarningExitGame()
+        {
+            ExecuteCommand(new ChangeMenuCommand(new[] { _warningExitGame }, new[] { _menu1 }));
+        }
+
         [ContextMenu("Controllers")]
         public void GoToControllers()
         {
@@ -131,7 +140,19 @@ namespace ProyectM2.UI
         [ContextMenu("GoBack")]
         public void GoBack()
         {
-            UndoLastCommand();
+            if (_menu1.activeSelf)
+                GoToWarningExitGame();
+            else
+                UndoLastCommand();
+        }
+
+        public void QuitGame()
+        {
+#if UNITY_EDITOR
+            EditorApplication.ExitPlaymode();
+#else
+            Application.Quit();
+#endif
         }
 
         public void UpdateCurrencyData()
