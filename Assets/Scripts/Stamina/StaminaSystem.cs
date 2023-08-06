@@ -22,10 +22,28 @@ namespace ProyectM2.Stamina
 
         private int fullStaminaNotificationId = -1;
 
+        private void OnEnable()
+        {
+            EventManager.StartListening("SceneLoadComplete", FirstUpdateUI);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.StopListening("SceneLoadComplete", FirstUpdateUI);
+        }
+
+        private void FirstUpdateUI(object[] obj)
+        {
+            Load();
+            UpdateUI();
+            UpdateTimer();
+        }
+
         private void Start()
         {
             Load();
             UpdateUI();
+            UpdateTimer();
             StartCoroutine(UpdateStamina());
 
             if (CurrentStamina < maxStamina)
