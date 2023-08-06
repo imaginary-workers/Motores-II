@@ -24,15 +24,17 @@ namespace ProyectM2.Stamina
 
         private void OnEnable()
         {
-            EventManager.StartListening("SceneLoadComplete", FirstUpdateUI);
+            EventManager.StartListening("SceneLoadComplete", UpdateUIByEvent);
+            EventManager.StartListening("LoseCanvasActive", UpdateUIByEvent);
         }
 
         private void OnDisable()
         {
-            EventManager.StopListening("SceneLoadComplete", FirstUpdateUI);
+            EventManager.StopListening("SceneLoadComplete", UpdateUIByEvent);
+            EventManager.StopListening("LoseCanvasActive", UpdateUIByEvent);
         }
 
-        private void FirstUpdateUI(object[] obj)
+        private void UpdateUIByEvent(object[] obj)
         {
             Load();
             UpdateUI();
