@@ -182,6 +182,7 @@ namespace ProyectM2.Gameplay
             SessionGameData.ResetData();
             player.SetActive(false);
             _lose.SetActive(true);
+            EventManager.TriggerEvent("LoseCanvasActive");
             ScreenManager.Instance.Pause();
         }
 
