@@ -11,6 +11,7 @@ namespace ProyectM2.Inputs
         public event Action OnFireBack;
         public event Action<int> OnHorizontal;
         private InputStrategy Strategy;
+        private bool _isActive = false;
 
         public StrategyType StrategyType => Strategy.Type; 
 
@@ -31,14 +32,6 @@ namespace ProyectM2.Inputs
             ScreenManager.Instance.Subscribe(this);
         }
 
-        private void Update()
-        {
-            if (CutSceneManager.Instance.IsOnCutScene)
-                Deactivate();
-            else
-                Activate();
-        }
-
         public void SetInputStrategy(InputStrategy strategy)
         {
             if (Strategy != null)
@@ -53,25 +46,30 @@ namespace ProyectM2.Inputs
         public void Activate()
         {
             Strategy?.Activate();
+            _isActive = true;
         }
 
         public void Deactivate()
         {
+            _isActive = false;
             Strategy?.Deactivate();
         }
 
         public void Horizontal(int obj)
         {
+            if (!_isActive) return;
             OnHorizontal?.Invoke(obj);
         }
 
         public void Click(Vector3 obj)
         {
+            if (!_isActive) return;
             OnClick?.Invoke(obj);
         }
 
         public void FireBack()
         {
+            if (!_isActive) return;
             OnFireBack?.Invoke();
         }
     }
