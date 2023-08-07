@@ -69,10 +69,8 @@ namespace ProyectM2.Scenes
                 }
             }
             _loadCanvasUI.SetLoadBarTo(1f);
-            _loadCanvasUI.SetLoadTextTo("Listo");
-            yield return new WaitForSecondsRealtime(1f);
-            _loadCanvasUI.DisplayLoadCanvas(false);
-            EventManager.TriggerEvent("SceneLoadComplete");
+            _loadCanvasUI.VisualButton();
+            _loadCanvasUI.SetLoadTextTo("");
         }
     }
 }
