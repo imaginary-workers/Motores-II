@@ -10,12 +10,12 @@ namespace ProyectM2.Gameplay.Car.Player
 
         private void OnEnable()
         {
-            InputManager.Instance.Strategy.Horizontal += OnHorizontal;
+            InputManager.Instance.OnHorizontal += OnHorizontal;
         }
 
         private void OnDisable()
         {
-            InputManager.Instance.Strategy.Horizontal -= OnHorizontal;
+            InputManager.Instance.OnHorizontal -= OnHorizontal;
         }
         
         private void OnHorizontal(int hor)
