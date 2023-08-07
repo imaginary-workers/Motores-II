@@ -20,6 +20,7 @@ namespace ProyectM2.Stamina
 
         private void OnEnable()
         {
+            Debug.Log($"On Enable desde StaminaUI. Mi GO es {gameObject.name}");
             EventManager.StartListening("UpdateStamina", UpdateStamina);
             EventManager.StartListening("ModifyStaminaTimer", UpdateTimer);
         }

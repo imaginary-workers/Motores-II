@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using ProyectM2.Ads;
 using ProyectM2.Gameplay.Car.Player;
 using ProyectM2.Inventory;
@@ -11,9 +12,9 @@ using UnityEngine;
 
 namespace ProyectM2.Gameplay
 {
-    public class MyGameManager: MonoBehaviour
+    public class MyGameManager : MonoBehaviour
     {
-        
+
         [SerializeField] private GameObject _lose;
         [SerializeField] private GameObject _won;
         [SerializeField] private PauseControllerUI _pauseController;
@@ -26,15 +27,16 @@ namespace ProyectM2.Gameplay
 
         private void Awake()
         {
+
+            EventManager.StartListening("SceneLoadComplete", SceneLoadComplete);
             player = FindObjectOfType<PlayerInputHorizontalMovement>().gameObject;
             ScreenManager.Instance.Pause();
         }
 
+
         private void Start()
         {
-            _pauseController.StartCountingDownToStart();
             AdsManager.Instance.LoadRewardedAd();
-            
         }
 
         private void OnEnable()
@@ -86,7 +88,12 @@ namespace ProyectM2.Gameplay
             }
 
         }
-        
+        private void SceneLoadComplete(object[] obj)
+        {
+            _pauseController.StartCountingDownToStart();
+            EventManager.StopListening("SceneLoadComplete", SceneLoadComplete);
+        }
+
         private void OnDisable()
         {
             EventManager.StopListening("EndGameOver", GameOver);
@@ -106,7 +113,7 @@ namespace ProyectM2.Gameplay
 
             EventManager.TriggerEvent("GasModified", levelGas);
         }
-        
+
         public static void SubstractGas(float value)
         {
             levelGas -= value;
@@ -130,7 +137,7 @@ namespace ProyectM2.Gameplay
         {
             SessionGameData.SaveData("CurrenciesOfBonusLevel", _levelCurrency.value);
         }
-        
+
         public void Retry()
         {
             _levelCurrency.value = 0;
@@ -156,7 +163,7 @@ namespace ProyectM2.Gameplay
         {
             _levelCurrency.value -= 1;
         }
-        
+
         public void Won()
         {
             _iWin = true;
@@ -182,6 +189,7 @@ namespace ProyectM2.Gameplay
             SessionGameData.ResetData();
             player.SetActive(false);
             _lose.SetActive(true);
+            EventManager.TriggerEvent("LoseCanvasActive");
             ScreenManager.Instance.Pause();
         }
 
@@ -191,7 +199,7 @@ namespace ProyectM2.Gameplay
             CutSceneManager.Instance.EndCutScene("EnemyDied");
             Won();
         }
-        
+
 
         private void OnEnemyDiedCutSceneStarted()
         {

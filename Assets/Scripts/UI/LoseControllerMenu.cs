@@ -10,7 +10,6 @@ namespace ProyectM2.UI
     public class LoseControllerMenu : MonoBehaviour
     {
         [SerializeField] private Button _restartButton;
-        [SerializeField] private TextMeshProUGUI staminaText = null;
         private void Awake()
         {
             _restartButton.interactable = StaminaSystem.Instance.HasEnoughStamina(1);
@@ -22,18 +21,17 @@ namespace ProyectM2.UI
         }
         private void OnEnable()
         {
-            EventManager.StartListening("UpdateStamina", UpdateStaminaUI);
+            EventManager.StartListening("LoseCanvasActive", UpdateStaminaUI);
         }
 
         private void UpdateStaminaUI(object[] obj)
         {
-            staminaText.text = StaminaSystem.Instance.CurrentStamina.ToString();
             _restartButton.interactable = StaminaSystem.Instance.HasEnoughStamina(1);
         }
 
         private void OnDisable()
         {
-            EventManager.StopListening("UpdateStamina", UpdateStaminaUI);
+            EventManager.StopListening("LoseCanvasActive", UpdateStaminaUI);
         }
     }
 }

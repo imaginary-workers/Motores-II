@@ -22,10 +22,30 @@ namespace ProyectM2.Stamina
 
         private int fullStaminaNotificationId = -1;
 
+        private void OnEnable()
+        {
+            EventManager.StartListening("SceneLoadComplete", UpdateUIByEvent);
+            EventManager.StartListening("LoseCanvasActive", UpdateUIByEvent);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.StopListening("SceneLoadComplete", UpdateUIByEvent);
+            EventManager.StopListening("LoseCanvasActive", UpdateUIByEvent);
+        }
+
+        private void UpdateUIByEvent(object[] obj)
+        {
+            Load();
+            UpdateUI();
+            UpdateTimer();
+        }
+
         private void Start()
         {
             Load();
             UpdateUI();
+            UpdateTimer();
             StartCoroutine(UpdateStamina());
 
             if (CurrentStamina < maxStamina)
