@@ -4,12 +4,13 @@ namespace ProyectM2.Inputs
 {
     public class InputStrategyFactory: Singleton<InputStrategyFactory>
     {
-        [SerializeField] private GameObject _screenButtonsPrefab;
+        [SerializeField] private GameObject _screenButtons;
 
         protected override void Awake()
         {
             itDestroyOnLoad = true;
             base.Awake();
+            _screenButtons.SetActive(false);
         }
 
         public InputStrategy CreateInputStrategy(InputType type)
@@ -20,13 +21,16 @@ namespace ProyectM2.Inputs
                 case InputType.KeywordMouse:
                     strategyGO = new GameObject(type.ToString());
                     strategyGO.AddComponent<KeyboardMouseStrategy>();
+                    strategyGO.transform.SetParent(transform);
                     break;
                 case InputType.ScreenButton:
-                    strategyGO = Instantiate(_screenButtonsPrefab, Vector3.zero, Quaternion.identity);
+                    strategyGO = _screenButtons;
+                    strategyGO.SetActive(true);
                     break;
                 default:
                     strategyGO = new GameObject(type.ToString());
                     strategyGO.AddComponent<TactilStrategy>();
+                    strategyGO.transform.SetParent(transform);
                     break;
             }
 

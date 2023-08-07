@@ -11,33 +11,37 @@ namespace ProyectM2.Inputs
         [SerializeField] private Button _rightButton;
         [SerializeField] private Button _fireBackButton;
 
-        private void Awake()
+        public void Right()
         {
-            _leftButton.onClick.AddListener(Left);
-            _rightButton.onClick.AddListener(Right);
-            _fireBackButton.onClick.AddListener(FireBack);
-        }
-
-        private void OnDisable()
-        {
-            _leftButton.onClick.RemoveAllListeners();
-            _rightButton.onClick.RemoveAllListeners();
-            _fireBackButton.onClick.RemoveAllListeners();
-        }
-
-        private void Right()
-        {
+            Debug.Log(_inputManager);
             _inputManager.Horizontal(1);
         }
 
-        private void Left()
+        public void Left()
         {
+            Debug.Log(_inputManager);
             _inputManager.Horizontal(-1);
         }
 
-        private void FireBack()
+        public void FireBack()
         {
             _inputManager.FireBack();
+        }
+
+        public override void Activate()
+        {
+            Debug.Log("Activate");
+            _leftButton.gameObject.SetActive(true);
+            _rightButton.gameObject.SetActive(true);
+            _fireBackButton.gameObject.SetActive(true);
+        }
+
+        public override void Deactivate()
+        {
+            Debug.Log("Deactivate");
+            _leftButton.gameObject.SetActive(false);
+            _rightButton.gameObject.SetActive(false);
+            _fireBackButton.gameObject.SetActive(false);
         }
     }
 }
