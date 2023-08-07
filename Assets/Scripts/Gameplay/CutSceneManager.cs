@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ProyectM2.Inputs;
 
 namespace ProyectM2.Gameplay
 {
@@ -36,11 +37,13 @@ namespace ProyectM2.Gameplay
         public void StartCutScene(string cutSceneName)
         {
             IsOnCutScene = true;
+            InputManager.Instance.Deactivate();
             NotifyObservers(cutSceneName, CutSceneState.Started);
         }
 
         public void EndCutScene(string cutSceneName)
         {
+            InputManager.Instance.Activate();
             IsOnCutScene = false;
             NotifyObservers(cutSceneName, CutSceneState.Ended);
         }

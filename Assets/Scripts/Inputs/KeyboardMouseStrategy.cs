@@ -1,30 +1,27 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ProyectM2.Inputs
 {
-    public class KeyboardMouseStrategy : IInputStrategy
+    public class KeyboardMouseStrategy : InputStrategy
     {
-        public event Action<int> Horizontal;
-        public event Action<Vector3> Click;
-
-        public void OnUpdate()
+        public override StrategyType Type => StrategyType.Both;
+        public void Update()
         {
-
+            if (!_isActive) return;
             if (Input.GetKeyDown(KeyCode.A))
             {
-                Horizontal?.Invoke(-1);
+                _inputManager.Horizontal(-1);
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
-                Horizontal?.Invoke(1);
+                _inputManager.Horizontal(1);
             }
 
             if (Input.GetMouseButtonDown(0))
             {
-                Click?.Invoke(Input.mousePosition);
+                _inputManager.Click(Input.mousePosition);
             }
-
         }
+
     }
 }

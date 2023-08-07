@@ -7,7 +7,7 @@ namespace ProyectM2.Gameplay
     {
         private void Awake()
         {
-            InputManager.Instance.SetInputStrategy(new TactilStrategy());
+            // InputManager.Instance.SetInputStrategy(new TactilStrategy());
             // if (Application.platform == RuntimePlatform.Android)
             // {
             // }

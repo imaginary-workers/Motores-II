@@ -21,12 +21,19 @@ namespace ProyectM2.Gameplay.Car.Player
 
         private void OnEnable()
         {
-            InputManager.Instance.Strategy.Click += FireBackChecker;
+            if (InputManager.Instance.StrategyType == StrategyType.Button)
+            {
+                InputManager.Instance.OnFireBack += FireBackButtonChecker;
+            }
+            else
+            {
+                InputManager.Instance.OnClick += FireBackClickChecker;
+            }
         }
 
         private void OnDisable()
         {
-            InputManager.Instance.Strategy.Click -= FireBackChecker;
+            InputManager.Instance.OnClick -= FireBackClickChecker;
         }
 
         protected virtual void OnTriggerEnter(Collider other)
@@ -37,6 +44,7 @@ namespace ProyectM2.Gameplay.Car.Player
             _timeToFiresBack = Time.realtimeSinceStartup;
             Time.timeScale = .1f;
         }
+
         protected virtual void OnTriggerExit(Collider other)
         {
             if (returnableBullet != null)
@@ -45,11 +53,10 @@ namespace ProyectM2.Gameplay.Car.Player
                 returnableBullet = null;
             }
         }
-        public void FireBackChecker(Vector3 position)
+
+        public void FireBackClickChecker(Vector3 position)
         {
-            if (returnableBullet == null) return;
-            if (enemyTarget == null) return;
-            if (Time.realtimeSinceStartup - _timeToFiresBack >= _maxTimeToFiresBack) return;
+            if (!CanFiresBack()) return;
             _ray = _camera.ScreenPointToRay(position);
             RaycastHit hit;
             if (Physics.Raycast(_ray, out hit, Single.PositiveInfinity, _playerLayer))
@@ -60,6 +67,21 @@ namespace ProyectM2.Gameplay.Car.Player
                     FirebackAction();
                 }
             }
+        }
+
+        private void FireBackButtonChecker()
+        {
+            if (!CanFiresBack()) return;
+            FirebackAction();
+        }
+
+        private bool CanFiresBack()
+        {
+            if (returnableBullet == null) return false;
+            if (enemyTarget == null) return false;
+            if (Time.realtimeSinceStartup - _timeToFiresBack >= _maxTimeToFiresBack) return false;
+
+            return true;
         }
 
         protected virtual void FirebackAction()
