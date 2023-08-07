@@ -1624,6 +1624,41 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5198066021877733456, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -21.399994
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198066021877733456, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.099998474
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668809469512005616, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_text
+      value: Continuar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668809469512005616, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 52.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668809469512005616, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_margin.y
+      value: 41.418488
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668809469512005616, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 49.961548
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668809469512005616, guid: 5cbe3497c5efdb04dadf660dd8d45367,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cbe3497c5efdb04dadf660dd8d45367, type: 3}
 --- !u!114 &1768963204 stripped
@@ -1812,7 +1847,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 18
   m_fontSizeBase: 111.3
   m_fontWeight: 400
   m_enableAutoSizing: 1
