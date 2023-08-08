@@ -23576,7 +23576,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1432019717}
-  - component: {fileID: 1432019718}
   m_Layer: 0
   m_Name: Cars
   m_TagString: Untagged
@@ -23607,36 +23606,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1432019718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432019716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9c9051931475014b9ffff0724bb9f6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  despues:
-  - {fileID: 1357650859}
-  - {fileID: 424847976}
-  - {fileID: 1593313357}
-  - {fileID: 1424477915}
-  - {fileID: 996033843}
-  - {fileID: 88626337}
-  - {fileID: 1419497924}
-  - {fileID: 1338249818}
-  antes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1001 &1438828470
 PrefabInstance:
   m_ObjectHideFlags: 0
