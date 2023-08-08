@@ -94,7 +94,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 87.5
+  m_fontSize: 97.65
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -153,7 +153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &989044211068557080
 RectTransform:
   m_ObjectHideFlags: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "VER \nPUBLICIDAD"
+  m_text: +1 energia
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: af7be72cd2a8d73419182a1f41f5bb3e, type: 2}
   m_sharedMaterial: {fileID: 3514159900618259324, guid: af7be72cd2a8d73419182a1f41f5bb3e,
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 78.65
+  m_fontSize: 80
   m_fontSizeBase: 29
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 71.49219, y: 0, z: 79.41406, w: 29.84375}
+  m_margin: {x: 71.49219, y: 0, z: 79.41406, w: 34.79104}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: 3662019645027942786}
   - component: {fileID: 3662019645027942787}
   - component: {fileID: 3662019645027942796}
+  - component: {fileID: 1982827561267760819}
   m_Layer: 5
   m_Name: AD
   m_TagString: Untagged
@@ -381,7 +382,7 @@ RectTransform:
   m_Children:
   - {fileID: 3662019645026488621}
   m_Father: {fileID: 3662019645247546833}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.052500002, y: 0.572}
   m_AnchorMax: {x: 0.96250004, y: 0.77000004}
@@ -469,19 +470,36 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3662019645027942787}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3662019645247546838}
-        m_TargetAssemblyTypeName: ProyectM2.UI.Store.StoreFloatingWindowUI, Assembly-CSharp
-        m_MethodName: PurchaseItemUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &1982827561267760819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3662019645027942798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: ProyectM2.UI.LoseControllerMenu, Assembly-CSharp
+          m_MethodName: RewardStamina
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3662019645247546834
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,15 +526,15 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3662019645247546834}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 989044210666482924}
+  - {fileID: 7927734799321426888}
   - {fileID: 3662019645027942797}
   - {fileID: 3662019645689344261}
-  - {fileID: 7927734799321426888}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -616,7 +634,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -32}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3662019645251378410
@@ -647,9 +665,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Usos
-
-'
+  m_text: Reiniciar Nivel
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: af7be72cd2a8d73419182a1f41f5bb3e, type: 2}
   m_sharedMaterial: {fileID: 3514159900618259324, guid: af7be72cd2a8d73419182a1f41f5bb3e,
@@ -731,8 +747,9 @@ GameObject:
   - component: {fileID: 3662019645689344378}
   - component: {fileID: 3662019645689344379}
   - component: {fileID: 3662019645689344260}
+  - component: {fileID: 68790657}
   m_Layer: 5
-  m_Name: UseItem
+  m_Name: Restart Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -753,7 +770,7 @@ RectTransform:
   - {fileID: 989044211068557080}
   - {fileID: 3662019645251378420}
   m_Father: {fileID: 3662019645247546833}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.052500002, y: 0.3}
   m_AnchorMax: {x: 0.94500005, y: 0.5}
@@ -841,19 +858,36 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3662019645689344379}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3662019645247546834}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &68790657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3662019645689344262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: ProyectM2.Gameplay.MyGameManager, Assembly-CSharp
+          m_MethodName: Retry
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6387481502133139507
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,6 +900,7 @@ GameObject:
   - component: {fileID: 8426699378785243005}
   - component: {fileID: 8427521907156117499}
   - component: {fileID: 8495761653917302736}
+  - component: {fileID: 68790655}
   m_Layer: 5
   m_Name: MenuPrincipal
   m_TagString: Untagged
@@ -887,7 +922,7 @@ RectTransform:
   m_Children:
   - {fileID: 4657705055259592554}
   m_Father: {fileID: 3662019645247546833}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.052500002, y: 0.029000001}
   m_AnchorMax: {x: 0.96250004, y: 0.22900002}
@@ -975,19 +1010,36 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8427521907156117499}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3662019645247546838}
-        m_TargetAssemblyTypeName: ProyectM2.UI.Store.StoreFloatingWindowUI, Assembly-CSharp
-        m_MethodName: PurchaseItemUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &68790655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387481502133139507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: ProyectM2.Gameplay.MyGameManager, Assembly-CSharp
+          m_MethodName: QuitGame
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7390683172320066342
 GameObject:
   m_ObjectHideFlags: 0
