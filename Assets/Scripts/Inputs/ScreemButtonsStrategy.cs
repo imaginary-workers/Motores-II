@@ -31,17 +31,17 @@ namespace ProyectM2.Inputs
         public override void Activate()
         {
             Debug.Log("Activate");
-            _leftButton.gameObject.SetActive(true);
-            _rightButton.gameObject.SetActive(true);
-            _fireBackButton.gameObject.SetActive(true);
+            _leftButton?.gameObject.SetActive(true);
+            _rightButton?.gameObject.SetActive(true);
+            _fireBackButton?.gameObject.SetActive(true);
         }
 
         public override void Deactivate()
         {
             Debug.Log("Deactivate");
-            _leftButton.gameObject.SetActive(false);
-            _rightButton.gameObject.SetActive(false);
-            _fireBackButton.gameObject.SetActive(false);
+            _leftButton?.gameObject.SetActive(false);
+            _rightButton?.gameObject.SetActive(false);
+            _fireBackButton?.gameObject.SetActive(false);
         }
     }
 }
