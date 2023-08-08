@@ -30,7 +30,7 @@ namespace ProyectM2.Inputs
 
         private void OnDisable()
         {
-            ScreenManager.Instance.Subscribe(this);
+            ScreenManager.Instance.Unsubscribe(this);
         }
 
         public void SetInputStrategy(InputStrategy strategy)
