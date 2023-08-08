@@ -33,6 +33,8 @@ namespace ProyectM2.UI
         [SerializeField] private GameObject _inventoryPanel;
         [SerializeField] private GameObject _popUpWindowStore;
         [SerializeField] private GameObject _warningExitGame;
+        [SerializeField] private GameObject _buttonsTutorial;
+        [SerializeField] private GameObject _swipeTutorial;
         [SerializeField] private Toggle _inputToggle;
         [SerializeField] private RectTransform _inputToggleHandle;
 
@@ -85,7 +87,8 @@ namespace ProyectM2.UI
             var swipeHandlePosition = _inputToggleHandle.anchoredPosition;
             _inputToggleHandle.anchoredPosition = swipeHandlePosition*-1;
             _toggleOn = _inputToggle.isOn;
-            Debug.Log($"On Toggle Switch {_inputToggle.isOn}");
+            _buttonsTutorial.SetActive(!_toggleOn);
+            _swipeTutorial.SetActive(_toggleOn);
             EventManager.TriggerEvent("ChangeInputs", _toggleOn);
         }
         public void Play(int level)
@@ -179,6 +182,8 @@ namespace ProyectM2.UI
             else
                 _toggleOn = false;
 
+            _buttonsTutorial.SetActive(!_toggleOn);
+            _swipeTutorial.SetActive(_toggleOn);
             _inputToggle.isOn = _toggleOn;
         }
 
