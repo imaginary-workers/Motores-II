@@ -9,6 +9,7 @@ using ProyectM2.UI.Commands;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ProyectM2.UI
 {
@@ -18,6 +19,7 @@ namespace ProyectM2.UI
         [SerializeField] private TextMeshProUGUI _currencyText;
         [SerializeField] private TextMeshProUGUI _timePlayedText;
         [SerializeField] private PlayerPersonalization _playerPersonalization;
+        [SerializeField] private VolumeController _volumeController;
         [Header("Menus")] 
         [SerializeField] private GameObject _currency;
         [SerializeField] private GameObject _menu1;
@@ -25,13 +27,16 @@ namespace ProyectM2.UI
         [SerializeField] private GameObject _gameDataMenu;
         [SerializeField] private GameObject _gameDataWarningPopUp;
         [SerializeField] private GameObject _controllerMenu;
-        [SerializeField] private VolumeController _volumeController;
         [SerializeField] private GameObject _storePanel;
         [SerializeField] private GameObject _itemStoreWindow;
         [SerializeField] private GameObject _header;
         [SerializeField] private GameObject _inventoryPanel;
         [SerializeField] private GameObject _popUpWindowStore;
         [SerializeField] private GameObject _warningExitGame;
+        [SerializeField] private Toggle _inputToggle;
+        [SerializeField] private RectTransform _inputToggleHandle;
+
+        private bool _toggleOn;
         ValuesToSaveInJson _myJsonData;
         private Stack<ICommand> commandStack = new Stack<ICommand>();
 
@@ -48,13 +53,14 @@ namespace ProyectM2.UI
             _header.SetActive(true);
             _controllerMenu.SetActive(false);
             _inventoryPanel.SetActive(false);
-            _warningExitGame.SetActive(false);
+            _warningExitGame.SetActive(false);           
         }
 
         private void OnEnable()
         {
             EventManager.StartListening("CurrencyModified", GetCurrencyData);
         }
+
 
         private void OnDisable()
         {
@@ -64,6 +70,7 @@ namespace ProyectM2.UI
         private void Start()
         {
             UpdateCurrencyData();
+            UpdateInputUI();
         }
 
         private void Update()
@@ -73,6 +80,14 @@ namespace ProyectM2.UI
             _timePlayedText.text = timeSpan.ToString(@"hh\:mm\:ss");
         }
 
+        public void OnToggleSwitch()
+        {
+            var swipeHandlePosition = _inputToggleHandle.anchoredPosition;
+            _inputToggleHandle.anchoredPosition = swipeHandlePosition*-1;
+            _toggleOn = _inputToggle.isOn;
+            Debug.Log($"On Toggle Switch {_inputToggle.isOn}");
+            EventManager.TriggerEvent("ChangeInputs", _toggleOn);
+        }
         public void Play(int level)
         {
             if (StaminaSystem.Instance.HasEnoughStamina(1))
@@ -153,6 +168,18 @@ namespace ProyectM2.UI
 #else
             Application.Quit();
 #endif
+        }
+
+        private void UpdateInputUI()
+        {
+            _myJsonData = DataPersistance.Instance.LoadGame();
+            Debug.Log($"Update Input UI load json {_myJsonData.input}");
+            if (_myJsonData.input == Inputs.InputType.Tactil)
+                _toggleOn = true;
+            else
+                _toggleOn = false;
+
+            _inputToggle.isOn = _toggleOn;
         }
 
         public void UpdateCurrencyData()

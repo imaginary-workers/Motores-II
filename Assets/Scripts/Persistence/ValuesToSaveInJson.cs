@@ -19,7 +19,7 @@ namespace ProyectM2.Persistence
         public string nextStaminaTime;
         public string lastStaminaTime;
         public List<Item> itemsInInventory;
-        public InputType input;
+        public InputType input = InputType.Tactil;
 
         public int FindItemIndex(string itemID)
         {
