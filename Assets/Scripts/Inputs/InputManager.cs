@@ -20,6 +20,7 @@ namespace ProyectM2.Inputs
             itDestroyOnLoad = true;
             base.Awake();
             SetInputStrategy(InputStrategyFactory.Instance.CreateInputStrategy(controlType));
+            Debug.Log("Awake InputManager");
         }
 
         private void OnEnable()

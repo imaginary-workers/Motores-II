@@ -894,6 +894,8 @@ MonoBehaviour:
     type: 3}
   _returnBulletPrefab: {fileID: 7849189213581055486, guid: 839e9b49332ef0046807a421e1428bb5,
     type: 3}
+  _gasBulletPrefab: {fileID: 6631228029987369681, guid: 5849dd088cfd78c46bd7fb0a4bd07799,
+    type: 3}
   _returnChance: 0.529
   _timeMaxIsMove: 1
   _soundController: {fileID: 210835528271351855}

@@ -17,6 +17,8 @@ namespace ProyectM2.Gameplay
 
         [SerializeField] private GameObject _lose;
         [SerializeField] private GameObject _won;
+        [SerializeField] private GameObject _nafta;
+        [SerializeField] private GameObject _currency;
         [SerializeField] private PauseControllerUI _pauseController;
         [SerializeField] private DataIntObservable _levelCurrency;
         public static float levelGas = 100;
@@ -189,6 +191,8 @@ namespace ProyectM2.Gameplay
             SessionGameData.ResetData();
             player.SetActive(false);
             _lose.SetActive(true);
+            _nafta.SetActive(false);
+            _currency.SetActive(false);
             EventManager.TriggerEvent("LoseCanvasActive");
             ScreenManager.Instance.Pause();
         }
