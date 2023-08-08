@@ -114,6 +114,7 @@ namespace ProyectM2.Stamina
             UpdateUI();
             UpdateTimer();
             Save();
+            EventManager.TriggerEvent("RechargeStamina");
         }
 
         public void UseStamina(int staminaToUse)

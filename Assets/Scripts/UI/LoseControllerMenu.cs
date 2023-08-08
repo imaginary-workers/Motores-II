@@ -10,10 +10,6 @@ namespace ProyectM2.UI
     public class LoseControllerMenu : MonoBehaviour
     {
         [SerializeField] private Button _restartButton;
-        private void Awake()
-        {
-            _restartButton.interactable = StaminaSystem.Instance.HasEnoughStamina(1);
-        }
 
         public void RewardStamina()
         {
