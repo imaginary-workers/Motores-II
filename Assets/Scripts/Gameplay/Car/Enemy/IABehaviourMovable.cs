@@ -14,7 +14,6 @@ namespace ProyectM2.Gameplay.Car.Enemy
 
         [SerializeField] private GameObject _right;
         [SerializeField] private GameObject _left;
-        [SerializeField] private GameObject _thisCar;
         [SerializeField] private AnimationController _ani;
 
         [Header("Optional")] [SerializeField, Tooltip("Solo si se tiene que activar unicamente si esta visible")]
@@ -85,8 +84,8 @@ namespace ProyectM2.Gameplay.Car.Enemy
 
         private int RandomMove()
         {
-            _hasHitRight = Utility.CheckNierObjects(_right.transform, raycastDistance, layerMask, _thisCar);
-            _hasHitLeft = Utility.CheckNierObjects(_left.transform, raycastDistance, layerMask, _thisCar);
+            _hasHitRight = Utility.CheckNierObjects(_right.transform, raycastDistance, layerMask, gameObject);
+            _hasHitLeft = Utility.CheckNierObjects(_left.transform, raycastDistance, layerMask, gameObject);
             if (!_hasHitRight && !_hasHitLeft)
             {
                 int change = Random.Range(0, 2);

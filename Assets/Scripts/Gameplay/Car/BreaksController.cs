@@ -10,7 +10,6 @@ namespace ProyectM2.Gameplay.Car
         [SerializeField] private Transform _forward;
         [SerializeField] private float arriveDistance = 1f;
         [SerializeField] private LayerMask layerMask;
-        [SerializeField] private GameObject _thisCar;
         [SerializeField] private MoveController _moveController;
         public UnityEvent OnStartBreaking;
         private ArriveBehaviour _arriveBehaviour;
@@ -25,7 +24,7 @@ namespace ProyectM2.Gameplay.Car
         {
             if (!IsBreaking)
             {
-                IsBreaking = Utility.CheckNierObjects(_forward, arriveDistance, layerMask, _thisCar);
+                IsBreaking = Utility.CheckNierObjects(_forward, arriveDistance, layerMask, gameObject);
                 if (IsBreaking)
                     OnStartBreaking?.Invoke();
             }
