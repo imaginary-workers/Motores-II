@@ -19,7 +19,7 @@ namespace ProyectM2.Gameplay.Car.Player
         private Ray _ray;
         public event Action<Vector3> OnFireBack;
 
-        private void OnEnable()
+        private void Start()
         {
             if (InputManager.Instance.StrategyType == StrategyType.Button)
             {
