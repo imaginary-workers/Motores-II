@@ -849,7 +849,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 235489112}
-  - component: {fileID: 4720101466129858045}
   m_Layer: 0
   m_Name: Cars
   m_TagString: Untagged
@@ -10659,56 +10658,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4686858358214507860}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4720101466129858045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235489113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9c9051931475014b9ffff0724bb9f6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 2682962010778738116, guid: 0f4942c6ea0f13e41b04cdbb789e8e3e, type: 3}
-  antes:
-  - {fileID: 7964746945280649742}
-  - {fileID: 7964746944677661741}
-  - {fileID: 7964746944355365972}
-  - {fileID: 7964746944773582007}
-  - {fileID: 7964746945160240845}
-  - {fileID: 7964746944079254151}
-  - {fileID: 7964746944461991539}
-  - {fileID: 7964746945350827021}
-  - {fileID: 7964746945933837974}
-  - {fileID: 7964746945001988934}
-  - {fileID: 7964746944423389724}
-  - {fileID: 7964746944660645132}
-  - {fileID: 7964746945135646174}
-  - {fileID: 3726403596850137822}
-  - {fileID: 1591004447009887101}
-  - {fileID: 3795406624303685531}
-  - {fileID: 3689871612630604161}
-  - {fileID: 478491220392390641}
-  - {fileID: 369761092956018520}
-  - {fileID: 7964746946078376005}
-  - {fileID: 7964746945681665181}
-  - {fileID: 1002759304700359253}
-  - {fileID: 3891824105908926717}
-  - {fileID: 7467110090656849343}
-  - {fileID: 4464108549614943896}
-  - {fileID: 1793274667}
-  - {fileID: 44732863}
-  - {fileID: 1855404147}
-  - {fileID: 1352659165}
-  - {fileID: 809173843}
-  - {fileID: 499006972}
-  - {fileID: 910086762}
-  - {fileID: 587835490}
-  - {fileID: 1150108613}
-  - {fileID: 466310232}
-  - {fileID: 1603360501}
 --- !u!1001 &5091405884690177034
 PrefabInstance:
   m_ObjectHideFlags: 0
