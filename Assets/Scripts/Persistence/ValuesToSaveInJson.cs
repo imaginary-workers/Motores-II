@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ProyectM2.Inputs;
 using ProyectM2.Inventory;
 
 namespace ProyectM2.Persistence
@@ -18,6 +19,7 @@ namespace ProyectM2.Persistence
         public string nextStaminaTime;
         public string lastStaminaTime;
         public List<Item> itemsInInventory;
+        public InputType input;
 
         public int FindItemIndex(string itemID)
         {
