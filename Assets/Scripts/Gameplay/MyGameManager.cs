@@ -164,6 +164,8 @@ namespace ProyectM2.Gameplay
             _levelCurrency.value -= 1;
         }
 
+        [ContextMenu("Won")]
+
         public void Won()
         {
             _iWin = true;
