@@ -33,6 +33,7 @@ namespace ProyectM2.UI
         [SerializeField] private GameObject _inventoryPanel;
         [SerializeField] private GameObject _popUpWindowStore;
         [SerializeField] private GameObject _warningExitGame;
+        [SerializeField] private GameObject _warningWatchAdd;
         [SerializeField] private GameObject _buttonsTutorial;
         [SerializeField] private GameObject _swipeTutorial;
         [SerializeField] private Toggle _inputToggle;
@@ -55,7 +56,8 @@ namespace ProyectM2.UI
             _header.SetActive(true);
             _controllerMenu.SetActive(false);
             _inventoryPanel.SetActive(false);
-            _warningExitGame.SetActive(false);           
+            _warningExitGame.SetActive(false);
+            _warningWatchAdd.SetActive(false);      
         }
 
         private void OnEnable()
@@ -125,6 +127,12 @@ namespace ProyectM2.UI
         public void GoToWarningDeleteSaveData()
         {
             ExecuteCommand(new ChangeMenuCommand(new[] { _gameDataWarningPopUp }, new[] { _gameDataMenu, _header }));
+        }
+
+        [ContextMenu("WarningWatchAdd")]
+        public void GoToWarningWatchAdd()
+        {
+            ExecuteCommand(new ChangeMenuCommand(new[] { _warningWatchAdd }, new[] { _menu1 }));
         }
 
         [ContextMenu("WarningExitGame")]
