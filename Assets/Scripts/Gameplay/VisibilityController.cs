@@ -3,28 +3,24 @@ using UnityEngine.Events;
 
 namespace ProyectM2.Gameplay
 {
-    [RequireComponent(typeof(Renderer))]
     public class VisibilityController : MonoBehaviour
     {
+        [SerializeField] private Renderer _renderer;
         public UnityEvent OnStart;
         public UnityEvent OnObjectBecameVisible;
-        private Renderer _renderer;
 
         public bool IsVisible => _renderer.isVisible;
 
-        private void Awake()
+        private void LateUpdate()
         {
-            _renderer = GetComponent<Renderer>();
+            if (!IsVisible) return;
+            OnObjectBecameVisible?.Invoke();
+            Destroy(gameObject);
         }
 
         private void Start()
         {
             OnStart?.Invoke();
-        }
-
-        private void OnBecameVisible()
-        {
-            OnObjectBecameVisible?.Invoke();
         }
     }
 }
