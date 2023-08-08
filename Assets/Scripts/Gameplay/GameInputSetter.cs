@@ -1,11 +1,10 @@
 ﻿using ProyectM2.Inputs;
 using ProyectM2.Persistence;
-using System;
 using UnityEngine;
 
 namespace ProyectM2.Gameplay
 {
-    public class GameInputSetter : Singleton<GameInputSetter>
+    public class GameInputSetter : MonoBehaviour
     {
         private ValuesToSaveInJson _myJsonData;
 
@@ -17,7 +16,7 @@ namespace ProyectM2.Gameplay
         private void Start()
         {
             _myJsonData = DataPersistance.Instance.LoadGame();
-            InputManager.controlType = _myJsonData.input;
+            SetInput(_myJsonData.input);
         }
 
         private void OnDisable()
@@ -27,11 +26,14 @@ namespace ProyectM2.Gameplay
 
         private void UpdateInput(object[] obj)
         {
-            Debug.Log($"Update Input {(bool)obj[0]}");
-            if ((bool)obj[0])
-                DataPersistance.Instance.UpdateInput(InputType.Tactil);
-            else
-                DataPersistance.Instance.UpdateInput(InputType.ScreenButton);
+            InputType newInputType = (bool)obj[0] ? InputType.Tactil : InputType.ScreenButton;
+            DataPersistance.Instance.UpdateInput(newInputType);
+            SetInput(newInputType);
+        }
+
+        private void SetInput(InputType input)
+        {
+            InputManager.controlType = input;
         }
 
     }
