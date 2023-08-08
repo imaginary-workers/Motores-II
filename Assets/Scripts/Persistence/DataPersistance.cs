@@ -3,6 +3,7 @@ using System.IO;
 using System;
 using System.Text;
 using ProyectM2.SO;
+using ProyectM2.Inputs;
 
 namespace ProyectM2.Persistence
 {
@@ -45,6 +46,13 @@ namespace ProyectM2.Persistence
             instanciaClase.stamina = stamina;
             instanciaClase.nextStaminaTime = nextStaminaTime;
             instanciaClase.lastStaminaTime = lastStaminaTime;
+            WriteJson(instanciaClase);
+        }
+
+        public void UpdateInput(InputType myNewInput)
+        {
+            var instanciaClase = LoadGame();
+            instanciaClase.input = myNewInput;
             WriteJson(instanciaClase);
         }
 

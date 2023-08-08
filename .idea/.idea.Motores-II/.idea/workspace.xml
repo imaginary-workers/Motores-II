@@ -6,13 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="d5747736-5216-4ab4-8ad3-b7210000cf13" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Motores-II/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Motores-II/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Ambo_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Ambo_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Medium_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Medium_01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Props/SM_Prop_Barrier_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Props/SM_Prop_Barrier_01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Props/SM_Prop_Skip_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Props/SM_Prop_Skip_01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Props/SM_Prop_Skip_02.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Props/SM_Prop_Skip_02.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Police_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Police_01.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Sedan_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Sedan_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Small_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Small_01.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Taxi_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Taxi_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/VisibilityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/VisibilityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Gameplay/Enemies/Bases/Car Base.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Gameplay/Enemies/Bases/Car Base.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +28,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1d3dacd00ce441dc8c61d528a2193088158400/52/4894d4b9/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1d3dacd00ce441dc8c61d528a2193088158400/7c/49dca93c/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d2197dadd91c4b33887eb54fddfc169fb600/49/163df5ee/ConfigResponse.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Borrar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/MyGameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inventory/InventoryManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inventory/ItemType.cs" root0="FORCE_HIGHLIGHTING" />
