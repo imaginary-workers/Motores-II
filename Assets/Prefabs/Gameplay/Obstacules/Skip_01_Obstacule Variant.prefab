@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 2946900873762964975, guid: fbe681f49f3b90941af793e77a34d613,
         type: 3}
       propertyPath: m_Name
-      value: Skip_01_Obstacule
+      value: Skip_01_Obstacule Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946900873762964975, guid: fbe681f49f3b90941af793e77a34d613,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6891589422021039644, guid: fbe681f49f3b90941af793e77a34d613,
         type: 3}
