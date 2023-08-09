@@ -132,7 +132,28 @@ namespace ProyectM2.UI
         [ContextMenu("WarningWatchAdd")]
         public void GoToWarningWatchAdd()
         {
-            ExecuteCommand(new ChangeMenuCommand(new[] { _warningWatchAdd }, new[] { _menu1 }));
+            var activeScreens = new List<GameObject>();
+
+            if (_menu1.activeSelf)
+                activeScreens.Add(_menu1);
+            if (_levelsMenu.activeSelf)
+                activeScreens.Add(_levelsMenu);
+            if (_gameDataMenu.activeSelf)
+                activeScreens.Add(_gameDataMenu);
+            if (_storePanel.activeSelf)
+                activeScreens.Add(_storePanel);
+            if (_controllerMenu.activeSelf)
+                activeScreens.Add(_controllerMenu);
+            if (_inventoryPanel.activeSelf)
+                activeScreens.Add(_inventoryPanel);
+            if (_gameDataWarningPopUp.activeSelf)
+                activeScreens.Add(_gameDataWarningPopUp);
+            if (_itemStoreWindow.activeSelf)
+                activeScreens.Add(_itemStoreWindow);
+            if (_warningExitGame.activeSelf)
+                activeScreens.Add(_warningExitGame);
+
+            ExecuteCommand(new ChangeMenuCommand(new[] { _warningWatchAdd }, activeScreens.ToArray()));
         }
 
         [ContextMenu("WarningExitGame")]
