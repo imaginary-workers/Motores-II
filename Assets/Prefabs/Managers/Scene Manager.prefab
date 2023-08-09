@@ -379,8 +379,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4506947611345528197}
   - {fileID: 4506947610510246789}
+  - {fileID: 4506947611345528197}
   - {fileID: 4570611632182484989}
   - {fileID: 1783253277356814791}
   m_Father: {fileID: 4506947611908994961}
@@ -498,7 +498,7 @@ RectTransform:
   - {fileID: 4506947610821244648}
   - {fileID: 4506947610471352427}
   m_Father: {fileID: 4506947610406920886}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.023276316}
   m_AnchorMax: {x: 1, y: 0.055000003}
@@ -681,6 +681,8 @@ MonoBehaviour:
   _loadBar: {fileID: 4506947610510246788}
   _adviceSO: {fileID: 11400000, guid: c8f38bed8e222ff49ab4710d4fecbc16, type: 2}
   _adviceText: {fileID: 0}
+  _startButton: {fileID: 0}
+  _timeBetweenAdvices: 3
 --- !u!1 &4506947611118284113
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,7 +831,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4506947610406920886}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.09639495}
