@@ -15,7 +15,7 @@ namespace ProyectM2.Gameplay
         {
             if (!IsVisible) return;
             OnObjectBecameVisible?.Invoke();
-            Destroy(gameObject);
+            Destroy(this);
         }
 
         private void Start()
