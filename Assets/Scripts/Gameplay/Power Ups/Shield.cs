@@ -8,6 +8,7 @@ namespace ProyectM2
     {
 
         [SerializeField] private GameObject _shield;
+        [SerializeField] private Renderer _myrender;
         [SerializeField] private BoxCollider _player;
         [SerializeField] private AnimationController _ani;
 
@@ -17,10 +18,10 @@ namespace ProyectM2
         {
             if (other.CompareTag("Obstacle") || other.CompareTag("Traffic"))
             {
+                _myrender.enabled = false;
                 _player.enabled = false;
                 _ani.DamagedPlayerAnimation();
                 StartCoroutine(DisableCoroutine());
-                _shield.SetActive(false);
             }
         }
         IEnumerator DisableCoroutine()
@@ -28,6 +29,7 @@ namespace ProyectM2
             yield return new WaitForSeconds(2.0f);
 
             _player.enabled = true;
+            _shield.SetActive(false);
 
         }
     }
