@@ -96,6 +96,7 @@ namespace ProyectM2.Gameplay.Car.Player
                 _bulletSpeed));
             OnFireBack?.Invoke(returnableBullet.transform.position);
             EventManager.TriggerEvent("OnFireBackButton", false);
+            Time.timeScale = 1f;
             returnableBullet = null;
         }
     }
