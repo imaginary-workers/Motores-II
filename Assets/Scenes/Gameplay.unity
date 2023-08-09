@@ -5022,10 +5022,20 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 8504336169685165215}
+    - target: {fileID: 7262956366289921611, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7280180044903054236, guid: 027d160b6739a3641bd15249a3438508,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7932567859062826186, guid: 027d160b6739a3641bd15249a3438508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7932567859062826186, guid: 027d160b6739a3641bd15249a3438508,
         type: 3}
@@ -5135,10 +5145,11 @@ PrefabInstance:
     - target: {fileID: 8650039304616901631, guid: 027d160b6739a3641bd15249a3438508,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5586210081238082630, guid: 027d160b6739a3641bd15249a3438508, type: 3}
+    - {fileID: 7932567859062826186, guid: 027d160b6739a3641bd15249a3438508, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 027d160b6739a3641bd15249a3438508, type: 3}
 --- !u!114 &8504336169685165214 stripped
 MonoBehaviour:
