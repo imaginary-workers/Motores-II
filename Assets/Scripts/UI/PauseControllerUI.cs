@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using ProyectM2.Gameplay;
 using ProyectM2.Stamina;
@@ -14,10 +13,11 @@ namespace ProyectM2.UI
         [SerializeField] private GameObject _pauseMenu;
         [SerializeField] private Button _retryButton;
         [SerializeField] private TextMeshProUGUI _pauseCounterText;
-        public static bool isPause = false;
+        public static bool isPause = true;
 
         private void Awake()
         {
+            isPause = true;
             _pauseButton.SetActive(false);
         }
         private void OnEnable()
