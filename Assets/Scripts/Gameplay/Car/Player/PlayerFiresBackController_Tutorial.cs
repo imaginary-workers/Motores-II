@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ProyectM2.Inputs;
+using UnityEngine;
 
 namespace ProyectM2.Gameplay.Car.Player
 {
@@ -16,6 +17,7 @@ namespace ProyectM2.Gameplay.Car.Player
             if (returnableBullet == null) return;
             EventManager.TriggerEvent("FirebackTutorial", false);
             base.FirebackAction();
+
         }
         protected override void OnTriggerExit(Collider other)
         {
@@ -25,8 +27,8 @@ namespace ProyectM2.Gameplay.Car.Player
                 EventManager.TriggerEvent("FirebackTutorial", false);
                 Time.timeScale = 1f;
                 returnableBullet = null;
+                EventManager.TriggerEvent("OnFireBackButton", false);
             }
-
         }
     }
 }

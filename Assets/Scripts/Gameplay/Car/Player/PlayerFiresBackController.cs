@@ -2,6 +2,7 @@
 using ProyectM2.Car.Controller;
 using ProyectM2.Inputs;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace ProyectM2.Gameplay.Car.Player
 {
@@ -40,6 +41,7 @@ namespace ProyectM2.Gameplay.Car.Player
         {
             var component = other.GetComponent<Bullet>();
             if (component == null || !component.IsReturnable) return;
+            EventManager.TriggerEvent("OnFireBackButton", true);
             returnableBullet = component;
             _timeToFiresBack = Time.realtimeSinceStartup;
             Time.timeScale = .1f;
@@ -47,10 +49,12 @@ namespace ProyectM2.Gameplay.Car.Player
 
         protected virtual void OnTriggerExit(Collider other)
         {
+
             if (returnableBullet != null)
             {
                 Time.timeScale = 1f;
                 returnableBullet = null;
+                EventManager.TriggerEvent("OnFireBackButton", false);
             }
         }
 
@@ -91,6 +95,7 @@ namespace ProyectM2.Gameplay.Car.Player
             returnableBullet.SetBehaviour(new SeekBulletBehaviour(returnableBullet.transform, enemyTarget.transform,
                 _bulletSpeed));
             OnFireBack?.Invoke(returnableBullet.transform.position);
+            EventManager.TriggerEvent("OnFireBackButton", false);
             returnableBullet = null;
         }
     }

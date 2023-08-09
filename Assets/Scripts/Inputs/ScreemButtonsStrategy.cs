@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace ProyectM2.Inputs
@@ -10,7 +11,24 @@ namespace ProyectM2.Inputs
         [SerializeField] private Button _leftButton;
         [SerializeField] private Button _rightButton;
         [SerializeField] private Button _fireBackButton;
+        [SerializeField] Button _buttonInteractableFireBack;
+        private void Awake()
+        {
+            _buttonInteractableFireBack.interactable = false;
+        }
+        private void OnEnable()
+        {
+            EventManager.StartListening("OnFireBackButton", OnFireBackButton);
+        }
+        private void OnDisable()
+        {
+            EventManager.StopListening("OnFireBackButton", OnFireBackButton);
 
+        }
+        private void OnFireBackButton(object[] obj)
+        {
+            _buttonInteractableFireBack.interactable = (bool)obj[0];
+        }
         public void Right()
         {
             Debug.Log(_inputManager);
