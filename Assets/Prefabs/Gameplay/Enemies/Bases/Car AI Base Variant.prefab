@@ -315,7 +315,77 @@ PrefabInstance:
     - target: {fileID: 3482723443949657028, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
         type: 3}
       propertyPath: m_Name
-      value: Car AI Base
+      value: Car AI Base Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042557751053559402, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
+        type: 3}
+      propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042557751053559402, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
+        type: 3}
+      propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042557751053559402, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
+        type: 3}
+      propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 5537769717613817133}
+    - target: {fileID: 9042557751053559402, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
+        type: 3}
+      propertyPath: OnObjectBecameVisible.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042557751053559402, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
+        type: 3}
+      propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042557751053559402, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
+        type: 3}
+      propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Deactivate
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042557751053559402, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
+        type: 3}
+      propertyPath: OnObjectBecameVisible.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042557751053559402, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
+        type: 3}
+      propertyPath: OnObjectBecameVisible.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 5537769717613817133}
+    - target: {fileID: 9042557751053559402, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
+        type: 3}
+      propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ProyectM2.Gameplay.Car.Enemy.IABehaviourMovable, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042557751053559402, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
+        type: 3}
+      propertyPath: OnObjectBecameVisible.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042557751053559402, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
+        type: 3}
+      propertyPath: OnObjectBecameVisible.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Activate
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042557751053559402, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
+        type: 3}
+      propertyPath: OnObjectBecameVisible.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ProyectM2.Gameplay.Car.Enemy.IABehaviourMovable, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042557751053559402, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
+        type: 3}
+      propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042557751053559402, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
+        type: 3}
+      propertyPath: OnObjectBecameVisible.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9042557751053559403, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
         type: 3}
@@ -437,7 +507,6 @@ MonoBehaviour:
   _trackController: {fileID: 0}
   _right: {fileID: 3310158954564649698}
   _left: {fileID: 4959750458087634985}
-  _thisCar: {fileID: 0}
   _ani: {fileID: 6811293179551303140}
   _visibilityController: {fileID: 6665797227373487694}
   _isActive: 0
