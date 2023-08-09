@@ -14,6 +14,7 @@ namespace ProyectM2.UI
         [SerializeField] private GameObject _pauseMenu;
         [SerializeField] private Button _retryButton;
         [SerializeField] private TextMeshProUGUI _pauseCounterText;
+        public static bool isPause;
 
         private void Awake()
         {
@@ -22,6 +23,7 @@ namespace ProyectM2.UI
 
         public void SetPauseMenu(bool pause)
         {
+            isPause = pause;
             _pauseMenu.SetActive(pause);
             if (pause)
             {

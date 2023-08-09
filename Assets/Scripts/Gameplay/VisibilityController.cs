@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ProyectM2.UI;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace ProyectM2.Gameplay
@@ -14,6 +15,7 @@ namespace ProyectM2.Gameplay
         private void LateUpdate()
         {
             if (!IsVisible) return;
+            if (PauseControllerUI.isPause) return;
             OnObjectBecameVisible?.Invoke();
             Destroy(this);
         }
