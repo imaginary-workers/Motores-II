@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -130,18 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1766541348322486489}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1766541348322486490}
-    - target: {fileID: 0}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: WarningMainMenuLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ProyectM2.UI.LoseControllerMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 3662019645027942796, guid: 92a5bf5f9c7c8b74cab52984156f114f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -316,18 +304,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1766541348322486490}
-    - target: {fileID: 0}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: WarningAdd
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92a5bf5f9c7c8b74cab52984156f114f, type: 3}
@@ -727,6 +703,11 @@ PrefabInstance:
       propertyPath: _prueba
       value: 
       objectReference: {fileID: 2067202928}
+    - target: {fileID: 5425911145414664985, guid: 6d09f1047ed7fb244a255fa66291cb94,
+        type: 3}
+      propertyPath: porcent
+      value: 0.0585
+      objectReference: {fileID: 0}
     - target: {fileID: 5425911145414664985, guid: 6d09f1047ed7fb244a255fa66291cb94,
         type: 3}
       propertyPath: _zPosition
@@ -1317,8 +1298,8 @@ RectTransform:
   m_Father: {fileID: 1766541348163391886}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.25119966, y: 0.5}
-  m_AnchorMax: {x: 0.25119966, y: 0.5}
+  m_AnchorMin: {x: 0.216, y: 0.582}
+  m_AnchorMax: {x: 0.216, y: 0.582}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2438,7 +2419,7 @@ RectTransform:
   m_Father: {fileID: 1766541348909096808}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.066, y: 0.8716094}
+  m_AnchorMin: {x: 0.066, y: 0.864}
   m_AnchorMax: {x: 0.5, y: 0.9193336}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
