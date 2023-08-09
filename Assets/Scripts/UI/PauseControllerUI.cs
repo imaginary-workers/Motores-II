@@ -20,6 +20,20 @@ namespace ProyectM2.UI
         {
             _pauseButton.SetActive(false);
         }
+        private void OnEnable()
+        {
+            EventManager.StartListening("StartGameOver", DesactivePauseButton);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.StopListening("StartGameOver", DesactivePauseButton);
+        }
+
+        private void DesactivePauseButton(object[] obj)
+        {
+            _pauseButton.SetActive(false);
+        }
 
         public void SetPauseMenu(bool pause)
         {
