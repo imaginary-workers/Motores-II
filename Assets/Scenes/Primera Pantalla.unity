@@ -1479,7 +1479,7 @@ PrefabInstance:
     - target: {fileID: 4361784540183836728, guid: 5cbe3497c5efdb04dadf660dd8d45367,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4506947610471352420, guid: 5cbe3497c5efdb04dadf660dd8d45367,
         type: 3}
@@ -1846,7 +1846,7 @@ PrefabInstance:
     - target: {fileID: 5668809469512005616, guid: 5cbe3497c5efdb04dadf660dd8d45367,
         type: 3}
       propertyPath: m_margin.y
-      value: 41.418488
+      value: 65.57202
       objectReference: {fileID: 0}
     - target: {fileID: 5668809469512005616, guid: 5cbe3497c5efdb04dadf660dd8d45367,
         type: 3}
