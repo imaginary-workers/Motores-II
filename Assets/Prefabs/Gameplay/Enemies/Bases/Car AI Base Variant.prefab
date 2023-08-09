@@ -504,7 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5eec680e64326a408af6e056df64040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _trackController: {fileID: 0}
+  _trackController: {fileID: 949220812092538134}
   _right: {fileID: 3310158954564649698}
   _left: {fileID: 4959750458087634985}
   _ani: {fileID: 6811293179551303140}
