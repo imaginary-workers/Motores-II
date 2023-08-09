@@ -6,15 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d5747736-5216-4ab4-8ad3-b7210000cf13" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Motores-II/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Motores-II/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Props/SM_Prop_Barrier_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Props/SM_Prop_Barrier_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Props/SM_Prop_Skip_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Props/SM_Prop_Skip_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Props/SM_Prop_Skip_02.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Props/SM_Prop_Skip_02.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Police_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Police_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Sedan_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Sedan_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Taxi_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/PolygonCity/Prefabs/Vehicles/SM_Veh_Car_Taxi_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Gameplay/Enemies/Bases/Car Base.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Gameplay/Enemies/Bases/Car Base.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Gameplay/Enemies/Bases/Car AI Base Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Gameplay/Enemies/Bases/Car AI Base Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Car/Enemy/IABehaviourMovable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Car/Enemy/IABehaviourMovable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PauseControllerUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PauseControllerUI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

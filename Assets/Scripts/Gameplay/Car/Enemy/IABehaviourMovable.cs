@@ -1,3 +1,4 @@
+using System;
 using ProyectM2.Assets.Scripts;
 using ProyectM2.Car.Controller;
 using ProyectM2.Gameplay.Car.Controller;
@@ -102,6 +103,17 @@ namespace ProyectM2.Gameplay.Car.Enemy
             }
 
             return 0;
+        }
+
+
+        private void OnEnable()
+        {
+            ScreenManager.Instance.Subscribe(this);
+        }
+
+        private void OnDisable()
+        {
+            ScreenManager.Instance.Unsubscribe(this);
         }
 
         public void Activate()
