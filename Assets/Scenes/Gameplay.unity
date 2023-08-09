@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -995,7 +995,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447ba08c310a47acab02c4af8f1627c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _screenButtons: {fileID: 2145074308}
+  _screenButtons: {fileID: 8399564608578899511, guid: 95f6889ff3b833f4c84d44ae59b3a876,
+    type: 3}
 --- !u!114 &1710778135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1418,16 +1419,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1766541348909096808}
     m_Modifications:
-    - target: {fileID: 8399564608578899509, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: _buttonInteractable
-      value: 
-      objectReference: {fileID: 2145074311}
-    - target: {fileID: 8399564608578899509, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: _buttonInteractableFireBack
-      value: 
-      objectReference: {fileID: 2145074311}
     - target: {fileID: 8399564608578899510, guid: 95f6889ff3b833f4c84d44ae59b3a876,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1538,229 +1529,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Controllers
       objectReference: {fileID: 0}
-    - target: {fileID: 8399564608578899511, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608650472917, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_Colors.m_PressedColor.b
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608650472917, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_Colors.m_PressedColor.g
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608650472917, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_Colors.m_PressedColor.r
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608650472917, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608650472917, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608650472917, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2145074310}
-    - target: {fileID: 8399564608650472917, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608650472917, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Right
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608650472917, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ProyectM2.Inputs.ScreemButtonsStrategy, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608650472917, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608650472919, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608671467185, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608671467185, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_Colors.m_NormalColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608671467185, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_Colors.m_PressedColor.b
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608671467185, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_Colors.m_PressedColor.g
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608671467185, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_Colors.m_PressedColor.r
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608671467185, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_Colors.m_DisabledColor.a
-      value: 0.36862746
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608671467185, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608671467185, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608671467185, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2145074310}
-    - target: {fileID: 8399564608671467185, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608671467185, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FireBack
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608671467185, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ProyectM2.Inputs.ScreemButtonsStrategy, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608671467185, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564608671467187, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564609435974209, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564609435974215, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_Colors.m_PressedColor.b
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564609435974215, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_Colors.m_PressedColor.g
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564609435974215, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_Colors.m_PressedColor.r
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564609435974215, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564609435974215, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564609435974215, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2145074310}
-    - target: {fileID: 8399564609435974215, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564609435974215, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Left
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564609435974215, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ProyectM2.Inputs.ScreemButtonsStrategy, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399564609435974215, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95f6889ff3b833f4c84d44ae59b3a876, type: 3}
---- !u!1 &2145074308 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8399564608578899511, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-    type: 3}
-  m_PrefabInstance: {fileID: 2145074307}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2145074309 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8399564608578899510, guid: 95f6889ff3b833f4c84d44ae59b3a876,
     type: 3}
   m_PrefabInstance: {fileID: 2145074307}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2145074310 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8399564608578899509, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-    type: 3}
-  m_PrefabInstance: {fileID: 2145074307}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145074308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b0fa5479de455495e521487f4dc45e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2145074311 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8399564608671467185, guid: 95f6889ff3b833f4c84d44ae59b3a876,
-    type: 3}
-  m_PrefabInstance: {fileID: 2145074307}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &894482026981465252 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5862427592920688492, guid: 41b497d8053255a43bbbd306003dac4c,

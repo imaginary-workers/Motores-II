@@ -10,6 +10,7 @@ namespace ProyectM2.Inputs
         {
             itDestroyOnLoad = true;
             base.Awake();
+            _screenButtons = FindObjectOfType<ScreemButtonsStrategy>().gameObject;
             _screenButtons.SetActive(false);
         }
 
