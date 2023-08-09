@@ -11,6 +11,11 @@ namespace ProyectM2
         [SerializeField] GameObject _canvasFirebackTutorial;
         [SerializeField] GameObject _canvasEnemyTutorial;
 
+        private void Awake()
+        {
+            _canvasTutorial.SetActive(false);
+        }
+
         void Start()
         {
             var teleportWasUsed = SessionGameData.GetData("TeleportWasUsed");
