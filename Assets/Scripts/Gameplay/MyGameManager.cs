@@ -120,11 +120,17 @@ namespace ProyectM2.Gameplay
         {
             levelGas -= value;
             if (levelGas <= 0)
+            {
                 EventManager.TriggerEvent("StartGameOver", Gameplay.GameOver.Gas);
-            else if (levelGas / maxGas <= 0.2f)
+                return;
+            }
+
+            if (levelGas / maxGas <= 0.2f)
+            {
                 EventManager.TriggerEvent("GiveGas");
-            else
-                EventManager.TriggerEvent("GasSubtract", levelGas);
+            }
+         
+            EventManager.TriggerEvent("GasSubtract", levelGas);
         }
 
         public void TeleportToBonusLevel(object[] obj)
