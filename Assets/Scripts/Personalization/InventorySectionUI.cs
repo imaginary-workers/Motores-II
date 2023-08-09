@@ -19,6 +19,7 @@ namespace ProyectM2.Personalization
             for (int i = 0; i < allItems.Count; i++)
             {
                 var findSpecificItem = ItemProvider.Instance.FindSpecificItem(allItems[i].itemID);
+                if (findSpecificItem == null) continue;
                 InventoryItemUI itemUI;
                 if (itemsUICounts > 0)
                 {
