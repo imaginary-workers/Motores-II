@@ -12,17 +12,19 @@ namespace ProyectM2.UI
         [SerializeField] private TextMeshProUGUI _loadText;
         [SerializeField] private Slider _loadBar;
         [SerializeField] private AdviceSO _adviceSO;
-        [SerializeField] TextMeshProUGUI _adviceText;
-        [SerializeField] Button _startButton;
-        Coroutine _adviceCoroutine;
+        [SerializeField] private TextMeshProUGUI _adviceText;
+        [SerializeField] private Button _startButton;
+        [SerializeField] private float _timeBetweenAdvices = 3f;
+        private bool _coroutineStart = false;
+
         public void DisplayLoadCanvas(bool display)
         {
             _loadScreen.SetActive(display);
             if (display)
             {
-                if (_adviceText != null && _adviceSO.advice.Count > 0)
+                if (_adviceText != null && _adviceSO.advice.Count > 0 && !_coroutineStart)
                 {
-                    _adviceCoroutine = StartCoroutine(ChangeAdviceCoroutine());
+                    StartCoroutine(ChangeAdviceCoroutine());
                 }
             }
         }
@@ -46,13 +48,38 @@ namespace ProyectM2.UI
             EventManager.TriggerEvent("SceneLoadComplete");
             _startButton.gameObject.SetActive(false);
         }
+
+        int GenerateRandomIndex(int previousIndex)
+        {
+            int randomIndex = Random.Range(0, _adviceSO.advice.Count);
+
+            while (randomIndex == previousIndex)
+            {
+                randomIndex = Random.Range(0, _adviceSO.advice.Count);
+            }
+
+            return randomIndex;
+        }
+
         IEnumerator ChangeAdviceCoroutine()
         {
+            _coroutineStart = true;
+            var changeInterval = _timeBetweenAdvices;
+            var elapsedTime = 0f;
+            int previousIndex = -1;
+
             while (true)
             {
-                int randomIndex = Random.Range(0, _adviceSO.advice.Count);
-                _adviceText.text = _adviceSO.advice[randomIndex];
-                yield return new WaitForSeconds(3f);
+                elapsedTime += Time.deltaTime;
+
+                if (elapsedTime >= changeInterval)
+                {
+                    int randomIndex = GenerateRandomIndex(previousIndex);
+                    _adviceText.text = _adviceSO.advice[randomIndex];
+                    elapsedTime = 0f;
+                }
+
+                yield return null;
             }
         }
     }
