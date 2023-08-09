@@ -14,7 +14,7 @@ namespace ProyectM2.UI
         [SerializeField] private GameObject _pauseMenu;
         [SerializeField] private Button _retryButton;
         [SerializeField] private TextMeshProUGUI _pauseCounterText;
-        public static bool isPause;
+        public static bool isPause = false;
 
         private void Awake()
         {
@@ -23,10 +23,10 @@ namespace ProyectM2.UI
 
         public void SetPauseMenu(bool pause)
         {
-            isPause = pause;
             _pauseMenu.SetActive(pause);
             if (pause)
             {
+                isPause = pause;
                 _pauseButton.SetActive(!pause);
                 ScreenManager.Instance.Pause();
                 _retryButton.interactable = StaminaSystem.Instance.HasEnoughStamina(1);
@@ -53,6 +53,7 @@ namespace ProyectM2.UI
                 yield return new WaitForSecondsRealtime(1);
             }
 
+            isPause = false;
             _pauseCounterText.gameObject.SetActive(false);
             ScreenManager.Instance.Resume();
             _pauseButton.SetActive(true);
