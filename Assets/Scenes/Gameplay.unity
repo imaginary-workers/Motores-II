@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -624,6 +624,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone4
       objectReference: {fileID: 0}
+    - target: {fileID: 3580850165668990844, guid: 6d09f1047ed7fb244a255fa66291cb94,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4249828961328633286, guid: 6d09f1047ed7fb244a255fa66291cb94,
         type: 3}
       propertyPath: m_RootOrder
@@ -699,6 +704,11 @@ PrefabInstance:
       propertyPath: _prueba
       value: 
       objectReference: {fileID: 2067202928}
+    - target: {fileID: 5425911145414664985, guid: 6d09f1047ed7fb244a255fa66291cb94,
+        type: 3}
+      propertyPath: _zPosition
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d09f1047ed7fb244a255fa66291cb94, type: 3}
 --- !u!1 &1317028054
