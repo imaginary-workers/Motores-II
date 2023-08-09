@@ -10,9 +10,9 @@ namespace ProyectM2.Gameplay.PowerUps
     public class PowerUpManager : MonoBehaviour
     {
         [SerializeField] private GameObject _shield;
-        [SerializeField] private string _shieldPowerUpName;
-        [SerializeField] private string _currencyMultiplyPowerUpName;
         [SerializeField] DataIntObservable _currencyValue;
+        public static string shieldPowerUpName = "Escudo";
+        public static string currencyMultiplyPowerUpName = "Mutiplicador de Monedas";
         private List<Item> _itemsInInventory;
 
         private void Start()
@@ -25,21 +25,18 @@ namespace ProyectM2.Gameplay.PowerUps
 
                 if (!item.isActive)
                 {
-                    if (itemData.Name == _currencyMultiplyPowerUpName)
+                    if (itemData.Name == currencyMultiplyPowerUpName)
                         _currencyValue.value = 1;
                 }
                 else
                 {
-                    if (itemData.Name == _shieldPowerUpName)
+                    if (itemData.Name == shieldPowerUpName)
                         _shield.SetActive(true);
 
-                    if (itemData.Name == _currencyMultiplyPowerUpName)
+                    if (itemData.Name == currencyMultiplyPowerUpName)
                         _currencyValue.value = 2;
                 }
-
             }
-        }
-
-        
+        } 
     }
 }

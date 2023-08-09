@@ -1,4 +1,6 @@
 using ProyectM2.Car.Controller;
+using ProyectM2.Gameplay.PowerUps;
+using ProyectM2.Inventory;
 using System.Collections;
 using UnityEngine;
 
@@ -21,6 +23,7 @@ namespace ProyectM2
                 _myrender.enabled = false;
                 _player.enabled = false;
                 _ani.DamagedPlayerAnimation();
+                InventoryManager.Instance.DesactivateSpecificPowerUpItem(PowerUpManager.shieldPowerUpName);
                 StartCoroutine(DisableCoroutine());
             }
         }

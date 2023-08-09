@@ -109,5 +109,12 @@ namespace ProyectM2.Inventory
                 UseItemHandler(item.itemID);
             }
         }
+
+        public void DesactivateSpecificPowerUpItem(string itemName)
+        {
+            var itemData = ItemProvider.Instance.FindSpecificItemByName(itemName);
+            if (itemData == null) return;
+            UseItemHandler(itemData.UKey);
+        }
     }
 }
