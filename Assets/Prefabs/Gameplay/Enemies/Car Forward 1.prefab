@@ -130,6 +130,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car Forward 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5164259477709535252, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9042557751053559402, guid: 3071a370f4e31d843b3ff0ddd6077f8b,
         type: 3}
       propertyPath: _renderer

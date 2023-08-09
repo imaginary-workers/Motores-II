@@ -73,7 +73,7 @@ PrefabInstance:
     - target: {fileID: 1272596312305081312, guid: 11fecebdb0d48ed48a93637d0abf57b2,
         type: 3}
       propertyPath: m_Name
-      value: Car AI Taxi Variant
+      value: Car AI Taxi
       objectReference: {fileID: 0}
     - target: {fileID: 1272596312305081316, guid: 11fecebdb0d48ed48a93637d0abf57b2,
         type: 3}
@@ -140,6 +140,11 @@ PrefabInstance:
       propertyPath: _renderer
       value: 
       objectReference: {fileID: 4118234875310396229}
+    - target: {fileID: 7374389018281375792, guid: 11fecebdb0d48ed48a93637d0abf57b2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11fecebdb0d48ed48a93637d0abf57b2, type: 3}
 --- !u!4 &6856550260923542409 stripped
