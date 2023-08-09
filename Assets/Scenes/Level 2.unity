@@ -5182,7 +5182,7 @@ PrefabInstance:
     - target: {fileID: 7330673126141433377, guid: 50e4754b87c3c1446b4088069fa13d83,
         type: 3}
       propertyPath: _scene.name
-      value: BonusLVL2
+      value: Bonus LVL2
       objectReference: {fileID: 0}
     - target: {fileID: 7330673126141433404, guid: 50e4754b87c3c1446b4088069fa13d83,
         type: 3}
