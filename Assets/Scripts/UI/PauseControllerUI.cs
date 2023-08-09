@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using ProyectM2.Gameplay;
+using ProyectM2.Stamina;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ProyectM2.UI
 {
@@ -10,6 +12,7 @@ namespace ProyectM2.UI
     {
         [SerializeField] private GameObject _pauseButton;
         [SerializeField] private GameObject _pauseMenu;
+        [SerializeField] private Button _retryButton;
         [SerializeField] private TextMeshProUGUI _pauseCounterText;
 
         private void Awake()
@@ -24,6 +27,7 @@ namespace ProyectM2.UI
             {
                 _pauseButton.SetActive(!pause);
                 ScreenManager.Instance.Pause();
+                _retryButton.interactable = StaminaSystem.Instance.HasEnoughStamina(1);
                 StopAllCoroutines();
             }
             else

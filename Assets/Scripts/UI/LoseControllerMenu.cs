@@ -31,6 +31,7 @@ namespace ProyectM2.UI
 
         private void UpdateStaminaUI(object[] obj)
         {
+            ActiveWargingUI(false);
             _restartButton.interactable = StaminaSystem.Instance.HasEnoughStamina(1);
         }
 
@@ -45,7 +46,6 @@ namespace ProyectM2.UI
             _warningText.text = _warningAddTextToShow;
             _yesButton.onClick.RemoveAllListeners();
             _yesButton.onClick.AddListener(RewardStamina);
-            ActiveWargingUI(false);
         }
 
         public void WarningRetryLevel()
