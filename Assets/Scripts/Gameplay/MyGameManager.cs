@@ -196,13 +196,13 @@ namespace ProyectM2.Gameplay
                 return;
             }
 
+            ScreenManager.Instance.Pause();
             SessionGameData.ResetData();
             player.SetActive(false);
             _lose.SetActive(true);
             _nafta.SetActive(false);
             _currency.SetActive(false);
             EventManager.TriggerEvent("LoseCanvasActive");
-            ScreenManager.Instance.Pause();
         }
 
         private IEnumerator WaitToWon(float seconds)

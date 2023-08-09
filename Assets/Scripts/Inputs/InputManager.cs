@@ -26,11 +26,18 @@ namespace ProyectM2.Inputs
         private void OnEnable()
         {
             ScreenManager.Instance.Subscribe(this);
+            EventManager.StartListening("StartGameOver", OnGameOver);
+        }
+
+        private void OnGameOver(object[] obj)
+        {
+            Deactivate();
         }
 
         private void OnDisable()
         {
             ScreenManager.Instance.Unsubscribe(this);
+            EventManager.StopListening("StartGameOver", OnGameOver);
         }
 
         public void SetInputStrategy(InputStrategy strategy)
